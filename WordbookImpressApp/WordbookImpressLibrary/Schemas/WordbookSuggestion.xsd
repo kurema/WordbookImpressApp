@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="WordbookSuggestion"
+    targetNamespace="http://tempuri.org/WordbookSuggestion.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://tempuri.org/WordbookSuggestion.xsd"
+    xmlns:mstns="http://tempuri.org/WordbookSuggestion.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="book" id="book">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="image" minOccurs="0">
+          <xs:complexType>
+            <xs:attribute name="src" type="xs:anyURI" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="link" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="ref" type="xs:anyURI" />
+            <xs:attribute name="type" type="xs:string"  use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="keyword" id="keyword" type="xs:string" />
+
+  <xs:element name="wordbook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="source">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="book" minOccurs="0" maxOccurs="unbounded"/>
+              <xs:element name="keyword" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+            <xs:attribute name="ref" type="xs:anyURI" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

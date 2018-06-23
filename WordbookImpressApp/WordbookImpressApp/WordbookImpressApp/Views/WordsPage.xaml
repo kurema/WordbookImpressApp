@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WordbookImpressApp.Views.WordsPage"
+             xmlns:my="clr-namespace:WordbookImpressApp.Views"
+             ItemsSource="{Binding Words}"
+              >
+    <CarouselPage.ItemTemplate>
+        <DataTemplate>
+            <my:WordPage />
+        </DataTemplate>
+    </CarouselPage.ItemTemplate>
+</CarouselPage>

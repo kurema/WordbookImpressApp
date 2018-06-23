@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="メニュー"
+             x:Class="WordbookImpressApp.Views.MasterPage">
+    <ContentPage.Content>
+        <ListView x:Name="ListViewMenuItems"
+              SeparatorVisibility="Default"
+              HasUnevenRows="true"
+                  ItemSelected="ListViewMenuItems_ItemSelected"
+              ItemsSource="{Binding MenuItems}">
+            <ListView.Header>
+                <Image Source="Title.png" HorizontalOptions="Fill"/>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <Label VerticalOptions="FillAndExpand" 
+                    VerticalTextAlignment="Center" 
+                    Text="{Binding Title}" TextColor="Black"
+                    FontSize="Medium"/>
+                                <Label VerticalOptions="FillAndExpand" 
+                    VerticalTextAlignment="Center" 
+                    Text="{Binding Description}" TextColor="Gray"
+                    FontSize="Small"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

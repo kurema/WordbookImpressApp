@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
+             x:Class="WordbookImpressApp.Views.QuizWordChoicePage"
+             BackgroundColor="#DDDDDD"
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vc:QuizWordChoiceViewModelQuizStatusToCorrectVisibilityValueConverter x:Key="CorrectVC" />
+            <vc:QuizWordChoiceViewModelQuizStatusToWrongVisibilityValueConverter x:Key="WrongVC"/>
+            <vc:QuizWordChoiceViewModelQuizStatusToChoiceVisibilityValueConverter x:Key="ChoiceVC" />
+            <vc:QuizWordChoiceViewModelQuizStatusToTextValueConverter x:Key="ResultTextVC"/>
+            <vc:BooleanToColorValueConverter x:Key="BoolColorVC"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <!--<Label FontSize="200" TextColor="Red" Text="×" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource WrongVC}}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <Label FontSize="200" TextColor="Red" Text="〇" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource CorrectVC}}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />-->
+            <Image Source="Question.png" Aspect="AspectFill" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource ChoiceVC}}" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" />
+            <Image Source="Correct.png" Aspect="AspectFill" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource CorrectVC}}" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" />
+            <Image Source="Wrong.png" Aspect="AspectFill" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource WrongVC}}" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" />
+            <Grid>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ClickGestureRecognizer_Clicked"/>
+                    <!--<ClickGestureRecognizer Clicked="ClickGestureRecognizer_Clicked"/>-->
+                </Grid.GestureRecognizers>
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="*"/>
+                    <RowDefinition  Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout VerticalOptions="Start">
+                    <Frame  Padding="20,10,20,10" BackgroundColor="#AAFFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="Center">
+                        <Label Text="{Binding CurrentWordText}" FontSize="Large" />
+                    </Frame>
+                    <ListView x:Name="ChoiceListView" ItemsSource="{Binding Choices}" HasUnevenRows="True" ItemSelected="ListView_ItemSelected" VerticalOptions="Start" SeparatorVisibility="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame  Padding="10" BackgroundColor="{Binding Highlight,Converter={StaticResource BoolColorVC},ConverterParameter=#EEEEEE00:#AAFFFFFF:#AAFFFFFF}" CornerRadius="10" Margin="10">
+                                        <Label Text="{Binding Text}" Style="{DynamicResource ListItemTextStyle}" FontSize="Medium" />
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <Frame BackgroundColor="#AAFFFFFF" Grid.Row="1" Padding="10" HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding CurrentQuizStatus,Converter={StaticResource ResultTextVC},ConverterParameter=選択してください:正解:不正解:エラー}"  FontSize="Large"  HorizontalOptions="Center" />
+                </Frame>
+            </Grid>
+            <!--<Label FontSize="300" TextColor="Red" Text="{Binding CurrentQuizStatus,Converter={StaticResource ResultTextVC},ConverterParameter=:正解:×:}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>-->
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

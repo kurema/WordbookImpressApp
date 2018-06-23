@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema id="WordbookSuggestion"
-    targetNamespace="http://tempuri.org/WordbookSuggestion.xsd"
+    targetNamespace="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/WordbookImpressLibrary/Schemas/WordbookSuggestion.xsd"
     elementFormDefault="qualified"
-    xmlns="http://tempuri.org/WordbookSuggestion.xsd"
-    xmlns:mstns="http://tempuri.org/WordbookSuggestion.xsd"
+    xmlns="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/WordbookImpressLibrary/Schemas/WordbookSuggestion.xsd"
+    xmlns:mstns="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/WordbookImpressLibrary/Schemas/WordbookSuggestion.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
   <xs:element name="book" id="book">
     <xs:complexType>
       <xs:sequence>
+        <xs:element name="title" type="xs:string" />
         <xs:element name="image" minOccurs="0">
           <xs:complexType>
             <xs:attribute name="src" type="xs:anyURI" />
@@ -24,18 +25,23 @@
     </xs:complexType>
   </xs:element>
 
-  <xs:element name="keyword" id="keyword" type="xs:string" />
-
-  <xs:element name="wordbook">
+  <xs:element name="wordbooks">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="source">
+        <xs:element name="wordbook" minOccurs="0" maxOccurs="unbounded">
           <xs:complexType>
             <xs:sequence>
-              <xs:element ref="book" minOccurs="0" maxOccurs="unbounded"/>
-              <xs:element name="keyword" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+              <xs:element name="title" type="xs:string" />
+              <xs:element name="ref" type="xs:anyURI" />
+              <xs:element name="sources">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="book" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="keyword" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
-            <xs:attribute name="ref" type="xs:anyURI" />
           </xs:complexType>
         </xs:element>
       </xs:sequence>

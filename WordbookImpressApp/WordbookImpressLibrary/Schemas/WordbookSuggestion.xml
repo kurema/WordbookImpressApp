@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<wordbooks xmlns="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/WordbookImpressLibrary/Schemas/WordbookSuggestion.xsd">
+  <wordbook>
+    <title>【でる語句200】基本情報技術者</title>
+    <ref>https://impress.quizgenerator.net/impress/01impress/</ref>
+    <sources>
+      <book>
+        <title>徹底攻略 基本情報技術者教科書 平成30年度</title>
+        <image src="http://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=429500264X&Format=_SL250_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=randomfisher-22"/>
+        <link type="impress_books" ref="https://book.impress.co.jp/books/1117101040"/>
+        <link type="amazon" ref="https://www.amazon.co.jp/dp/429500264X/ref=as_li_ss_tl?&linkCode=ll1&tag=randomfisher-22&linkId=08456656ec49ee9cbddad49086d3927c"/>
+      </book>
+      <keyword>徹底攻略 基本情報技術者教科書</keyword>
+    </sources>
+  </wordbook>
+</wordbooks>

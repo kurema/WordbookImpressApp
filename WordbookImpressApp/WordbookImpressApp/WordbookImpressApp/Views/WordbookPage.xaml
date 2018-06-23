@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
+             x:Class="WordbookImpressApp.Views.WordbookPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vc:BooleanToColorValueConverter x:Key="BoolColorVC"/>
+            <vc:BooleanToStringValueConverter x:Key="BoolStringVC" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <ListView Grid.ColumnSpan="2" SeparatorVisibility="None"
+                        Grid.Row="0"
+                      ItemsSource="{Binding Words}"
+                VerticalOptions="FillAndExpand"
+                 HasUnevenRows="true"
+                 IsPullToRefreshEnabled="False"
+                 CachingStrategy="RecycleElement"
+                    ItemSelected="ListView_ItemSelected"
+                >
+                <ListView.Header>
+                    <StackLayout>
+                        <Image Margin="10" Source="{Binding UriLogo}" HeightRequest="150" HorizontalOptions="FillAndExpand" Aspect="AspectFit"/>
+                        <Label Text="{Binding WordbookTitle}" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Margin="5" CornerRadius="2" HasShadow="True" BackgroundColor="#FFFFFF">
+                                <StackLayout>
+                                    <Label Text="{Binding Head}" TextColor="{Binding IsVisibleHead,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#11000000:#FF0000}" FontSize="Large" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Description}" TextColor="{Binding IsVisibleDescription,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#11000000:#FF0000}"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--<Button Grid.Row="1" Grid.ColumnSpan="2" Text="単語帳" Clicked="Button_Clicked_WordsPage"/>-->
+            <Button Grid.Row="1" Grid.Column="0" Text="{Binding IsVisibleHead,Converter={StaticResource BoolStringVC},ConverterParameter=単語表示:単語非表示:エラー}" TextColor="{Binding IsVisibleHead,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#888888:#FF0000}" Command="{Binding SwitchVisibilityHeadCommand}"/>
+            <Button Grid.Row="1" Grid.Column="1" Text="{Binding IsVisibleDescription,Converter={StaticResource BoolStringVC},ConverterParameter=説明表示:説明非表示:エラー}" TextColor="{Binding IsVisibleDescription,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#888888:#FF0000}" Command="{Binding SwitchVisibilityDescriptionCommand}"/>
+            <Button Grid.Row="2" Grid.Column="0" Text="単語クイズ" Clicked="Button_Clicked"/>
+            <Button Grid.Row="2" Grid.Column="1" Text="説明クイズ" Clicked="Button_Clicked2"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

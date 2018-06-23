@@ -4,6 +4,7 @@
              x:Class="WordbookImpressApp.Views.NewWordbookPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save" Clicked="AddItem_Clicked"/>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="15">

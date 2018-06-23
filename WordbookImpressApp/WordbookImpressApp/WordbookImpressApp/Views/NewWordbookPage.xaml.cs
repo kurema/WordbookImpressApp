@@ -7,25 +7,56 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using WordbookImpressLibrary.Storage;
+using WordbookImpressLibrary.Models;
+using WordbookImpressLibrary.ViewModels;
+
 namespace WordbookImpressApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class NewWordbookPage : ContentPage
 	{
-        public WordbookImpressLibrary.Models.WordbookInfo WordbookInfo { get; set; }
+        public WordbookImpressLibrary.Models.WordbookImpressInfo WordbookInfo { get; set; }
 
 		public NewWordbookPage ()
 		{
 			InitializeComponent ();
 
-            WordbookInfo = new WordbookImpressLibrary.Models.WordbookInfo();
+            WordbookInfo = new WordbookImpressLibrary.Models.WordbookImpressInfo();
 
             BindingContext = this;
 		}
 
+        bool Adding = false;
+
         private async void AddItem_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", WordbookInfo);
+            if (Adding) return;
+            Adding = true;
+            WordbookImpress result;
+            try
+            {
+                result = (await WordbookImpress.Load(WordbookInfo)).wordbook;
+            }
+            catch
+            {
+                await DisplayAlert("認証失敗", "認証に失敗しました。", "OK");
+                Adding = false;
+                return;
+            }
+            WordbooksImpressInfoStorage.Add(WordbookInfo);
+            await WordbooksImpressInfoStorage.SaveLocalData();
+            WordbooksImpressStorage.Add(result);
+            await WordbooksImpressStorage.SaveLocalData();
+
+            MessagingCenter.Send(this, "AddItem", this.WordbookInfo);
+            await Navigation.PopModalAsync();
+
+            Adding = false;
+        }
+
+        private async void Cancel_Clicked(object sender, EventArgs e)
+        {
             await Navigation.PopModalAsync();
         }
     }

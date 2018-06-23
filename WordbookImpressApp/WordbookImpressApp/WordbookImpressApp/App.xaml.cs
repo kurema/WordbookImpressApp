@@ -7,11 +7,17 @@ namespace WordbookImpressApp
 {
 	public partial class App : Application
 	{
-		public App ()
-		{
-			InitializeComponent();
+        public App()
+        {
+            InitializeComponent();
 
-            MainPage = new NavigationPage(new Views.NewWordbookPage());
+            Load();
+
+            MainPage = new MasterDetailPage()
+            {
+                Master=new Views.MasterPage() ,
+                Detail = new NavigationPage(new Views.WordbooksPage()) { Title = "’PŒê’ " }
+            };
 		}
 
 		protected override void OnStart ()
@@ -28,5 +34,13 @@ namespace WordbookImpressApp
 		{
 			// Handle when your app resumes
 		}
-	}
+
+        private async void Load()
+        {
+            await WordbookImpressLibrary.Storage.WordbooksImpressInfoStorage.LoadLocalData();
+            await WordbookImpressLibrary.Storage.RecordStorage.LoadLocalData();
+            await WordbookImpressLibrary.Storage.WordbooksImpressStorage.LoadLocalData();
+            await WordbookImpressLibrary.Storage.ConfigStorage.LoadLocalData();
+        }
+    }
 }

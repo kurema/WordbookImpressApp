@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
+             x:Class="WordbookImpressApp.Views.WordPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vc:BooleanToColorValueConverter x:Key="BoolColorVC"/>
+            <vc:BooleanToStringValueConverter x:Key="BoolStringVC" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Frame  Padding="20,10,20,10" BackgroundColor="#AAFFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="Center">
+                    <Label Text="{Binding Head}" FontSize="Large" TextColor="{Binding IsVisibleHead,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#11000000:#FF0000}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SwitchVisibilityHeadCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Frame>
+                <Frame  Padding="20,10,20,10" BackgroundColor="#AAFFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding Description}" TextColor="{Binding IsVisibleDescription,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#11000000:#FF0000}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SwitchVisibilityDescriptionCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Frame>
+                <Frame  Padding="20,10,20,10" BackgroundColor="#AAFFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="FillAndExpand">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="正解率 " />
+                            <Label Text="{Binding AnswerCountCorrectPercentage,StringFormat='{0:F0}'}" />
+                            <Label Text="% (" />
+                            <Label Text="{Binding AnswerCountCorrect}" />
+                            <Label Text=" / " />
+                            <Label Text="{Binding AnswerCountTotal}" />
+                            <Label Text=")" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Switch IsToggled="{Binding ExcludeRemembered,Mode=TwoWay}"/>
+                            <Label VerticalOptions="CenterAndExpand" Text="記憶完了" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Button Text="Google検索" Clicked="Button_Clicked_SearchGoogle"/>
+                <Button Text="Wikipedia検索" Clicked="Button_Clicked_SearchWikipedia"/>
+                <Button Text="weblio検索" Clicked="Button_Clicked_SearchWeblio"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

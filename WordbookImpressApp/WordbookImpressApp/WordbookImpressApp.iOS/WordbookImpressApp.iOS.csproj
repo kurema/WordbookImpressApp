@@ -147,10 +147,7 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="PCLStorage.Standard">
-      <Version>1.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.0.0.446417" />
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.583944" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -158,5 +155,17 @@
       <Project>{C68F5904-6246-4D9A-A88A-C52641D73A47}</Project>
       <Name>WordbookImpressApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Correct.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Wrong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Question.png" />
   </ItemGroup>
 </Project>

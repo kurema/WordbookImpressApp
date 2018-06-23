@@ -11,6 +11,11 @@ namespace WordbookImpressLibrary.Helper
         public Func<object, bool> CanExecuteDelegate;
         public Action<object> ExecuteDelegate;
 
+        public void OnCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, new EventArgs());
+        }
+
         public DelegateCommand(Func<object, bool> CanExecuteDelegate, Action<object> ExecuteDelegate)
         {
             this.CanExecuteDelegate = CanExecuteDelegate;

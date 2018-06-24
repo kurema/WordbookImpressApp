@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
-             x:Class="WordbookImpressApp.Views.WordbookPage">
+             x:Class="WordbookImpressApp.Views.WordbookPage"
+             Title="単語帳">
     <ContentPage.Resources>
         <ResourceDictionary>
             <vc:BooleanToColorValueConverter x:Key="BoolColorVC"/>
@@ -41,8 +42,8 @@
                         <ViewCell>
                             <Frame Margin="5" CornerRadius="2" HasShadow="True" BackgroundColor="#FFFFFF">
                                 <StackLayout>
-                                    <Label Text="{Binding Head}" TextColor="{Binding IsVisibleHead,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#11000000:#FF0000}" FontSize="Large" FontAttributes="Bold"/>
-                                    <Label Text="{Binding Description}" TextColor="{Binding IsVisibleDescription,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#11000000:#FF0000}"/>
+                                    <Label Text="{Binding Head}" TextColor="{Binding IsVisibleHead,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#04000000:#FF0000}" FontSize="Large" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Description}" TextColor="{Binding IsVisibleDescription,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#08000000:#FF0000}"/>
                                 </StackLayout>
                             </Frame>
                         </ViewCell>

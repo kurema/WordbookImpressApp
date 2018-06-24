@@ -7,7 +7,7 @@ using WordbookImpressLibrary.Models;
 
 namespace WordbookImpressLibrary.Storage
 {
-    public class WordbooksImpressStorage
+    public static class WordbooksImpressStorage
     {
         public static List<WordbookImpress> Content { get; private set; }
         public static string Path { get; set; } = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "wordbooks_impress.xml");

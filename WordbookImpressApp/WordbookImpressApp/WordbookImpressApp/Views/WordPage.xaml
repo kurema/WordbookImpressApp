@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
-             x:Class="WordbookImpressApp.Views.WordPage">
+             x:Class="WordbookImpressApp.Views.WordPage"
+             Title="単語">
     <ContentPage.Resources>
         <ResourceDictionary>
             <vc:BooleanToColorValueConverter x:Key="BoolColorVC"/>
@@ -13,21 +14,21 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Frame  Padding="20,10,20,10" BackgroundColor="#AAFFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="Center">
-                    <Label Text="{Binding Head}" FontSize="Large" TextColor="{Binding IsVisibleHead,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#11000000:#FF0000}">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding SwitchVisibilityHeadCommand}"/>
-                        </Label.GestureRecognizers>
+                <Frame  Padding="20,10,20,10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="Center">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SwitchVisibilityHeadCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Label Text="{Binding Head}" FontSize="Large" FontAttributes="Bold" TextColor="{Binding IsVisibleHead,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#04000000:#FF0000}">
                     </Label>
                 </Frame>
-                <Frame  Padding="20,10,20,10" BackgroundColor="#AAFFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="FillAndExpand">
-                    <Label Text="{Binding Description}" TextColor="{Binding IsVisibleDescription,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#11000000:#FF0000}">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding SwitchVisibilityDescriptionCommand}"/>
-                        </Label.GestureRecognizers>
+                <Frame  Padding="20,10,20,10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="FillAndExpand">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SwitchVisibilityDescriptionCommand}"/>
+                    </Frame.GestureRecognizers>
+                    <Label Text="{Binding Description}" TextColor="{Binding IsVisibleDescription,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#08000000:#FF0000}">
                     </Label>
                 </Frame>
-                <Frame  Padding="20,10,20,10" BackgroundColor="#AAFFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="FillAndExpand">
+                <Frame  Padding="20,10,20,10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="正解率 " />

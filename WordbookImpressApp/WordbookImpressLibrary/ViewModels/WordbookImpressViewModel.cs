@@ -12,7 +12,7 @@ namespace WordbookImpressLibrary.ViewModels
         public WordbookImpress Wordbook { get; private set; }
 
         public String Uri => Wordbook?.Uri;
-        public String UriLogo => Wordbook?.UriLogo;
+        public String UriLogo => WordbookImpressLibrary.Storage.ImageCacheStorage.GetImageUrl(Wordbook?.UriLogo);
         public String WordbookTitle => Wordbook?.Title;
 
         public String AuthenticationUserName => Wordbook?.Authentication?.UserName ?? "";
@@ -30,6 +30,7 @@ namespace WordbookImpressLibrary.ViewModels
         public bool IsVisibleDescription { get => isVisibleDescription; set
             {
                 SetProperty(ref isVisibleDescription, value);
+                if (!IsVisibleHead && !IsVisibleDescription) { IsVisibleHead = true; }
                 foreach (var item in Words)
                 {
                     item.IsVisibleDescription = this.IsVisibleDescription;
@@ -41,6 +42,7 @@ namespace WordbookImpressLibrary.ViewModels
         public bool IsVisibleHead { get => isVisibleHead; set
             {
                 SetProperty(ref isVisibleHead, value);
+                if (!IsVisibleHead && !IsVisibleDescription) { IsVisibleDescription = true; }
                 foreach (var item in Words)
                 {
                     item.IsVisibleHead = this.IsVisibleHead;
@@ -55,7 +57,6 @@ namespace WordbookImpressLibrary.ViewModels
                 return switchVisibilityHeadCommand ?? (switchVisibilityHeadCommand = new Helper.DelegateCommand((o) => true, (o) =>
                 {
                     IsVisibleHead = !IsVisibleHead;
-                    if (!IsVisibleHead && !IsVisibleDescription) { IsVisibleDescription = true; }
                 }));
             }
         }
@@ -68,7 +69,6 @@ namespace WordbookImpressLibrary.ViewModels
                 return switchVisibilityDescriptionCommand ?? (switchVisibilityDescriptionCommand = new Helper.DelegateCommand((o) => true, (o) =>
                 {
                     IsVisibleDescription = !isVisibleDescription;
-                    if (!IsVisibleHead && !IsVisibleDescription) { IsVisibleHead = true; }
                 }));
             }
         }

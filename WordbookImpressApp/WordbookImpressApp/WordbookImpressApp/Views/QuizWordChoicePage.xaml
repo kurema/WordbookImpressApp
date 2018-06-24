@@ -4,6 +4,7 @@
              xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
              x:Class="WordbookImpressApp.Views.QuizWordChoicePage"
              BackgroundColor="#DDDDDD"
+             Title="クイズ"
              >
     <ContentPage.Resources>
         <ResourceDictionary>

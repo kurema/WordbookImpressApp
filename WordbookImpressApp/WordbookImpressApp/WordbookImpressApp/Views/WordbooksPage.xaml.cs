@@ -33,18 +33,26 @@ namespace WordbookImpressApp.Views
             this.BindingContext = new WordbooksImpressViewModel(WordbooksImpressStorage.Content, RecordStorage.Content);
         }
 
+        private bool Pushing = false;
+
         private async void AddItem_Clicked(object sender, EventArgs e)
         {
+            if (Pushing) return;
+            Pushing = true;
             await Navigation.PushModalAsync(new NavigationPage(new Views.NewWordbookPage()));
+            Pushing = false;
+
         }
 
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var item = e.SelectedItem as WordbookImpressViewModel;
-            if (item == null)
+            if (!(e.SelectedItem is WordbookImpressViewModel item))
                 return;
 
+            if (Pushing) return;
+            Pushing = true;
             await Navigation.PushAsync(new WordbookPage(item));
+            Pushing = false;
 
             // Manually deselect item.
             ItemsListView.SelectedItem = null;

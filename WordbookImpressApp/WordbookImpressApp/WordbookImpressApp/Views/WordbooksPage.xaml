@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WordbookImpressApp.Views.WordbooksPage">
+             x:Class="WordbookImpressApp.Views.WordbooksPage"
+             Title="単語帳一覧">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked">
             <!--<ToolbarItem.Icon>
@@ -26,8 +27,8 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
-                            <Image Source="{Binding UriLogo}" HeightRequest="75" WidthRequest="75" Aspect="AspectFit"/>
-                            <StackLayout Padding="10">
+                            <Image Source="{Binding UriLogo}" HeightRequest="75" WidthRequest="75" Aspect="AspectFill" />
+                            <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
                                 <Label Text="{Binding WordbookTitle}" LineBreakMode="NoWrap"  Style="{DynamicResource ListItemTextStyle}" FontSize="Large" />
                                 <Label Text="{Binding Words.Count,StringFormat='{0}単語'}" LineBreakMode="NoWrap"  Style="{DynamicResource ListItemTextStyle}" />
                             </StackLayout>

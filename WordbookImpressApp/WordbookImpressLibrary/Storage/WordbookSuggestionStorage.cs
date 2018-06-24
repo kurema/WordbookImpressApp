@@ -7,7 +7,7 @@ using WordbookImpressLibrary.Schemas;
 
 namespace WordbookImpressLibrary.Storage
 {
-    public class WordbookSuggestionStorage
+    public static class WordbookSuggestionStorage
     {
         public static wordbooks Content { get; private set; }
         public static string Path { get; set; } = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "WordbookSuggestion.xml");

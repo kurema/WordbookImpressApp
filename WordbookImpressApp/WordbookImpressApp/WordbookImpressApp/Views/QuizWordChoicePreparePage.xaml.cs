@@ -28,9 +28,14 @@ namespace WordbookImpressApp.Views
             this.BindingContext = model;
         }
 
+        private bool Pushing = false;
+
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            if (Pushing) return;
+            Pushing = true;
             await Navigation.PushModalAsync(new Views.QuizWordChoicePage(Model));
+            Pushing = false;
         }
     }
 }

@@ -17,22 +17,22 @@ namespace WordbookImpressLibrary.ViewModels
 
         #region Visibility
         private bool isVisibleDescription = true;
-        public bool IsVisibleDescription { get => isVisibleDescription; set => SetProperty(ref isVisibleDescription, value); }
+        public bool IsVisibleDescription { get => isVisibleDescription; set { SetProperty(ref isVisibleDescription, value); if (!IsVisibleHead && !IsVisibleDescription) { IsVisibleHead = true; } } }
 
         private bool isVisibleHead = true;
-        public bool IsVisibleHead { get => isVisibleHead; set => SetProperty(ref isVisibleHead, value); }
+        public bool IsVisibleHead { get => isVisibleHead; set { SetProperty(ref isVisibleHead, value); if (!IsVisibleHead && !IsVisibleDescription) { IsVisibleDescription = true; } } }
 
         public System.Windows.Input.ICommand SwitchVisibilityHeadCommand { get { return switchVisibilityHeadCommand ?? (switchVisibilityHeadCommand = new Helper.DelegateCommand((o) => true, (o) =>
         {
             IsVisibleHead = !IsVisibleHead;
-            if (!IsVisibleHead && !IsVisibleDescription) { IsVisibleDescription = true; }
+            
         })); } }
         private System.Windows.Input.ICommand switchVisibilityHeadCommand;
 
         public System.Windows.Input.ICommand SwitchVisibilityDescriptionCommand { get { return switchVisibilityDescriptionCommand ?? (switchVisibilityDescriptionCommand = new Helper.DelegateCommand((o) => true, (o) =>
         {
             IsVisibleDescription = !isVisibleDescription;
-            if (!IsVisibleHead && !IsVisibleDescription) { IsVisibleHead = true; }
+            
         })); } }
         private System.Windows.Input.ICommand switchVisibilityDescriptionCommand;
         #endregion

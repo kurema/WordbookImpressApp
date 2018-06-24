@@ -76,6 +76,10 @@ namespace WordbookImpressLibrary.ViewModels
         #endregion
 
 
+        public WordbookImpressViewModel():this(new WordbookImpress(),new Record())
+        { }
+
+
         public WordbookImpressViewModel(WordbookImpress wordbook,Record record)
         {
             this.Record = record;

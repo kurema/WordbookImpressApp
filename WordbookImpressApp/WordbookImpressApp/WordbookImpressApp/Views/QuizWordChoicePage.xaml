@@ -31,11 +31,11 @@
                     <RowDefinition  Height="*"/>
                     <RowDefinition  Height="Auto"/>
                 </Grid.RowDefinitions>
-                <StackLayout VerticalOptions="Start">
+                <StackLayout VerticalOptions="FillAndExpand">
                     <Frame  Padding="20,10,20,10" BackgroundColor="#AAFFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="Center">
                         <Label Text="{Binding CurrentWordText}" FontSize="Large" />
                     </Frame>
-                    <ListView x:Name="ChoiceListView" ItemsSource="{Binding Choices}" HasUnevenRows="True" ItemSelected="ListView_ItemSelected" VerticalOptions="Start" SeparatorVisibility="None">
+                    <ListView x:Name="ChoiceListView" ItemsSource="{Binding Choices}" HasUnevenRows="True" ItemSelected="ListView_ItemSelected" VerticalOptions="FillAndExpand" SeparatorVisibility="None">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>

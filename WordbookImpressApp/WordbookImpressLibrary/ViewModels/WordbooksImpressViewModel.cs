@@ -44,6 +44,7 @@ namespace WordbookImpressLibrary.ViewModels
                     {
                         await item.Reload();
                     }
+                    await Storage.WordbooksImpressStorage.SaveLocalData();
                     this.IsBusy = false;
                 });
                 this.PropertyChanged += (o, e) =>

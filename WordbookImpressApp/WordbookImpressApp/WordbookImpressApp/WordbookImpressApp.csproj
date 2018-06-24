@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="SkiaSharp" Version="1.60.1" />
     <PackageReference Include="Xamarin.Forms" Version="3.1.0.583944" />
   </ItemGroup>
 
@@ -19,10 +20,10 @@
     <EmbeddedResource Update="Views\NewWordbookPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\QuizWordChoicePage.xaml">
+    <EmbeddedResource Update="Views\QuizResultPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\QuizWordChoicePreparePage.xaml">
+    <EmbeddedResource Update="Views\QuizWordChoicePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\WordbookPage.xaml">
@@ -37,9 +38,5 @@
     <EmbeddedResource Update="Views\WordsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Storages\" />
   </ItemGroup>
 </Project>

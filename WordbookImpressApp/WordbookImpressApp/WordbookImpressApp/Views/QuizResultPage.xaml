@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:WordbookImpressLibrary.ViewModels;assembly=WordbookImpressLibrary"
+             x:Class="WordbookImpressApp.Views.QuizResultPage"
+             Title="成績"
+             >
+    <ContentPage.BindingContext>
+        <vm:TestResultViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Margin="10" Source="{Binding Path=Wordbook.UriLogo}" HeightRequest="150" HorizontalOptions="FillAndExpand" Aspect="AspectFit"/>
+            <Label Text="{Binding Path=Wordbook.WordbookTitle}" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+            <Frame Margin="5" CornerRadius="2" HasShadow="True" BackgroundColor="#FFFFFF">
+                <StackLayout>
+                    <Label Text="成績" FontSize="Large" FontAttributes="Bold"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="{Binding AnswerCorrectPercentage,StringFormat='{0:F0}% ('}"/>
+                        <Label Text="{Binding AnswerCountCorrect}"/>
+                        <Label Text="/"/>
+                        <Label Text="{Binding AnswerCountTotal}"/>
+                        <Label Text=")"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <Button Text="ツイート"  Clicked="Button_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

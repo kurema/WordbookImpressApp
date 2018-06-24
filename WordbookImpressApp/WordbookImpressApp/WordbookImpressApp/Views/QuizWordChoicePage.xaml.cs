@@ -33,7 +33,9 @@ namespace WordbookImpressApp.Views
         {
             Model.End();
             RecordStorage.SaveLocalData();
-            return base.OnBackButtonPressed();
+            var result= base.OnBackButtonPressed();
+            Navigation.PushModalAsync(new QuizResultPage(new TestResultViewModel(Model)));
+            return result;
         }
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

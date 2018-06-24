@@ -16,12 +16,27 @@ namespace WordbookImpressLibrary.Storage
         {
             if (!System.IO.File.Exists(Path))
             {
-                return Content = new wordbooks();
+                return null;
             }
-
-            Content = await Helper.SerializationHelper.DeserializeAsync<wordbooks>(Path);
+            try
+            {
+                Content = await Helper.SerializationHelper.DeserializeAsync<wordbooks>(Path);
+            }
+            catch
+            {
+                return null;
+            }
             OnUpdated();
             return Content;
+        }
+
+        public static async Task<wordbooks> Load()
+        {
+            var result = await LoadLocalData();
+            if (result != null) return result;
+            LoadRemoteData();
+            //ToDo: LoadRemoteData終了時に通知。
+            return null;
         }
 
         public static void LoadRemoteData()

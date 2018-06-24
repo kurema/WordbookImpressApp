@@ -11,11 +11,28 @@ namespace WordbookImpressLibrary.Storage
     {
         public static Config Content { get; private set; }
         public static string Path { get; set; } = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "config.xml");
+        public static string PathBup { get; set; } = Path + ".bup";
 
         public static async Task<Config> LoadLocalData()
         {
             if (!System.IO.File.Exists(Path)) return Content = new Config();
-            Content = await Helper.SerializationHelper.DeserializeAsync<Config>(Path);
+            try
+            {
+                Content = await Helper.SerializationHelper.DeserializeAsync<Config>(Path);
+            }
+            catch
+            {
+                try
+                {
+                    Content = await Helper.SerializationHelper.DeserializeAsync<Config>(PathBup);
+                    if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
+                    if (System.IO.File.Exists(PathBup)) { System.IO.File.Move(PathBup, Path); }
+                }
+                catch
+                {
+                    Content = new Config();
+                }
+            }
             OnUpdated();
             return Content;
         }
@@ -23,6 +40,8 @@ namespace WordbookImpressLibrary.Storage
         public static async void SaveLocalData()
         {
             if (Content == null) return;
+            if (System.IO.File.Exists(PathBup)) { System.IO.File.Delete(PathBup); }
+            if (System.IO.File.Exists(Path)) { System.IO.File.Move(Path, PathBup); }
             await Helper.SerializationHelper.SerializeAsync(Content, Path);
         }
 

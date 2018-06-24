@@ -37,6 +37,9 @@ namespace WordbookImpressLibrary.ViewModels
         private System.Windows.Input.ICommand switchVisibilityDescriptionCommand;
         #endregion
 
+        public WordViewModel() : this(new Word(), new Record()) { }
+
+
         public WordViewModel(Word word, Record record)
         {
             this.Word = word;

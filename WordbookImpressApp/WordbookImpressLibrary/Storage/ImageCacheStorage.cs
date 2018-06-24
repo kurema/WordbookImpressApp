@@ -29,7 +29,7 @@ namespace WordbookImpressLibrary.Storage
 
         public static string GetImageUrl(string url)
         {
-            if (url == null)
+            if (string.IsNullOrEmpty(url))
             {
                 return null;
             }

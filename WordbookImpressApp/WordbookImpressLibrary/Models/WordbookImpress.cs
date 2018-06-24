@@ -9,12 +9,12 @@ namespace WordbookImpressLibrary.Models
     public class WordbookImpress:IWordbook
     {
         private Uri uri;
-        public string Uri { get => uri.ToString(); set => uri = new Uri(value); }
+        public string Uri { get => uri?.ToString()??""; set { if (value != null || value == "") uri = new Uri(value); } }
 
         private Uri uriLogo;
-        public string UriLogo { get => uriLogo.ToString(); set => uriLogo = new Uri(value); }
-        public string Title { get; private set; }
-        public Word[] Words { get; private set; }
+        public string UriLogo { get => uriLogo?.ToString()??""; set { if (value != null || value == "") uriLogo = new Uri(value); } }
+        public string Title { get; private set; } = "";
+        public Word[] Words { get; private set; } = new Word[0];
 
         public Authentication Authentication { get; private set; }
 
@@ -132,9 +132,15 @@ namespace WordbookImpressLibrary.Models
         private string hash;
         public string Hash { get => hash ?? (hash = GetHash()); set => hash = value; }
 
+        public static string GetAsText(string item)
+        {
+            var brReg = new Regex(@"<br[^<>]*\/?>");
+            return brReg.Replace(item, "\n");
+        }
+
         public static Word GetWordUnescape(string title,string description)
         {
-            return new Word() { Title = Regex.Unescape(title), Description = Regex.Unescape(description) };
+            return new Word() { Title = GetAsText(Regex.Unescape(title)), Description = GetAsText(Regex.Unescape(description)) };
         }
 
         private static string QuickEscape(string str)

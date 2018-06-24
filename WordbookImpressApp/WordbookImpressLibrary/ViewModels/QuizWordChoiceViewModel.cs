@@ -187,7 +187,6 @@ namespace WordbookImpressLibrary.ViewModels
                         break;
                     case TestResult.Wrong:
                         status.AnswerCountTotal++;
-                        correct++;
                         total++;
                         Record.SetWordStatusByHash(AnswerOrder[i].Hash, status);
                         break;
@@ -201,8 +200,11 @@ namespace WordbookImpressLibrary.ViewModels
                 }
             }
 
-            Record.TestStatuses.Add(new Record.TestStatus() { ElapsedTime = DateTime.Now - DateTimeInitial, AnswerCountCorrect = correct, AnswerCountPass = pass, AnswerCountTotal = total, Key = WordbookTarget.Uri, Seed = this.Seed,DateTimeNative=DateTime.UtcNow,ChoiceKind=this.ChoiceType });
+            Record.TestStatuses.Add(TestStatus = new Record.TestStatus() { ElapsedTime = DateTime.Now - DateTimeInitial, AnswerCountCorrect = correct, AnswerCountPass = pass, AnswerCountTotal = total, Key = WordbookTarget.Uri, Seed = this.Seed, DateTimeNative = DateTime.UtcNow, ChoiceKind = this.ChoiceType });
         }
+
+        private Record.TestStatus testStatus;
+        public Record.TestStatus TestStatus { get => testStatus; private set => SetProperty(ref testStatus, value); }
 
         private bool skipChecked=false;
         public bool SkipChecked { get => skipChecked; set => SetProperty(ref skipChecked, value); }
@@ -318,6 +320,9 @@ namespace WordbookImpressLibrary.ViewModels
         {
             Title,Description
         }
+
+        public QuizWordChoiceViewModel():this(new WordbookImpressViewModel(),new ConfigViewModel())
+        { }
 
         public QuizWordChoiceViewModel(WordbookImpressViewModel model, ConfigViewModel config, ChoiceKind choiceKind = ChoiceKind.Description, int choiceCount = 4) : this(choiceCount, model.Record, choiceKind, model.Wordbook, new WordbookImpress[] { model.Wordbook },config)
         {

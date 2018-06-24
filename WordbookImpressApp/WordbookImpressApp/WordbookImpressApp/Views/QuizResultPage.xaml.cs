@@ -25,6 +25,16 @@ namespace WordbookImpressApp.Views
         public QuizResultPage ()
 		{
 			InitializeComponent ();
+
+            this.BindingContextChanged += (s, e) =>
+            {
+                PieGraph.Members = new List<PieGraphView.PieItem>()
+                {
+                    new PieGraphView.PieItem(){Color=new SkiaSharp.SKColor(0,0,255),Rate=Model.AnswerCountCorrect/(float)Model.AnswerCountTotal },
+                    new PieGraphView.PieItem(){Color=new SkiaSharp.SKColor(255,0,0),Rate=(1- Model.AnswerCountCorrect/(float)Model.AnswerCountTotal) }
+                };
+                PieGraph.InvalidateSurface();
+            };
 		}
 
         public QuizResultPage(TestResultViewModel model) :this()

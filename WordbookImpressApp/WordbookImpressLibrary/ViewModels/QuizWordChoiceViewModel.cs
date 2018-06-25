@@ -23,15 +23,26 @@ namespace WordbookImpressLibrary.ViewModels
         }
 
         private TestResult[] TestResults;
-        private enum TestResult
+        public enum TestResult
         {
             Correct,Wrong,Pass,Yet
+        }
+
+        public TestResultViewModel.TestResultItemViewModel[] GetTestResults()
+        {
+            var list = new List<TestResultViewModel.TestResultItemViewModel>();
+            for(int i = 0; i < Math.Min( TestResults.Length,AnswerOrder.Length); i++)
+            {
+                list.Add(new TestResultViewModel.TestResultItemViewModel() { Result = TestResults[i], Word = new WordViewModel(AnswerOrder[i], Record) });
+            }
+            return list.ToArray();
         }
 
         private Word[] answerOrder;
         private Word[] AnswerOrder => answerOrder ?? (answerOrder = GetAnswerOrder());
         private Word[] GetAnswerOrder()
         {
+            if (WordbookTarget.Words.Length == 0) { return new Word[0]; }
             var rand = new Random(Seed);
             var remain = new List<Word>();
             foreach (var item in WordbookTarget.Words) remain.Add(item);
@@ -222,7 +233,7 @@ namespace WordbookImpressLibrary.ViewModels
             {
                 return true;
             }
-            if (info.AnswerCountTotal>0 &&  model.SkipMinRate<=((double)info.AnswerCountCorrect/ (double)info.AnswerCountTotal))
+            if (info.AnswerCountTotal>0 &&  model.SkipMinRate<((double)info.AnswerCountCorrect/ (double)info.AnswerCountTotal))
             {
                 return true;
             }
@@ -236,6 +247,10 @@ namespace WordbookImpressLibrary.ViewModels
         public int GetNextQuizCount()
         {
             int count = CurrentCount + 1;
+            if (count < 0 || count >= AnswerOrder.Length)
+            {
+                return -1;
+            }
             while (GetSkipStatus(AnswerOrder[count], this, Record))
             {
                 if (count < 0 || count >= AnswerOrder.Length)
@@ -250,6 +265,10 @@ namespace WordbookImpressLibrary.ViewModels
         public int GetPreviousQuizCount()
         {
             int count = CurrentCount - 1;
+            if (count < 0 || count >= AnswerOrder.Length)
+            {
+                return -1;
+            }
             while (GetSkipStatus(AnswerOrder[count], this, Record))
             {
                 if (count < 0 || count >= AnswerOrder.Length)

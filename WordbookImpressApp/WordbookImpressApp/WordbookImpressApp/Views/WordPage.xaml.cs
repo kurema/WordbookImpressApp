@@ -30,6 +30,11 @@ namespace WordbookImpressApp.Views
 			InitializeComponent ();
 		}
 
+        public WordPage(WordViewModel model):this()
+        {
+            this.BindingContext = model;
+        }
+
         private void Button_Clicked_SearchWeblio(object sender, EventArgs e)
         {
             Device.OpenUri(new Uri("https://www.weblio.jp/content/" + System.Web.HttpUtility.UrlEncode(Model.Head)));

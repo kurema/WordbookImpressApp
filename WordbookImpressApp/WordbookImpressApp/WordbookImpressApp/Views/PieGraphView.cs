@@ -24,8 +24,8 @@ namespace WordbookImpressApp.Views
         public float InnerRate = 0.3f;
         public float OuterRate = 0.8f;
 
-        public string Title="成績";
-        public float TitleFontSize=0.2f;
+        public string Title="";
+        public float TitleFontSize=0.15f;
 
         protected override void OnPaintSurface(SKPaintSurfaceEventArgs e)
         {
@@ -43,16 +43,14 @@ namespace WordbookImpressApp.Views
                 paint.IsAntialias = true;
                 {
                     var path = new SkiaSharp.SKPath();
-                    if (item.Rate % 1 == 0f)
+                    if (item.Rate % 1 == 0f && item.Rate > 0.5f)
                     {
                         path.AddCircle(cx, cy, Radius * OuterRate);
-                        path.AddCircle(cx, cy, Radius * InnerRate);
                     }
                     else
                     {
                         path.ArcTo(new SkiaSharp.SKRect(cx - Radius * OuterRate, cy - Radius * OuterRate, cx + Radius * OuterRate, cy + Radius * OuterRate), 360 * (currentRate - 0.25f), 360 * item.Rate, false);
-                        path.LineTo(cx + Radius * (float)Math.Sin(Math.PI * 2 * (currentRate + item.Rate)) * InnerRate, cy - Radius * (float)Math.Cos(Math.PI * 2 * (currentRate + item.Rate)) * InnerRate);
-                        path.ArcTo(new SkiaSharp.SKRect(cx - Radius * InnerRate, cy - Radius * InnerRate, cx + Radius * InnerRate, cy + Radius * InnerRate), 360 * (currentRate + item.Rate - 0.25f), -360 * item.Rate, false);
+                        path.LineTo(cx, cy);
                         //path.LineTo(cx + Radius * (float)Math.Sin(Math.PI * 2 * currentRate) * OuterRate, cy - Radius * (float)Math.Cos(Math.PI * 2 * currentRate) * OuterRate);
                         path.Close();
                     }
@@ -63,30 +61,41 @@ namespace WordbookImpressApp.Views
                 {
                     var path = new SkiaSharp.SKPath();
                     path.MoveTo(cx + Radius * (float)Math.Sin(Math.PI * 2 * currentRate) * OuterRate, cy - Radius * (float)Math.Cos(Math.PI * 2 * currentRate) * OuterRate);
-                    path.LineTo(cx + Radius * (float)Math.Sin(Math.PI * 2 * currentRate) * InnerRate, cy - Radius * (float)Math.Cos(Math.PI * 2 * currentRate) * InnerRate);
-                    Paint.Color = new SkiaSharp.SKColor(255, 255, 255);
-                    Paint.StrokeWidth = Radius*0.02f;
+                    path.LineTo(cx, cy);
+                    Paint.Color = new SkiaSharp.SKColor(255, 255, 255,0);
+                    Paint.StrokeWidth = Radius * 0.02f;
                     Paint.IsStroke = true;
+                    Paint.BlendMode = SkiaSharp.SKBlendMode.Clear;
                     e.Surface.Canvas.DrawPath(path, Paint);
+                    Paint.BlendMode = SkiaSharp.SKBlendMode.SrcOver;
                 }
 
                 currentRate += item.Rate;
             }
             {
+                Paint.Color = new SkiaSharp.SKColor(255, 255, 255);
+                Paint.IsStroke = false;
+                Paint.BlendMode = SkiaSharp.SKBlendMode.Clear;
+                e.Surface.Canvas.DrawCircle(cx, cy, Radius * InnerRate, Paint);
+                Paint.BlendMode = SkiaSharp.SKBlendMode.SrcOver;
+            }
+            {
                 var path = new SkiaSharp.SKPath();
                 path.MoveTo(cx + Radius * (float)Math.Sin(Math.PI * 2 * currentRate) * OuterRate, cy - Radius * (float)Math.Cos(Math.PI * 2 * currentRate) * OuterRate);
-                path.LineTo(cx + Radius * (float)Math.Sin(Math.PI * 2 * currentRate) * InnerRate, cy - Radius * (float)Math.Cos(Math.PI * 2 * currentRate) * InnerRate);
-                Paint.Color = new SkiaSharp.SKColor(255, 255, 255);
+                path.LineTo(cx, cy);
+                Paint.Color = new SkiaSharp.SKColor(255, 255, 255, 0);
                 Paint.StrokeWidth = Radius * 0.02f;
                 Paint.IsStroke = true;
+                Paint.BlendMode = SkiaSharp.SKBlendMode.Clear;
                 e.Surface.Canvas.DrawPath(path, Paint);
+                Paint.BlendMode = SkiaSharp.SKBlendMode.SrcOver;
             }
             {
                 Paint.TextSize = TitleFontSize * Radius;
                 Paint.Color = new SkiaSharp.SKColor(0, 0, 0);
-                var tw = Paint.MeasureText(Title);
                 Paint.IsStroke = false;
-                e.Surface.Canvas.DrawText(Title, cx - tw / 2.0f, cy + Paint.TextSize / 2.0f, Paint);
+                Paint.TextAlign = SkiaSharp.SKTextAlign.Center;
+                e.Surface.Canvas.DrawText(Title, cx , cy + Paint.FontMetrics.AverageCharacterWidth / 2.0f, Paint);
             }
 
             base.OnPaintSurface(e);

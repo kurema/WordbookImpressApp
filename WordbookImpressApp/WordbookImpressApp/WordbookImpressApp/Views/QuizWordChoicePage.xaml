@@ -23,10 +23,6 @@
             <Image Source="Correct.png" Aspect="AspectFill" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource CorrectVC}}" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" />
             <Image Source="Wrong.png" Aspect="AspectFill" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource WrongVC}}" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" />
             <Grid>
-                <Grid.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="ClickGestureRecognizer_Clicked"/>
-                    <!--<ClickGestureRecognizer Clicked="ClickGestureRecognizer_Clicked"/>-->
-                </Grid.GestureRecognizers>
                 <Grid.RowDefinitions>
                     <RowDefinition  Height="*"/>
                     <RowDefinition  Height="Auto"/>
@@ -36,6 +32,10 @@
                         <Label Text="{Binding CurrentWordText}" FontSize="Large" />
                     </Frame>
                     <ListView x:Name="ChoiceListView" ItemsSource="{Binding Choices}" HasUnevenRows="True" ItemSelected="ListView_ItemSelected" VerticalOptions="FillAndExpand" SeparatorVisibility="None">
+                        <!--<ListView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ClickGestureRecognizer_Clicked"/>
+                            <ClickGestureRecognizer Clicked="ClickGestureRecognizer_Clicked"/>
+                        </ListView.GestureRecognizers>-->
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -51,7 +51,9 @@
                     <Label Text="{Binding CurrentQuizStatus,Converter={StaticResource ResultTextVC},ConverterParameter=選択してください:正解:不正解:エラー}"  FontSize="Large"  HorizontalOptions="Center" />
                 </Frame>
             </Grid>
-            <!--<Label FontSize="300" TextColor="Red" Text="{Binding CurrentQuizStatus,Converter={StaticResource ResultTextVC},ConverterParameter=:正解:×:}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>-->
+            <!-- I know this is not cool. -->
+            <Button BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Transparent" Clicked="ClickGestureRecognizer_Clicked" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource CorrectVC}}" />
+            <Button BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Transparent" Clicked="ClickGestureRecognizer_Clicked" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource WrongVC}}" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

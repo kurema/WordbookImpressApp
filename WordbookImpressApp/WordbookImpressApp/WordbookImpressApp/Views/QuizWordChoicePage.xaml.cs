@@ -31,34 +31,51 @@ namespace WordbookImpressApp.Views
 
         protected override bool OnBackButtonPressed()
         {
-            Model.End();
-            RecordStorage.SaveLocalData();
-            var result= base.OnBackButtonPressed();
-            Navigation.PushModalAsync(new QuizResultPage(new TestResultViewModel(Model)));
+            var result = base.OnBackButtonPressed();
             return result;
         }
+        protected override void OnDisappearing()
+        {
+            Model.End();
+            RecordStorage.SaveLocalData();
+            Navigation.PushModalAsync(new QuizResultPage(new TestResultViewModel(Model)));
+            base.OnDisappearing();
+        }
 
+        private bool Pushing = false;
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem == null) return;
+            if (Pushing) return;
+            Pushing = true;
             if (Model.CurrentQuizStatus == QuizWordChoiceViewModel.QuizStatus.Choice) Model.Choose(((QuizWordChoiceViewModel.ChoicesEnumerable.ChoicesEnumerableItem)e.SelectedItem).Text);
             else if (Model.NextQuizCommand.CanExecute(null))
             {
                 Model.NextQuizCommand.Execute(null);
                 ((ListView)sender).SelectedItem = null;
             }
-            else await Navigation.PopModalAsync();
+            else
+            {
+                await Navigation.PopModalAsync();
+            }
+            Pushing = false;
         }
 
         private async void ClickGestureRecognizer_Clicked(object sender, EventArgs e)
         {
+            if (Pushing) return;
+            Pushing = true;
             if (Model.CurrentQuizStatus == QuizWordChoiceViewModel.QuizStatus.Choice) { }
             else if (Model.NextQuizCommand.CanExecute(null))
             {
                 Model.NextQuizCommand.Execute(null);
                 ChoiceListView.SelectedItem = null;
             }
-            else await Navigation.PopModalAsync();
+            else
+            {
+                await Navigation.PopModalAsync();
+            }
+            Pushing = false;
         }
     }
 }

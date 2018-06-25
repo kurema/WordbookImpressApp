@@ -23,11 +23,23 @@ namespace WordbookImpressLibrary.ViewModels
         public int AnswerCountCorrect => TestStatus.AnswerCountCorrect;
         public int AnswerCountPass => TestStatus.AnswerCountPass;
         public TimeSpan ElapsedTime => TestStatus.ElapsedTime;
+        public TimeSpan ElapsedTimeAverage => new TimeSpan(TestStatus.ElapsedTime.Ticks / Math.Max(1, TestStatus.AnswerCountTotal));
         public DateTime DateTimeEnd => TestStatus.DateTimeNative;
         public DateTime DateTimeStart => TestStatus.DateTimeNative-ElapsedTime;
 
         public TestResultViewModel():this(new QuizWordChoiceViewModel())
         {
+        }
+
+        private TestResultItemViewModel[] items;
+        public TestResultItemViewModel[] Items => items = items ?? QuizWordChoice.GetTestResults();
+
+        public class TestResultItemViewModel:BaseViewModel
+        {
+            private WordViewModel word;
+            public WordViewModel Word { get => word; set => SetProperty(ref word, value); }
+            private QuizWordChoiceViewModel.TestResult result;
+            public QuizWordChoiceViewModel.TestResult Result { get => result; set => SetProperty(ref result, value); }
         }
     }
 }

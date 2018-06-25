@@ -135,7 +135,8 @@ namespace WordbookImpressLibrary.Models
         public static string GetAsText(string item)
         {
             var brReg = new Regex(@"<br[^<>]*\/?>");
-            return brReg.Replace(item, "\n");
+            var tags = new Regex(@"<[^<>]+>");
+            return tags.Replace(brReg.Replace(item, "\n"),"");
         }
 
         public static Word GetWordUnescape(string title,string description)

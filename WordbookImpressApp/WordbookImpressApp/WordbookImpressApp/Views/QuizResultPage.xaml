@@ -3,31 +3,81 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:WordbookImpressLibrary.ViewModels;assembly=WordbookImpressLibrary"
              xmlns:my="clr-namespace:WordbookImpressApp.Views"
+             xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
              x:Class="WordbookImpressApp.Views.QuizResultPage"
              Title="成績"
              >
     <ContentPage.BindingContext>
         <vm:TestResultViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <vc:QuizWordChoiceViewModelTestResultToStringValueConverter x:Key="trsVC" />
+        <vc:TimeSpanFormatValueConverter x:Key="tsfVC" />
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Image Margin="10" Source="{Binding Path=Wordbook.UriLogo}" HeightRequest="150" HorizontalOptions="FillAndExpand" Aspect="AspectFit"/>
-            <Label Text="{Binding Path=Wordbook.WordbookTitle}" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
-            <Frame Margin="5" CornerRadius="2" HasShadow="True" BackgroundColor="#FFFFFF">
+        <ListView SeparatorVisibility="None" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand"
+                 HasUnevenRows="true"
+                 IsPullToRefreshEnabled="False"
+                 CachingStrategy="RecycleElement"
+                  ItemSelected="ListView_ItemSelected">
+            <ListView.Header>
                 <StackLayout>
-                    <Label Text="成績" FontSize="Large" FontAttributes="Bold"/>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                        <Label Text="{Binding AnswerCorrectPercentage,StringFormat='{0:F0}% ('}"/>
-                        <Label Text="{Binding AnswerCountCorrect}"/>
-                        <Label Text="/"/>
-                        <Label Text="{Binding AnswerCountTotal}"/>
-                        <Label Text=")"/>
-                    </StackLayout>
-                    <my:PieGraphView x:Name="PieGraph" HorizontalOptions="FillAndExpand" HeightRequest="200"/>
+                    <Image Margin="10" Source="{Binding Path=Wordbook.UriLogo}" HeightRequest="150" HorizontalOptions="FillAndExpand" Aspect="AspectFit"/>
+                    <Label Text="{Binding Path=Wordbook.WordbookTitle}" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                    <Frame Margin="5" CornerRadius="2" HasShadow="True" BackgroundColor="#FFFFFF">
+                        <StackLayout>
+                            <Label Text="成績" FontSize="Large" FontAttributes="Bold"/>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <StackLayout.Resources>
+                                    <Style TargetType="Label">
+                                        <Setter Property="FontSize" Value="Large" />
+                                    </Style>
+                                </StackLayout.Resources>
+                                <Label Text="{Binding AnswerCorrectPercentage,StringFormat='正答率{0:F0}% ('}"/>
+                                <Label Text="{Binding AnswerCountTotal}"/>
+                                <Label Text="問中"/>
+                                <Label Text="{Binding AnswerCountCorrect}"/>
+                                <Label Text="問)"/>
+                            </StackLayout>
+                            <my:PieGraphView x:Name="PieGraph" HorizontalOptions="FillAndExpand" HeightRequest="200" />
+                            <Label Text="経過時間" FontSize="Large" FontAttributes="Bold" />
+                            <Label Text="{Binding Path=ElapsedTime,Converter={StaticResource tsfVC},ConverterParameter='合計 : [if:TotalMinutesFloor:[TotalMinutesFloor:\{0:00\}]分][Seconds:\{0:00\}]秒'}" />
+                            <Label Text="{Binding Path=ElapsedTimeAverage,Converter={StaticResource tsfVC},ConverterParameter='1問当たり : [if:TotalMinutesFloor:[TotalMinutesFloor:\{0:00\}]分][Seconds:\{0:00\}]秒'}" />
+                        </StackLayout>
+                    </Frame>
+                    <Button Text="つぶやく"  Clicked="Button_Clicked"/>
                 </StackLayout>
-            </Frame>
-            <Button Text="ツイート"  Clicked="Button_Clicked"/>
-
-        </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Margin="5" CornerRadius="2" HasShadow="True" BackgroundColor="{Binding Result,Converter={StaticResource trsVC},ConverterParameter=#FFFFFF:#FFCCCC:#CCCCCC:#CCCCCC:#FF0000}">
+                            <!--<Frame Margin="5" CornerRadius="2" HasShadow="True" IsVisible="{Binding Result,Converter={StaticResource trsVC},ConverterParameter=True:True:False:False:False}" BackgroundColor="{Binding Result,Converter={StaticResource trsVC},ConverterParameter=#FFFFFF:#FFCCCC:#FFFFFF:#FFFFFF:#FFFFFF}">-->
+                        <!--<Frame Margin="5" CornerRadius="2" HasShadow="True" BackgroundColor="#FFFFFF">-->
+                            <StackLayout>
+                                <Label Text="{Binding Word.Head}" FontSize="Large" FontAttributes="Bold"/>
+                                <Label Text="{Binding Word.Description}" />
+                                <StackLayout Orientation="Horizontal" Spacing="0">
+                                    <StackLayout.Resources>
+                                        <Style TargetType="Label">
+                                            <Setter Property="Margin" Value="0" />
+                                            <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                                        </Style>
+                                    </StackLayout.Resources>
+                                    <Label Text="{Binding Result,Converter={StaticResource trsVC},ConverterParameter=正解:誤答:未回答:未出題:エラー}" FontAttributes="Bold" Margin="0,0,5,0"/>
+                                    <Label Text="正解率 " />
+                                    <Label Text="{Binding Word.AnswerCountCorrectPercentage,StringFormat='{0:F0}'}" />
+                                    <Label Text="% (" />
+                                    <Label Text="{Binding Word.AnswerCountCorrect}" />
+                                    <Label Text=" / " />
+                                    <Label Text="{Binding Word.AnswerCountTotal}" />
+                                    <Label Text=")" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

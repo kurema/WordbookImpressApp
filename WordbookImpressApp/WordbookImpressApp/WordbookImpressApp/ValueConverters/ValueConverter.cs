@@ -46,6 +46,90 @@ namespace WordbookImpressApp.ValueConverters
         }
     }
 
+    public class QuizWordChoiceViewModelTestResultToStringValueConverter : Xamarin.Forms.IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            string text;
+            if (parameter == null || !(parameter is string)) text = "::::";
+            else text = (string)parameter;
+            var texts = text.Split(':');
+
+            if (value == null || !(value is WordbookImpressLibrary.ViewModels.QuizWordChoiceViewModel.TestResult))
+            {
+                return texts[4];
+            }
+            switch ((WordbookImpressLibrary.ViewModels.QuizWordChoiceViewModel.TestResult)value)
+            {
+                case WordbookImpressLibrary.ViewModels.QuizWordChoiceViewModel.TestResult.Correct:return texts[0];
+                case WordbookImpressLibrary.ViewModels.QuizWordChoiceViewModel.TestResult.Wrong:return texts[1];
+                case WordbookImpressLibrary.ViewModels.QuizWordChoiceViewModel.TestResult.Pass:return texts[2];
+                case WordbookImpressLibrary.ViewModels.QuizWordChoiceViewModel.TestResult.Yet:return texts[3];
+                default:return texts[4];
+            }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class TimeSpanFormatValueConverter: Xamarin.Forms.IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value == null || !(value is TimeSpan))
+            {
+                return "";
+            }
+            if (parameter == null || !(parameter is string)) return ((TimeSpan)value).ToString();
+            else return FormatTimeSpan((TimeSpan)value, (string)parameter);
+            
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static string FormatTimeSpan (TimeSpan ts, string tx)
+        {
+            var dic = new Dictionary<string, double>()
+            {
+                { nameof(ts.Days),ts.Days },
+                { nameof(ts.Hours),ts.Hours },
+                { nameof(ts.Milliseconds),ts.Milliseconds },
+                { nameof(ts.Minutes),ts.Minutes },
+                { nameof(ts.Seconds),ts.Seconds },
+                { nameof(ts.Ticks),ts.Ticks },
+                { nameof(ts.TotalDays),ts.TotalDays },
+                { nameof(ts.TotalHours),ts.TotalHours },
+                { nameof(ts.TotalMilliseconds),ts.TotalMilliseconds },
+                { nameof(ts.TotalMinutes),ts.TotalMinutes },
+                { nameof(ts.TotalSeconds),ts.TotalSeconds },
+                { nameof(ts.TotalDays)+"Floor", Math.Floor(ts.TotalDays) },
+                { nameof(ts.TotalHours)+"Floor",Math.Floor(ts.TotalHours) },
+                { nameof(ts.TotalMilliseconds)+"Floor",Math.Floor(ts.TotalMilliseconds) },
+                { nameof(ts.TotalMinutes)+"Floor",Math.Floor(ts.TotalMinutes) },
+                { nameof(ts.TotalSeconds)+"Floor",Math.Floor(ts.TotalSeconds) },
+            };
+            {
+                var reg = new System.Text.RegularExpressions.Regex(@"\[(\w+)\]");
+                tx = reg.Replace(tx, new System.Text.RegularExpressions.MatchEvaluator((m) => { if (dic.ContainsKey(m.Groups[1].Value)) return dic[m.Groups[1].Value].ToString(); else return m.Value; }));
+            }
+            {
+                var reg = new System.Text.RegularExpressions.Regex(@"\[(\w+):([^\[\]]+)\]");
+                tx = reg.Replace(tx, new System.Text.RegularExpressions.MatchEvaluator((m) => { if (dic.ContainsKey(m.Groups[1].Value)) return String.Format(m.Groups[2].Value, dic[m.Groups[1].Value]); else return m.Value; }));
+            }
+            {
+                var reg = new System.Text.RegularExpressions.Regex(@"\[if:(\w+):([^\[\]]+)\]");
+                tx = reg.Replace(tx, new System.Text.RegularExpressions.MatchEvaluator((m) => { if (dic.ContainsKey(m.Groups[1].Value) && dic[m.Groups[1].Value]>0) return m.Groups[2].Value; else return ""; }));
+            }
+            return tx;
+        }
+    }
+
     public class BooleanToColorValueConverter : Xamarin.Forms.IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -67,6 +151,23 @@ namespace WordbookImpressApp.ValueConverters
             {
                 return Xamarin.Forms.Color.FromHex(texts[1]);
             }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class BooleanNotValueConverter : Xamarin.Forms.IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value == null || !(value is bool))
+            {
+                return null;
+            }
+            return !((bool)value);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

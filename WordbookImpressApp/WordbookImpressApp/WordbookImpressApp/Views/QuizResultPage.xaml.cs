@@ -28,10 +28,11 @@ namespace WordbookImpressApp.Views
 
             this.BindingContextChanged += (s, e) =>
             {
+                PieGraph.Title = "スコア";
                 PieGraph.Members = new List<PieGraphView.PieItem>()
                 {
-                    new PieGraphView.PieItem(){Color=new SkiaSharp.SKColor(0,0,255),Rate=Model.AnswerCountCorrect/(float)Model.AnswerCountTotal },
-                    new PieGraphView.PieItem(){Color=new SkiaSharp.SKColor(255,0,0),Rate=(1- Model.AnswerCountCorrect/(float)Model.AnswerCountTotal) }
+                    new PieGraphView.PieItem(){Color=new SkiaSharp.SKColor(0x52,0xb2,0xff),Rate=(float)Model.AnswerCorrectPercentage/100.0f },
+                    new PieGraphView.PieItem(){Color=new SkiaSharp.SKColor(0xe8,0x6d,0x6b),Rate=(1- (float)Model.AnswerCorrectPercentage/100.0f) }
                 };
                 PieGraph.InvalidateSurface();
             };
@@ -44,7 +45,20 @@ namespace WordbookImpressApp.Views
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            Device.OpenUri(new System.Uri("twitter://post?message=" + Model.AnswerCountCorrect.ToString() + "問正解しました#impress_book_app"));
+            Device.OpenUri(new System.Uri("twitter://post?message=" + System.Web.HttpUtility.UrlEncode(Model.Wordbook.WordbookTitle+"のクイズで"+Model.AnswerCountTotal.ToString()+"問中"+ Model.AnswerCountCorrect.ToString() + "問正解しました！\n#wordbook_impress ")));
+        }
+
+        private bool Pushing;
+        private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null || !(e.SelectedItem is TestResultViewModel.TestResultItemViewModel)) return;
+            if (Pushing) return;
+            Pushing = true;
+            var page = new WordPage(((TestResultViewModel.TestResultItemViewModel)e.SelectedItem).Word);
+            await Navigation.PushModalAsync(page);
+
+            (sender as ListView).SelectedItem = null;
+            Pushing = false;
         }
     }
 }

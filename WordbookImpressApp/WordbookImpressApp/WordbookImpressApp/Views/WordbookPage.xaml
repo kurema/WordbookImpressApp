@@ -3,23 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
              x:Class="WordbookImpressApp.Views.WordbookPage"
+             xmlns:vm="clr-namespace:WordbookImpressLibrary.ViewModels;assembly=WordbookImpressLibrary"
              Title="単語帳">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Secondary" Text="削除" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.BindingContext>
+        <vm:WordbookImpressViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
             <vc:BooleanToColorValueConverter x:Key="BoolColorVC"/>
             <vc:BooleanToStringValueConverter x:Key="BoolStringVC" />
         </ResourceDictionary>
     </ContentPage.Resources>
-
     <ContentPage.Content>
         <ListView Grid.ColumnSpan="2" SeparatorVisibility="None"
                         Grid.Row="0"
                       ItemsSource="{Binding Words}"
                 VerticalOptions="FillAndExpand"
                  HasUnevenRows="true"
-                 IsPullToRefreshEnabled="False"
+                 IsPullToRefreshEnabled="True"
                  CachingStrategy="RecycleElement"
                     ItemSelected="ListView_ItemSelected"
+                  IsRefreshing="{Binding IsBusy}"
+                  RefreshCommand="{Binding Path=ReloadCommand}"
                 >
             <ListView.Header>
                 <StackLayout>

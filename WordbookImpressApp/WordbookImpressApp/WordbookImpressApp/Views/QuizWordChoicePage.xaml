@@ -2,10 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
+             xmlns:vm="clr-namespace:WordbookImpressLibrary.ViewModels;assembly=WordbookImpressLibrary"
              x:Class="WordbookImpressApp.Views.QuizWordChoicePage"
              BackgroundColor="#DDDDDD"
              Title="クイズ"
              >
+    <ContentPage.BindingContext>
+        <vm:QuizWordChoiceViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
             <vc:QuizWordChoiceViewModelQuizStatusToCorrectVisibilityValueConverter x:Key="CorrectVC" />
@@ -25,6 +29,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition  Height="*"/>
+                    <RowDefinition  Height="Auto"/>
                     <RowDefinition  Height="Auto"/>
                 </Grid.RowDefinitions>
                 <StackLayout VerticalOptions="FillAndExpand">
@@ -50,6 +55,8 @@
                 <Frame BackgroundColor="#AAFFFFFF" Grid.Row="1" Padding="10" HorizontalOptions="FillAndExpand">
                     <Label Text="{Binding CurrentQuizStatus,Converter={StaticResource ResultTextVC},ConverterParameter=選択してください:正解:不正解:エラー}"  FontSize="Large"  HorizontalOptions="Center" />
                 </Frame>
+                <!-- Using HeightRequest="5" is not smart. But it seems the only way. https://forums.xamarin.com/discussion/45889/remove-margin-in-progressbar -->
+                <ProgressBar HeightRequest="5" Grid.Row="2" Progress="{Binding Progress}"  VerticalOptions="Fill" HorizontalOptions="FillAndExpand"/>
             </Grid>
             <!-- I know this is not cool. -->
             <Button BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Transparent" Clicked="ClickGestureRecognizer_Clicked" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource CorrectVC}}" />

@@ -8,13 +8,13 @@ using System.Collections.ObjectModel;
 
 namespace WordbookImpressLibrary.ViewModels
 {
-    public class TestResultViewModel : BaseViewModel
+    public class QuizResultViewModel : BaseViewModel
     {
         private Record.TestStatus TestStatus => QuizWordChoice.TestStatus;
         public WordbookImpressViewModel Wordbook => QuizWordChoice.WordbookTargetViewModel;
-        private QuizWordChoiceViewModel QuizWordChoice { get; set; }
+        public QuizWordChoiceViewModel QuizWordChoice { get; private set; }
 
-        public TestResultViewModel(QuizWordChoiceViewModel quiz) { QuizWordChoice = quiz; }
+        public QuizResultViewModel(QuizWordChoiceViewModel quiz) { QuizWordChoice = quiz; }
 
         public double AnswerCorrectPercentage => TestStatus.AnswerCountTotal == 0 ? 0 : (double)TestStatus.AnswerCountCorrect / TestStatus.AnswerCountTotal * 100.0;
 
@@ -26,8 +26,12 @@ namespace WordbookImpressLibrary.ViewModels
         public TimeSpan ElapsedTimeAverage => new TimeSpan(TestStatus.ElapsedTime.Ticks / Math.Max(1, TestStatus.AnswerCountTotal));
         public DateTime DateTimeEnd => TestStatus.DateTimeNative;
         public DateTime DateTimeStart => TestStatus.DateTimeNative-ElapsedTime;
+        public DateTime DateTimeEndLocal => TestStatus.DateTimeNative.ToLocalTime();
+        public DateTime DateTimeStartLocal => (TestStatus.DateTimeNative - ElapsedTime).ToLocalTime();
+        public int Seed => TestStatus.Seed;
+        public QuizWordChoiceViewModel.RetryStatusEnum RetryStatus => TestStatus.RetryStatus;
 
-        public TestResultViewModel():this(new QuizWordChoiceViewModel())
+        public QuizResultViewModel():this(new QuizWordChoiceViewModel())
         {
         }
 

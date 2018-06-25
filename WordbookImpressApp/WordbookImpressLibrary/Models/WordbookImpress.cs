@@ -9,10 +9,10 @@ namespace WordbookImpressLibrary.Models
     public class WordbookImpress:IWordbook
     {
         private Uri uri;
-        public string Uri { get => uri?.ToString()??""; set { if (value != null || value == "") uri = new Uri(value); } }
+        public string Uri { get => uri?.ToString()??""; set { if (value != null && value != "") uri = new Uri(value); } }
 
         private Uri uriLogo;
-        public string UriLogo { get => uriLogo?.ToString()??""; set { if (value != null || value == "") uriLogo = new Uri(value); } }
+        public string UriLogo { get => uriLogo?.ToString()??""; set { if (value != null && value != "") uriLogo = new Uri(value); } }
         public string Title { get; private set; } = "";
         public Word[] Words { get; private set; } = new Word[0];
 
@@ -65,7 +65,7 @@ namespace WordbookImpressLibrary.Models
                     }
                 }
             }
-
+            try
             {
                 System.Uri.TryCreate(uri, "data.js", out Uri uriData);
                 var req = System.Net.WebRequest.Create(uriData);
@@ -81,7 +81,51 @@ namespace WordbookImpressLibrary.Models
                     }
                 }
             }
+            catch
+            {
+                System.Uri.TryCreate(uri, "config.js", out Uri uriData);
+                var req = System.Net.WebRequest.Create(uriData);
+                if (authentication == null || authentication.IsEmpty)
+                    req.Credentials = new System.Net.NetworkCredential(authentication.UserName, authentication.Password);
+                var webres = await req.GetResponseAsync();
+                using (var stream = webres.GetResponseStream())
+                {
+                    using (var sr = new System.IO.StreamReader(stream))
+                    {
+                        dataJs = await sr.ReadToEndAsync();
+                        result.Words = GetWordsConfig(dataJs);
+                    }
+                }
+            }
             return (result, html, dataJs);
+        }
+
+        public static Word[] GetWordsConfig(string text)
+        {
+            //JSONのライブラリを使った方が手っ取り早いだろう。
+            //"\[\s*\"([^\"]*)\"\s*,\s*\"([^\"]*)\"\s*\]"
+            var reg = new Regex("\\{\\s*\\\"question\\\"\\s*:\\s*\\\"([^\\\"]*)\\\"\\s*,\\s*\\\"choice\\\":\\[([^\\[\\]]*)\\]\\s*,\\s*\\\"feedback\\\"\\s*:\\s*\\[\\\"([^\\\"]*)\\\"\\]\\s*,\\s*\\\"answer\\\":\\\"([^\\\"]*)\\\"\\}");
+            var matches = reg.Matches(text);
+            var words = new List<Word>();
+            var rand = new Random(text.Length);
+            foreach (Match match in matches)
+            {
+                var choices = new Regex("\\\"([^\\\"]*)\\\"").Matches(match.Groups[2].Value);
+                string choiceText = "";
+                foreach(Match choice in choices)
+                {
+                    if (rand.Next(2) == 0)
+                    {
+                        choiceText += choice.Groups[1].Value + "\n";
+                    }
+                    else
+                    {
+                        choiceText = choice.Groups[1].Value + "\n" + choiceText;
+                    }
+                }
+                words.Add(Word.GetWordUnescape(match.Groups[1].Value+"\n\n"+choiceText, match.Groups[4].Value +"\n\n"+ match.Groups[3].Value));
+            }
+            return words.ToArray();
         }
 
         public static Word[] GetWords(string text)
@@ -126,8 +170,8 @@ namespace WordbookImpressLibrary.Models
 
     public class Word
     {
-        public string Title;
-        public string Description;
+        public string Title="";
+        public string Description="";
 
         private string hash;
         public string Hash { get => hash ?? (hash = GetHash()); set => hash = value; }

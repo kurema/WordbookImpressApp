@@ -28,12 +28,12 @@ namespace WordbookImpressLibrary.ViewModels
             Correct,Wrong,Pass,Yet
         }
 
-        public TestResultViewModel.TestResultItemViewModel[] GetTestResults()
+        public QuizResultViewModel.TestResultItemViewModel[] GetTestResults()
         {
-            var list = new List<TestResultViewModel.TestResultItemViewModel>();
+            var list = new List<QuizResultViewModel.TestResultItemViewModel>();
             for(int i = 0; i < Math.Min( TestResults.Length,AnswerOrder.Length); i++)
             {
-                list.Add(new TestResultViewModel.TestResultItemViewModel() { Result = TestResults[i], Word = new WordViewModel(AnswerOrder[i], Record) });
+                list.Add(new QuizResultViewModel.TestResultItemViewModel() { Result = TestResults[i], Word = new WordViewModel(AnswerOrder[i], Record) });
             }
             return list.ToArray();
         }
@@ -106,9 +106,11 @@ namespace WordbookImpressLibrary.ViewModels
                 bool shuffle = true;
                 var remain = new List<Word>();
 
+                if (wordbooks == null || wordbooks.Length == 0) yield break;
+
                 foreach (var wordbook in wordbooks)
                 {
-                    foreach (var item in wordbook.Words)
+                    foreach (var item in wordbook?.Words)
                     {
                         if (item.Hash == answerWord.Hash) shuffle = false;
                         else remain.Add(item);
@@ -125,6 +127,7 @@ namespace WordbookImpressLibrary.ViewModels
                     }
                     else
                     {
+                        if (remain.Count == 0) yield break;
                         int target = rand.Next(remain.Count - 1);
                         yield return new ChoicesEnumerableItem() { Text = GetByChoiceKind(remain[target], choiceKind) ,Highlight=false};
                         remain.RemoveAt(target);
@@ -152,7 +155,9 @@ namespace WordbookImpressLibrary.ViewModels
             }
         }
 
-        private Word CurrentWord { get => AnswerOrder[CurrentCount]; }
+        public double Progress => (currentCount + 1.0) / Math.Max(1, AnswerOrder.Length);
+
+        private Word CurrentWord { get => AnswerOrder.Length == 0 ? new Word() : AnswerOrder[CurrentCount]; }
         private Record Record;
         private WordbookImpress WordbookTarget;
         private WordbookImpressViewModel wordbookTargetViewModel;
@@ -168,6 +173,7 @@ namespace WordbookImpressLibrary.ViewModels
                 OnPropertyChanged(nameof(this.CurrentWord));
                 OnPropertyChanged(nameof(this.CurrentWordText));
                 OnPropertyChanged(nameof(this.Choices));
+                OnPropertyChanged(nameof(this.Progress));
                 CurrentQuizStatus = QuizStatus.Choice;
             }
         }
@@ -177,6 +183,23 @@ namespace WordbookImpressLibrary.ViewModels
             CurrentCount = 0;
             CurrentQuizStatus = QuizStatus.Choice;
             DateTimeInitial = DateTime.Now;
+            //RetryStatus = RetryStatusEnum.First;
+        }
+
+        private TimeSpan ElapsedTime = new TimeSpan();
+
+        public void Continue()
+        {
+            RetryStatus = RetryStatusEnum.Continue;
+            DateTimeInitial = DateTime.Now;
+        }
+
+        private RetryStatusEnum retryStatus=RetryStatusEnum.First;
+        public RetryStatusEnum RetryStatus { get => retryStatus; set => SetProperty(ref retryStatus, value); }
+
+        public enum RetryStatusEnum
+        {
+            First,Retry,Continue
         }
 
         public void End()
@@ -211,7 +234,8 @@ namespace WordbookImpressLibrary.ViewModels
                 }
             }
 
-            Record.TestStatuses.Add(TestStatus = new Record.TestStatus() { ElapsedTime = DateTime.Now - DateTimeInitial, AnswerCountCorrect = correct, AnswerCountPass = pass, AnswerCountTotal = total, Key = WordbookTarget.Uri, Seed = this.Seed, DateTimeNative = DateTime.UtcNow, ChoiceKind = this.ChoiceType });
+            ElapsedTime += DateTime.Now - DateTimeInitial;
+            Record.TestStatuses.Add(TestStatus = new Record.TestStatus() { RetryStatus=this.retryStatus, ElapsedTime =this.ElapsedTime, AnswerCountCorrect = correct, AnswerCountPass = pass, AnswerCountTotal = total, Key = WordbookTarget.Uri, Seed = this.Seed, DateTimeNative = DateTime.UtcNow, ChoiceKind = this.ChoiceType });
         }
 
         private Record.TestStatus testStatus;
@@ -341,16 +365,23 @@ namespace WordbookImpressLibrary.ViewModels
         }
 
         public QuizWordChoiceViewModel():this(new WordbookImpressViewModel(),new ConfigViewModel())
-        { }
-
-        public QuizWordChoiceViewModel(WordbookImpressViewModel model, ConfigViewModel config, ChoiceKind choiceKind = ChoiceKind.Description, int choiceCount = 4) : this(choiceCount, model.Record, choiceKind, model.Wordbook, new WordbookImpress[] { model.Wordbook },config)
         {
         }
 
-        public QuizWordChoiceViewModel(int choiceCount, Record Record,ChoiceKind choiceKind, WordbookImpress WordbookTarget, WordbookImpress[] WordbooksForChoice, ConfigViewModel config)
+        public QuizWordChoiceViewModel(WordbookImpressViewModel model, ConfigViewModel config, ChoiceKind choiceKind = ChoiceKind.Description) : this( model.Record, choiceKind, model.Wordbook, new WordbookImpress[] { model.Wordbook },config)
         {
-            Seed = new Random().Next();
-            this.choiceCount = choiceCount;
+        }
+
+        public QuizWordChoiceViewModel(WordbookImpressViewModel model, ConfigViewModel config, int Seed, ChoiceKind choiceKind = ChoiceKind.Description) : this(model.Record, choiceKind, model.Wordbook, new WordbookImpress[] { model.Wordbook }, config, Seed)
+        {
+        }
+
+        public QuizWordChoiceViewModel(Record Record, ChoiceKind choiceKind, WordbookImpress WordbookTarget, WordbookImpress[] WordbooksForChoice, ConfigViewModel config)
+            :this(Record,choiceKind,WordbookTarget,WordbooksForChoice,config,new Random().Next()) { }
+
+        public QuizWordChoiceViewModel( Record Record,ChoiceKind choiceKind, WordbookImpress WordbookTarget, WordbookImpress[] WordbooksForChoice, ConfigViewModel config,int Seed)
+        {
+            this.Seed = Seed;
             this.Record = Record;
             this.WordbookTarget = WordbookTarget;
             this.WordbooksForChoice = WordbooksForChoice;

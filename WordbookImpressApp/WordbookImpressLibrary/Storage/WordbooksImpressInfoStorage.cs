@@ -4,12 +4,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 using WordbookImpressLibrary.Models;
+using System.Collections.ObjectModel;
 
 namespace WordbookImpressLibrary.Storage
 {
     public static class WordbooksImpressInfoStorage
     {
-        public static List<WordbookImpressInfo> Content { get; private set; }
+        private static ObservableCollection<WordbookImpressInfo> content;
+        public static ObservableCollection<WordbookImpressInfo> Content { get => content; private set { content = value; content.CollectionChanged += (s, e) => OnUpdated(); } }
         public static string Path { get; set; } = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "impress_info.xml");
         public static string PathBup { get; set; } = Path + ".bup";
 
@@ -22,7 +24,7 @@ namespace WordbookImpressLibrary.Storage
         {
             if (!System.IO.File.Exists(Path))
             {
-                Content = new List<WordbookImpressInfo>();
+                Content = new ObservableCollection<WordbookImpressInfo>();
                 return new WordbookImpressInfo[0];
             }
             WordbookImpressInfo[] result;
@@ -44,7 +46,7 @@ namespace WordbookImpressLibrary.Storage
                 }
             }
 
-            Content = new List<WordbookImpressInfo>(result);
+            Content = new ObservableCollection<WordbookImpressInfo>(result);
             OnUpdated();
             return result;
         }

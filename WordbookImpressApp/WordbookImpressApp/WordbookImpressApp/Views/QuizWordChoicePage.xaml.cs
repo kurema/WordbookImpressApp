@@ -23,10 +23,17 @@ namespace WordbookImpressApp.Views
 			InitializeComponent ();
 		}
 
-        public QuizWordChoicePage(QuizWordChoiceViewModel model) : this()
+        public QuizWordChoicePage(QuizWordChoiceViewModel model,bool Continue=false) : this()
         {
             this.BindingContext = model;
-            model.Start();
+            if (!Continue)
+            {
+                model.Start();
+            }
+            else
+            {
+                model.Continue();
+            }
         }
 
         protected override bool OnBackButtonPressed()
@@ -38,7 +45,7 @@ namespace WordbookImpressApp.Views
         {
             Model.End();
             RecordStorage.SaveLocalData();
-            Navigation.PushModalAsync(new QuizResultPage(new TestResultViewModel(Model)));
+            Navigation.PushModalAsync(new QuizResultPage(new QuizResultViewModel(Model)));
             base.OnDisappearing();
         }
 

@@ -6,5 +6,8 @@
         <Style TargetType="Label">
             <Setter Property="TextColor" Value="Black"/>
         </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5" />
+        </Style>
 	</Application.Resources>
 </Application>

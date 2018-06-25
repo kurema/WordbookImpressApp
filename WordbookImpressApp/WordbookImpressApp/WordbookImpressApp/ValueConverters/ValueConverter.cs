@@ -108,11 +108,11 @@ namespace WordbookImpressApp.ValueConverters
                 { nameof(ts.TotalMilliseconds),ts.TotalMilliseconds },
                 { nameof(ts.TotalMinutes),ts.TotalMinutes },
                 { nameof(ts.TotalSeconds),ts.TotalSeconds },
-                { nameof(ts.TotalDays)+"Floor", Math.Floor(ts.TotalDays) },
-                { nameof(ts.TotalHours)+"Floor",Math.Floor(ts.TotalHours) },
-                { nameof(ts.TotalMilliseconds)+"Floor",Math.Floor(ts.TotalMilliseconds) },
-                { nameof(ts.TotalMinutes)+"Floor",Math.Floor(ts.TotalMinutes) },
-                { nameof(ts.TotalSeconds)+"Floor",Math.Floor(ts.TotalSeconds) },
+                { nameof(ts.TotalDays)+nameof(Math.Floor), Math.Floor(ts.TotalDays) },
+                { nameof(ts.TotalHours)+nameof(Math.Floor),Math.Floor(ts.TotalHours) },
+                { nameof(ts.TotalMilliseconds)+nameof(Math.Floor),Math.Floor(ts.TotalMilliseconds) },
+                { nameof(ts.TotalMinutes)+nameof(Math.Floor),Math.Floor(ts.TotalMinutes) },
+                { nameof(ts.TotalSeconds)+nameof(Math.Floor),Math.Floor(ts.TotalSeconds) },
             };
             {
                 var reg = new System.Text.RegularExpressions.Regex(@"\[(\w+)\]");
@@ -151,6 +151,33 @@ namespace WordbookImpressApp.ValueConverters
             {
                 return Xamarin.Forms.Color.FromHex(texts[1]);
             }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class StringReplaceValueConverter : Xamarin.Forms.IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var text = value.ToString();
+            if (parameter == null) { return value; }
+            var dicts = parameter.ToString().Split(new[] { "::" }, StringSplitOptions.RemoveEmptyEntries);
+            var dict = new Dictionary<string, string>();
+            foreach(var item in dicts)
+            {
+                var kvp = item.Split(':', (char)2);
+                if (kvp.Length != 2) continue;
+                dict.Add(kvp[0], kvp[1]);
+            }
+            foreach(var item in dict)
+            {
+                text = text.Replace(item.Key, item.Value);
+            }
+            return text;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

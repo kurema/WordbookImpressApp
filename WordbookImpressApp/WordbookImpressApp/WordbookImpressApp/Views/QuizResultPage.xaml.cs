@@ -14,12 +14,12 @@ namespace WordbookImpressApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class QuizResultPage : ContentPage
 	{
-        private TestResultViewModel Model
+        private QuizResultViewModel Model
         {
             get
             {
-                if (this.BindingContext == null || !(this.BindingContext is TestResultViewModel)) return null;
-                else return (TestResultViewModel)BindingContext;
+                if (this.BindingContext == null || !(this.BindingContext is QuizResultViewModel)) return null;
+                else return (QuizResultViewModel)BindingContext;
             }
         }
         public QuizResultPage ()
@@ -38,26 +38,64 @@ namespace WordbookImpressApp.Views
             };
 		}
 
-        public QuizResultPage(TestResultViewModel model) :this()
+        public QuizResultPage(QuizResultViewModel model) :this()
         {
             this.BindingContext = model;
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private void Button_Clicked_Tweet(object sender, EventArgs e)
         {
-            Device.OpenUri(new System.Uri("twitter://post?message=" + System.Web.HttpUtility.UrlEncode(Model.Wordbook.WordbookTitle+"のクイズで"+Model.AnswerCountTotal.ToString()+"問中"+ Model.AnswerCountCorrect.ToString() + "問正解しました！\n#wordbook_impress ")));
+            string mon = "";
+            var time= ValueConverters.TimeSpanFormatValueConverter.FormatTimeSpan(Model.ElapsedTime, "[if:TotalMinutesFloor:[TotalMinutesFloor:{0:00}]分][Seconds:{0:00}]秒");
+            if (Model.AnswerCountTotal == 0)
+            {
+                mon = "1問も解答しませんでした！";
+            }
+            else if (Model.AnswerCountCorrect == 0)
+            {
+                mon = Model.AnswerCountTotal.ToString() + "問全て間違えました！";
+            }
+            else if (Model.AnswerCountTotal == Model.AnswerCountCorrect)
+            {
+                mon = Model.AnswerCountTotal.ToString() + "問全て正解しました！";
+            }
+            else
+            {
+                mon = Model.AnswerCountTotal.ToString() + "問中" + Model.AnswerCountCorrect.ToString() + "問正解しました！";
+            }
+            Device.OpenUri(new System.Uri("twitter://post?message=" + System.Web.HttpUtility.UrlEncode(Model.Wordbook.WordbookTitle + "のクイズを" + time + "で" + mon + "\n#wordbook_impress ")));
         }
 
         private bool Pushing;
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem == null || !(e.SelectedItem is TestResultViewModel.TestResultItemViewModel)) return;
+            if (e.SelectedItem == null || !(e.SelectedItem is QuizResultViewModel.TestResultItemViewModel)) return;
             if (Pushing) return;
             Pushing = true;
-            var page = new WordPage(((TestResultViewModel.TestResultItemViewModel)e.SelectedItem).Word);
+            var page = new WordPage(((QuizResultViewModel.TestResultItemViewModel)e.SelectedItem).Word);
             await Navigation.PushModalAsync(page);
 
             (sender as ListView).SelectedItem = null;
+            Pushing = false;
+        }
+
+        private async void Button_Clicked_Retry(object sender, EventArgs e)
+        {
+            //https://stackoverflow.com/questions/36892044/clear-xamarin-forms-modal-stack/36893908
+            if (Model == null) return;
+            Pushing = true;
+            //workaround.
+            OnBackButtonPressed();
+            await Navigation.PushModalAsync(new QuizWordChoicePage(new QuizWordChoiceViewModel(Model.Wordbook, new ConfigViewModel(), Model.Seed, Model.ChoiceKind) { RetryStatus=QuizWordChoiceViewModel.RetryStatusEnum.Retry}));
+            Pushing = false;
+        }
+
+        private async void Button_Clicked_Continue(object sender, EventArgs e)
+        {
+            if (Model == null) return;
+            Pushing = true;
+            OnBackButtonPressed();
+            await Navigation.PushModalAsync(new QuizWordChoicePage(Model.QuizWordChoice, true));
             Pushing = false;
         }
     }

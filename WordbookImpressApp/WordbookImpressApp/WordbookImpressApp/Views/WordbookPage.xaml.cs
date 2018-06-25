@@ -33,6 +33,28 @@ namespace WordbookImpressApp.Views
         public WordbookPage(WordbookImpressViewModel model):this()
         {
             this.BindingContext = model;
+
+            WordbooksImpressStorage.Updated += WordbooksImpressStorage_Updated;
+        }
+
+        private void WordbooksImpressStorage_Updated(object sender, EventArgs e)
+        {
+            var model = this.Model;
+            try
+            {
+                //ToList()はおかしいけどコストは0に近いと思う。
+                this.BindingContext = new WordbookImpressViewModel(WordbooksImpressStorage.Content.ToList().Find(w => w.Uri == this.Model.Uri), Model.Record);
+            }
+            catch
+            {
+                this.BindingContext = model;
+            }
+        }
+
+        protected override void OnDisappearing()
+        {
+            WordbooksImpressStorage.Updated -= WordbooksImpressStorage_Updated;
+            base.OnDisappearing();
         }
 
         private bool Pushing = false;
@@ -74,6 +96,14 @@ namespace WordbookImpressApp.Views
 
             (sender as ListView).SelectedItem = null;
             Pushing = false;
+        }
+
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            WordbooksImpressStorage.Content.Remove(Model.Wordbook);
+            //認証情報を削除するか。迷うが削除しない事にする。
+            //WordbooksImpressInfoStorage.Content.RemoveAll((w) => w.Url == Model.Wordbook.Uri);
+            await Navigation.PopAsync();
         }
     }
 }

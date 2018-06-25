@@ -98,6 +98,14 @@ namespace WordbookImpressLibrary.ViewModels
             var result = await Wordbook.Reload();
             OnPropertyChanged(nameof(UriLogo));
             OnPropertyChanged(nameof(WordbookTitle));
+
+            var w = new List<WordViewModel>();
+            foreach (var item in result.wordbook.Words)
+            {
+                w.Add(new WordViewModel(item, Record));
+            }
+            Words = new ObservableCollection<WordViewModel>(w);
+
             IsBusy = false;
             return result;
         }
@@ -124,6 +132,7 @@ namespace WordbookImpressLibrary.ViewModels
             public async void Execute(object parameter)
             {
                 await Model.Reload();
+                await Storage.WordbooksImpressStorage.SaveLocalData();
             }
         }
 

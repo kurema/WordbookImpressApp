@@ -59,6 +59,7 @@ namespace WordbookImpressLibrary.Models
         public struct TestStatus
         {
             public ViewModels.QuizWordChoiceViewModel.ChoiceKind ChoiceKind;
+            public ViewModels.QuizWordChoiceViewModel.RetryStatusEnum RetryStatus;
             public string Key;
             public int AnswerCountTotal;
             public int AnswerCountCorrect;

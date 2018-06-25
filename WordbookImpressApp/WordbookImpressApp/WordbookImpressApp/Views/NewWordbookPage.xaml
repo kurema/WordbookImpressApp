@@ -2,7 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WordbookImpressApp.Views.NewWordbookPage"
+             xmlns:vm="clr-namespace:WordbookImpressLibrary.Models;assembly=WordbookImpressLibrary"
              Title="追加">
+    <ContentPage.BindingContext>
+        <vm:WordbookImpressInfo />
+    </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save" Clicked="AddItem_Clicked"/>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked"/>

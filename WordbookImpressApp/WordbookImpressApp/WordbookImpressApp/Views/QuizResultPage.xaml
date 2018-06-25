@@ -8,11 +8,12 @@
              Title="成績"
              >
     <ContentPage.BindingContext>
-        <vm:TestResultViewModel />
+        <vm:QuizResultViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <vc:QuizWordChoiceViewModelTestResultToStringValueConverter x:Key="trsVC" />
         <vc:TimeSpanFormatValueConverter x:Key="tsfVC" />
+        <vc:StringReplaceValueConverter x:Key="srVC" />
     </ContentPage.Resources>
     <ContentPage.Content>
         <ListView SeparatorVisibility="None" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand"
@@ -27,7 +28,7 @@
                     <Frame Margin="5" CornerRadius="2" HasShadow="True" BackgroundColor="#FFFFFF">
                         <StackLayout>
                             <Label Text="成績" FontSize="Large" FontAttributes="Bold"/>
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="0">
                                 <StackLayout.Resources>
                                     <Style TargetType="Label">
                                         <Setter Property="FontSize" Value="Large" />
@@ -43,9 +44,16 @@
                             <Label Text="経過時間" FontSize="Large" FontAttributes="Bold" />
                             <Label Text="{Binding Path=ElapsedTime,Converter={StaticResource tsfVC},ConverterParameter='合計 : [if:TotalMinutesFloor:[TotalMinutesFloor:\{0:00\}]分][Seconds:\{0:00\}]秒'}" />
                             <Label Text="{Binding Path=ElapsedTimeAverage,Converter={StaticResource tsfVC},ConverterParameter='1問当たり : [if:TotalMinutesFloor:[TotalMinutesFloor:\{0:00\}]分][Seconds:\{0:00\}]秒'}" />
+                            <Label Text="その他" FontSize="Large" FontAttributes="Bold" />
+                            <Label Text="{Binding Path=DateTimeStartLocal,StringFormat='試験日時 : \{0:yyyy\年MM\月dd\日 tt h\時mm\分\開\始 \}'}" />
+                            <!--<Label Text="{Binding Path=DateTimeStart}" />--> 
+                            <Label Text="{Binding ChoiceKind,Converter={StaticResource srVC},ConverterParameter='Title:単語当てクイズ::Description:説明当てクイズ'}" />
+                            <Label Text="{Binding RetryStatus,Converter={StaticResource srVC},ConverterParameter='First:初回::Retry:リトライ::Continue:コンティニュー'}" />
                         </StackLayout>
                     </Frame>
-                    <Button Text="つぶやく"  Clicked="Button_Clicked"/>
+                    <Button Text="Tweet" BackgroundColor="#03a9f4" TextColor="White" Clicked="Button_Clicked_Tweet"/>
+                    <Button Text="リトライ" Clicked="Button_Clicked_Retry" />
+                    <Button Text="コンティニュー" Clicked="Button_Clicked_Continue" />
                 </StackLayout>
             </ListView.Header>
             <ListView.ItemTemplate>

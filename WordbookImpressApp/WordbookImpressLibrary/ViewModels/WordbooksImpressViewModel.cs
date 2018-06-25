@@ -16,6 +16,12 @@ namespace WordbookImpressLibrary.ViewModels
             set => SetProperty(ref wordbooks, value);
         }
 
+        public WordbooksImpressViewModel()
+        {
+            this.wordbooks = new ObservableCollection<WordbookImpressViewModel>();
+        }
+
+
         public WordbooksImpressViewModel(Record record)
         {
             this.wordbooks = new ObservableCollection<WordbookImpressViewModel>();

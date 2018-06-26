@@ -11,21 +11,28 @@ using WordbookImpressLibrary.Storage;
 using WordbookImpressLibrary.Models;
 using WordbookImpressLibrary.ViewModels;
 
+using System.Collections.ObjectModel;
+
 namespace WordbookImpressApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class WordsPage : CarouselPage
     {
-        private WordbookImpressViewModel Model
+        private ObservableCollection<WordViewModel> Model
         {
             get
             {
-                if (this.BindingContext == null || !(this.BindingContext is WordbookImpressViewModel)) return null;
-                else return (WordbookImpressViewModel)BindingContext;
+                if (this.BindingContext == null || !(this.BindingContext is ObservableCollection<WordViewModel>)) return null;
+                else return (ObservableCollection<WordViewModel>)BindingContext;
             }
         }
 
         public WordsPage(WordbookImpressViewModel model) : this()
+        {
+            this.BindingContext = model.Words;
+        }
+
+        public WordsPage(ObservableCollection<WordViewModel> model) : this()
         {
             this.BindingContext = model;
         }

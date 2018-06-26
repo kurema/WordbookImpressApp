@@ -34,7 +34,7 @@
                             <Image Source="{Binding UriLogo}" HeightRequest="75" WidthRequest="75" Aspect="AspectFill" />
                             <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
                                 <Label Text="{Binding WordbookTitle}" LineBreakMode="NoWrap"  Style="{DynamicResource ListItemTextStyle}" FontSize="Large" />
-                                <Label Text="{Binding Words.Count,StringFormat='{0}単語'}" LineBreakMode="NoWrap"  Style="{DynamicResource ListItemTextStyle}" />
+                                <Label Text="{Binding Words.Count,StringFormat='\{0\}単語'}" LineBreakMode="NoWrap"  Style="{DynamicResource ListItemTextStyle}" />
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>

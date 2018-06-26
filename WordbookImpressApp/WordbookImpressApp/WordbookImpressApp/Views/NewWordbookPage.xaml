@@ -12,14 +12,18 @@
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-            <Label Text="URL" FontSize="Medium" />
-            <Entry Text="{Binding WordbookInfo.Url}" FontSize="Medium" />
-            <Label Text="ID" FontSize="Medium" />
-            <Editor Text="{Binding WordbookInfo.ID}" FontSize="Medium" />
-            <Label Text="Password" FontSize="Medium" />
-            <Editor Text="{Binding WordbookInfo.Password}" FontSize="Medium" />
-            <!--<Button Text="Save" Clicked="ToolbarItem_Clicked"/>-->
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="15">
+                <Label Text="タイトル" FontSize="Medium"/>
+                <Entry Text="{Binding TitleUser}" FontSize="Medium" Placeholder="(任意)"/>
+                <Label Text="URL" FontSize="Medium" />
+                <Entry Text="{Binding WordbookInfo.Url}" FontSize="Medium" />
+                <Label Text="ID" FontSize="Medium" />
+                <Editor Text="{Binding WordbookInfo.ID}" FontSize="Medium" />
+                <Label Text="Password" FontSize="Medium" />
+                <Editor Text="{Binding WordbookInfo.Password}" FontSize="Medium" />
+                <!--<Button Text="Save" Clicked="ToolbarItem_Clicked"/>-->
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

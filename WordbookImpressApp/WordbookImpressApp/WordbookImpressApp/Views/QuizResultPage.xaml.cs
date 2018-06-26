@@ -72,7 +72,16 @@ namespace WordbookImpressApp.Views
             if (e.SelectedItem == null || !(e.SelectedItem is QuizResultViewModel.TestResultItemViewModel)) return;
             if (Pushing) return;
             Pushing = true;
-            var page = new WordPage(((QuizResultViewModel.TestResultItemViewModel)e.SelectedItem).Word);
+
+            var words = new System.Collections.ObjectModel.ObservableCollection<WordViewModel>();
+            foreach (var item in Model.Items)
+            {
+                words.Add(item.Word);
+            }
+
+            var selectTarget = ((QuizResultViewModel.TestResultItemViewModel)e.SelectedItem).Word;
+            var page = new WordsPage(words);
+            page.SelectedItem = selectTarget;
             await Navigation.PushModalAsync(page);
 
             (sender as ListView).SelectedItem = null;
@@ -86,7 +95,7 @@ namespace WordbookImpressApp.Views
             Pushing = true;
             //workaround.
             OnBackButtonPressed();
-            await Navigation.PushModalAsync(new QuizWordChoicePage(new QuizWordChoiceViewModel(Model.Wordbook, new ConfigViewModel(), Model.Seed, Model.ChoiceKind) { RetryStatus=QuizWordChoiceViewModel.RetryStatusEnum.Retry}));
+            await Navigation.PushModalAsync(new QuizWordChoicePage(new QuizWordChoiceViewModel(Model.Wordbook , Model.Seed, Model.ChoiceKind) { RetryStatus=QuizWordChoiceViewModel.RetryStatusEnum.Retry}));
             Pushing = false;
         }
 

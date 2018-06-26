@@ -10,5 +10,6 @@ namespace WordbookImpressLibrary.Models
         public double SkipMinRate = 1.0;
         public int SkipMinCorrect = int.MaxValue;
         public int ChoiceCount = 4;
+        public ViewModels.WordbookImpressViewModel.SortKindInfo SortKind = ViewModels.WordbookImpressViewModel.SortKindInfo.GetDefault();
     }
 }

@@ -17,6 +17,7 @@ namespace WordbookImpressApp.Views
 	public partial class NewWordbookPage : ContentPage
 	{
         public WordbookImpressLibrary.Models.WordbookImpressInfo WordbookInfo { get; set; }
+        public String TitleUser { get; set; }
 
 		public NewWordbookPage ()
 		{
@@ -44,6 +45,7 @@ namespace WordbookImpressApp.Views
                 Adding = false;
                 return;
             }
+            result.TitleUser = TitleUser;
             WordbooksImpressInfoStorage.Add(WordbookInfo);
             await WordbooksImpressInfoStorage.SaveLocalData();
             WordbooksImpressStorage.Add(result);

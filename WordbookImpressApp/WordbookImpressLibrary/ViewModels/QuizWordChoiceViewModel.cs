@@ -42,15 +42,17 @@ namespace WordbookImpressLibrary.ViewModels
         private Word[] AnswerOrder => answerOrder ?? (answerOrder = GetAnswerOrder());
         private Word[] GetAnswerOrder()
         {
-            if (WordbookTarget.Words.Length == 0) { return new Word[0]; }
+            var result = new List<Word>();
             var rand = new Random(Seed);
             var remain = new List<Word>();
-            foreach (var item in WordbookTarget.Words) remain.Add(item);
-            int answer = rand.Next(WordbookTarget.Words.Length - 1);
-            var result = new List<Word>();
-            for (int i = 0; i < WordbookTarget.Words.Length; i++)
+            foreach (var w in WordbooksTarget)
             {
-                int t = rand.Next(remain.Count - 1);
+                if (w.Words.Length == 0) { continue; }
+                remain.AddRange(w.Words);
+            }
+            while (remain.Count > 0)
+            {
+                int t = rand.Next(remain.Count);
                 result.Add(remain[t]);
                 remain.RemoveAt(t);
             }
@@ -159,9 +161,9 @@ namespace WordbookImpressLibrary.ViewModels
 
         private Word CurrentWord { get => AnswerOrder.Length == 0 ? new Word() : AnswerOrder[CurrentCount]; }
         private Record Record;
-        private WordbookImpress WordbookTarget;
+        private WordbookImpress[] WordbooksTarget;
         private WordbookImpressViewModel wordbookTargetViewModel;
-        public WordbookImpressViewModel WordbookTargetViewModel => wordbookTargetViewModel ?? (wordbookTargetViewModel = new WordbookImpressViewModel(WordbookTarget, Record));
+        public WordbookImpressViewModel WordbookTargetViewModel => wordbookTargetViewModel ?? (WordbooksTarget.Length==1? wordbookTargetViewModel = new WordbookImpressViewModel(WordbooksTarget[0], Record): wordbookTargetViewModel = new WordbookImpressViewModel(WordbooksTarget, Record,"総合単語帳"));
         private WordbookImpress[] WordbooksForChoice;
         private int currentCount=0;
         private int CurrentCount
@@ -207,35 +209,39 @@ namespace WordbookImpressLibrary.ViewModels
             int total = 0;
             int correct = 0;
             int pass = 0;
-            for (int i = 0; i < WordbookTarget.Words.Length; i++)
+            foreach (var wb in WordbooksTarget)
             {
-                var status = Record.GetWordStatusByHash(AnswerOrder[i].Hash);
+                for (int i = 0; i < wb.Words.Length; i++)
+                {
+                    var status = Record.GetWordStatusByHash(AnswerOrder[i].Hash);
 
-                switch (TestResults[i]) {
-                    case TestResult.Correct:
-                        status.AnswerCountCorrect++;
-                        status.AnswerCountTotal++;
-                        correct++;
-                        total++;
-                        Record.SetWordStatusByHash(AnswerOrder[i].Hash, status);
-                        break;
-                    case TestResult.Wrong:
-                        status.AnswerCountTotal++;
-                        total++;
-                        Record.SetWordStatusByHash(AnswerOrder[i].Hash, status);
-                        break;
-                    case TestResult.Pass:
-                        pass++;
-                        status.AnswerCountPass++;
-                        Record.SetWordStatusByHash(AnswerOrder[i].Hash, status);
-                        break;
-                    case TestResult.Yet:
-                        break;
+                    switch (TestResults[i])
+                    {
+                        case TestResult.Correct:
+                            status.AnswerCountCorrect++;
+                            status.AnswerCountTotal++;
+                            correct++;
+                            total++;
+                            Record.SetWordStatusByHash(AnswerOrder[i].Hash, status);
+                            break;
+                        case TestResult.Wrong:
+                            status.AnswerCountTotal++;
+                            total++;
+                            Record.SetWordStatusByHash(AnswerOrder[i].Hash, status);
+                            break;
+                        case TestResult.Pass:
+                            pass++;
+                            status.AnswerCountPass++;
+                            Record.SetWordStatusByHash(AnswerOrder[i].Hash, status);
+                            break;
+                        case TestResult.Yet:
+                            break;
+                    }
                 }
             }
 
             ElapsedTime += DateTime.Now - DateTimeInitial;
-            Record.TestStatuses.Add(TestStatus = new Record.TestStatus() { RetryStatus=this.retryStatus, ElapsedTime =this.ElapsedTime, AnswerCountCorrect = correct, AnswerCountPass = pass, AnswerCountTotal = total, Key = WordbookTarget.Uri, Seed = this.Seed, DateTimeNative = DateTime.UtcNow, ChoiceKind = this.ChoiceType });
+            Record.TestStatuses.Add(TestStatus = new Record.TestStatus() { RetryStatus=this.retryStatus, ElapsedTime =this.ElapsedTime, AnswerCountCorrect = correct, AnswerCountPass = pass, AnswerCountTotal = total, Key = WordbooksTarget.Length==1? WordbooksTarget[0].Uri:"[combined]", Seed = this.Seed, DateTimeNative = DateTime.UtcNow, ChoiceKind = this.ChoiceType });
         }
 
         private Record.TestStatus testStatus;
@@ -364,35 +370,38 @@ namespace WordbookImpressLibrary.ViewModels
             Title,Description
         }
 
-        public QuizWordChoiceViewModel():this(new WordbookImpressViewModel(),new ConfigViewModel())
+        public QuizWordChoiceViewModel():this(new WordbookImpressViewModel())
         {
         }
 
-        public QuizWordChoiceViewModel(WordbookImpressViewModel model, ConfigViewModel config, ChoiceKind choiceKind = ChoiceKind.Description) : this( model.Record, choiceKind, model.Wordbook, new WordbookImpress[] { model.Wordbook },config)
+        public QuizWordChoiceViewModel(WordbookImpressViewModel model, ChoiceKind choiceKind = ChoiceKind.Description) : this( model.Record, choiceKind, model.Wordbooks, model.Wordbooks,Storage.ConfigStorage.Content)
         {
         }
 
-        public QuizWordChoiceViewModel(WordbookImpressViewModel model, ConfigViewModel config, int Seed, ChoiceKind choiceKind = ChoiceKind.Description) : this(model.Record, choiceKind, model.Wordbook, new WordbookImpress[] { model.Wordbook }, config, Seed)
+        public QuizWordChoiceViewModel(WordbookImpressViewModel model, int Seed, ChoiceKind choiceKind = ChoiceKind.Description) : this(model.Record, choiceKind, model.Wordbooks, model.Wordbooks, Storage.ConfigStorage.Content, Seed)
         {
         }
 
-        public QuizWordChoiceViewModel(Record Record, ChoiceKind choiceKind, WordbookImpress WordbookTarget, WordbookImpress[] WordbooksForChoice, ConfigViewModel config)
+        public QuizWordChoiceViewModel(Record Record, ChoiceKind choiceKind, WordbookImpress[] WordbookTarget, WordbookImpress[] WordbooksForChoice, Config config)
             :this(Record,choiceKind,WordbookTarget,WordbooksForChoice,config,new Random().Next()) { }
 
-        public QuizWordChoiceViewModel( Record Record,ChoiceKind choiceKind, WordbookImpress WordbookTarget, WordbookImpress[] WordbooksForChoice, ConfigViewModel config,int Seed)
+        public QuizWordChoiceViewModel(Record Record, ChoiceKind choiceKind, WordbookImpress[] WordbookTarget, WordbookImpress[] WordbooksForChoice, Config config, int Seed)
         {
             this.Seed = Seed;
             this.Record = Record;
-            this.WordbookTarget = WordbookTarget;
+            this.WordbooksTarget = WordbookTarget;
             this.WordbooksForChoice = WordbooksForChoice;
             this.ChoiceType = choiceKind;
 
-            TestResults = new TestResult[WordbookTarget.Words.Length];
-            for(int i=0;i< WordbookTarget.Words.Length; i++)
+            var tempResults = new List<TestResult>();
+            foreach (var w in WordbooksTarget)
             {
-                TestResults[i] = TestResult.Yet;
+                for (int i = 0; i < w.Words.Length; i++)
+                {
+                    tempResults.Add(TestResult.Yet);
+                }
             }
-
+            TestResults= tempResults.ToArray();
             this.ApplyConfig(config);
         }
 
@@ -433,7 +442,7 @@ namespace WordbookImpressLibrary.ViewModels
             };
         }
 
-        public void ApplyConfig(ConfigViewModel config)
+        public void ApplyConfig(Config config)
         {
             this.SkipChecked = config.SkipChecked;
             this.SkipMinCorrect = config.SkipMinCorrect;

@@ -6,8 +6,9 @@
              xmlns:vm="clr-namespace:WordbookImpressLibrary.ViewModels;assembly=WordbookImpressLibrary"
              Title="単語帳">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Order="Secondary" Text="削除" Clicked="ToolbarItem_Clicked" />
-    </ContentPage.ToolbarItems>
+        <ToolbarItem Order="Secondary" Text="削除" Clicked="ToolbarItem_Clicked_Delete" />
+        <ToolbarItem Order="Secondary" Text="並び替え" Clicked="ToolbarItem_Clicked_Sort" />
+    </ContentPage.ToolbarItems> 
     <ContentPage.BindingContext>
         <vm:WordbookImpressViewModel />
     </ContentPage.BindingContext>
@@ -15,6 +16,7 @@
         <ResourceDictionary>
             <vc:BooleanToColorValueConverter x:Key="BoolColorVC"/>
             <vc:BooleanToStringValueConverter x:Key="BoolStringVC" />
+            <vc:NullOrEmptyStringToTextValueConverter x:Key="NEStringVC" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -31,8 +33,8 @@
                 >
             <ListView.Header>
                 <StackLayout>
-                    <Image Margin="10" Source="{Binding UriLogo}" HeightRequest="150" HorizontalOptions="FillAndExpand" Aspect="AspectFit"/>
-                    <Label Text="{Binding WordbookTitle}" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                    <Image Margin="10" Source="{Binding UriLogo}" HeightRequest="150" HorizontalOptions="FillAndExpand" Aspect="AspectFit" IsVisible="{Binding UriLogo,Converter={StaticResource NEStringVC},ConverterParameter='False:True'}"/>
+                    <Label Text="{Binding WordbookTitle}" HorizontalOptions="Center" Style="{DynamicResource Key=MyTitleStyle}"/>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -47,6 +49,18 @@
                         <Button Grid.Row="1" Grid.Column="0" Text="単語クイズ" Clicked="Button_Clicked"/>
                         <Button Grid.Row="1" Grid.Column="1" Text="説明クイズ" Clicked="Button_Clicked2"/>
                     </Grid>
+                    <Frame Margin="5" CornerRadius="2" HasShadow="True" BackgroundColor="#FFFFFF" Padding="10">
+                        <SearchBar Text="{Binding SearchWord,Mode=TwoWay}" VerticalOptions="FillAndExpand">
+                            <!-- https://stackoverflow.com/questions/45472329/xamarin-forms-android-7-0-searchbar?rq=1 -->
+                            <SearchBar.HeightRequest>
+                                <OnPlatform x:TypeArguments="x:Double"
+                            iOS="-1.0"
+                            Android="40.0"
+                            WinPhone="-1">
+                                </OnPlatform>
+                            </SearchBar.HeightRequest>
+                        </SearchBar>
+                    </Frame>
                 </StackLayout>
             </ListView.Header>
             <ListView.ItemTemplate>

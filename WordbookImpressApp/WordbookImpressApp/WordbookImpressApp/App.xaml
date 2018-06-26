@@ -9,5 +9,15 @@
         <Style TargetType="Button">
             <Setter Property="Margin" Value="5" />
         </Style>
+        <ResourceDictionary>
+            <Style x:Key="MyTitleStyle" TargetType="Label" BaseResourceKey="TitleStyle">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+            <Style x:Key="MySubtitleStyle" TargetType="Label" BaseResourceKey="SubtitleStyle">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
+        </ResourceDictionary>
 	</Application.Resources>
 </Application>

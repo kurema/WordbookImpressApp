@@ -46,6 +46,40 @@ namespace WordbookImpressApp.ValueConverters
         }
     }
 
+    public class NullToTextValueConverter : Xamarin.Forms.IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            string text;
+            if (parameter == null || !(parameter is string)) text = "Null:Not Null";
+            else text = (string)parameter;
+            var texts = text.Split(':', (char)2);
+            return value==null?texts[0]:texts[1];
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class NullOrEmptyStringToTextValueConverter : Xamarin.Forms.IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            string text;
+            if (parameter == null || !(parameter is string)) text = "Null:Not Null";
+            else text = (string)parameter;
+            var texts = text.Split(':', (char)2);
+            return value == null ? texts[0] : (value is string && string.IsNullOrEmpty((string)value) ? texts[0]: texts[1]);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     public class QuizWordChoiceViewModelTestResultToStringValueConverter : Xamarin.Forms.IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

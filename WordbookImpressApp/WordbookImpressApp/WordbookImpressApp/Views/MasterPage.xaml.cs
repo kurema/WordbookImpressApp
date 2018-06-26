@@ -29,7 +29,11 @@ namespace WordbookImpressApp.Views
             {
                 MenuItems = new ObservableCollection<MasterMenuItem>(new[] {
                     new MasterMenuItem { TargetType=typeof(Views.WordbooksPage), Title = "単語帳",Description="登録済み単語帳" },
-                    new MasterMenuItem { TargetType=typeof(Views.WordbooksPage), Title = "ストア",Description="書籍を購入" },
+                    new MasterMenuItem { Title = "ストア",Description="書籍を購入" },
+                    new MasterMenuItem { Title = "総合単語帳",Description="全ての単語帳を総合" ,Action=(p)=>{
+                        p.Detail=new NavigationPage(new WordbookPage(new WordbookImpressLibrary.ViewModels.WordbookImpressViewModel(WordbookImpressLibrary.Storage.WordbooksImpressStorage.Content.ToArray(),WordbookImpressLibrary.Storage.RecordStorage.Content,"総合単語帳")));
+                    } },
+                    new MasterMenuItem { TargetType=typeof(ConfigPage), Title = "設定",Description="単語帳の設定" ,Replace=false },
                 });
             }
             public event PropertyChangedEventHandler PropertyChanged;
@@ -42,6 +46,8 @@ namespace WordbookImpressApp.Views
             public string Description { get; set; }
 
             public Type TargetType { get; set; }
+            public Action<MasterDetailPage> Action { get; set; }
+            public bool Replace { get; set; } = true;
         }
 
         private void ListViewMenuItems_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -59,8 +65,14 @@ namespace WordbookImpressApp.Views
                     if (item == null) { }
                     else
                     {
-                        ((MasterDetailPage)this.Parent).Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
-                        //((NavigationPage)(((MasterDetailPage)this.Parent).Detail)).PushAsync((Page)Activator.CreateInstance(item.TargetType));
+                        if (item.TargetType != null)
+                        {
+                            if (item.Replace)
+                                ((MasterDetailPage)this.Parent).Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
+                            else
+                                ((NavigationPage)(((MasterDetailPage)this.Parent).Detail)).PushAsync((Page)Activator.CreateInstance(item.TargetType));
+                        }
+                        item.Action?.Invoke((MasterDetailPage)this.Parent);
                         ((MasterDetailPage)this.Parent).IsPresented=false;
                     }
                 }

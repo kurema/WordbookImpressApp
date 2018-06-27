@@ -72,21 +72,45 @@ namespace WordbookImpressApp.Views
             if (e.SelectedItem == null || !(e.SelectedItem is QuizResultViewModel.TestResultItemViewModel)) return;
             if (Pushing) return;
             Pushing = true;
+            await WordsPageSemaphore.WaitAsync();
+            var page = WordsPage;
+            var selectTarget = ((QuizResultViewModel.TestResultItemViewModel)e.SelectedItem).Word;
+            page.SelectedItem = selectTarget;
+            await Navigation.PushModalAsync(page);
+            WordsPageSemaphore.Release();
+            (sender as ListView).SelectedItem = null;
+            Pushing = false;
+        }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            Task.Run(async () =>
+            {
+                await WordsPageSemaphore.WaitAsync();
+                var temp = WordsPage;
+                WordsPageSemaphore.Release();
+            });
+        }
+
+        private WordsPage wordsPage;
+        private WordsPage WordsPage => wordsPage = wordsPage ?? GetWordsPage();
+
+        private WordsPage GetWordsPage()
+        {
             var words = new System.Collections.ObjectModel.ObservableCollection<WordViewModel>();
             foreach (var item in Model.Items)
             {
                 words.Add(item.Word);
             }
-
-            var selectTarget = ((QuizResultViewModel.TestResultItemViewModel)e.SelectedItem).Word;
-            var page = new WordsPage(words);
-            page.SelectedItem = selectTarget;
-            await Navigation.PushModalAsync(page);
-
-            (sender as ListView).SelectedItem = null;
-            Pushing = false;
+            return new WordsPage(words);
         }
+
+        public System.Threading.SemaphoreSlim WordsPageSemaphore = new System.Threading.SemaphoreSlim(1, 1);
+
+
+
 
         private async void Button_Clicked_Retry(object sender, EventArgs e)
         {

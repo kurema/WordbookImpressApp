@@ -16,43 +16,50 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <Frame  Padding="20,10,20,10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="Center">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding SwitchVisibilityHeadCommand}"/>
-                    </Frame.GestureRecognizers>
-                    <Label Text="{Binding Head}" FontSize="Large" FontAttributes="Bold" TextColor="{Binding IsVisibleHead,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#04000000:#FF0000}">
-                    </Label>
-                </Frame>
-                <Frame  Padding="20,10,20,10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="FillAndExpand">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding SwitchVisibilityDescriptionCommand}"/>
-                    </Frame.GestureRecognizers>
-                    <Label Text="{Binding Description}" TextColor="{Binding IsVisibleDescription,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#08000000:#FF0000}">
-                    </Label>
-                </Frame>
-                <Frame  Padding="20,10,20,10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="FillAndExpand">
-                    <StackLayout>
-                        <StackLayout Orientation="Horizontal" Spacing="0">
-                            <Label Text="正解率 " />
-                            <Label Text="{Binding AnswerCountCorrectPercentage,StringFormat='{0:F0}'}" />
-                            <Label Text="% (" />
-                            <Label Text="{Binding AnswerCountCorrect}" />
-                            <Label Text=" / " />
-                            <Label Text="{Binding AnswerCountTotal}" />
-                            <Label Text=")" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="0">
+                <StackLayout>
+                    <Frame  Padding="20,10,20,10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="Center">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SwitchVisibilityHeadCommand}"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="{Binding Head}" FontSize="Large" FontAttributes="Bold" TextColor="{Binding IsVisibleHead,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#04000000:#FF0000}">
+                        </Label>
+                    </Frame>
+                    <Frame  Padding="20,10,20,10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="FillAndExpand">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SwitchVisibilityDescriptionCommand}"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="{Binding Description}" TextColor="{Binding IsVisibleDescription,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#08000000:#FF0000}">
+                        </Label>
+                    </Frame>
+                    <Frame  Padding="20,10,20,10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="FillAndExpand">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="0">
+                                <Label Text="正解率 " />
+                                <Label Text="{Binding AnswerCountCorrectPercentage,StringFormat='{0:F0}'}" />
+                                <Label Text="% (" />
+                                <Label Text="{Binding AnswerCountCorrect}" />
+                                <Label Text=" / " />
+                                <Label Text="{Binding AnswerCountTotal}" />
+                                <Label Text=")" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Switch IsToggled="{Binding ExcludeRemembered,Mode=TwoWay}"/>
+                                <Label VerticalOptions="CenterAndExpand" Text="記憶完了" />
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout Orientation="Horizontal">
-                            <Switch IsToggled="{Binding ExcludeRemembered,Mode=TwoWay}"/>
-                            <Label VerticalOptions="CenterAndExpand" Text="記憶完了" />
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
-                <Button Text="Google検索" Clicked="Button_Clicked_SearchGoogle"/>
-                <Button Text="Wikipedia検索" Clicked="Button_Clicked_SearchWikipedia"/>
-                <Button Text="weblio検索" Clicked="Button_Clicked_SearchWeblio"/>
-            </StackLayout>
-        </ScrollView>
+                    </Frame>
+                    <Button Text="Google検索" Clicked="Button_Clicked_SearchGoogle"/>
+                    <Button Text="Wikipedia検索" Clicked="Button_Clicked_SearchWikipedia"/>
+                    <Button Text="weblio検索" Clicked="Button_Clicked_SearchWeblio"/>
+                </StackLayout>
+            </ScrollView>
+            <Button Text="{Binding Message}" Command="{Binding ProceedCommand}" IsVisible="{Binding IsVisible}" x:Name="Proceed" Grid.Row="1"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -75,24 +75,36 @@ namespace WordbookImpressApp.Views
             Pushing = false;
         }
 
-        private async void Button_Clicked_WordsPage(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            if (Pushing) return;
-            Pushing = true;
-            //var page = new CarouselPage() { ItemTemplate = new DataTemplate(typeof(WordPage)), ItemsSource = Model.Words };
-            var page = new WordsPage(Model);
-            await Navigation.PushAsync(page);
-            Pushing = false;
+            base.OnAppearing();
+
+            Task.Run(async () =>
+            {
+                await WordsPageSemaphore.WaitAsync();
+                var temp = WordsPage;
+                WordsPageSemaphore.Release();
+            });
         }
+
+        private WordsPage wordsPage;
+        private WordsPage WordsPage =>wordsPage=wordsPage?? new WordsPage(Model);
+
+        public System.Threading.SemaphoreSlim WordsPageSemaphore = new System.Threading.SemaphoreSlim(1, 1);
+
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem == null || !(e.SelectedItem is WordViewModel)) return;
             if (Pushing) return;
             Pushing = true;
-            var page = new WordsPage(Model);
+            await WordsPageSemaphore.WaitAsync();
+            var page = WordsPage;
+            await page.CanPushSemaphore.WaitAsync();
             page.SelectedItem = (WordViewModel)e.SelectedItem;
-            await Navigation.PushAsync(page);
+            if (page.Parent == null) await Navigation.PushAsync(page);
+            page.CanPushSemaphore.Release();
+            WordsPageSemaphore.Release();
 
             (sender as ListView).SelectedItem = null;
             Pushing = false;

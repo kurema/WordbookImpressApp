@@ -26,7 +26,33 @@ namespace WordbookImpressLibrary.ViewModels
         public String AuthenticationUserName => HasMultipleWordbook ? "" : (wordbook?.Authentication?.UserName ?? "");
         public String AuthenticationPassword => HasMultipleWordbook ? "" : (wordbook?.Authentication?.Password ?? "");
 
-        private ObservableCollection<WordViewModel> words;
+        private ObservableCollection<WordViewModel> GetWords()
+        {
+            if (HasMultipleWordbook)
+            {
+                var w = new List<WordViewModel>();
+                foreach (var wb in this.wordbooks)
+                {
+                    foreach (var item in wb.Words)
+                    {
+                        w.Add(new WordViewModel(item, Record));
+                    }
+                }
+                return new ObservableCollection<WordViewModel>(w);
+            }
+            else
+            {
+                var w = new List<WordViewModel>();
+                foreach (var item in wordbook.Words)
+                {
+                    w.Add(new WordViewModel(item, Record));
+                }
+                return new ObservableCollection<WordViewModel>(w);
+            }
+        }
+
+        private ObservableCollection<WordViewModel> _words;
+        private ObservableCollection<WordViewModel> words { get => _words = _words ?? GetWords(); }
         public ObservableCollection<WordViewModel> Words
         {
             get
@@ -59,7 +85,7 @@ namespace WordbookImpressLibrary.ViewModels
                 }
                 return new ObservableCollection<WordViewModel>(words.Where((w) => w.Head.Contains(SearchWord) || w.Description.Contains(SearchWord)).OrderBy(w => (w.Head == SearchWord ? "0" : (w.Head.Contains(SearchWord) ? "1" : "2")) + w.Head));
             }
-            set { SetProperty(ref words, value); SearchWord = ""; }
+            set { SetProperty(ref _words, value); SearchWord = ""; }
         }
 
         private String searchWord = "";
@@ -150,12 +176,6 @@ namespace WordbookImpressLibrary.ViewModels
         {
             this.Record = record;
             this.wordbook = wordbook;
-            var w = new List<WordViewModel>();
-            foreach(var item in wordbook.Words)
-            {
-                w.Add(new WordViewModel(item, record));
-            }
-            words = new ObservableCollection<WordViewModel>(w);
 
             this.SortKind = Storage.ConfigStorage.Content?.SortKind ?? SortKindInfo.GetDefault();
         }
@@ -165,15 +185,6 @@ namespace WordbookImpressLibrary.ViewModels
             WordbooksTitle = Title;
             this.Record = record;
             this.wordbooks = wordbooks;
-            var w = new List<WordViewModel>();
-            foreach (var wb in this.wordbooks)
-            {
-                foreach (var item in wb.Words)
-                {
-                    w.Add(new WordViewModel(item, record));
-                }
-            }
-            words = new ObservableCollection<WordViewModel>(w);
 
             this.SortKind = Storage.ConfigStorage.Content?.SortKind ?? SortKindInfo.GetDefault();
         }

@@ -27,9 +27,23 @@ namespace WordbookImpressApp.Views
             }
         }
 
+
+        public System.Threading.SemaphoreSlim CanPushSemaphore = new System.Threading.SemaphoreSlim(1,1);
         public WordsPage(WordbookImpressViewModel model) : this()
         {
             this.BindingContext = model.Words;
+            model.PropertyChanged += async (s, e) =>
+            {
+                if (e.PropertyName == nameof(model.Words))
+                {
+                    await Task.Run(async () =>
+                    {
+                        await CanPushSemaphore.WaitAsync();
+                        this.BindingContext = model.Words;
+                        CanPushSemaphore.Release();
+                    });
+                }
+            };
         }
 
         public WordsPage(ObservableCollection<WordViewModel> model) : this()

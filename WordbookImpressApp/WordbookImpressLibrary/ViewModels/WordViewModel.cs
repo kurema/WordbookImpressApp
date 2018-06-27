@@ -9,7 +9,7 @@ namespace WordbookImpressLibrary.ViewModels
     public class WordViewModel:BaseViewModel
     {
         private Word Word;
-        private Record.WordStatus WordStatus;
+        private Record.WordStatus WordStatus { get => Record.GetWordStatusByHash(Word.Hash); set => Record.SetWordStatusByHash(Word.Hash, value); }
         private Record Record;
 
         public string Head => Word?.Title ?? "";
@@ -43,7 +43,6 @@ namespace WordbookImpressLibrary.ViewModels
         public WordViewModel(Word word, Record record)
         {
             this.Word = word;
-            this.WordStatus = record.GetWordStatusByHash(word.Hash);
             this.Record = record;
         }
 
@@ -52,7 +51,9 @@ namespace WordbookImpressLibrary.ViewModels
             get => WordStatus.AnswerCountTotal;
             set
             {
-                SetProperty(ref WordStatus.AnswerCountTotal, value);
+                var w = WordStatus;
+                SetProperty(ref w.AnswerCountTotal, value);
+                WordStatus = w;
                 Record.SetWordStatusByHash(Word.Hash, WordStatus);
             }
         }
@@ -67,7 +68,9 @@ namespace WordbookImpressLibrary.ViewModels
             get => WordStatus.AnswerCountCorrect;
             set
             {
-                SetProperty(ref WordStatus.AnswerCountCorrect, value);
+                var w = WordStatus;
+                SetProperty(ref w.AnswerCountCorrect, value);
+                WordStatus = w;
                 Record.SetWordStatusByHash(Word.Hash, WordStatus);
             }
         }
@@ -77,7 +80,9 @@ namespace WordbookImpressLibrary.ViewModels
             get => WordStatus.AnswerCountPass;
             set
             {
-                SetProperty(ref WordStatus.AnswerCountPass, value);
+                var w = WordStatus;
+                SetProperty(ref w.AnswerCountPass, value);
+                WordStatus = w;
                 Record.SetWordStatusByHash(Word.Hash, WordStatus);
             }
         }
@@ -87,7 +92,9 @@ namespace WordbookImpressLibrary.ViewModels
             get => WordStatus.ExcludeRemembered;
             set
             {
-                SetProperty(ref WordStatus.ExcludeRemembered, value);
+                var w = WordStatus;
+                SetProperty(ref w.ExcludeRemembered, value);
+                WordStatus = w;
                 Record.SetWordStatusByHash(Word.Hash, WordStatus);
             }
         }

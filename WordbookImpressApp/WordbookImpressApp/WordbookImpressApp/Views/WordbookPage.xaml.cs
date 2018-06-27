@@ -142,7 +142,7 @@ namespace WordbookImpressApp.Views
 
             string cancel = "キャンセル";
             var alertResult = await DisplayActionSheet("並び替え (現在 : "+currentOrderName+")", cancel, "", options.ToArray());
-            if (alertResult == cancel) { return; }
+            if (string.IsNullOrEmpty(alertResult) || alertResult == cancel) { return; }
             ConfigStorage.Content.SortKind = Model.SortKind = optionsDic[alertResult];
             ConfigStorage.SaveLocalData();
         }

@@ -171,4 +171,19 @@
   <ItemGroup>
     <BundleResource Include="Resources\Question.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tango.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_wordbook.png" />
+  </ItemGroup>
 </Project>

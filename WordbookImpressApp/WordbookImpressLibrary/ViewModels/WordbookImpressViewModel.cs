@@ -18,7 +18,7 @@ namespace WordbookImpressLibrary.ViewModels
         public bool HasMultipleWordbook { get => wordbooks != null; }
 
         public String Uri => HasMultipleWordbook ? "" : wordbook?.Uri;
-        public String UriLogo => Storage.ImageCacheStorage.GetImageUrl(HasMultipleWordbook ? "":wordbook?.UriLogo);
+        public String UriLogo => Storage.ImageCacheStorage.GetImageUrl(HasMultipleWordbook ? "":wordbook?.UriLogo)??"tango.jpg";
         public String WordbookTitle => String.IsNullOrEmpty(WordbookTitleUser) ? WordbookTitleHtml : WordbookTitleUser;
         public String WordbookTitleUser { get => HasMultipleWordbook ? WordbooksTitle : wordbook?.TitleUser; set { if (HasMultipleWordbook) return; wordbook.TitleUser = value; OnPropertyChanged(); } }
         public String WordbookTitleHtml => HasMultipleWordbook ? "" : wordbook?.Title;

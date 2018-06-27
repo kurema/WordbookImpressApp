@@ -15,18 +15,25 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
-                            <StackLayout HorizontalOptions="FillAndExpand">
-                                <Label VerticalOptions="FillAndExpand" 
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Margin="10" Source="{Binding Icon}" HeightRequest="30" WidthRequest="30" VerticalOptions="FillAndExpand"  Grid.Column="0"/>
+                            <StackLayout Padding="0,15" HorizontalOptions="FillAndExpand" Grid.Column="1">
+                                <StackLayout HorizontalOptions="FillAndExpand">
+                                    <Label VerticalOptions="FillAndExpand" 
                     VerticalTextAlignment="Center" 
                     Text="{Binding Title}" TextColor="Black"
                     FontSize="Medium"/>
-                                <Label VerticalOptions="FillAndExpand" 
+                                    <Label VerticalOptions="FillAndExpand" 
                     VerticalTextAlignment="Center" 
                     Text="{Binding Description}" TextColor="Gray"
                     FontSize="Small"/>
+                                </StackLayout>
                             </StackLayout>
-                        </StackLayout>
+                        </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

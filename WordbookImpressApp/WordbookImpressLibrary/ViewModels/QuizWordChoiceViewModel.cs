@@ -119,7 +119,7 @@ namespace WordbookImpressLibrary.ViewModels
                         if (shuffle) rand = new Random(rand.Next());
                     }
                 }
-                int answer = rand.Next(count - 1);
+                int answer = rand.Next(Math.Min(count, remain.Count+1));
                 for (int i = 0; i < count; i++)
                 {
                     if (i == answer) {
@@ -130,7 +130,7 @@ namespace WordbookImpressLibrary.ViewModels
                     else
                     {
                         if (remain.Count == 0) yield break;
-                        int target = rand.Next(remain.Count - 1);
+                        int target = rand.Next(remain.Count);
                         yield return new ChoicesEnumerableItem() { Text = GetByChoiceKind(remain[target], choiceKind) ,Highlight=false};
                         remain.RemoveAt(target);
                     }
@@ -182,7 +182,9 @@ namespace WordbookImpressLibrary.ViewModels
         private DateTime DateTimeInitial;
         public void Start()
         {
-            CurrentCount = 0;
+            CurrentCount = -1;
+            var count = GetNextQuizCount();
+            CurrentCount = count == -1 ? 0 : count;
             CurrentQuizStatus = QuizStatus.Choice;
             DateTimeInitial = DateTime.Now;
             //RetryStatus = RetryStatusEnum.First;
@@ -263,7 +265,7 @@ namespace WordbookImpressLibrary.ViewModels
             {
                 return true;
             }
-            if (info.AnswerCountTotal>0 &&  model.SkipMinRate<((double)info.AnswerCountCorrect/ (double)info.AnswerCountTotal))
+            if (info.AnswerCountTotal>0 &&  model.SkipMinRate<=((double)info.AnswerCountCorrect/ (double)info.AnswerCountTotal))
             {
                 return true;
             }
@@ -283,11 +285,11 @@ namespace WordbookImpressLibrary.ViewModels
             }
             while (GetSkipStatus(AnswerOrder[count], this, Record))
             {
+                count++;
                 if (count < 0 || count >= AnswerOrder.Length)
                 {
                     return -1;
                 }
-                count++;
             }
             return count;
         }
@@ -301,11 +303,11 @@ namespace WordbookImpressLibrary.ViewModels
             }
             while (GetSkipStatus(AnswerOrder[count], this, Record))
             {
+                count--;
                 if (count < 0 || count >= AnswerOrder.Length)
                 {
                     return -1;
                 }
-                count--;
             }
             return count;
         }

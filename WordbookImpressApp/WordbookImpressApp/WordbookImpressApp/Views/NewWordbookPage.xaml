@@ -8,8 +8,8 @@
         <vm:WordbookImpressInfo />
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save" Clicked="AddItem_Clicked"/>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked"/>
+        <ToolbarItem Text="保存" Clicked="AddItem_Clicked" Icon="icon_save" />
+        <ToolbarItem Text="取り消し" Clicked="Cancel_Clicked" Icon="icon_cancel"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>

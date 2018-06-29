@@ -6,14 +6,37 @@ namespace TestConsole
     {
         static void Main(string[] args)
         {
-            Process();
+            var sr = new System.IO.StreamReader(@"D:\temp\WordbookImpressApp\res\nuget\list.csv");
+            sr.ReadLine();
+            var csv = new CsvHelper.CsvReader(sr);
+            csv.Configuration.RegisterClassMap<AccountMap>();
+            var records = csv.GetRecords<NugetData>();
+            foreach (var item in records)
+            {
+                Console.WriteLine(item.Id+" "+item.Version+" "+item.LicenseUrl);
+            }
             Console.ReadLine();
-
         }
 
-        static async void Process()
+        public sealed class AccountMap : CsvHelper.Configuration.ClassMap<NugetData>
         {
-            var (wordbook, html, data) = await WordbookImpressLibrary.Models.WordbookImpress.Load(new Uri(@"https://impress.quizgenerator.net/impress/01impress/"), new WordbookImpressLibrary.Models.Authentication() { UserName = "", Password = "" });
+            public AccountMap()
+            {
+                Map(x => x.ProjectName).Name("ProjectName");
+                Map(x => x.Id).Name("Id");
+                Map(x => x.Version).Name("Version");
+                Map(x => x.AllVersions).Name("AllVersions");
+                Map(x => x.LicenseUrl).Name("LicenseUrl");
+            }
+        }
+
+        public class NugetData
+        {
+            public string ProjectName { get; set; }
+            public string Id { get; set; }
+            public string Version { get; set; }
+            public bool AllVersions { get; set; }
+            public string LicenseUrl { get; set; }
         }
     }
 }

@@ -7,9 +7,9 @@
     <ContentPage.Resources>
         <vc:NullOrEmptyStringToTextValueConverter x:Key="nevc" />
     </ContentPage.Resources>
-    <ContentPage.ToolbarItems>
-        <!--<ToolbarItem Text="取り消し" Clicked="ToolbarItem_Clicked" />-->
-    </ContentPage.ToolbarItems>
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Text="取り消し" Clicked="Cancel_Clicked"  Icon="icon_cancel"/>
+    </ContentPage.ToolbarItems>-->
     <ListView x:Name="MyListView"
               ItemSelected="MyListView_ItemSelected"
             ItemsSource="{Binding Items}"

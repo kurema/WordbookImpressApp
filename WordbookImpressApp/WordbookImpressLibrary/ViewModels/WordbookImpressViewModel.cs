@@ -53,10 +53,17 @@ namespace WordbookImpressLibrary.ViewModels
 
         private ObservableCollection<WordViewModel> _words;
         private ObservableCollection<WordViewModel> words { get => _words = _words ?? GetWords(); }
+        private ObservableCollection<WordViewModel> WordsCache = null;
+        private void WordsUpdate()
+        {
+            WordsCache = null;
+            OnPropertyChanged(nameof(Words));
+        }
         public ObservableCollection<WordViewModel> Words
         {
             get
             {
+                if (WordsCache != null) return WordsCache;
                 if (String.IsNullOrEmpty(SearchWord))
                 {
                     switch (SortKind.Kind)
@@ -83,16 +90,16 @@ namespace WordbookImpressLibrary.ViewModels
                             return SortKind.Ascending ? words : new ObservableCollection<WordViewModel>(words.Reverse());
                     }
                 }
-                return new ObservableCollection<WordViewModel>(words.Where((w) => w.Head.Contains(SearchWord) || w.Description.Contains(SearchWord)).OrderBy(w => (w.Head == SearchWord ? "0" : (w.Head.Contains(SearchWord) ? "1" : "2")) + w.Head));
+                return WordsCache = new ObservableCollection<WordViewModel>(words.Where((w) => w.Head.Contains(SearchWord) || w.Description.Contains(SearchWord)).OrderBy(w => (w.Head == SearchWord ? "0" : (w.Head.Contains(SearchWord) ? "1" : "2")) + w.Head));
             }
             set { SetProperty(ref _words, value); SearchWord = ""; }
         }
 
         private String searchWord = "";
-        public String SearchWord { get => searchWord; set { SetProperty(ref searchWord, value);OnPropertyChanged(nameof(Words)); } }
+        public String SearchWord { get => searchWord; set { SetProperty(ref searchWord, value); WordsUpdate(); } }
 
         private SortKindInfo sortKind = new SortKindInfo(SortKindType.original, true);
-        public SortKindInfo SortKind { get => sortKind;set { SetProperty(ref sortKind, value); OnPropertyChanged(nameof(Words)); } }
+        public SortKindInfo SortKind { get => sortKind; set { SetProperty(ref sortKind, value); WordsUpdate(); } }
         public struct SortKindInfo
         {
             public bool Ascending;

@@ -74,7 +74,7 @@
                                     </StackLayout.Resources>
                                     <Label Text="{Binding Result,Converter={StaticResource trsVC},ConverterParameter=正解:誤答:未回答:未出題:エラー}" FontAttributes="Bold" Margin="0,0,5,0"/>
                                     <Label Text="正解率 " />
-                                    <Label Text="{Binding Word.AnswerCountCorrectPercentage,StringFormat='{0:F0}'}" />
+                                    <Label Text="{Binding Word.AnswerCountCorrectPercentage,StringFormat='\{0:F0\}'}" />
                                     <Label Text="% (" />
                                     <Label Text="{Binding Word.AnswerCountCorrect}" />
                                     <Label Text=" / " />

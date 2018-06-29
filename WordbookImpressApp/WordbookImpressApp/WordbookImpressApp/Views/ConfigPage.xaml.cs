@@ -18,11 +18,12 @@ namespace WordbookImpressApp.Views
     {
         public ObservableCollection<SettingItems> Items { get; set; }
 
-        public bool SaveOnDisappearing { get; set; } = false;
+        public bool SaveOnDisappearing { get; set; } = true;
 
         protected override void OnDisappearing()
         {
-            WordbookImpressLibrary.Storage.ConfigStorage.SaveLocalData();
+            if (SaveOnDisappearing)
+                WordbookImpressLibrary.Storage.ConfigStorage.SaveLocalData();
 
             base.OnDisappearing();
         }
@@ -38,6 +39,27 @@ namespace WordbookImpressApp.Views
             InitializeComponent();
 
             SaveOnDisappearing = true;
+
+            var licenseChildren = new ObservableCollection<SettingItems>();
+            {
+                var licenseChildrenDic = new Dictionary<string, List<SettingItem>>();
+                var datas = Storage.LicenseStorage.NugetDatas;
+                foreach (var item in datas)
+                {
+                    if (! licenseChildrenDic.ContainsKey(item.ProjectName)) licenseChildrenDic.Add(item.ProjectName, new List<SettingItem>());
+                    licenseChildrenDic[item.ProjectName].Add(new SettingItem(item.Id, item.Version)
+                    {
+                        Action = async (a) =>
+                        {
+                            await DisplayAlert("ライセンス", item.LicenseText, "ok");
+                        }
+                    });
+                }
+                foreach (var item in licenseChildrenDic)
+                {
+                    licenseChildren.Add(new SettingItems(item.Value, item.Key));
+                }
+            }
 
             var storage = WordbookImpressLibrary.Storage.ConfigStorage.Content;
             Items = new ObservableCollection<SettingItems>
@@ -65,17 +87,44 @@ namespace WordbookImpressApp.Views
                                ,storage.SkipMinCorrect);
                         }
                     },
-                    new SettingItem("正解率", (w)=>storage.SkipMinRate==2?"正解率に関わらず出題します。": Math.Floor( storage.SkipMinRate*100)+ "%正解した単語をスキップします。"){
-                        Action=async (s)=>{
-                           storage.SkipMinRate=await GetByActionSheet<double>("スキップする正解率を選択してください。","キャンセル"
-                               ,new Dictionary<string, double>{{ "スキップしない",2},{ "50%",0.5}, { "60%", 0.6 }, { "75%", 0.75 }, { "90%", 0.9 }, { "100%", 1.0 } }
-                               ,storage.SkipMinRate);
+                    new SettingItem("正解率", (w)=>storage.SkipMinRate==2 || storage.SkipMinRateMinTotal==int.MaxValue ? "正解率に関わらず出題します。": storage.SkipMinRateMinTotal+"問以上出題した結果"+ Math.Floor( storage.SkipMinRate*100)+ "%正解した単語をスキップします。"){
+                        Children=new ObservableCollection<SettingItems>(){
+                            new SettingItems("解説"){
+                                new SettingItem("説明",(w)=>"この条件に関して説明します"){
+                                    Action=async (s) =>
+                                    {
+                                        await DisplayAlert("説明","出題問題数が少ない間はたまたま正解してしまい正解率が高くなってしまう事があります。\n適切な正解率を得るには一定回数の出題が必要です。\nまた基本もおろそかにしない事が大事です。\n以下の条件を片方でも満たさない場合には出題します。","了解");
+                                    }
+                                }
+                            },
+                            new SettingItems("正解率条件"){
+                                new SettingItem("正解率",(w)=>storage.SkipMinRate==2?"正解率に関わらず出題します。":"正解率が"+Math.Floor( storage.SkipMinRate*100)+"%未満の場合は出題します。"){
+                                    Action =async (s)=>{
+                                        storage.SkipMinRate=await GetByActionSheet<double>("スキップする正解率を選択してください。","キャンセル"
+                                            ,new Dictionary<string, double>{{ "スキップしない",2},{ "50%",0.5}, { "60%", 0.6 }, { "75%", 0.75 }, { "90%", 0.9 }, { "100%", 1.0 } },storage.SkipMinRate);
+                                    }
+                                }
+                                ,new SettingItem("出題数",(w)=>storage.SkipMinRateMinTotal==int.MaxValue?"出題数に関わらず出題します。":"出題数が"+storage.SkipMinRateMinTotal+"問未満の場合は出題します。"){
+                                    Action =async (s)=>{
+                                        storage.SkipMinRateMinTotal=await GetByActionSheet<int>("スキップに必要な出題数を選択してください。","キャンセル"
+                                            ,new Dictionary<string, int>{{ "スキップしない",int.MaxValue},{ "3問",3}, { "5問", 5 }, { "10問", 10 }, { "20問", 20 }, { "50問", 50 } },storage.SkipMinRateMinTotal);
+                                    }
+                                }
+                            }
                         }
                     },
+                    new SettingItem("無条件出題間隔",(w)=>storage.SkipVoidTicks==-1?"条件を満たさない場合は出題しません。":"最後に正解してから"+ ValueConverters.TimeSpanFormatValueConverter.FormatTimeSpan(new TimeSpan(storage.SkipVoidTicks),@"[if:Days:[Days]日][if:Hours:[Hours]時間][if:Minutes:[Minutes]分][if:Seconds:[Seconds]秒]") + "経過した場合には通常通り出題します。")
+                    {
+                        Action=async (s) =>
+                        {
+                            storage.SkipVoidTicks=await GetByActionSheet<long>("条件によらず出題される期間を指定してください。","キャンセル",
+                                new Dictionary<string, long>{ { "出題しない",-1},{ "10分",TimeSpan.FromMinutes(10).Ticks},{ "1時間",TimeSpan.FromHours(1).Ticks},{ "1日",TimeSpan.FromDays(1).Ticks},{ "7日",TimeSpan.FromDays(7).Ticks} },storage.SkipVoidTicks);
+                        }
+                    }
                 },
                 new SettingItems("WordbookImpressについて")
                 {
-                    new SettingItem("ライセンス", ""),
+                    new SettingItem("オープンソースライセンス", "オープンソースソフトウェアに関するライセンスの詳細"){ Children=licenseChildren},
                     new SettingItem("プロジェクトページ", "https://github.com/kurema/wordbookImpressApp"){ Action=async (w)=>{Device.OpenUri(new Uri("https://github.com/kurema/wordbookImpressApp/")); } },
                 },
             };
@@ -97,6 +146,7 @@ namespace WordbookImpressApp.Views
             public string Title { get; set; }
 
             public SettingItems(string Title = "") { this.Title = Title; }
+            public SettingItems(IEnumerable<SettingItem> items, string Title = "") : base(items) { this.Title = Title; }
         }
 
         public class SettingItem:WordbookImpressLibrary.ViewModels.BaseViewModel
@@ -147,9 +197,17 @@ namespace WordbookImpressApp.Views
             Pushing = true;
             if (item.Action != null) await item.Action?.Invoke(item);
             if (item.BoolSetting) item.BoolValue = !item.BoolValue;
-            if (item.Children != null) await Navigation.PushAsync(new ConfigPage(item.Children),true);
+            if (item.Children != null) {
+                var page = new ConfigPage(item.Children);
+                page.Disappearing += (s, ev) => item.SettingUpdate();
+                await Navigation.PushAsync(page, true); }
             item.SettingUpdate();
             Pushing = false;
+        }
+
+        private void Cancel_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -222,12 +222,15 @@ namespace WordbookImpressLibrary.ViewModels
                         case TestResult.Correct:
                             status.AnswerCountCorrect++;
                             status.AnswerCountTotal++;
+                            status.LastCorrectDateTime = DateTime.Now;
+                            status.LastAnswerDateTime = DateTime.Now;
                             correct++;
                             total++;
                             Record.SetWordStatusByHash(AnswerOrder[i].Hash, status);
                             break;
                         case TestResult.Wrong:
                             status.AnswerCountTotal++;
+                            status.LastCorrectDateTime = DateTime.Now;
                             total++;
                             Record.SetWordStatusByHash(AnswerOrder[i].Hash, status);
                             break;
@@ -258,18 +261,26 @@ namespace WordbookImpressLibrary.ViewModels
         private int skipMinCorrect=int.MaxValue;
         public int SkipMinCorrect { get => skipMinCorrect; set => SetProperty(ref skipMinCorrect, value); }
 
-        public static bool GetSkipStatus(Word word,QuizWordChoiceViewModel model,Record record)
+        private int skipMinRateMinTotal = 10;
+        public int SkipMinRateMinTotal { get => skipMinRateMinTotal; set => SetProperty(ref skipMinRateMinTotal, value); }
+
+        private TimeSpan skipVoidTimeSpan = new TimeSpan(-1);
+        public TimeSpan SkipVoidTimeSpan { get => skipVoidTimeSpan; set => SetProperty(ref skipVoidTimeSpan, value); }
+
+        public static bool GetSkipStatus(Word word, QuizWordChoiceViewModel model, Record record)
         {
             var info = record.GetWordStatusByHash(word.GetHash());
+
+            if(model.skipVoidTimeSpan.Ticks>0 && (info.LastCorrectDateTime+model.SkipVoidTimeSpan > DateTime.Now)) { return false; }
             if (model.SkipChecked && info.ExcludeRemembered)
             {
                 return true;
             }
-            if (info.AnswerCountTotal>0 &&  model.SkipMinRate<=((double)info.AnswerCountCorrect/ (double)info.AnswerCountTotal))
+            if (info.AnswerCountTotal > 0 && (model.SkipMinRateMinTotal <= info.AnswerCountTotal && model.SkipMinRate <= ((double)info.AnswerCountCorrect / (double)info.AnswerCountTotal)))
             {
                 return true;
             }
-            if (model.SkipMinCorrect!=-1 && model.SkipMinCorrect<=info.AnswerCountCorrect)
+            if (model.SkipMinCorrect != -1 && model.SkipMinCorrect <= info.AnswerCountCorrect)
             {
                 return true;
             }

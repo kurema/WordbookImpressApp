@@ -54,6 +54,20 @@ namespace WordbookImpressLibrary.Models
             public int AnswerCountCorrect;
             public int AnswerCountPass;
             public bool ExcludeRemembered;
+            public long LastAnswerTicks;
+            [System.Xml.Serialization.XmlIgnore()]
+            public DateTime LastAnswerDateTime
+            {
+                get => new DateTime(LastAnswerTicks);
+                set => LastAnswerTicks = value.Ticks;
+            }
+            public long LastCorrectTicks;
+            [System.Xml.Serialization.XmlIgnore()]
+            public DateTime LastCorrectDateTime
+            {
+                get => new DateTime(LastCorrectTicks);
+                set => LastCorrectTicks = value.Ticks;
+            }
         }
 
         public struct TestStatus

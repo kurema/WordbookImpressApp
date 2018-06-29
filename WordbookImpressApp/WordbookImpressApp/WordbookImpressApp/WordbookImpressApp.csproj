@@ -6,10 +6,34 @@
 
   <ItemGroup>
     <None Remove="Fonts\NotoSansCJKjp_Regular.otf" />
+    <None Remove="Licenses\CsvHelper.txt" />
+    <None Remove="Licenses\Google Noto Fonts.Noto Sans CJK JP.txt" />
+    <None Remove="Licenses\Microsoft.NETCore.UniversalWindowsPlatform.txt" />
+    <None Remove="Licenses\NETStandard.Library.txt" />
+    <None Remove="Licenses\nuget.csv" />
+    <None Remove="Licenses\SkiaSharp.Views.Forms.txt" />
+    <None Remove="Licenses\Xamarin.Android.Support.Design.txt" />
+    <None Remove="Licenses\Xamarin.Android.Support.v4.txt" />
+    <None Remove="Licenses\Xamarin.Android.Support.v7.AppCompat.txt" />
+    <None Remove="Licenses\Xamarin.Android.Support.v7.CardView.txt" />
+    <None Remove="Licenses\Xamarin.Android.Support.v7.MediaRouter.txt" />
+    <None Remove="Licenses\Xamarin.Forms.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Fonts\NotoSansCJKjp_Regular.otf" />
+    <EmbeddedResource Include="Licenses\CsvHelper.txt" />
+    <EmbeddedResource Include="Licenses\Google Noto Fonts.Noto Sans CJK JP.txt" />
+    <EmbeddedResource Include="Licenses\Microsoft.NETCore.UniversalWindowsPlatform.txt" />
+    <EmbeddedResource Include="Licenses\NETStandard.Library.txt" />
+    <EmbeddedResource Include="Licenses\nuget.csv" />
+    <EmbeddedResource Include="Licenses\SkiaSharp.Views.Forms.txt" />
+    <EmbeddedResource Include="Licenses\Xamarin.Android.Support.Design.txt" />
+    <EmbeddedResource Include="Licenses\Xamarin.Android.Support.v4.txt" />
+    <EmbeddedResource Include="Licenses\Xamarin.Android.Support.v7.AppCompat.txt" />
+    <EmbeddedResource Include="Licenses\Xamarin.Android.Support.v7.CardView.txt" />
+    <EmbeddedResource Include="Licenses\Xamarin.Android.Support.v7.MediaRouter.txt" />
+    <EmbeddedResource Include="Licenses\Xamarin.Forms.txt" />
   </ItemGroup>
 
   <ItemGroup>

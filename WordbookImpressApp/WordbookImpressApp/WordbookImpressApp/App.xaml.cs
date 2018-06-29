@@ -41,6 +41,7 @@ namespace WordbookImpressApp
             await WordbookImpressLibrary.Storage.RecordStorage.LoadLocalData();
             await WordbookImpressLibrary.Storage.WordbooksImpressStorage.LoadLocalData();
             await WordbookImpressLibrary.Storage.ConfigStorage.LoadLocalData();
+            await WordbookImpressApp.Storage.LicenseStorage.LoadNugetDatasLicenseText();
         }
     }
 }

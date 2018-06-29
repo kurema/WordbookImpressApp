@@ -1,0 +1,1 @@
+copy /Y *.txt ..\WordbookImpressApp\WordbookImpressApp\WordbookImpressApp\Licenses

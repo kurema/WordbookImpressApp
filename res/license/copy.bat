@@ -1,0 +1,1 @@
+copy /Y nuget.csv ..\..\WordbookImpressApp\WordbookImpressApp\WordbookImpressApp\Licenses\nuget.csv

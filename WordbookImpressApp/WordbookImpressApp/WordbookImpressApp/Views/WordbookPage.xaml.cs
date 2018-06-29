@@ -133,6 +133,7 @@ namespace WordbookImpressApp.Views
                 {"標準",WordbookImpressViewModel.SortKindType.original },
                 {"単語名順",WordbookImpressViewModel.SortKindType.headword },
                 {"成績順",WordbookImpressViewModel.SortKindType.score },
+                {"ランダム",WordbookImpressViewModel.SortKindType.random },
             };
 
             var options = new List<string>(labels.Count * 2);

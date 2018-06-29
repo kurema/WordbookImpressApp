@@ -25,7 +25,7 @@
                 <StackLayout>
                     <Image Margin="10" Source="{Binding Path=Wordbook.UriLogo}" HeightRequest="150" HorizontalOptions="FillAndExpand" Aspect="AspectFit"/>
                     <Label Text="{Binding Path=Wordbook.WordbookTitle}" HorizontalOptions="Center" Style="{DynamicResource Key=MyTitleStyle}" />
-                    <Frame Margin="5" CornerRadius="2" HasShadow="True" BackgroundColor="#FFFFFF">
+                    <Frame Style="{StaticResource CardStyle}">
                         <StackLayout>
                             <Label Text="成績" Style="{DynamicResource Key=MySubtitleStyle}"/>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="0">
@@ -59,7 +59,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Frame Margin="5" CornerRadius="2" HasShadow="True" BackgroundColor="{Binding Result,Converter={StaticResource trsVC},ConverterParameter=#FFFFFF:#FFCCCC:#CCCCCC:#CCCCCC:#FF0000}">
+                        <Frame Style="{StaticResource CardStyle}" BackgroundColor="{Binding Result,Converter={StaticResource trsVC},ConverterParameter=#FFFFFF:#FFCCCC:#CCCCCC:#CCCCCC:#FF0000}">
                             <!--<Frame Margin="5" CornerRadius="2" HasShadow="True" IsVisible="{Binding Result,Converter={StaticResource trsVC},ConverterParameter=True:True:False:False:False}" BackgroundColor="{Binding Result,Converter={StaticResource trsVC},ConverterParameter=#FFFFFF:#FFCCCC:#FFFFFF:#FFFFFF:#FFFFFF}">-->
                         <!--<Frame Margin="5" CornerRadius="2" HasShadow="True" BackgroundColor="#FFFFFF">-->
                             <StackLayout>

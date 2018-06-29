@@ -85,6 +85,20 @@ namespace WordbookImpressLibrary.ViewModels
                                     new ObservableCollection<WordViewModel>(linq) :
                                     new ObservableCollection<WordViewModel>(linq.Reverse());
                             }
+                        case SortKindType.random:
+                            {
+                                var random = new Random(unchecked((int)DateTime.Now.Date.Ticks));
+                                var dic = new Dictionary<WordViewModel, int>();
+                                foreach (var item in words)
+                                {
+                                    dic.Add(item, random.Next());
+                                }
+                                var linq = words
+                                    .OrderBy((w) => (dic[w]));
+                                return SortKind.Ascending ?
+                                    new ObservableCollection<WordViewModel>(linq) :
+                                    new ObservableCollection<WordViewModel>(linq.Reverse());
+                            }
                         case SortKindType.original:
                         default:
                             return SortKind.Ascending ? words : new ObservableCollection<WordViewModel>(words.Reverse());
@@ -119,7 +133,7 @@ namespace WordbookImpressLibrary.ViewModels
 
         public enum SortKindType
         {
-            original,headword,score
+            original,headword,score,random
         }
 
         public bool IsValid => HasMultipleWordbook ? true : wordbook?.IsValid ?? false;

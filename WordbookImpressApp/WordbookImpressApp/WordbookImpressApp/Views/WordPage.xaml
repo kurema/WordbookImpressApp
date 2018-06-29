@@ -41,7 +41,7 @@
                         <StackLayout>
                             <StackLayout Orientation="Horizontal" Spacing="0">
                                 <Label Text="正解率 " />
-                                <Label Text="{Binding AnswerCountCorrectPercentage,StringFormat='{0:F0}'}" />
+                                <Label Text="{Binding AnswerCountCorrectPercentage,StringFormat='\{0:F0\}'}" />
                                 <Label Text="% (" />
                                 <Label Text="{Binding AnswerCountCorrect}" />
                                 <Label Text=" / " />

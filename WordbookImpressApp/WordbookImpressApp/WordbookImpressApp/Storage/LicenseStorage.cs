@@ -11,13 +11,13 @@ namespace WordbookImpressApp.Storage
 {
     public class LicenseStorage
     {
-        public static ObservableCollection<License.NugetData> NugetDatas { get => nugetDatas = nugetDatas ?? GetNugetDatasTotal(); private set => nugetDatas = value; }
+        public static ObservableCollection<License.ILicenseEntry> NugetDatas { get => nugetDatas = nugetDatas ?? GetNugetDatasTotal(); private set => nugetDatas = value; }
         public static bool IsLicenseTextLoaded = false;
-        private static ObservableCollection<License.NugetData> nugetDatas;
+        private static ObservableCollection<License.ILicenseEntry> nugetDatas;
 
-        public static ObservableCollection<License.NugetData> GetNugetDatasTotal()
+        public static ObservableCollection<License.ILicenseEntry> GetNugetDatasTotal()
         {
-            var result = GetNugetDatasCsv();
+            var result = new ObservableCollection<License.ILicenseEntry>(GetNugetDatasCsv());
             foreach (var item in AdditonalLicense)
             {
                 result.Add(item);
@@ -26,9 +26,9 @@ namespace WordbookImpressApp.Storage
         }
 
 
-        public static License.NugetData[] AdditonalLicense => new License.NugetData[]
+        public static License.NormalLicense[] AdditonalLicense => new License.NormalLicense[]
         {
-            new License.NugetData(){AllVersions=false,Id="Google Noto Fonts.Noto Sans CJK JP",LicenseUrl="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL",ProjectName="WordbookImpressApp",Version="v2017-06-01-serif-cjk-1-1"}
+            new License.NormalLicense(){Name="Google Noto Fonts.Noto Sans CJK JP",LicenseUrl="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL",ProjectName="WordbookImpressApp",Version="v2017-06-01-serif-cjk-1-1"}
         };
 
         public static ObservableCollection<License.NugetData> GetNugetDatasCsv()
@@ -55,13 +55,13 @@ namespace WordbookImpressApp.Storage
             {
                 try
                 {
-                    using (var sr = new System.IO.StreamReader(typeof(LicenseStorage).Assembly.GetManifestResourceStream(nameof(WordbookImpressApp) + ".Licenses." + item.Id + ".txt")))
+                    using (var sr = new System.IO.StreamReader(typeof(LicenseStorage).Assembly.GetManifestResourceStream(nameof(WordbookImpressApp) + ".Licenses." + item.Name + ".txt")))
                     {
                         item.LicenseText = await sr.ReadToEndAsync();
                     }
 
                 }
-                catch (Exception e)
+                catch
                 {
                     item.LicenseText = item.LicenseUrl;
                 }

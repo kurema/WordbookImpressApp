@@ -9,6 +9,12 @@
         <Style TargetType="Button">
             <Setter Property="Margin" Value="5" />
         </Style>
+        <Style TargetType="Frame" x:Key="CardStyle">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="CornerRadius" Value="2"/>
+            <Setter Property="HasShadow" Value="True"/>
+            <Setter Property="BackgroundColor" Value="#FFFFFF"/>
+        </Style>
         <ResourceDictionary>
             <Style x:Key="MyTitleStyle" TargetType="Label" BaseResourceKey="TitleStyle">
                 <Setter Property="FontAttributes" Value="Bold" />

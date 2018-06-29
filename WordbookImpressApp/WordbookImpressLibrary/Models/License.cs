@@ -35,7 +35,27 @@ namespace WordbookImpressLibrary.Models
             }
         }
 
-        public class NugetData
+        public interface ILicenseEntry
+        {
+            string ProjectName { get; }
+            string Name { get; }
+            string Version { get; }
+            string LicenseUrl { get; }
+            string LicenseText { get; set; }
+            string ProjectUrl { get; }
+        }
+
+        public class NormalLicense : ILicenseEntry
+        {
+            public string ProjectName { get; set; }
+            public string Name { get; set; }
+            public string Version { get; set; }
+            public string LicenseUrl { get; set; }
+            public string LicenseText { get; set; }
+            public string ProjectUrl { get; set; }
+        }
+
+        public class NugetData:ILicenseEntry
         {
             public string ProjectName { get; set; }
             public string Id { get; set; }
@@ -43,6 +63,8 @@ namespace WordbookImpressLibrary.Models
             public bool AllVersions { get; set; }
             public string LicenseUrl { get; set; }
             public string LicenseText { get; set; }
+            public string Name => Id;
+            public string ProjectUrl => "https://www.nuget.org/packages/" + Id;
         }
     }
 }

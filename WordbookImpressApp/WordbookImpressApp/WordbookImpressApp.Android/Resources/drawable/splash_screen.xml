@@ -4,6 +4,7 @@
     <color android:color="@color/splash_background"/>
   </item>
   <item>
+    <!-- https://stackoverflow.com/questions/40274233/how-to-scale-and-centre-a-drawable-inside-layer-list-android/40298081 -->
     <bitmap
         android:src="@drawable/splash"
         android:tileMode="disabled"

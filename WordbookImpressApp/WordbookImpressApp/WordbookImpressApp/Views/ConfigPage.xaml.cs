@@ -9,7 +9,7 @@ using Xamarin.Forms.Xaml;
 
 using System.Runtime.CompilerServices;
 using System.Collections.Generic;
-
+using System.Globalization;
 
 namespace WordbookImpressApp.Views
 {
@@ -51,7 +51,7 @@ namespace WordbookImpressApp.Views
                         Action=async (s)=>{
                            storage.ChoiceCount=await GetByActionSheet<int>("選択肢の数を選択してください。"
                                ,new Dictionary<string, int>{{ "2択",2}, { "3択", 3 }, { "4択", 4 }, { "5択", 5 }, { "6択", 6 }, { "7択", 7 }, { "8択", 8 }, }
-                               ,storage.ChoiceCount);
+                               ,storage.ChoiceCount,false,(a)=>(a is int)&&(int)a>=2);
                         }
                     },
                 },
@@ -65,7 +65,7 @@ namespace WordbookImpressApp.Views
                         Action=async (s)=>{
                            storage.SkipMinCorrect=await GetByActionSheet<int>("スキップする正解数を選択してください。"
                                ,new Dictionary<string, int>{{ "スキップしない",int.MaxValue},{ "1回",1}, { "2回", 2 }, { "3回", 3 }, { "5回", 5 }, { "10回", 10 } }
-                               ,storage.SkipMinCorrect);
+                               ,storage.SkipMinCorrect,true,(a)=>(a is int)&&(int)a>=1);
                         }
                     },
                     new SettingItem("正解率", (w)=>storage.SkipMinRate==2 || storage.SkipMinRateMinTotal==int.MaxValue ? "正解率に関わらず出題します。": storage.SkipMinRateMinTotal+"問以上出題した結果"+ Math.Floor( storage.SkipMinRate*100)+ "%正解した単語をスキップします。"){
@@ -82,24 +82,24 @@ namespace WordbookImpressApp.Views
                                 new SettingItem("正解率",(w)=>storage.SkipMinRate==2?"正解率に関わらず出題します。":"正解率が"+Math.Floor( storage.SkipMinRate*100)+"%未満の場合は出題します。"){
                                     Action =async (s)=>{
                                         storage.SkipMinRate=await GetByActionSheet<double>("スキップする正解率を選択してください。"
-                                            ,new Dictionary<string, double>{{ "スキップしない",2},{ "50%",0.5}, { "60%", 0.6 }, { "75%", 0.75 }, { "90%", 0.9 }, { "100%", 1.0 } },storage.SkipMinRate);
+                                            ,new Dictionary<string, double>{{ "スキップしない",2},{ "50%",0.5}, { "60%", 0.6 }, { "75%", 0.75 }, { "90%", 0.9 }, { "100%", 1.0 } },storage.SkipMinRate,true,(a)=>(a is double)&&(((double)a>0 &&(double)a<=1)||(double)a==2),new PercentageValueConverter());
                                     }
                                 }
                                 ,new SettingItem("出題数",(w)=>storage.SkipMinRateMinTotal==int.MaxValue?"出題数に関わらず出題します。":"出題数が"+storage.SkipMinRateMinTotal+"問未満の場合は出題します。"){
                                     Action =async (s)=>{
                                         storage.SkipMinRateMinTotal=await GetByActionSheet<int>("スキップに必要な出題数を選択してください。"
-                                            ,new Dictionary<string, int>{{ "スキップしない",int.MaxValue},{ "3問",3}, { "5問", 5 }, { "10問", 10 }, { "20問", 20 }, { "50問", 50 } },storage.SkipMinRateMinTotal);
+                                            ,new Dictionary<string, int>{{ "スキップしない",int.MaxValue},{ "3問",3}, { "5問", 5 }, { "10問", 10 }, { "20問", 20 }, { "50問", 50 } },storage.SkipMinRateMinTotal,true,(a)=>(a is int)&&(int)a>=1);
                                     }
                                 }
                             }
                         }
                     },
-                    new SettingItem("無条件出題間隔",(w)=>storage.SkipVoidTicks==-1?"条件を満たさない場合は出題しません。":"最後に正解してから"+ ValueConverters.TimeSpanFormatValueConverter.FormatTimeSpan(new TimeSpan(storage.SkipVoidTicks),@"[if:Days:[Days]日][if:Hours:[Hours]時間][if:Minutes:[Minutes]分][if:Seconds:[Seconds]秒]") + "経過した場合には通常通り出題します。")
+                    new SettingItem("条件無視期間",(w)=>storage.SkipVoidTicks==-1?"条件を満たさない場合は出題しません。":"最後に正解してから"+ ValueConverters.TimeSpanFormatValueConverter.FormatTimeSpan(new TimeSpan(storage.SkipVoidTicks),@"[if:Days:[Days]日][if:Hours:[Hours]時間][if:Minutes:[Minutes]分][if:Seconds:[Seconds]秒]") + "経過した場合には通常通り出題します。")
                     {
                         Action=async (s) =>
                         {
-                            storage.SkipVoidTicks=await GetByActionSheet<long>("条件によらず出題される期間を指定してください。",
-                                new Dictionary<string, long>{ { "出題しない",-1},{ "10分",TimeSpan.FromMinutes(10).Ticks},{ "1時間",TimeSpan.FromHours(1).Ticks},{ "1日",TimeSpan.FromDays(1).Ticks},{ "7日",TimeSpan.FromDays(7).Ticks} },storage.SkipVoidTicks);
+                            storage.SkipVoidTicks=await GetByActionSheet<long>("条件によらず出題されるようになるまでの期間を指定してください。",
+                                new Dictionary<string, long>{ { "出題しない",-1},{ "10分",TimeSpan.FromMinutes(10).Ticks},{ "1時間",TimeSpan.FromHours(1).Ticks},{ "1日",TimeSpan.FromDays(1).Ticks},{ "7日",TimeSpan.FromDays(7).Ticks} },storage.SkipVoidTicks,true,(a)=>(a is long)&&((long)a>=TimeSpan.FromSeconds(1).Ticks||(long)a==-1),new TimeSpanTicksValueConverter(),Keyboard.Plain);
                         }
                     }
                 },
@@ -144,29 +144,120 @@ namespace WordbookImpressApp.Views
             return licenseChildren;
         }
 
-        public async Task<T> GetByActionSheet<T>(string Message, Dictionary<string, T> Options, T currentValue)
+        public async Task<T> GetByActionSheet<T>(string Message, Dictionary<string, T> Options, T currentValue,bool isFirstSpecial=false, Func<object, bool> IsValid = null, WordbookImpressLibrary.ViewModels.EntryWithOptionViewModel.IValueConverter converter=null, Keyboard keyboard=null)
         {
             var w = new List<string>();
             string Cancel = "キャンセル";
             string Custom = "カスタム";
-            var options = new ObservableCollection<WordbookImpressLibrary.ViewModels.EntryWithOptionViewModel<T>.EntryWithOptionViewModelEntry>();
+            var options = new ObservableCollection<WordbookImpressLibrary.ViewModels.EntryWithOptionViewModel.EntryWithOptionViewModelEntry>();
             foreach (var item in Options) {
                 w.Add(item.Key);
-                options.Add(new WordbookImpressLibrary.ViewModels.EntryWithOptionViewModel<T>.EntryWithOptionViewModelEntry(item.Key, item.Value));
+                options.Add(new WordbookImpressLibrary.ViewModels.EntryWithOptionViewModel.EntryWithOptionViewModelEntry(item.Key, item.Value));
             }
+            if (isFirstSpecial && Options.Count > 0) options[0].IsSpecialValue = true;
             w.Add(Custom);
             var result = await DisplayActionSheet(Message, Cancel, null, w.ToArray());
             if (string.IsNullOrEmpty(result) || result == Cancel) return currentValue;
             if (result == Custom)
             {
-                var page = new EntryWithOptionPage();
-                page.SetViewModel(new WordbookImpressLibrary.ViewModels.EntryWithOptionViewModel<T>(Message, options, currentValue));
+                var vm = (new WordbookImpressLibrary.ViewModels.EntryWithOptionViewModel(Message, options, currentValue, IsValid, converter));
+                var page = new EntryWithOptionPage(vm);
+                var waitHandle = new System.Threading.EventWaitHandle(false, System.Threading.EventResetMode.AutoReset);
+                page.Disappearing += (s, e) => waitHandle.Set();
+
+                Keyboard keyboard_result = Keyboard.Plain;
+                if (keyboard != null)
+                {
+                    keyboard_result = keyboard;
+                }
+                else if(typeof(T) == typeof(Int16) || typeof(T) == typeof(Int32) || typeof(T) == typeof(Int64))
+                {
+                    keyboard_result = Keyboard.Numeric;
+                }
+                else if (typeof(T) == typeof(float) || typeof(T) == typeof(double))
+                {
+                    keyboard_result = Keyboard.Numeric;
+                }
+                page.Keyboard = keyboard_result;
+
                 await Navigation.PushAsync(page);
-                return currentValue;
+                await Task.Run(() => waitHandle.WaitOne());
+                var tmp = vm.GetValue<T>();
+                if (tmp.Item2) return tmp.Item1; else return currentValue;
             }
             else
             {
                 return Options[result];
+            }
+        }
+
+        public class PercentageValueConverter : WordbookImpressLibrary.ViewModels.EntryWithOptionViewModel.IValueConverter
+        {
+            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                if(value is double) { return (((double)value) * 100).ToString(); }
+                return "0";
+            }
+
+            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                if(value is string)
+                {
+                    double result;
+                    if(double.TryParse((string)value, out result))
+                    {
+                        return result/100.0;
+                    }
+                    return null;
+                }
+                return null;
+            }
+        }
+
+        public class TimeSpanTicksValueConverter : WordbookImpressLibrary.ViewModels.EntryWithOptionViewModel.IValueConverter
+        {
+            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                if (value is long) { return new TimeSpan((long)value).ToString(); }
+                return "";
+            }
+
+            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                if (value is string)
+                {
+                    TimeSpan timeSpan;
+                    if (TimeSpan.TryParse((string)value, out timeSpan))
+                    {
+                        return timeSpan.Ticks;
+                    }
+                    return null;
+                }
+                return null;
+            }
+        }
+
+
+        public class TimeSpanValueConverter : WordbookImpressLibrary.ViewModels.EntryWithOptionViewModel.IValueConverter
+        {
+            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                if (value is TimeSpan) { return ((TimeSpan)value).ToString(); }
+                return "";
+            }
+
+            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                if (value is string)
+                {
+                    TimeSpan timeSpan;
+                    if(TimeSpan.TryParse((string)value, out timeSpan))
+                    {
+                        return timeSpan;
+                    }
+                    return null;
+                }
+                return null;
             }
         }
 

@@ -10,7 +10,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Text="{Binding Name}" Style="{DynamicResource Key=MyTitleStyle}" HorizontalOptions="Center"/>
+                <Label Margin="10" Text="{Binding Name}" Style="{DynamicResource Key=MyTitleStyle}" HorizontalOptions="Center"/>
                 <Frame Style="{StaticResource CardStyle}">
                     <StackLayout>
                         <Label Text="{Binding LicenseText}"/>

@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WordbookImpressApp.Views.EntryWithOptionPage">
+             x:Class="WordbookImpressApp.Views.EntryWithOptionPage"
+             Title="選択">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Padding="20" Spacing="20">
                 <Label Text="{Binding Message}" />
-                <Entry HorizontalOptions="FillAndExpand" BindingContext="{Binding ContentAsString}" />
+                <Entry x:Name="MainEntry" HorizontalOptions="FillAndExpand" Text="{Binding ContentAsString,Mode=TwoWay}" />
             </StackLayout>
             <ListView ItemsSource="{Binding Options}" ItemSelected="ListView_ItemSelected" VerticalOptions="FillAndExpand"
             CachingStrategy="RecycleElement" HasUnevenRows="True">

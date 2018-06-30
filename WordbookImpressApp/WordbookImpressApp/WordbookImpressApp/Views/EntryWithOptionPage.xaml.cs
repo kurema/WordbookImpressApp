@@ -14,21 +14,42 @@ namespace WordbookImpressApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EntryWithOptionPage : ContentPage
 	{
+        public EntryWithOptionViewModel Model => this.BindingContext as EntryWithOptionViewModel;
+        public Xamarin.Forms.Keyboard Keyboard
+        {
+            get => MainEntry.Keyboard;
+            set => MainEntry.Keyboard = value;
+        }
+
         public EntryWithOptionPage ()
 		{
 			InitializeComponent ();
+
+            this.BindingContextChanged += EntryWithOptionPage_BindingContextChanged;
 		}
 
-        public void SetViewModel<T>(EntryWithOptionViewModel<T> model)
+        private void EntryWithOptionPage_BindingContextChanged(object sender, EventArgs e)
         {
-            this.BindingContext = model;
-            this.T = typeof(T);
+            if (Model == null) return;
         }
 
-        public Type T;
+        public EntryWithOptionPage(EntryWithOptionViewModel model):this()
+        {
+            this.BindingContext = model;
+        }
+
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            var item = e.SelectedItem as EntryWithOptionViewModel.EntryWithOptionViewModelEntry;
+            if(Model != null && item != null)
+            {
+                Model.ContentAsString = Model.GetString(item.Content);
+            }
+            if(sender is ListView)
+            {
+                ((ListView)sender).SelectedItem = null;
+            }
         }
     }
 }

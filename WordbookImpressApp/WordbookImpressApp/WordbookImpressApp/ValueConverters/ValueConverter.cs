@@ -233,7 +233,11 @@ namespace WordbookImpressApp.ValueConverters
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            if (value == null || !(value is bool))
+            {
+                return null;
+            }
+            return !((bool)value);
         }
     }
 
@@ -265,8 +269,6 @@ namespace WordbookImpressApp.ValueConverters
             throw new NotImplementedException();
         }
     }
-
-
 
     public class QuizWordChoiceViewModelQuizStatusToTextValueConverter : Xamarin.Forms.IValueConverter
     {

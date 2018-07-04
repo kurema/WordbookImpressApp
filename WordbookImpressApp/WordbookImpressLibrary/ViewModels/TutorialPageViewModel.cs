@@ -13,6 +13,8 @@ namespace WordbookImpressLibrary.ViewModels
         public string DescriptionText { get => descriptionText; set => SetProperty(ref descriptionText, value); }
         private string imageUrl;
         public string ImageUrl { get => imageUrl; set => SetProperty(ref imageUrl, value); }
+        private TutorialPagesViewModel parent;
+        public TutorialPagesViewModel Parent { get => parent; set => SetProperty(ref parent, value); }
 
         public TutorialPageViewModel(string title,string description,string image)
         {
@@ -24,11 +26,23 @@ namespace WordbookImpressLibrary.ViewModels
 
     public class TutorialPagesViewModel : BaseViewModel
     {
+        public TutorialPagesViewModel(ObservableCollection<TutorialPageViewModel> Items)
+        {
+            this.Items = Items;
+        }
+
+        private Action onFinishAction;
+        public Action OnFinishAction { get => onFinishAction; set => SetProperty(ref onFinishAction, value); }
+
         private ObservableCollection<TutorialPageViewModel> items;
         public ObservableCollection<TutorialPageViewModel> Items { get => items; set
             {
                 SetProperty(ref items, value);
                 SelectedCount = 0;
+                foreach(var item in items)
+                {
+                    item.Parent = this;
+                }
             }
         }
         private int selectedCount;
@@ -53,6 +67,11 @@ namespace WordbookImpressLibrary.ViewModels
                 {
                     return null;
                 }
+            }
+            set
+            {
+                var result= Items.IndexOf(value);
+                if (result != -1) SelectedCount = result;
             }
         }
         private Helper.DelegateCommand previousPageComman;

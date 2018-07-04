@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WordbookImpressApp.Views.TutorialsPage"
+             xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
+              SelectedItem="{Binding SelectedItem}"
+              ItemsSource="{Binding Items}" 
+              >
+    <CarouselPage.Resources>
+        <vc:BooleanNotValueConverter x:Key="notVC" />
+    </CarouselPage.Resources>
+    <CarouselPage.ItemTemplate>
+        <DataTemplate>
+            <ContentPage>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{Binding ImageUrl}" Grid.ColumnSpan="2" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" />
+                    <StackLayout Padding="10" Spacing="10" Grid.ColumnSpan="2" Grid.Row="1">
+                        <Label HorizontalTextAlignment="Center" Text="{Binding TitleText}" Style="{DynamicResource Key=TitleStyle}" />
+                        <Label HorizontalTextAlignment="Center" Text="{Binding DescriptionText}" />
+                    </StackLayout>
+                    <Button Clicked="Button_Clicked_Finish"  IsVisible="{Binding Parent.IsSinglePage,Converter={StaticResource notVC}}" Text="スキップ" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="0"/>
+                    <Button Command="{Binding Parent.NextPageCommand}" IsVisible="{Binding Parent.IsSinglePage,Converter={StaticResource notVC}}" Text="次へ" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="1"/>
+                    <Button Clicked="Button_Clicked_Finish" IsVisible="{Binding Parent.IsSinglePage}" Text="戻る" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" Grid.Row="2" Grid.ColumnSpan="2"/>
+                </Grid>
+            </ContentPage>
+        </DataTemplate>
+    </CarouselPage.ItemTemplate>
+</CarouselPage>

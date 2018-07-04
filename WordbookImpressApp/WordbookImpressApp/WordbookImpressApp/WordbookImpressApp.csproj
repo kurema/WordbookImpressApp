@@ -70,7 +70,7 @@
     <EmbeddedResource Update="Views\ConfigPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\TutorialPage.xaml">
+    <EmbeddedResource Update="Views\TutorialsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\WordbookPage.xaml">

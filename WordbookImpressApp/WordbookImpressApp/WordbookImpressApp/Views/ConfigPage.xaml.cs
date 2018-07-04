@@ -103,6 +103,17 @@ namespace WordbookImpressApp.Views
                         }
                     }
                 },
+#if DEBUG
+                new SettingItems("デバッグ")
+                {
+                    new SettingItem("チュートリアル", "未完成のチュートリアルを表示します。"){
+                        Action=async (s) =>
+                        {
+                            await Navigation.PushAsync(new TutorialsPage());
+                        }
+                    },
+                },
+#endif
                 new SettingItems("WordbookImpressについて")
                 {
                     new SettingItem("オープンソースライセンス", "オープンソースソフトウェアに関するライセンスの詳細"){ Children=licenseChildren},

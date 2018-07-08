@@ -17,6 +17,7 @@
             <vc:QuizWordChoiceViewModelQuizStatusToChoiceVisibilityValueConverter x:Key="ChoiceVC" />
             <vc:QuizWordChoiceViewModelQuizStatusToTextValueConverter x:Key="ResultTextVC"/>
             <vc:BooleanToColorValueConverter x:Key="BoolColorVC"/>
+            <vc:ToStringSwitchValueConverter x:Key="StringSwitchCV" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -59,8 +60,23 @@
                 <ProgressBar HeightRequest="5" Grid.Row="2" Progress="{Binding Progress}"  VerticalOptions="Fill" HorizontalOptions="FillAndExpand"/>
             </Grid>
             <!-- I know this is not cool. -->
-            <Button BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Transparent" Clicked="ClickGestureRecognizer_Clicked" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource CorrectVC}}" />
-            <Button BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Transparent" Clicked="ClickGestureRecognizer_Clicked" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource WrongVC}}" />
+            <!--<Button BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Transparent" Clicked="ClickGestureRecognizer_Clicked" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource CorrectVC}}" />
+            <Button BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Transparent" Clicked="ClickGestureRecognizer_Clicked" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource WrongVC}}" />-->
+            <Button BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Transparent" Clicked="ClickGestureRecognizer_Clicked" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource StringSwitchCV},ConverterParameter='Choice:False::Correct:True::Wrong:True'}" />
+            <ScrollView IsVisible="{Binding DescriptionDisplay}" VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <Frame  Padding="20,10,20,10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="Center">
+                        <Label Text="{Binding CurrentWordText}" FontSize="Large" />
+                    </Frame>
+                    <Frame  Padding="10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10">
+                        <Label Text="{Binding AnswerText}" Style="{DynamicResource ListItemTextStyle}" FontSize="Medium" />
+                    </Frame>
+                    <Frame  Padding="10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10">
+                        <Label Text="{Binding Description}" Style="{DynamicResource ListItemTextStyle}" FontSize="Medium" />
+                    </Frame>
+                    <Button Text="次へ" Clicked="ClickGestureRecognizer_Clicked" />
+                </StackLayout>
+            </ScrollView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

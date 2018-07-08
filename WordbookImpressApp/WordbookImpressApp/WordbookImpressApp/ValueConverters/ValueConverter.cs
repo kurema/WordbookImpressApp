@@ -220,6 +220,33 @@ namespace WordbookImpressApp.ValueConverters
         }
     }
 
+    public class ToStringSwitchValueConverter : Xamarin.Forms.IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var text = value.ToString();
+            if (parameter == null) { return value; }
+            var dicts = parameter.ToString().Split(new[] { "::" }, StringSplitOptions.RemoveEmptyEntries);
+            var dict = new Dictionary<string, string>();
+            foreach (var item in dicts)
+            {
+                var kvp = item.Split(':', (char)2);
+                if (kvp.Length != 2) continue;
+                dict.Add(kvp[0], kvp[1]);
+            }
+            foreach (var item in dict)
+            {
+                if (text == item.Key) return item.Value;
+            }
+            return "";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     public class BooleanNotValueConverter : Xamarin.Forms.IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

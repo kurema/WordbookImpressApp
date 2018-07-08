@@ -13,6 +13,9 @@ namespace WordbookImpressLibrary.ViewModels
     {
         public int Seed { get; set; }
 
+        public string Description => currentModeWord ? "" : CurrentQuizChoice.Description;
+        public bool DescriptionDisplay => this.CurrentQuizStatus != QuizStatus.Choice && !String.IsNullOrWhiteSpace(Description);
+
         private ChoicesEnumerable ChoicesLast;
         public ChoicesEnumerable Choices
         {
@@ -216,6 +219,7 @@ namespace WordbookImpressLibrary.ViewModels
         }
 
         public double Progress => CurrentModeWord ? (currentWordCount + 1.0) / Math.Max(1, AnswerOrder.Length + QuizOrder.Length) : (CurrentQuizChoiceCount + AnswerOrder.Length + 1.0) / Math.Max(1, AnswerOrder.Length + QuizOrder.Length);
+        public string AnswerText => CurrentModeWord ? CurrentWord.Title : CurrentQuizChoice.Answer;
 
         private Word CurrentWord { get => AnswerOrder.Length == 0 || CurrentWordCount>=AnswerOrder.Length ? new Word() : AnswerOrder[CurrentWordCount]; }
         private QuizChoice CurrentQuizChoice { get => QuizOrder.Length == 0 || currentQuizChoiceCount >= QuizOrder.Length ? new QuizChoice() : QuizOrder[CurrentQuizChoiceCount]; }
@@ -246,6 +250,9 @@ namespace WordbookImpressLibrary.ViewModels
                 OnPropertyChanged(nameof(this.CurrentWordText));
                 OnPropertyChanged(nameof(this.Choices));
                 OnPropertyChanged(nameof(this.Progress));
+                OnPropertyChanged(nameof(DescriptionDisplay));
+                OnPropertyChanged(nameof(Description));
+                OnPropertyChanged(nameof(AnswerText));
                 CurrentQuizStatus = QuizStatus.Choice;
             }
         }
@@ -263,6 +270,9 @@ namespace WordbookImpressLibrary.ViewModels
                 OnPropertyChanged(nameof(this.CurrentWordText));
                 OnPropertyChanged(nameof(this.Choices));
                 OnPropertyChanged(nameof(this.Progress));
+                OnPropertyChanged(nameof(DescriptionDisplay));
+                OnPropertyChanged(nameof(Description));
+                OnPropertyChanged(nameof(AnswerText));
                 CurrentQuizStatus = QuizStatus.Choice;
             }
         }
@@ -610,6 +620,7 @@ namespace WordbookImpressLibrary.ViewModels
                 //OnPropertyChanged(nameof(Choices));
                 if (value == QuizStatus.Wrong) ChoicesLast.HighlightOn = true;
                 else ChoicesLast.HighlightOn = false;
+                OnPropertyChanged(nameof(DescriptionDisplay));
             }
         }
 

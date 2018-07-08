@@ -186,4 +186,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\icon_wordbook.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Tutorial_buy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Tutorial_privilege.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Tutorial_add.png" />
+  </ItemGroup>
 </Project>

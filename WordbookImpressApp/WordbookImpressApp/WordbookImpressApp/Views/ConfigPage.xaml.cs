@@ -106,14 +106,23 @@ namespace WordbookImpressApp.Views
 #if DEBUG
                 new SettingItems("デバッグ")
                 {
-                    new SettingItem("チュートリアル", "未完成のチュートリアルを表示します。"){
+                    new SettingItem("チュートリアル初期設定", "チュートリアル完了ファイルを削除します。"){
                         Action=async (s) =>
                         {
-                            await Navigation.PushAsync(new TutorialsPage());
+                            WordbookImpressLibrary.Storage.TutorialStorage.SetTutorialCompleted(false);
                         }
                     },
                 },
 #endif
+                new SettingItems("サポート")
+                {
+                    new SettingItem("チュートリアル", "初回チュートリアルを表示します。"){
+                        Action=async (s) =>
+                        {
+                            await Navigation.PushModalAsync(new TutorialsPage());
+                        }
+                    },
+                },
                 new SettingItems("WordbookImpressについて")
                 {
                     new SettingItem("オープンソースライセンス", "オープンソースソフトウェアに関するライセンスの詳細"){ Children=licenseChildren},

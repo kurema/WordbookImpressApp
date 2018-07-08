@@ -14,18 +14,44 @@ namespace WordbookImpressApp.Views
 	{
         public WordbookImpressLibrary.ViewModels.TutorialPagesViewModel Model => this.BindingContext as WordbookImpressLibrary.ViewModels.TutorialPagesViewModel;
 
-        public TutorialsPage ()
-		{
-			InitializeComponent ();
+        public TutorialsPage()
+        {
+            InitializeComponent();
 
-            this.BindingContext = new WordbookImpressLibrary.ViewModels.TutorialPagesViewModel(
+            var model = GetTutorial();
+            model.OnFinishAction = async () =>
+             {
+                 WordbookImpressLibrary.Storage.TutorialStorage.SetTutorialCompleted(true);
+                 if (Navigation.ModalStack.Count > 0)
+                 {
+                     await Navigation.PopModalAsync();
+                 }
+                 else
+                 {
+                     await Navigation.PopAsync();
+                 }
+             };
+            this.BindingContext = model;
+        }
+
+        public TutorialsPage(WordbookImpressLibrary.ViewModels.TutorialPagesViewModel model)
+        {
+            InitializeComponent();
+
+            this.BindingContext = model;
+        }
+
+        public static WordbookImpressLibrary.ViewModels.TutorialPagesViewModel GetTutorial()
+        {
+            return new WordbookImpressLibrary.ViewModels.TutorialPagesViewModel(
                 new System.Collections.ObjectModel.ObservableCollection<WordbookImpressLibrary.ViewModels.TutorialPageViewModel>()
                 {
-                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel("正解画面","正解画面はこんな感じ","Correct.png"),
-                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel("不正解画面","不正解画面はこんな感じ","Wrong.png"),
+                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel("本を買う","店頭やネットで\nインプレスブックスの対象書籍を購入","Tutorial_buy.jpg","#FFFFFF"),
+                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel("特典を得る","公式サイトから特典を取得","Tutorial_privilege.png","#FFFFFF"),
+                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel("登録する","このアプリで単語帳を登録","Tutorial_add.png","#FFFFFF"),
                 }
                 );
-		}
+        }
 
         public async void Finish()
         {
@@ -36,7 +62,14 @@ namespace WordbookImpressApp.Views
             }
             else
             {
-                await Navigation.PopAsync();
+                if (Navigation.ModalStack.Count > 0)
+                {
+                    await Navigation.PopModalAsync();
+                }
+                else
+                {
+                    await Navigation.PopAsync();
+                }
             }
         }
 

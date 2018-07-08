@@ -18,12 +18,12 @@ namespace WordbookImpressApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class WordsPage : CarouselPage
     {
-        private ObservableCollection<WordViewModel> Model
+        private ObservableCollection<IWordViewModel> Model
         {
             get
             {
-                if (this.BindingContext == null || !(this.BindingContext is ObservableCollection<WordViewModel>)) return null;
-                else return (ObservableCollection<WordViewModel>)BindingContext;
+                if (this.BindingContext == null || !(this.BindingContext is ObservableCollection<IWordViewModel>)) return null;
+                else return (ObservableCollection<IWordViewModel>)BindingContext;
             }
         }
 
@@ -46,7 +46,7 @@ namespace WordbookImpressApp.Views
             };
         }
 
-        public WordsPage(ObservableCollection<WordViewModel> model) : this()
+        public WordsPage(ObservableCollection<IWordViewModel> model) : this()
         {
             this.BindingContext = model;
         }

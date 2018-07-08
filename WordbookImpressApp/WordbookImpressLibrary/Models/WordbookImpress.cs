@@ -21,6 +21,8 @@ namespace WordbookImpressLibrary.Models
 
         public bool IsValid => uri != null || Words == null;
 
+        public QuizChoice[] QuizChoices { get; private set; } = new QuizChoice[0];
+
         public async Task<(WordbookImpress wordbook, string html, string data)> Reload()
         {
             var result = await Load(this.uri, this.Authentication);
@@ -33,6 +35,7 @@ namespace WordbookImpressLibrary.Models
             this.uriLogo = wordbook.uriLogo;
             this.Title = wordbook.Title;
             this.Words = wordbook.Words;
+            this.QuizChoices = wordbook.QuizChoices;
         }
 
         public static async Task<(WordbookImpress wordbook, string html, string data)> Load(WordbookImpressLibrary.Models.WordbookImpressInfo info)
@@ -94,37 +97,29 @@ namespace WordbookImpressLibrary.Models
                     using (var sr = new System.IO.StreamReader(stream))
                     {
                         dataJs = await sr.ReadToEndAsync();
-                        result.Words = GetWordsConfig(dataJs);
+                        result.QuizChoices = GetWordsConfig(dataJs);
                     }
                 }
             }
             return (result, html, dataJs);
         }
 
-        public static Word[] GetWordsConfig(string text)
+        public static QuizChoice[] GetWordsConfig(string text)
         {
             //JSONのライブラリを使った方が手っ取り早いだろう。
             //"\[\s*\"([^\"]*)\"\s*,\s*\"([^\"]*)\"\s*\]"
             var reg = new Regex("\\{\\s*\\\"question\\\"\\s*:\\s*\\\"([^\\\"]*)\\\"\\s*,\\s*\\\"choice\\\":\\[([^\\[\\]]*)\\]\\s*,\\s*\\\"feedback\\\"\\s*:\\s*\\[\\\"([^\\\"]*)\\\"\\]\\s*,\\s*\\\"answer\\\":\\\"([^\\\"]*)\\\"\\}");
             var matches = reg.Matches(text);
-            var words = new List<Word>();
-            var rand = new Random(text.Length);
+            var words = new List<QuizChoice>();
             foreach (Match match in matches)
             {
                 var choices = new Regex("\\\"([^\\\"]*)\\\"").Matches(match.Groups[2].Value);
-                string choiceText = "";
-                foreach(Match choice in choices)
+                var choiceList = new List<string>();
+                foreach (Match choice in choices)
                 {
-                    if (rand.Next(2) == 0)
-                    {
-                        choiceText += choice.Groups[1].Value + "\n";
-                    }
-                    else
-                    {
-                        choiceText = choice.Groups[1].Value + "\n" + choiceText;
-                    }
+                    choiceList.Add(choice.Groups[1].Value);
                 }
-                words.Add(Word.GetWordUnescape(match.Groups[1].Value+"\n\n"+choiceText, match.Groups[4].Value +"\n\n"+ match.Groups[3].Value));
+                words.Add(QuizChoice.GetQuizChoiceUnescape(match.Groups[1].Value, match.Groups[3].Value, choiceList.ToArray(), match.Groups[4].Value));
             }
             return words.ToArray();
         }
@@ -189,13 +184,8 @@ namespace WordbookImpressLibrary.Models
             return new Word() { Title = GetAsText(Regex.Unescape(title)), Description = GetAsText(Regex.Unescape(description)) };
         }
 
-        private static string QuickEscape(string str)
-        {
-            return str.Replace(@"\", @"\\").Replace("\n", @"\n");
-        }
-
         public string GetHash() {
-            byte[] input = Encoding.ASCII.GetBytes(QuickEscape(Title) + "\n" + QuickEscape(Description));
+            byte[] input = Encoding.ASCII.GetBytes(Helper.Functions.QuickEscape(Title) + "\n" + Helper.Functions.QuickEscape(Description));
             var sha = new System.Security.Cryptography.SHA256CryptoServiceProvider();
             byte[] hash = sha.ComputeHash(input);
             string result = "";
@@ -206,6 +196,47 @@ namespace WordbookImpressLibrary.Models
             }
             return result;
         }
+    }
+
+    public class QuizChoice
+    {
+        public string Title = "";
+        public string[] Choices = new string[0];
+        public string Answer = "";
+        public string Description = "";
+
+        private string hash;
+        public string Hash { get => hash ?? (hash = GetHash()); set => hash = value; }
+
+        public static QuizChoice GetQuizChoiceUnescape(string title,string description,string[] choices,string answer)
+        {
+            var choicesList = new List<string>();
+            foreach(var item in choices)
+            {
+                choicesList.Add(Word.GetAsText(Regex.Unescape(item)));
+            }
+            return new QuizChoice() { Title = Word.GetAsText(Regex.Unescape(title)), Description = Word.GetAsText(Regex.Unescape(description)), Answer = Word.GetAsText(Regex.Unescape(answer)), Choices = choicesList.ToArray() };
+        }
+
+        public string GetHash()
+        {
+            string choiceText = "";
+            foreach(var item in Choices)
+            {
+                choiceText += Helper.Functions.QuickEscape(item) + "\n";
+            }
+            byte[] input = Encoding.ASCII.GetBytes(Helper.Functions.QuickEscape(Title) + "\n" + Helper.Functions.QuickEscape(Description) + "\n\n" + choiceText);
+            var sha = new System.Security.Cryptography.SHA256CryptoServiceProvider();
+            byte[] hash = sha.ComputeHash(input);
+            string result = "";
+
+            for (int i = 0; i < hash.Length; i++)
+            {
+                result = result + string.Format("{0:X2}", hash[i]);
+            }
+            return result;
+        }
+
     }
 
     public class Authentication

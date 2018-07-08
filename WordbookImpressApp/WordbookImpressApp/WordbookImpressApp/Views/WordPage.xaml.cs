@@ -19,12 +19,12 @@ namespace WordbookImpressApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class WordPage : ContentPage
 	{
-        private WordViewModel Model
+        private IWordViewModel Model
         {
             get
             {
-                if (this.BindingContext == null || !(this.BindingContext is WordViewModel)) return null;
-                else return (WordViewModel)BindingContext;
+                if (this.BindingContext == null || !(this.BindingContext is IWordViewModel)) return null;
+                else return (IWordViewModel)BindingContext;
             }
         }
 
@@ -33,7 +33,7 @@ namespace WordbookImpressApp.Views
 			InitializeComponent ();
         }
 
-        public WordPage(WordViewModel model):this()
+        public WordPage(IWordViewModel model):this()
         {
             this.BindingContext = model;
         }
@@ -70,17 +70,17 @@ namespace WordbookImpressApp.Views
         public class ProceedViewModel : BaseViewModel
         {
             private WordPage page;
-            private WordViewModel model;
+            private IWordViewModel model;
             private CarouselPage parentPage => (page?.Parent as CarouselPage);
-            private Collection<WordViewModel> items => (parentPage?.BindingContext as Collection<WordViewModel>);
+            private Collection<IWordViewModel> items => (parentPage?.BindingContext as Collection<IWordViewModel>);
             private int currentCount => items?.IndexOf(model) ?? -1;
 
             public ProceedViewModel(WordPage p)
             {
                 page = p;
-                if (p.BindingContext != null && p.BindingContext is WordViewModel)
+                if (p.BindingContext != null && p.BindingContext is IWordViewModel)
                 {
-                    model = p.BindingContext as WordViewModel;
+                    model = p.BindingContext as IWordViewModel;
                     model.PropertyChanged += (s, e) => this.OnPropertyChanged(nameof(Message));
                 }
                 if (model != null)

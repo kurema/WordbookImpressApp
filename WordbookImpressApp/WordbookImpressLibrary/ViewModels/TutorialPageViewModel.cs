@@ -11,16 +11,20 @@ namespace WordbookImpressLibrary.ViewModels
         public string TitleText { get => titleText; set => SetProperty(ref titleText, value); }
         private string descriptionText;
         public string DescriptionText { get => descriptionText; set => SetProperty(ref descriptionText, value); }
+        private string backgroundColor;
+        public string BackgroundColor { get => backgroundColor; set => SetProperty(ref backgroundColor, value); }
         private string imageUrl;
         public string ImageUrl { get => imageUrl; set => SetProperty(ref imageUrl, value); }
         private TutorialPagesViewModel parent;
         public TutorialPagesViewModel Parent { get => parent; set => SetProperty(ref parent, value); }
 
-        public TutorialPageViewModel(string title,string description,string image)
+
+        public TutorialPageViewModel(string title,string description,string image,string BackgroundColor=null)
         {
             this.TitleText = title;
             this.DescriptionText = description;
             this.ImageUrl = image;
+            this.BackgroundColor = BackgroundColor;
         }
     }
 
@@ -52,6 +56,7 @@ namespace WordbookImpressLibrary.ViewModels
                 {
                     SetProperty(ref selectedCount, value);
                     OnPropertyChanged(nameof(SelectedItem));
+                    OnPropertyChanged(nameof(IsLastPage));
                 }
             }
         }
@@ -101,5 +106,6 @@ namespace WordbookImpressLibrary.ViewModels
             }
         }
         public bool IsSinglePage => this.Items.Count == 1;
+        public bool IsLastPage => this.items.Count - 1 == this.SelectedCount;
     }
 }

@@ -13,11 +13,27 @@ namespace WordbookImpressApp
 
             Load();
 
-            MainPage = new MasterDetailPage()
             {
-                Master=new Views.MasterPage() ,
-                Detail = new NavigationPage(new Views.WordbooksPage()) { Title = "’PŒê’ " }
-            };
+                var page = new MasterDetailPage()
+                {
+                    Master = new Views.MasterPage(),
+                    Detail = new NavigationPage(new Views.WordbooksPage()) { Title = "’PŒê’ " }
+                };
+                if (WordbookImpressLibrary.Storage.TutorialStorage.TutorialCompleted)
+                {
+                    MainPage = page;
+                }
+                else
+                {
+                    var model = Views.TutorialsPage.GetTutorial();
+                    model.OnFinishAction = () =>
+                    {
+                        WordbookImpressLibrary.Storage.TutorialStorage.SetTutorialCompleted(true);
+                        MainPage = page;
+                    };
+                    MainPage = new Views.TutorialsPage(model);
+                }
+            }
 		}
 
 		protected override void OnStart ()

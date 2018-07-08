@@ -99,7 +99,7 @@ namespace WordbookImpressApp.Views
 
         private WordsPage GetWordsPage()
         {
-            var words = new System.Collections.ObjectModel.ObservableCollection<WordViewModel>();
+            var words = new System.Collections.ObjectModel.ObservableCollection<IWordViewModel>();
             foreach (var item in Model.Items)
             {
                 words.Add(item.Word);

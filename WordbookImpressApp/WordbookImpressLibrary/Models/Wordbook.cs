@@ -11,5 +11,6 @@ namespace WordbookImpressLibrary.Models
         bool IsValid { get; }
         string Title { get; }
         Word[] Words { get; }
+        QuizChoice[] QuizChoices { get; }
     }
 }

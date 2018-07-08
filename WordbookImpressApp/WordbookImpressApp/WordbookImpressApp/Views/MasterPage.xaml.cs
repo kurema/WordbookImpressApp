@@ -32,7 +32,9 @@ namespace WordbookImpressApp.Views
                     new MasterMenuItem { Title = "総合単語帳",Description="全ての単語帳を総合",Icon="icon_wordbook.png"  ,Replace=false,Action=async (p)=>{
                         await ((NavigationPage)p.Detail).PushAsync(new WordbookPage(new WordbookImpressLibrary.ViewModels.WordbookImpressViewModel(WordbookImpressLibrary.Storage.WordbooksImpressStorage.Content.ToArray(),WordbookImpressLibrary.Storage.RecordStorage.Content,"総合単語帳")));
                     }  },
+#if DEBUG
                     new MasterMenuItem { Title = "ストア",Description="書籍を購入" ,Icon="icon_store.png"},
+#endif
                     new MasterMenuItem { TargetType=typeof(ConfigPage), Title = "設定",Description="単語帳の設定" ,Replace=false,Icon="icon_config.png" },
                 });
             }

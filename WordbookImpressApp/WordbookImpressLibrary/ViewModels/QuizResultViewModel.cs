@@ -40,8 +40,8 @@ namespace WordbookImpressLibrary.ViewModels
 
         public class TestResultItemViewModel:BaseViewModel
         {
-            private WordViewModel word;
-            public WordViewModel Word { get => word; set => SetProperty(ref word, value); }
+            private IWordViewModel word;
+            public IWordViewModel Word { get => word; set => SetProperty(ref word, value); }
             private QuizWordChoiceViewModel.TestResult result;
             public QuizWordChoiceViewModel.TestResult Result { get => result; set => SetProperty(ref result, value); }
         }

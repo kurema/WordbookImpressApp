@@ -18,7 +18,11 @@ namespace WordbookImpressLibrary.ViewModels
         {
             get
             {
-                return ChoicesLast = new ChoicesEnumerable(WordbooksForChoice, Seed, ChoiceType, ChoiceCount, CurrentWord) { HighlightOn = CurrentQuizStatus == QuizStatus.Wrong };
+                return ChoicesLast = 
+                    CurrentModeWord?
+                    new ChoicesEnumerable(WordbooksForChoice, Seed, ChoiceType, ChoiceCount, CurrentWord) { HighlightOn = CurrentQuizStatus == QuizStatus.Wrong }:
+                    new ChoicesEnumerable(CurrentQuizChoice,CurrentQuizChoiceCount) { HighlightOn = CurrentQuizStatus == QuizStatus.Wrong }
+                    ;
             }
         }
 
@@ -35,7 +39,32 @@ namespace WordbookImpressLibrary.ViewModels
             {
                 list.Add(new QuizResultViewModel.TestResultItemViewModel() { Result = TestResults[i], Word = new WordViewModel(AnswerOrder[i], Record) });
             }
+            for (int i = 0; i < Math.Min(TestResults.Length, QuizOrder.Length); i++)
+            {
+                list.Add(new QuizResultViewModel.TestResultItemViewModel() { Result = TestResults[i+AnswerOrder.Length], Word = new QuizChoiceViewModel(QuizOrder[i], Record) });
+            }
             return list.ToArray();
+        }
+
+        private QuizChoice[] quizOrder;
+        private QuizChoice[] QuizOrder => quizOrder = quizOrder ?? GetQuizOrder();
+        private QuizChoice[] GetQuizOrder()
+        {
+            var rand = new Random(unchecked(Seed + 1));
+            var result = new List<QuizChoice>();
+            var remain = new List<QuizChoice>();
+            foreach (var w in WordbooksTarget)
+            {
+                if (w.QuizChoices.Length == 0) { continue; }
+                remain.AddRange(w.QuizChoices);
+            }
+            while (remain.Count > 0)
+            {
+                int t = rand.Next(remain.Count);
+                result.Add(remain[t]);
+                remain.RemoveAt(t);
+            }
+            return result.ToArray();
         }
 
         private Word[] answerOrder;
@@ -59,13 +88,15 @@ namespace WordbookImpressLibrary.ViewModels
             return result.ToArray();
         }
 
-        public class ChoicesEnumerable : IEnumerable<ChoicesEnumerable.ChoicesEnumerableItem>, System.Collections.Specialized.INotifyCollectionChanged
+        public class ChoicesEnumerable : IEnumerable<ChoicesEnumerable.ChoicesEnumerableItem>, INotifyCollectionChanged
         {
             private WordbookImpress[] wordbooks;
             private int seed;
             private ChoiceKind choiceKind;
             private int count;
             private Word answerWord;
+            private QuizChoice quizChoice = null;
+            private int shuffleCount = 0;
 
             private bool highlightOn=false;
             public bool HighlightOn
@@ -92,6 +123,12 @@ namespace WordbookImpressLibrary.ViewModels
                 this.answerWord = answerWord;
             }
 
+            public ChoicesEnumerable(QuizChoice quizChoice,int shuffleCount)
+            {
+                this.quizChoice = quizChoice;
+                this.shuffleCount = shuffleCount;
+            }
+
             public event NotifyCollectionChangedEventHandler CollectionChanged;
             private void OnCollectionChanged(NotifyCollectionChangedAction action)
             {
@@ -102,37 +139,58 @@ namespace WordbookImpressLibrary.ViewModels
 
             public IEnumerator<ChoicesEnumerable.ChoicesEnumerableItem> GetEnumerator()
             {
-                Answers = new List<ChoicesEnumerableItem>();
-                var rand = new Random(this.seed);
-                rand = new Random(rand.Next());
-                bool shuffle = true;
-                var remain = new List<Word>();
-
-                if (wordbooks == null || wordbooks.Length == 0) yield break;
-
-                foreach (var wordbook in wordbooks)
+                if (quizChoice != null)
                 {
-                    foreach (var item in wordbook?.Words)
-                    {
-                        if (item.Hash == answerWord.Hash) shuffle = false;
-                        else remain.Add(item);
-                        if (shuffle) rand = new Random(rand.Next());
-                    }
-                }
-                int answer = rand.Next(Math.Min(count, remain.Count+1));
-                for (int i = 0; i < count; i++)
-                {
-                    if (i == answer) {
-                        var result= new ChoicesEnumerableItem() { Text = GetByChoiceKind(answerWord, choiceKind), Highlight = HighlightOn };
-                        Answers.Add(result);
-                        yield return result;
-                    }
-                    else
+                    Answers = new List<ChoicesEnumerableItem>();
+                    var remain = new List<string>(quizChoice.Choices);
+                    var rand = new Random(unchecked(this.seed + 3));
+                    for (var i = 0; i < shuffleCount; i++) rand = new Random(rand.Next());
+
+                    for (int i = 0; i < quizChoice.Choices.Length; i++)
                     {
                         if (remain.Count == 0) yield break;
                         int target = rand.Next(remain.Count);
-                        yield return new ChoicesEnumerableItem() { Text = GetByChoiceKind(remain[target], choiceKind) ,Highlight=false};
+                        var result= new ChoicesEnumerableItem() { Text = remain[target], Highlight = HighlightOn && remain[target] == quizChoice.Answer };
+                        if (remain[target] == quizChoice.Answer) Answers.Add(result);
+                        yield return result;
                         remain.RemoveAt(target);
+                    }
+                }
+                else
+                {
+                    Answers = new List<ChoicesEnumerableItem>();
+                    var rand = new Random(unchecked(this.seed + 2));
+                    rand = new Random(rand.Next());
+                    bool shuffle = true;
+                    var remain = new List<Word>();
+
+                    if (wordbooks == null || wordbooks.Length == 0) yield break;
+
+                    foreach (var wordbook in wordbooks)
+                    {
+                        foreach (var item in wordbook?.Words)
+                        {
+                            if (item.Hash == answerWord.Hash) shuffle = false;
+                            else remain.Add(item);
+                            if (shuffle) rand = new Random(rand.Next());
+                        }
+                    }
+                    int answer = rand.Next(Math.Min(count, remain.Count + 1));
+                    for (int i = 0; i < count; i++)
+                    {
+                        if (i == answer)
+                        {
+                            var result = new ChoicesEnumerableItem() { Text = GetByChoiceKind(answerWord, choiceKind), Highlight = HighlightOn };
+                            Answers.Add(result);
+                            yield return result;
+                        }
+                        else
+                        {
+                            if (remain.Count == 0) yield break;
+                            int target = rand.Next(remain.Count);
+                            yield return new ChoicesEnumerableItem() { Text = GetByChoiceKind(remain[target], choiceKind), Highlight = false };
+                            remain.RemoveAt(target);
+                        }
                     }
                 }
             }
@@ -157,21 +215,50 @@ namespace WordbookImpressLibrary.ViewModels
             }
         }
 
-        public double Progress => (currentCount + 1.0) / Math.Max(1, AnswerOrder.Length);
+        public double Progress => CurrentModeWord ? (currentWordCount + 1.0) / Math.Max(1, AnswerOrder.Length + QuizOrder.Length) : (CurrentQuizChoiceCount + AnswerOrder.Length + 1.0) / Math.Max(1, AnswerOrder.Length + QuizOrder.Length);
 
-        private Word CurrentWord { get => AnswerOrder.Length == 0 ? new Word() : AnswerOrder[CurrentCount]; }
+        private Word CurrentWord { get => AnswerOrder.Length == 0 || CurrentWordCount>=AnswerOrder.Length ? new Word() : AnswerOrder[CurrentWordCount]; }
+        private QuizChoice CurrentQuizChoice { get => QuizOrder.Length == 0 || currentQuizChoiceCount >= QuizOrder.Length ? new QuizChoice() : QuizOrder[CurrentQuizChoiceCount]; }
         private Record Record;
         private WordbookImpress[] WordbooksTarget;
         private WordbookImpressViewModel wordbookTargetViewModel;
         public WordbookImpressViewModel WordbookTargetViewModel => wordbookTargetViewModel ?? (WordbooksTarget.Length==1? wordbookTargetViewModel = new WordbookImpressViewModel(WordbooksTarget[0], Record): wordbookTargetViewModel = new WordbookImpressViewModel(WordbooksTarget, Record,"総合単語帳"));
         private WordbookImpress[] WordbooksForChoice;
-        private int currentCount=0;
-        private int CurrentCount
+        private bool currentModeWord = true;
+        private bool CurrentModeWord { get => AnswerOrder.Length == 0 ? false : currentModeWord; set
+            {
+                if (AnswerOrder.Length > 0 && value == true) { currentModeWord = true; }
+                else if (QuizOrder.Length > 0 && value == false) { currentModeWord = false; }
+            }
+        }
+        private int CurrentWordTotal => currentModeWord ? currentWordCount : AnswerOrder.Length + CurrentQuizChoiceCount;
+        private int currentWordCount=0;
+        private int CurrentWordCount
         {
-            get => currentCount;
+            get => currentWordCount;
             set
             {
-                SetProperty(ref currentCount, value);
+                currentModeWord = true;
+                currentQuizChoiceCount = 0;
+                SetProperty(ref currentWordCount, value);
+                OnPropertyChanged(nameof(this.CurrentQuizChoice));
+                OnPropertyChanged(nameof(this.CurrentWord));
+                OnPropertyChanged(nameof(this.CurrentWordText));
+                OnPropertyChanged(nameof(this.Choices));
+                OnPropertyChanged(nameof(this.Progress));
+                CurrentQuizStatus = QuizStatus.Choice;
+            }
+        }
+        private int currentQuizChoiceCount = 0;
+        private int CurrentQuizChoiceCount
+        {
+            get => currentQuizChoiceCount;
+            set
+            {
+                currentModeWord = false;
+                currentWordCount = 0;
+                SetProperty(ref currentQuizChoiceCount, value);
+                OnPropertyChanged(nameof(this.CurrentQuizChoice));
                 OnPropertyChanged(nameof(this.CurrentWord));
                 OnPropertyChanged(nameof(this.CurrentWordText));
                 OnPropertyChanged(nameof(this.Choices));
@@ -182,9 +269,33 @@ namespace WordbookImpressLibrary.ViewModels
         private DateTime DateTimeInitial;
         public void Start()
         {
-            CurrentCount = -1;
-            var count = GetNextQuizCount();
-            CurrentCount = count == -1 ? 0 : count;
+            currentWordCount = -1;
+            currentQuizChoiceCount = -1;
+            var countW = GetQuizCountNext();
+            var countC = GetNextQuizChoiceCount();
+            if (countW == -1 && countC == -1)
+            {
+                if (AnswerOrder.Length > 0)
+                {
+                    CurrentModeWord = true;
+                    CurrentWordCount = 0;
+                }
+                else if (QuizOrder.Length > 0)
+                {
+                    CurrentModeWord = false;
+                    CurrentQuizChoiceCount = 0;
+                }
+            }
+            else if (countW == -1)
+            {
+                CurrentModeWord = false;
+                CurrentQuizChoiceCount = countC;
+            }
+            else
+            {
+                CurrentModeWord = true;
+                CurrentWordCount = countW;
+            }
             CurrentQuizStatus = QuizStatus.Choice;
             DateTimeInitial = DateTime.Now;
             //RetryStatus = RetryStatusEnum.First;
@@ -211,42 +322,49 @@ namespace WordbookImpressLibrary.ViewModels
             int total = 0;
             int correct = 0;
             int pass = 0;
-            foreach (var wb in WordbooksTarget)
+            for (int i = 0; i < AnswerOrder.Length; i++)
             {
-                for (int i = 0; i < wb.Words.Length; i++)
-                {
-                    var status = Record.GetWordStatusByHash(AnswerOrder[i].Hash);
-
-                    switch (TestResults[i])
-                    {
-                        case TestResult.Correct:
-                            status.AnswerCountCorrect++;
-                            status.AnswerCountTotal++;
-                            status.LastCorrectDateTime = DateTime.Now;
-                            status.LastAnswerDateTime = DateTime.Now;
-                            correct++;
-                            total++;
-                            Record.SetWordStatusByHash(AnswerOrder[i].Hash, status);
-                            break;
-                        case TestResult.Wrong:
-                            status.AnswerCountTotal++;
-                            status.LastCorrectDateTime = DateTime.Now;
-                            total++;
-                            Record.SetWordStatusByHash(AnswerOrder[i].Hash, status);
-                            break;
-                        case TestResult.Pass:
-                            pass++;
-                            status.AnswerCountPass++;
-                            Record.SetWordStatusByHash(AnswerOrder[i].Hash, status);
-                            break;
-                        case TestResult.Yet:
-                            break;
-                    }
-                }
+                var status = Record.GetWordStatusByHash(AnswerOrder[i].Hash);
+                EndSwitch(TestResults[i], AnswerOrder[i].Hash, ref correct, ref total, ref pass);
+            }
+            for (int i = 0; i < QuizOrder.Length; i++)
+            {
+                EndSwitch(TestResults[i + AnswerOrder.Length], QuizOrder[i].Hash, ref correct, ref total, ref pass);
             }
 
             ElapsedTime += DateTime.Now - DateTimeInitial;
-            Record.TestStatuses.Add(TestStatus = new Record.TestStatus() { RetryStatus=this.retryStatus, ElapsedTime =this.ElapsedTime, AnswerCountCorrect = correct, AnswerCountPass = pass, AnswerCountTotal = total, Key = WordbooksTarget.Length==1? WordbooksTarget[0].Uri:"[combined]", Seed = this.Seed, DateTimeNative = DateTime.UtcNow, ChoiceKind = this.ChoiceType });
+            Record.TestStatuses.Add(TestStatus = new Record.TestStatus() { RetryStatus = this.retryStatus, ElapsedTime = this.ElapsedTime, AnswerCountCorrect = correct, AnswerCountPass = pass, AnswerCountTotal = total, Key = WordbooksTarget.Length == 1 ? WordbooksTarget[0].Uri : "[combined]", Seed = this.Seed, DateTimeNative = DateTime.UtcNow, ChoiceKind = this.ChoiceType });
+        }
+
+        private void EndSwitch(TestResult testResult,string hash, ref int correct,ref int total,ref int pass)
+        {
+            var status = Record.GetWordStatusByHash(hash);
+            switch (testResult)
+            {
+                case TestResult.Correct:
+                    status.AnswerCountCorrect++;
+                    status.AnswerCountTotal++;
+                    status.LastCorrectDateTime = DateTime.Now;
+                    status.LastAnswerDateTime = DateTime.Now;
+                    correct++;
+                    total++;
+                    Record.SetWordStatusByHash(hash, status);
+                    break;
+                case TestResult.Wrong:
+                    status.AnswerCountTotal++;
+                    status.LastCorrectDateTime = DateTime.Now;
+                    total++;
+                    Record.SetWordStatusByHash(hash, status);
+                    break;
+                case TestResult.Pass:
+                    pass++;
+                    status.AnswerCountPass++;
+                    Record.SetWordStatusByHash(hash, status);
+                    break;
+                case TestResult.Yet:
+                    break;
+            }
+
         }
 
         private Record.TestStatus testStatus;
@@ -269,9 +387,17 @@ namespace WordbookImpressLibrary.ViewModels
 
         public static bool GetSkipStatus(Word word, QuizWordChoiceViewModel model, Record record)
         {
-            var info = record.GetWordStatusByHash(word.GetHash());
+            return GetSkipStatus(record.GetWordStatusByHash(word.GetHash()), model); ;
+        }
 
-            if(model.skipVoidTimeSpan.Ticks>0 && (info.LastCorrectDateTime+model.SkipVoidTimeSpan > DateTime.Now)) { return false; }
+        public static bool GetSkipStatus(QuizChoice word, QuizWordChoiceViewModel model, Record record)
+        {
+            return GetSkipStatus(record.GetWordStatusByHash(word.GetHash()), model); ;
+        }
+
+        public static bool GetSkipStatus(Record.WordStatus info, QuizWordChoiceViewModel model)
+        {
+            if (model.skipVoidTimeSpan.Ticks > 0 && (info.LastCorrectDateTime + model.SkipVoidTimeSpan > DateTime.Now)) { return false; }
             if (model.SkipChecked && info.ExcludeRemembered)
             {
                 return true;
@@ -287,16 +413,26 @@ namespace WordbookImpressLibrary.ViewModels
             return false;
         }
 
-        public int GetNextQuizCount()
+        public int GetQuizCountNext()
         {
-            int count = CurrentCount + 1;
+            return GetQuizCountBase((a) => a + 1);
+        }
+
+        public int GetQuizCountPrevious()
+        {
+            return GetQuizCountBase((a) => a - 1);
+        }
+
+        public int GetQuizCountBase(Func<int,int> func)
+        {
+            int count = func(CurrentWordCount);
             if (count < 0 || count >= AnswerOrder.Length)
             {
                 return -1;
             }
             while (GetSkipStatus(AnswerOrder[count], this, Record))
             {
-                count++;
+                count= func(count);
                 if (count < 0 || count >= AnswerOrder.Length)
                 {
                     return -1;
@@ -305,24 +441,33 @@ namespace WordbookImpressLibrary.ViewModels
             return count;
         }
 
-        public int GetPreviousQuizCount()
+        public int GetNextQuizChoiceCount()
         {
-            int count = CurrentCount - 1;
-            if (count < 0 || count >= AnswerOrder.Length)
+            return GetQuizChoiceCountBase((a) => a + 1);
+        }
+
+        public int GetQuizChoiceCountPrevious()
+        {
+            return GetQuizChoiceCountBase((a) => a - 1);
+        }
+
+        public int GetQuizChoiceCountBase(Func<int, int> func)
+        {
+            int count = func(currentQuizChoiceCount);
+            if (count < 0 || count >= QuizOrder.Length)
             {
                 return -1;
             }
-            while (GetSkipStatus(AnswerOrder[count], this, Record))
+            while (GetSkipStatus(QuizOrder[count], this, Record))
             {
-                count--;
-                if (count < 0 || count >= AnswerOrder.Length)
+                count = func(count);
+                if (count < 0 || count >= QuizOrder.Length)
                 {
                     return -1;
                 }
             }
             return count;
         }
-
 
         private System.Windows.Input.ICommand nextQuizCommand;
         public System.Windows.Input.ICommand NextQuizCommand
@@ -331,7 +476,22 @@ namespace WordbookImpressLibrary.ViewModels
             {
                 if (nextQuizCommand != null) return nextQuizCommand;
                 var command = new Helper.DelegateCommand(
-                    (a) => GetNextQuizCount() != -1, (s) => CurrentCount = Math.Max(0,GetNextQuizCount()));
+                    (a) => (CurrentModeWord && GetQuizCountNext() != -1) || GetNextQuizChoiceCount() != -1, (s) => {
+                        if (CurrentModeWord)
+                        {
+                            var w = GetQuizCountNext();
+                            if (w != -1)
+                            {
+                                CurrentWordCount = w;
+                                return;
+                            }
+                        }
+                        var q = GetNextQuizChoiceCount();
+                        if (q != -1)
+                        {
+                            CurrentQuizChoiceCount = q;
+                        }
+                    });
                 this.PropertyChanged += (s, e) =>
                 {
                     if (e.PropertyName == nameof(CurrentWord)) command?.OnCanExecuteChanged();
@@ -347,7 +507,7 @@ namespace WordbookImpressLibrary.ViewModels
             {
                 if (previousQuizCommand != null) return previousQuizCommand;
                 var command = new Helper.DelegateCommand(
-                    (a) => GetPreviousQuizCount() != -1, (s) => CurrentCount = Math.Max(0, GetPreviousQuizCount()));
+                    (a) => (CurrentModeWord && GetQuizCountPrevious() != -1) || GetQuizCountPrevious() != -1, (s) => CurrentWordCount = Math.Max(0, GetQuizCountPrevious()));
                 this.PropertyChanged += (s, e) =>
                   {
                       if (e.PropertyName == nameof(CurrentWord)) command?.OnCanExecuteChanged();
@@ -359,11 +519,18 @@ namespace WordbookImpressLibrary.ViewModels
 
         public string CurrentWordText { get
             {
-                switch (ChoiceType)
+                if (CurrentModeWord)
                 {
-                    case ChoiceKind.Title:return CurrentWord.Description;
-                    case ChoiceKind.Description:return CurrentWord.Title;
-                    default:return "";
+                    switch (ChoiceType)
+                    {
+                        case ChoiceKind.Title: return CurrentWord.Description;
+                        case ChoiceKind.Description: return CurrentWord.Title;
+                        default: return "";
+                    }
+                }
+                else
+                {
+                    return CurrentQuizChoice.Title;
                 }
             }
         }
@@ -413,8 +580,13 @@ namespace WordbookImpressLibrary.ViewModels
                 {
                     tempResults.Add(TestResult.Yet);
                 }
+                for (int i = 0; i < w.QuizChoices.Length; i++)
+                {
+                    tempResults.Add(TestResult.Yet);
+                }
             }
-            TestResults= tempResults.ToArray();
+            TestResults = tempResults.ToArray();
+
             this.ApplyConfig(config);
         }
 
@@ -465,15 +637,15 @@ namespace WordbookImpressLibrary.ViewModels
 
         public bool Choose(string choice)
         {
-            var dic = WordTypeDictionary(CurrentWord);
-            if (choice == dic[ChoiceType])
+            var answer = currentModeWord? WordTypeDictionary(CurrentWord)[ChoiceType]:CurrentQuizChoice.Answer;
+            if (choice == answer)
             {
                 //var status = Record.GetWordStatusByHash(CurrentWord.Hash);
                 //status.AnswerCountCorrect++;
                 //status.AnswerCountTotal++;
                 //Record.SetWordStatusByHash(CurrentWord.Hash, status);
 
-                TestResults[CurrentCount] = TestResult.Correct;
+                TestResults[CurrentWordTotal] = TestResult.Correct;
                 CurrentQuizStatus = QuizStatus.Correct;
                 return true;
             }
@@ -483,7 +655,7 @@ namespace WordbookImpressLibrary.ViewModels
                 //status.AnswerCountTotal++;
                 //Record.SetWordStatusByHash(CurrentWord.Hash, status);
 
-                TestResults[CurrentCount] = TestResult.Wrong;
+                TestResults[CurrentWordTotal] = TestResult.Wrong;
                 CurrentQuizStatus = QuizStatus.Wrong;
                 return false;
             }

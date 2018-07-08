@@ -16,6 +16,16 @@ namespace WordbookImpressLibrary.ViewModels
         public WordbookImpress[] Wordbooks { get => wordbooks ?? new WordbookImpress[] { wordbook }; }
         private WordbookImpress wordbook;
         public bool HasMultipleWordbook { get => wordbooks != null; }
+        public bool HasWords
+        {
+            get {
+                foreach(var item in Wordbooks)
+                {
+                    if (item.Words.Length > 0) return true;
+                }
+                return false;
+            }
+        }
 
         public String Uri => HasMultipleWordbook ? "" : wordbook?.Uri;
         public String UriLogo => Storage.ImageCacheStorage.GetImageUrl(HasMultipleWordbook ? "":wordbook?.UriLogo)??"tango.jpg";
@@ -26,40 +36,48 @@ namespace WordbookImpressLibrary.ViewModels
         public String AuthenticationUserName => HasMultipleWordbook ? "" : (wordbook?.Authentication?.UserName ?? "");
         public String AuthenticationPassword => HasMultipleWordbook ? "" : (wordbook?.Authentication?.Password ?? "");
 
-        private ObservableCollection<WordViewModel> GetWords()
+        private ObservableCollection<IWordViewModel> GetWords()
         {
             if (HasMultipleWordbook)
             {
-                var w = new List<WordViewModel>();
+                var w = new List<IWordViewModel>();
                 foreach (var wb in this.wordbooks)
                 {
                     foreach (var item in wb.Words)
                     {
                         w.Add(new WordViewModel(item, Record));
                     }
+                    foreach (var item in wb.QuizChoices)
+                    {
+                        w.Add(new QuizChoiceViewModel(item, Record));
+                    }
                 }
-                return new ObservableCollection<WordViewModel>(w);
+                return new ObservableCollection<IWordViewModel>(w);
             }
             else
             {
-                var w = new List<WordViewModel>();
+                var w = new List<IWordViewModel>();
                 foreach (var item in wordbook.Words)
                 {
                     w.Add(new WordViewModel(item, Record));
                 }
-                return new ObservableCollection<WordViewModel>(w);
+                foreach (var item in wordbook.QuizChoices)
+                {
+                    w.Add(new QuizChoiceViewModel(item, Record));
+                }
+                return new ObservableCollection<IWordViewModel>(w);
             }
         }
 
-        private ObservableCollection<WordViewModel> _words;
-        private ObservableCollection<WordViewModel> words { get => _words = _words ?? GetWords(); }
-        private ObservableCollection<WordViewModel> WordsCache = null;
+        private ObservableCollection<IWordViewModel> _words;
+        private ObservableCollection<IWordViewModel> words { get => _words = _words ?? GetWords(); }
+        private ObservableCollection<IWordViewModel> WordsCache = null;
         private void WordsUpdate()
         {
             WordsCache = null;
             OnPropertyChanged(nameof(Words));
         }
-        public ObservableCollection<WordViewModel> Words
+        public ObservableCollection<IWordViewModel> Words
         {
             get
             {
@@ -72,8 +90,8 @@ namespace WordbookImpressLibrary.ViewModels
                             {
                                 var linq = words.OrderBy((w) => w.Head);
                                 return SortKind.Ascending ?
-                                    new ObservableCollection<WordViewModel>(linq) :
-                                    new ObservableCollection<WordViewModel>(linq.Reverse());
+                                    new ObservableCollection<IWordViewModel>(linq) :
+                                    new ObservableCollection<IWordViewModel>(linq.Reverse());
                             }
                         case SortKindType.score:
                             {
@@ -82,13 +100,13 @@ namespace WordbookImpressLibrary.ViewModels
                                     .ThenBy((w) => ((double)w.AnswerCountCorrect / Math.Max(1, w.AnswerCountTotal)))
                                     .ThenBy((w) => (w.AnswerCountCorrect));
                                 return SortKind.Ascending ?
-                                    new ObservableCollection<WordViewModel>(linq) :
-                                    new ObservableCollection<WordViewModel>(linq.Reverse());
+                                    new ObservableCollection<IWordViewModel>(linq) :
+                                    new ObservableCollection<IWordViewModel>(linq.Reverse());
                             }
                         case SortKindType.random:
                             {
                                 var random = new Random(unchecked((int)DateTime.Now.Date.Ticks));
-                                var dic = new Dictionary<WordViewModel, int>();
+                                var dic = new Dictionary<IWordViewModel, int>();
                                 foreach (var item in words)
                                 {
                                     dic.Add(item, random.Next());
@@ -96,15 +114,15 @@ namespace WordbookImpressLibrary.ViewModels
                                 var linq = words
                                     .OrderBy((w) => (dic[w]));
                                 return SortKind.Ascending ?
-                                    new ObservableCollection<WordViewModel>(linq) :
-                                    new ObservableCollection<WordViewModel>(linq.Reverse());
+                                    new ObservableCollection<IWordViewModel>(linq) :
+                                    new ObservableCollection<IWordViewModel>(linq.Reverse());
                             }
                         case SortKindType.original:
                         default:
-                            return SortKind.Ascending ? words : new ObservableCollection<WordViewModel>(words.Reverse());
+                            return SortKind.Ascending ? words : new ObservableCollection<IWordViewModel>(words.Reverse());
                     }
                 }
-                return WordsCache = new ObservableCollection<WordViewModel>(words.Where((w) => w.Head.Contains(SearchWord) || w.Description.Contains(SearchWord)).OrderBy(w => (w.Head == SearchWord ? "0" : (w.Head.Contains(SearchWord) ? "1" : "2")) + w.Head));
+                return WordsCache = new ObservableCollection<IWordViewModel>(words.Where((w) => w.Head.Contains(SearchWord) || w.Description.Contains(SearchWord)).OrderBy(w => (w.Head == SearchWord ? "0" : (w.Head.Contains(SearchWord) ? "1" : "2")) + w.Head));
             }
             set { SetProperty(ref _words, value); SearchWord = ""; }
         }
@@ -215,7 +233,7 @@ namespace WordbookImpressLibrary.ViewModels
             if (HasMultipleWordbook)
             {
                 IsBusy = true;
-                var w = new List<WordViewModel>();
+                var w = new List<IWordViewModel>();
                 foreach (var wb in wordbooks)
                 {
                     await wb.Reload();
@@ -223,7 +241,7 @@ namespace WordbookImpressLibrary.ViewModels
                     {
                         w.Add(new WordViewModel(item, Record));
                     }
-                    Words = new ObservableCollection<WordViewModel>(w);
+                    Words = new ObservableCollection<IWordViewModel>(w);
                 }
 
                 IsBusy = false;
@@ -236,12 +254,12 @@ namespace WordbookImpressLibrary.ViewModels
                 OnPropertyChanged(nameof(UriLogo));
                 OnPropertyChanged(nameof(WordbookTitle));
 
-                var w = new List<WordViewModel>();
+                var w = new List<IWordViewModel>();
                 foreach (var item in result.wordbook.Words)
                 {
                     w.Add(new WordViewModel(item, Record));
                 }
-                Words = new ObservableCollection<WordViewModel>(w);
+                Words = new ObservableCollection<IWordViewModel>(w);
 
                 IsBusy = false;
                 return result;

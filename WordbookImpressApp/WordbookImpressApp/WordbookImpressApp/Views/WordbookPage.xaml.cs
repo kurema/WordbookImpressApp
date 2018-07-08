@@ -102,13 +102,13 @@ namespace WordbookImpressApp.Views
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem == null || !(e.SelectedItem is WordViewModel)) return;
+            if (e.SelectedItem == null || !(e.SelectedItem is IWordViewModel)) return;
             if (Pushing) return;
             Pushing = true;
             await WordsPageSemaphore.WaitAsync();
             var page = WordsPage;
             await page.CanPushSemaphore.WaitAsync();
-            page.SelectedItem = (WordViewModel)e.SelectedItem;
+            page.SelectedItem = (IWordViewModel)e.SelectedItem;
             if (page.Parent == null) await Navigation.PushAsync(page);
             page.CanPushSemaphore.Release();
             WordsPageSemaphore.Release();

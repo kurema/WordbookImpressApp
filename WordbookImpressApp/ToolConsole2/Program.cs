@@ -8,13 +8,16 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
+using Nager.AmazonProductAdvertising;
+
 namespace WordbookImpressApp.ToolsConsole
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //args = new[] { "xml", "wordbook", @"D:\Users\kurema\Documents\Books\Book\特典ダウンロード\impress books\情報\wordbook\wordbook.txt" , @"D:\temp\WordbookImpressApp\WordbookImpressApp\WordbookImpressLibrary\Schemas\WordbookSuggestion.xml" };
+            //args = new[] { "xml", "wordbook", @"" , @"" };
+            args = new[] { "xml", "amazon", @"D:\temp\WordbookImpressApp\WordbookImpressApp\WordbookImpressLibrary\Schemas\WordbookSuggestion.xml", @"AKIAJBBN5XQ54KCKTUBQ", @"mT6fjZe/KYOA2rKxW1hheLsznl1BbHrNhDgmWfr5" };
 
             if (!CheckArgsCount(args, 1)) { return; }
             else if (args[0] == "xml")
@@ -112,8 +115,47 @@ namespace WordbookImpressApp.ToolsConsole
                     var book = info?.books?.book?.ToList();
                     if (book == null) return;
 
+                    var authentification = new AmazonAuthentication();
+                    authentification.AccessKey = AmazonAccessKey;
+                    authentification.SecretKey = AmazonSecretKey;
+
+                    var wrapper = new AmazonWrapper(authentification, AmazonEndpoint.JP, "kurema_wbimpress-22");
+
                     foreach (var item in book)
                     {
+                        if (item.ids?.Length > 0) continue;
+                        var result= wrapper.Search(item.title, Nager.AmazonProductAdvertising.Model.AmazonSearchIndex.Books,
+                            Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Images|Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Large);
+
+                        int i = 0;
+                        if (result?.Items?.Item == null) continue;
+                        Console.WriteLine(item.title);
+                        foreach(var res in result.Items.Item)
+                        {
+                            Console.WriteLine(i + ". " + res.ToString());
+                            //Console.WriteLine(res.DetailPageURL);
+                            Console.WriteLine(res.ItemAttributes.Binding);
+                            i++;
+                        }
+
+                        int input;
+                        var id_result = new List<infoBooksBookID>();
+                        Console.WriteLine("書籍版を選択?");
+                        if(int.TryParse(Console.ReadLine(), out input))
+                        {
+                            id_result.Add(new infoBooksBookID() { type = "ASIN", Value = result.Items.Item[input].ASIN, binding = "printed_book" });
+                        }
+
+                        Console.WriteLine("Kindle版を選択?");
+                        if (int.TryParse(Console.ReadLine(), out input))
+                        {
+                            id_result.Add(new infoBooksBookID() { type = "ASIN", Value = result.Items.Item[input].ASIN, binding = "ebook" });
+                        }
+
+                        item.ids = id_result.ToArray();
+
+                        info.books.book = book.ToArray();
+                        SerializationHelper.SerializeAsync(info, pathXml).Wait();
                     }
                 }
             }

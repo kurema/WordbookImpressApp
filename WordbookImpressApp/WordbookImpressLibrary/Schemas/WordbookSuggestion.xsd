@@ -17,6 +17,22 @@
                 <xs:complexType>
                   <xs:sequence>
                     <xs:element name="title" type="xs:string" />
+                    <xs:element name="ids">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="id" minOccurs="0" maxOccurs ="unbounded">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="type" type="xs:string" />
+                                  <xs:attribute name="binding" type="xs:string" use="optional" />
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
                     <xs:element name="images">
                       <xs:complexType>
                         <xs:sequence>

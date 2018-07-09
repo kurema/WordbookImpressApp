@@ -99,6 +99,8 @@ namespace WordbookImpressLibrary.Schemas {
         
         private string titleField;
         
+        private infoBooksBookID[] idsField;
+        
         private infoBooksBookImage[] imagesField;
         
         private infoBooksBookLink[] linksField;
@@ -124,6 +126,17 @@ namespace WordbookImpressLibrary.Schemas {
             }
             set {
                 this.titleField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("id", IsNullable=false)]
+        public infoBooksBookID[] ids {
+            get {
+                return this.idsField;
+            }
+            set {
+                this.idsField = value;
             }
         }
         
@@ -200,6 +213,55 @@ namespace WordbookImpressLibrary.Schemas {
             }
             set {
                 this.obsoleteField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/Wordb" +
+        "ookImpressLibrary/Schemas/WordbookSuggestion.xsd")]
+    public partial class infoBooksBookID {
+        
+        private string typeField;
+        
+        private string bindingField;
+        
+        private string valueField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string type {
+            get {
+                return this.typeField;
+            }
+            set {
+                this.typeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string binding {
+            get {
+                return this.bindingField;
+            }
+            set {
+                this.bindingField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlTextAttribute()]
+        public string Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
             }
         }
     }

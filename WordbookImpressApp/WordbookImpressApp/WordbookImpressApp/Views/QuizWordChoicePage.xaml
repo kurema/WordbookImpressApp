@@ -17,13 +17,12 @@
             <vc:QuizWordChoiceViewModelQuizStatusToChoiceVisibilityValueConverter x:Key="ChoiceVC" />
             <vc:QuizWordChoiceViewModelQuizStatusToTextValueConverter x:Key="ResultTextVC"/>
             <vc:BooleanToColorValueConverter x:Key="BoolColorVC"/>
-            <vc:ToStringSwitchValueConverter x:Key="StringSwitchCV" />
+            <vc:ToStringSwitchValueConverter x:Key="StringSwitchVC" />
+            <vc:BooleanNotValueConverter x:Key="NotVC" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
-            <!--<Label FontSize="200" TextColor="Red" Text="×" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource WrongVC}}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-            <Label FontSize="200" TextColor="Red" Text="〇" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource CorrectVC}}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />-->
             <Image Source="Question.png" Aspect="AspectFill" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource ChoiceVC}}" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" />
             <Image Source="Correct.png" Aspect="AspectFill" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource CorrectVC}}" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" />
             <Image Source="Wrong.png" Aspect="AspectFill" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource WrongVC}}" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" />
@@ -33,50 +32,37 @@
                     <RowDefinition  Height="Auto"/>
                     <RowDefinition  Height="Auto"/>
                 </Grid.RowDefinitions>
-                <StackLayout VerticalOptions="FillAndExpand">
-                    <Frame  Padding="20,10,20,10" BackgroundColor="#AAFFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="Center">
-                        <Label Text="{Binding CurrentWordText}" FontSize="Large" />
-                    </Frame>
-                    <ListView x:Name="ChoiceListView" ItemsSource="{Binding Choices}" HasUnevenRows="True" ItemSelected="ListView_ItemSelected" VerticalOptions="FillAndExpand" SeparatorVisibility="None">
-                        <!--<ListView.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="ClickGestureRecognizer_Clicked"/>
-                            <ClickGestureRecognizer Clicked="ClickGestureRecognizer_Clicked"/>
-                        </ListView.GestureRecognizers>-->
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Frame  Padding="10" BackgroundColor="{Binding Highlight,Converter={StaticResource BoolColorVC},ConverterParameter=#EEEEEE00:#AAFFFFFF:#AAFFFFFF}" CornerRadius="10" Margin="10">
-                                        <Label Text="{Binding Text}" Style="{DynamicResource ListItemTextStyle}" FontSize="Medium" />
-                                    </Frame>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackLayout>
+                <ListView x:Name="ChoiceListView" ItemsSource="{Binding Choices}" HasUnevenRows="True" ItemSelected="ListView_ItemSelected" VerticalOptions="FillAndExpand" SeparatorVisibility="None">
+                    <ListView.Header>
+                        <Frame  Padding="20,10,20,10" BackgroundColor="#AAFFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="Center">
+                            <Label Text="{Binding CurrentWordText}" FontSize="Large" />
+                        </Frame>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame  Padding="10" BackgroundColor="{Binding Highlight,Converter={StaticResource BoolColorVC},ConverterParameter=#EEEEEE00:#AAFFFFFF:#AAFFFFFF}" CornerRadius="10" Margin="10">
+                                    <Label Text="{Binding Text}" Style="{DynamicResource ListItemTextStyle}" FontSize="Medium" />
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.Footer>
+                        <Frame IsVisible="{Binding DescriptionDisplay}" Padding="10" BackgroundColor="#AAFFFFFF" CornerRadius="10" Margin="10">
+                            <Label Text="{Binding Description}" Style="{DynamicResource ListItemTextStyle}" FontSize="Medium" />
+                        </Frame>
+                    </ListView.Footer>
+                </ListView>
                 <Frame BackgroundColor="#AAFFFFFF" Grid.Row="1" Padding="10" HorizontalOptions="FillAndExpand">
                     <Label Text="{Binding CurrentQuizStatus,Converter={StaticResource ResultTextVC},ConverterParameter=選択してください:正解:不正解:エラー}"  FontSize="Large"  HorizontalOptions="Center" />
                 </Frame>
                 <!-- Using HeightRequest="5" is not smart. But it seems the only way. https://forums.xamarin.com/discussion/45889/remove-margin-in-progressbar -->
                 <ProgressBar HeightRequest="5" Grid.Row="2" Progress="{Binding Progress}"  VerticalOptions="Fill" HorizontalOptions="FillAndExpand"/>
             </Grid>
-            <!-- I know this is not cool. -->
-            <!--<Button BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Transparent" Clicked="ClickGestureRecognizer_Clicked" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource CorrectVC}}" />
-            <Button BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Transparent" Clicked="ClickGestureRecognizer_Clicked" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource WrongVC}}" />-->
-            <Button BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Transparent" Clicked="ClickGestureRecognizer_Clicked" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource StringSwitchCV},ConverterParameter='Choice:False::Correct:True::Wrong:True'}" />
-            <ScrollView IsVisible="{Binding DescriptionDisplay}" VerticalOptions="FillAndExpand">
-                <StackLayout>
-                    <Frame  Padding="20,10,20,10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="Center">
-                        <Label Text="{Binding CurrentWordText}" FontSize="Large" />
-                    </Frame>
-                    <Frame  Padding="10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10">
-                        <Label Text="{Binding AnswerText}" Style="{DynamicResource ListItemTextStyle}" FontSize="Medium" />
-                    </Frame>
-                    <Frame  Padding="10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10">
-                        <Label Text="{Binding Description}" Style="{DynamicResource ListItemTextStyle}" FontSize="Medium" />
-                    </Frame>
-                    <Button Text="次へ" Clicked="ClickGestureRecognizer_Clicked" />
-                </StackLayout>
-            </ScrollView>
+            <!--<Grid IsVisible="{Binding DescriptionDisplay,Converter={StaticResource NotVC}}">-->
+                <Button BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Transparent" Clicked="ClickGestureRecognizer_Clicked" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource StringSwitchVC},ConverterParameter='Choice:False::Correct:True::Wrong:True'}" />
+            <!--</Grid>-->
+            <!-- ToDo: 解説をスクロールできない問題をどう解決するか。 -->
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -24,13 +24,98 @@ namespace WordbookImpressLibrary.Schemas {
         "ookImpressLibrary/Schemas/WordbookSuggestion.xsd")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/Wordb" +
         "ookImpressLibrary/Schemas/WordbookSuggestion.xsd", IsNullable=false)]
-    public partial class book {
+    public partial class info {
+        
+        private infoBooks booksField;
+        
+        private infoSearchword[] searchwordsField;
+        
+        private infoWordbook[] wordbooksField;
+        
+        /// <remarks/>
+        public infoBooks books {
+            get {
+                return this.booksField;
+            }
+            set {
+                this.booksField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("searchword", IsNullable=false)]
+        public infoSearchword[] searchwords {
+            get {
+                return this.searchwordsField;
+            }
+            set {
+                this.searchwordsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("wordbook", IsNullable=false)]
+        public infoWordbook[] wordbooks {
+            get {
+                return this.wordbooksField;
+            }
+            set {
+                this.wordbooksField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/Wordb" +
+        "ookImpressLibrary/Schemas/WordbookSuggestion.xsd")]
+    public partial class infoBooks {
+        
+        private infoBooksBook[] bookField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("book")]
+        public infoBooksBook[] book {
+            get {
+                return this.bookField;
+            }
+            set {
+                this.bookField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/Wordb" +
+        "ookImpressLibrary/Schemas/WordbookSuggestion.xsd")]
+    public partial class infoBooksBook {
         
         private string titleField;
         
-        private bookImage imageField;
+        private infoBooksBookImage[] imagesField;
         
-        private bookLink[] linkField;
+        private infoBooksBookLink[] linksField;
+        
+        private infoBooksBookSpecial specialField;
+        
+        private string genreField;
+        
+        private System.DateTime date_pushField;
+        
+        private bool date_pushFieldSpecified;
+        
+        private bool obsoleteField;
+        
+        public infoBooksBook() {
+            this.obsoleteField = false;
+        }
         
         /// <remarks/>
         public string title {
@@ -43,23 +128,78 @@ namespace WordbookImpressLibrary.Schemas {
         }
         
         /// <remarks/>
-        public bookImage image {
+        [System.Xml.Serialization.XmlArrayItemAttribute("image", IsNullable=false)]
+        public infoBooksBookImage[] images {
             get {
-                return this.imageField;
+                return this.imagesField;
             }
             set {
-                this.imageField = value;
+                this.imagesField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("link")]
-        public bookLink[] link {
+        [System.Xml.Serialization.XmlArrayItemAttribute("link", IsNullable=false)]
+        public infoBooksBookLink[] links {
             get {
-                return this.linkField;
+                return this.linksField;
             }
             set {
-                this.linkField = value;
+                this.linksField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public infoBooksBookSpecial special {
+            get {
+                return this.specialField;
+            }
+            set {
+                this.specialField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string genre {
+            get {
+                return this.genreField;
+            }
+            set {
+                this.genreField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date")]
+        public System.DateTime date_push {
+            get {
+                return this.date_pushField;
+            }
+            set {
+                this.date_pushField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool date_pushSpecified {
+            get {
+                return this.date_pushFieldSpecified;
+            }
+            set {
+                this.date_pushFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.ComponentModel.DefaultValueAttribute(false)]
+        public bool obsolete {
+            get {
+                return this.obsoleteField;
+            }
+            set {
+                this.obsoleteField = value;
             }
         }
     }
@@ -71,9 +211,13 @@ namespace WordbookImpressLibrary.Schemas {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/Wordb" +
         "ookImpressLibrary/Schemas/WordbookSuggestion.xsd")]
-    public partial class bookImage {
+    public partial class infoBooksBookImage {
         
         private string srcField;
+        
+        private infoBooksBookImageSize sizeField;
+        
+        private bool sizeFieldSpecified;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(DataType="anyURI")]
@@ -85,6 +229,48 @@ namespace WordbookImpressLibrary.Schemas {
                 this.srcField = value;
             }
         }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public infoBooksBookImageSize size {
+            get {
+                return this.sizeField;
+            }
+            set {
+                this.sizeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool sizeSpecified {
+            get {
+                return this.sizeFieldSpecified;
+            }
+            set {
+                this.sizeFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/Wordb" +
+        "ookImpressLibrary/Schemas/WordbookSuggestion.xsd")]
+    public enum infoBooksBookImageSize {
+        
+        /// <remarks/>
+        large,
+        
+        /// <remarks/>
+        medium,
+        
+        /// <remarks/>
+        small,
+        
+        /// <remarks/>
+        thumbnail,
     }
     
     /// <remarks/>
@@ -94,7 +280,7 @@ namespace WordbookImpressLibrary.Schemas {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/Wordb" +
         "ookImpressLibrary/Schemas/WordbookSuggestion.xsd")]
-    public partial class bookLink {
+    public partial class infoBooksBookLink {
         
         private string refField;
         
@@ -130,15 +316,87 @@ namespace WordbookImpressLibrary.Schemas {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/Wordb" +
         "ookImpressLibrary/Schemas/WordbookSuggestion.xsd")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/Wordb" +
-        "ookImpressLibrary/Schemas/WordbookSuggestion.xsd", IsNullable=false)]
-    public partial class wordbooks {
+    public partial class infoBooksBookSpecial {
         
-        private wordbooksWordbook[] wordbookField;
+        private wordbook[] wordbookField;
+        
+        private object[] ebookField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("wordbook")]
-        public wordbooksWordbook[] wordbook {
+        public wordbook[] wordbook {
+            get {
+                return this.wordbookField;
+            }
+            set {
+                this.wordbookField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ebook")]
+        public object[] ebook {
+            get {
+                return this.ebookField;
+            }
+            set {
+                this.ebookField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/Wordb" +
+        "ookImpressLibrary/Schemas/WordbookSuggestion.xsd")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/Wordb" +
+        "ookImpressLibrary/Schemas/WordbookSuggestion.xsd", IsNullable=false)]
+    public partial class wordbook {
+        
+        private string refField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="IDREF")]
+        public string @ref {
+            get {
+                return this.refField;
+            }
+            set {
+                this.refField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/Wordb" +
+        "ookImpressLibrary/Schemas/WordbookSuggestion.xsd")]
+    public partial class infoSearchword {
+        
+        private string[] wordField;
+        
+        private wordbook[] wordbookField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("word")]
+        public string[] word {
+            get {
+                return this.wordField;
+            }
+            set {
+                this.wordField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("wordbook")]
+        public wordbook[] wordbook {
             get {
                 return this.wordbookField;
             }
@@ -155,16 +413,17 @@ namespace WordbookImpressLibrary.Schemas {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/Wordb" +
         "ookImpressLibrary/Schemas/WordbookSuggestion.xsd")]
-    public partial class wordbooksWordbook {
+    public partial class infoWordbook {
         
-        private string titleField;
+        private string[] titleField;
         
-        private string refField;
+        private string idField;
         
-        private wordbooksWordbookSources sourcesField;
+        private infoWordbookAccess accessField;
         
         /// <remarks/>
-        public string title {
+        [System.Xml.Serialization.XmlElementAttribute("title")]
+        public string[] title {
             get {
                 return this.titleField;
             }
@@ -174,23 +433,23 @@ namespace WordbookImpressLibrary.Schemas {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="anyURI")]
-        public string @ref {
+        [System.Xml.Serialization.XmlElementAttribute(DataType="ID")]
+        public string id {
             get {
-                return this.refField;
+                return this.idField;
             }
             set {
-                this.refField = value;
+                this.idField = value;
             }
         }
         
         /// <remarks/>
-        public wordbooksWordbookSources sources {
+        public infoWordbookAccess access {
             get {
-                return this.sourcesField;
+                return this.accessField;
             }
             set {
-                this.sourcesField = value;
+                this.accessField = value;
             }
         }
     }
@@ -202,31 +461,42 @@ namespace WordbookImpressLibrary.Schemas {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/Wordb" +
         "ookImpressLibrary/Schemas/WordbookSuggestion.xsd")]
-    public partial class wordbooksWordbookSources {
+    public partial class infoWordbookAccess {
         
-        private book[] bookField;
+        private string urlField;
         
-        private string[] keywordField;
+        private string idField;
+        
+        private string passwordField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("book")]
-        public book[] book {
+        [System.Xml.Serialization.XmlElementAttribute(DataType="anyURI")]
+        public string url {
             get {
-                return this.bookField;
+                return this.urlField;
             }
             set {
-                this.bookField = value;
+                this.urlField = value;
             }
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("keyword")]
-        public string[] keyword {
+        public string id {
             get {
-                return this.keywordField;
+                return this.idField;
             }
             set {
-                this.keywordField = value;
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string password {
+            get {
+                return this.passwordField;
+            }
+            set {
+                this.passwordField = value;
             }
         }
     }

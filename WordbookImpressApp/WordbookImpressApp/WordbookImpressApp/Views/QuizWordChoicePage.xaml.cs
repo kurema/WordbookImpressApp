@@ -55,7 +55,10 @@ namespace WordbookImpressApp.Views
             if (e.SelectedItem == null) return;
             if (Pushing) return;
             Pushing = true;
-            if (Model.CurrentQuizStatus == QuizWordChoiceViewModel.QuizStatus.Choice) Model.Choose(((QuizWordChoiceViewModel.ChoicesEnumerable.ChoicesEnumerableItem)e.SelectedItem).Text);
+            if (Model.CurrentQuizStatus == QuizWordChoiceViewModel.QuizStatus.Choice)
+            {
+                Model.Choose(((QuizWordChoiceViewModel.ChoicesEnumerable.ChoicesEnumerableItem)e.SelectedItem).Text);
+            }
             else if (Model.NextQuizCommand.CanExecute(null))
             {
                 Model.NextQuizCommand.Execute(null);

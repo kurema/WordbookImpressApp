@@ -6,38 +6,98 @@
     xmlns:mstns="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/WordbookImpressLibrary/Schemas/WordbookSuggestion.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
-  <xs:element name="book" id="book">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="title" type="xs:string" />
-        <xs:element name="image" minOccurs="0">
-          <xs:complexType>
-            <xs:attribute name="src" type="xs:anyURI" />
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="link" maxOccurs="unbounded">
-          <xs:complexType>
-            <xs:attribute name="ref" type="xs:anyURI" />
-            <xs:attribute name="type" type="xs:string"  use="optional"/>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
 
-  <xs:element name="wordbooks">
+  <xs:element name="info">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="wordbook" minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="books">
           <xs:complexType>
-            <xs:sequence>
-              <xs:element name="title" type="xs:string" />
-              <xs:element name="ref" type="xs:anyURI" />
-              <xs:element name="sources">
+            <xs:sequence maxOccurs="unbounded" minOccurs="0">
+              <xs:element name="book">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element ref="book" minOccurs="0" maxOccurs="unbounded"/>
-                    <xs:element name="keyword" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="title" type="xs:string" />
+                    <xs:element name="images">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="image" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:attribute name="src" type="xs:anyURI" />
+                              <xs:attribute name="size" use="optional">
+                                <xs:simpleType>
+                                  <xs:restriction base="xs:string">
+                                    <xs:enumeration value="large"/>
+                                    <xs:enumeration value="medium"/>
+                                    <xs:enumeration value="small"/>
+                                    <xs:enumeration value="thumbnail"/>
+                                  </xs:restriction>
+                                </xs:simpleType>
+                              </xs:attribute>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="links">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="link" maxOccurs="unbounded" minOccurs="0">
+                            <xs:complexType>
+                              <xs:attribute name="ref" type="xs:anyURI" />
+                              <xs:attribute name="type" type="xs:string"  use="optional"/>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="special">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="wordbook"  minOccurs="0" maxOccurs="unbounded" />
+                          <xs:element name="ebook" minOccurs="0"  maxOccurs="unbounded" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="genre" type="xs:string" minOccurs="0"/>
+                    <xs:element name="date_push" type="xs:date" minOccurs="0"/>
+                  </xs:sequence>
+                  <xs:attribute default="false" type="xs:boolean" name="obsolete"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="searchwords">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="searchword" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="word" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+                    <xs:element ref="wordbook"  minOccurs="0" maxOccurs="unbounded" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="wordbooks">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="wordbook" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="title" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+                    <xs:element name="id" type="xs:ID" />
+                    <xs:element name="access">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="url" type="xs:anyURI"/>
+                          <xs:element name="id" type="xs:string" minOccurs="0"/>
+                          <xs:element name="password" type="xs:string" minOccurs="0"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -45,6 +105,12 @@
           </xs:complexType>
         </xs:element>
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="wordbook">
+    <xs:complexType>
+      <xs:attribute name="ref" type="xs:IDREF" use="optional" />
     </xs:complexType>
   </xs:element>
 

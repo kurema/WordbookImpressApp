@@ -9,10 +9,10 @@ namespace WordbookImpressLibrary.Storage
 {
     public static class WordbookSuggestionStorage
     {
-        public static wordbooks Content { get; private set; }
+        public static info Content { get; private set; }
         public static string Path { get; set; } = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "WordbookSuggestion.xml");
 
-        public static async Task<wordbooks> LoadLocalData()
+        public static async Task<info> LoadLocalData()
         {
             if (!System.IO.File.Exists(Path))
             {
@@ -20,7 +20,7 @@ namespace WordbookImpressLibrary.Storage
             }
             try
             {
-                Content = await Helper.SerializationHelper.DeserializeAsync<wordbooks>(Path);
+                Content = await Helper.SerializationHelper.DeserializeAsync<info>(Path);
             }
             catch
             {
@@ -30,7 +30,7 @@ namespace WordbookImpressLibrary.Storage
             return Content;
         }
 
-        public static async Task<wordbooks> Load()
+        public static async Task<info> Load()
         {
             var result = await LoadLocalData();
             if (result != null) return result;

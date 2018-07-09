@@ -1,16 +1,2358 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<wordbooks xmlns="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/WordbookImpressLibrary/Schemas/WordbookSuggestion.xsd">
-  <wordbook>
-    <title>【でる語句200】基本情報技術者</title>
-    <ref>https://impress.quizgenerator.net/impress/01impress/</ref>
-    <sources>
-      <book>
-        <title>徹底攻略 基本情報技術者教科書 平成30年度</title>
-        <image src="http://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=429500264X&Format=_SL250_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=randomfisher-22"/>
-        <link type="impress_books" ref="https://book.impress.co.jp/books/1117101040"/>
-        <link type="amazon" ref="https://www.amazon.co.jp/dp/429500264X/ref=as_li_ss_tl?&linkCode=ll1&tag=randomfisher-22&linkId=08456656ec49ee9cbddad49086d3927c"/>
-      </book>
-      <keyword>徹底攻略 基本情報技術者教科書</keyword>
-    </sources>
-  </wordbook>
-</wordbooks>
+<?xml version="1.0" encoding="utf-8"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/WordbookImpressLibrary/Schemas/WordbookSuggestion.xsd">
+  <books>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2013年05月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2013年06月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2013年07月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2013年08月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2013年09月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2013年10月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2013年11月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2013年12月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2014年01月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2014年02月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2014年03月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2014年04月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2014年05月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2014年06月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2014年07月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2014年08月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2014年09月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2014年10月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2014年11月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2014年12月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2015年01月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2015年02月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2015年03月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2015年04月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2015年05月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2015年06月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2015年07月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2015年08月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2015年09月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2015年10月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2015年11月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2015年12月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2016年01月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2016年02月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2016年03月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2016年04月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2016年05月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2016年06月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2016年07月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2016年08月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2016年09月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2016年10月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2016年11月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2016年12月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2017年01月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2017年02月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2017年03月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2017年04月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2017年05月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2017年06月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2017年07月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2017年08月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2017年09月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2017年10月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2017年11月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2017年12月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2018年01月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2018年02月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2018年03月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2018年04月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2018年05月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2018年06月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>DOSV POWER REPORT 2018年07月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>DOSV POWER REPORT 2018年08月号</title>
+      <images />
+      <links />
+      <special />
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 ITパスポート教科書 平成26年度 CBT対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 ITパスポート教科書 平成27年度 CBT対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 ITパスポート教科書 平成28年度 CBT対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 ITパスポート教科書 平成29年度 CBT対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>かんたん合格 ITパスポート教科書 平成30年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 ITパスポート過去問題集 平成26年度春期 CBT対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 ITパスポート過去問題集 平成26年度秋期 CBT対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 ITパスポート過去問題集 平成27年度春期 CBT対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 ITパスポート過去問題集 平成27年度秋期 CBT対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 ITパスポート過去問題集 平成28年度春期 CBT対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 ITパスポート過去問題集 平成28年度秋期 CBT対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 ITパスポート過去問題集 平成29年度春期 CBT対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 ITパスポート過去問題集 平成29年度秋期 CBT対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 ITパスポート過去問題集 平成30年度春期</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>かんたん合格 ITパスポート過去問題集 平成30年度秋期</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 ネットワークスペシャリスト過去問題集 平成26年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>かんたん合格 ネットワークスペシャリスト過去問題集 平成27年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 基本情報技術者教科書 平成26年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 基本情報技術者教科書 平成27年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 基本情報技術者教科書 平成28年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 基本情報技術者教科書 平成29年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>かんたん合格 基本情報技術者教科書 平成30年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 基本情報技術者過去問題集 平成26年度秋期</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 基本情報技術者過去問題集 平成27年度春期</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 基本情報技術者過去問題集 平成27年度秋期</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 基本情報技術者過去問題集 平成28年度春期</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 基本情報技術者過去問題集 平成28年度秋期</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 基本情報技術者過去問題集 平成29年度春期</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 基本情報技術者過去問題集 平成29年度秋期</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>かんたん合格 基本情報技術者過去問題集 平成30年度春期</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>かんたん合格 基本情報技術者過去問題集 平成30年度秋期</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>かんたん合格 応用情報技術者過去問題集 平成26年度春期</title>
+      <images />
+      <links />
+      <special />
+      <genre>かんたん合格</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>4K時代の最新版 ドローン空撮入門</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>BIOS／UEFI 完全攻略読本 Skylake＆Windows 10 対応版</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>BIOS／UEFI 完全攻略読本 Windows 8／7対応版 (自作PC マザーボード )</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>DVDで分かる！初めてのパソコン自作</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>iPhone 5 アプリ事典530 SoftBank＆au対応 ［2013年版］</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>NASオールカタログ2014 (パソコンもスマホもタブレットも、家中かんたんバックアップ！ )</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>NASオールカタログ2016-2017</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>PC自作・チューンナップ虎の巻 2013</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>PC自作・チューンナップ虎の巻 2014</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>PC自作・チューンナップ虎の巻 2015</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>PC自作・チューンナップ虎の巻 2016</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>PC自作・チューンナップ虎の巻 2017</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>PC自作・チューンナップ虎の巻 2018</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>SSD完全攻略読本</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>VR2 Vol.1</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>Windowsタブレット完全購入ガイド 2014春</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>[コグレマサト] プロ・ブロガーの必ず結果が出るアクセスアップテクニック100　ファンにも検索エンジンにも好かれるブログ運営の極意</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>[コグレマサト] 必ず結果が出るブログ運営テクニック100 プロ・ブロガーが教える「俺メディア」の極意</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>あなたと家族のスマホ代がサクッと半額以下になる本</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>いちばんやさしいGoogleアナリティクスの教本 人気講師が教えるWeb解析と広告計測の基本</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>いちばんやさしいデジタルマーケティングの教本 人気講師が教えるメディアと販促の新しい基礎</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>いちばんやさしいブロックチェーンの教本 人気講師が教えるビットコインを支える仕組み</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>いちばんやさしい不動産の教本 人気講師が教える土地建物の基本と取引のしくみ</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>いちばんやさしい機械学習プロジェクトの教本 人気講師が教える仕事にAIを導入する方法</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>いますぐはじめるドコモのスマホ</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>へたっぴさんのためのお絵描き入門 なんでお前は絵が描けないんだ!</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>パソコン自作宣言2018</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>パソコン自作講座2015</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>世界一やさしい iPhone iPhone X／8／8 Plus対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>世界一やさしい LINE 最新版</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>世界一やさしい ウィンドウズ 10 最新版</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>世界一やさしい タイピング</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>世界一やさしい ビットコイン＆仮想通貨</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>忍者増田のレトロゲーム忍法帖</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>新機能がすぐわかる、乗り換えで困らない Windows 8速攻ワザ200</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>楽しいガジェットを作る いちばんかんたんなラズベリーパイの本</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>無料でWindowsが快適になる鉄板フリーソフト2017「窓の杜」公式</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>絶対に失敗しない Windows 10 無料アップグレード</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>自作PCパーツパーフェクトカタログ 2014</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>自作PCパーツパーフェクトカタログ 2015</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>自作PCパーツパーフェクトカタログ 2016</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>自作PCパーツパーフェクトカタログ 2017</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>高橋敏也の改造バカ一台&amp;動く改造バカ超大全 怒濤編</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>高橋敏也の改造バカ一台&amp;動く改造バカ超大全 風雲編</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>世界一おもしろいぶっちぎり宅建士 第1巻［宅建業法・その他法令編］合格テキスト＆過去問ベストセレクト 平成27年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他試験</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>世界一おもしろいぶっちぎり宅建士 第2巻［法令上の制限・税・統計編］合格テキスト＆過去問ベストセレクト 平成27年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他試験</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>世界一おもしろいぶっちぎり宅建士 第3巻［権利関係編その1］合格テキスト＆過去問ベストセレクト 平成27年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他試験</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>世界一おもしろいぶっちぎり宅建士 第4巻［権利関係編その2］合格テキスト＆過去問ベストセレクト 平成27年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他試験</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>合格しようぜ！宅建士2016 音声付きテキスト＆問題集 上巻</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他試験</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>合格しようぜ！宅建士2016 音声付きテキスト＆問題集 下巻</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他試験</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>合格しようぜ！宅建士2016 音声付き過去10年問題集</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他試験</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>合格しようぜ！宅建士2017 音声付きテキスト＆問題集 上巻</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他試験</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>合格しようぜ！宅建士2017 音声付きテキスト＆問題集 下巻</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他試験</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>合格しようぜ！宅建士2017 音声付き過去13年問題集</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他試験</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>合格しようぜ！宅建士2018 基本テキスト</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他試験</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>合格しようぜ！宅建士2018 音声付きテーマ別ベストセレクト問題集</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他試験</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>合格しようぜ！宅建士2018 音声付き過去15年問題集</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他試験</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>試験にココが出る！ 乙種第4類危険物取扱者 教科書＋実践問題</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他試験</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>試験にココが出る！ 消防設備士4類［甲種・乙種］教科書+実践問題</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他試験</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>試験にココが出る！ 消防設備士6類 教科書+実践問題</title>
+      <images />
+      <links />
+      <special />
+      <genre>その他試験</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できる100の新法則 Instagramマーケティング 写真1枚で「欲しい」を引き出す技術</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できる100の新法則 Tableauタブロー ビジュアルWeb分析 データを収益に変えるマーケターの武器</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できる100の新法則 実践マーケティングオートメーション 会わずに売れるリード育成法</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるAccess 2016 Windows 10／8.1／7対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるAutoCAD 2019&amp;2018&amp;2017&amp;2016&amp;2015対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるExcel 2013 Windows 10／8.1／7対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるExcel 関数 データ処理の効率アップに役立つ本 2016／2013／2010／2007対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるPhotoshop Elements 2018 Windows&amp;macOS対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるWindows 10 パーフェクトブック 困った！＆便利ワザ大全 改訂3版</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるWindows 10 改訂2版</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるWindows 10 改訂3版</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるWindows 10</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるWord 2013 Windows 10／8.1／7対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるWord&amp;Excel 2013 Windows 10／8.1／7対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるWord&amp;Excel&amp;PowerPoint 2016 Windows 10／8.1／7対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できる大事典 Excel 2016 Windows 10／8.1／7対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できる大事典 Excel関数 2016／2013／2010対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できる大事典 Windows 10 Home／Pro／Enterprise 対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるシリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット Androidスマートフォンアプリ超事典1000［2015年版］ スマートフォン＆タブレット対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット Androidスマートフォンアプリ超事典1000［2016年版］ スマートフォン＆タブレット対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット Evernote 基本＆活用ワザ 完全ガイド</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット Facebook スマートに使いこなす基本＆活用ワザ 210 増補改訂3版</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット HUAWEI P10 Plus／P10／P10 lite基本＆活用ワザ完全ガイド</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット HUAWEI P9／P9 lite基本＆活用ワザ完全ガイド</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhoneアプリ超事典1000［2015年版］ iPhone／iPad対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhoneアプリ超事典1000［2016年版］ iPhone／iPad対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット iPhoneアプリ超事典1000［2017年版］ iPhone／iPad対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット OneNote 2013 基本マスターブック 最新版 Windows／iPhone&amp;iPad／Androidアプリ対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット OneNote 2016／2013 基本マスターブック Windows／iPhone＆iPad／Android アプリ対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット SoftBank iPhone 5 スマートに使いこなす基本＆活用ワザ 210</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット これからはじめるLINE 基本＆活用ワザ［改訂2版］</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット 一瞬で差がつく PC活用術 ショートカットキー 全事典</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット＋ Evernote 改訂版</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット＋ Evernote 活用編</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット＋ G2 L-01F</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット＋ GALAXY Note 3 SC-01F ［docomo 2013年 冬モデル］</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット＋ GALAXY Note II</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット＋ GALAXY S4</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット＋ Optimus it L-05E［docomo 2013年 夏モデル］</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット＋ USBメモリー 改訂版 Windows 8&amp;7対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット＋ これだけは知っておきたいWindows XP &amp; office 2003サポート終了の危険と対策</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット＋ ビッグデータ入門 分析から価値を引き出すデータサイエンスの時代へ</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 5 スマートに使いこなす基本＆活用ワザ 210 (au)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 5 スマートに使いこなす基本＆活用ワザ 210 (ソフトバンク)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 6 Plus 基本＆活用ワザ 100 (au)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 6 Plus 基本＆活用ワザ 100 (ソフトバンク)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 6 Plus 基本＆活用ワザ 100 (ドコモ)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 6 基本&amp;活用ワザ 100 (au)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 6 基本&amp;活用ワザ 100 (ソフトバンク)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 6 基本&amp;活用ワザ 100 (ドコモ)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 6s Plus 基本＆活用ワザ 100 au完全対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 6s Plus 基本＆活用ワザ 100 ソフトバンク完全対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 6s Plus 基本＆活用ワザ 100 ドコモ完全対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 6s 基本＆活用ワザ 100 au完全対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 6s 基本＆活用ワザ 100 ソフトバンク完全対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 6s 基本＆活用ワザ 100 ドコモ完全対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 7 Plus 基本＆活用ワザ100 (au)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 7 Plus 基本＆活用ワザ100 (ソフトバンク)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 7 Plus 基本＆活用ワザ100 (ドコモ)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 7 基本＆活用ワザ100 (au)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 7 基本＆活用ワザ100 (ソフトバンク)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 7 基本＆活用ワザ100 (ドコモ)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 8／8 Plus 基本&amp;活用ワザ100 (au)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 8／8 Plus 基本&amp;活用ワザ100 (ソフトバンク)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone 8／8 Plus 基本&amp;活用ワザ100 (ドコモ)</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone SE 基本＆活用ワザ100 au完全対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone SE 基本＆活用ワザ100 ソフトバンク完全対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>できるポケット iPhone SE 基本＆活用ワザ100 ドコモ完全対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>できるポケット iPhone X 基本＆活用ワザ100 ドコモ／au／ソフトバンク完全対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>Evernoteオールインワンガイド</title>
+      <images />
+      <links />
+      <special />
+      <genre>オールインワンガイド</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>Googleサービスオールインワンガイド</title>
+      <images />
+      <links />
+      <special />
+      <genre>オールインワンガイド</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>iPad mini オールインワンガイド</title>
+      <images />
+      <links />
+      <special />
+      <genre>オールインワンガイド</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>iPhone 5 オールインワンガイド</title>
+      <images />
+      <links />
+      <special />
+      <genre>オールインワンガイド</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>OS X Mountain Lion オールインワンガイド</title>
+      <images />
+      <links />
+      <special />
+      <genre>オールインワンガイド</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 ITパスポート教科書＋模擬問題</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 LPIC Level1 問題集[Version 4.0]対応</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 データベーススペシャリスト教科書 平成26年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 データベーススペシャリスト教科書 平成27年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 データベーススペシャリスト教科書 平成28年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 データベーススペシャリスト教科書 平成29年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 データベーススペシャリスト教科書 平成30年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 ネットワークスペシャリスト教科書 平成27年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 ネットワークスペシャリスト教科書 平成28年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 ネットワークスペシャリスト教科書 平成29年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 ネットワークスペシャリスト教科書 平成30年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 基本情報技術者教科書 平成25年度秋期・平成26年度春期</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 基本情報技術者教科書 平成27年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 基本情報技術者教科書 平成28年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 基本情報技術者教科書 平成29年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 基本情報技術者教科書 平成30年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 応用情報技術者教科書 平成26年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 応用情報技術者教科書 平成27年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 応用情報技術者教科書 平成28年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 応用情報技術者教科書 平成29年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 応用情報技術者教科書 平成30年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 応用情報技術者過去問題集 平成28年度 春期・秋期</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 応用情報技術者過去問題集 平成29年度 春期・秋期</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 応用情報技術者過去問題集 平成30年度 春期・秋期</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 情報セキュリティマネジメント予想問題集 ベテラン講師が徹底分析！</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 情報セキュリティマネジメント教科書 平成28年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 情報セキュリティマネジメント教科書 平成29年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 情報セキュリティマネジメント教科書 平成30年度</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 情報セキュリティマネジメント過去問題集 平成28年度秋期</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 情報セキュリティマネジメント過去問題集 平成29年度春期</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book obsolete="true">
+      <title>徹底攻略 情報セキュリティマネジメント過去問題集 平成29年度秋期</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 情報セキュリティマネジメント過去問題集 平成30年度春期</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 情報処理安全確保支援士教科書</title>
+      <images />
+      <links />
+      <special />
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>文系女子のためのFP技能士3級 音声付き合格テキスト＆演習問題</title>
+      <images />
+      <links />
+      <special />
+      <genre>文系女子シリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>文系女子のためのITパスポート合格テキスト＆問題集</title>
+      <images />
+      <links />
+      <special />
+      <genre>文系女子シリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>文系女子のためのSPI3突破大作戦テキスト＆問題集</title>
+      <images />
+      <links />
+      <special />
+      <genre>文系女子シリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>文系女子のためのはじめての日商簿記3級 合格テキスト＆仕訳徹底マスター問題集 第2版</title>
+      <images />
+      <links />
+      <special />
+      <genre>文系女子シリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>文系女子のための判断推理 音声付きテキスト+トコトン問題集 (公務員試験)</title>
+      <images />
+      <links />
+      <special />
+      <genre>文系女子シリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>文系女子のための数的推理 音声付きテキスト＋トコトン問題集 (公務員試験)</title>
+      <images />
+      <links />
+      <special />
+      <genre>文系女子シリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>文系女子のための日商簿記2級［商業簿記］合格テキスト＆問題集 (v3)</title>
+      <images />
+      <links />
+      <special />
+      <genre>文系女子シリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>文系女子のための日商簿記2級［工業簿記］合格テキスト＆問題集 (v2)</title>
+      <images />
+      <links />
+      <special />
+      <genre>文系女子シリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>文系女子のための日商簿記3級 合格解き方ナビ問題集</title>
+      <images />
+      <links />
+      <special />
+      <genre>文系女子シリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>文系女子のための日商簿記入門</title>
+      <images />
+      <links />
+      <special />
+      <genre>文系女子シリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>文系女子のための電卓操作入門</title>
+      <images />
+      <links />
+      <special />
+      <genre>文系女子シリーズ</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>ちょび＆姉ちゃんの『アキバでごはん食べたいな。』 </title>
+      <images />
+      <links />
+      <special />
+      <genre>漫画</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>ちょび＆姉ちゃんの『アキバでごはん食べたいな。』2</title>
+      <images />
+      <links />
+      <special />
+      <genre>漫画</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>わがまま DIY 2</title>
+      <images />
+      <links />
+      <special />
+      <genre>漫画</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>わがままDIY 3</title>
+      <images />
+      <links />
+      <special />
+      <genre>漫画</genre>
+      <date_push>2018-07-09</date_push>
+    </book>
+  </books>
+  <searchwords />
+  <wordbooks>
+    <wordbook>
+      <title>【でる語句200】基本情報技術者</title>
+      <title>基本情報技術者</title>
+      <id>quiz01impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/01impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【でる語句200】ITパスポート</title>
+      <title>ITパスポート</title>
+      <id>quiz03impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/03impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【合格しようぜ宅建士】試験によく出る宅建用語150</title>
+      <title>試験によく出る宅建用語150</title>
+      <id>quiz27impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/27impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【消防設備士6類】重要用語集</title>
+      <title>重要用語集</title>
+      <id>quiz25impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/25impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【徹底攻略スマホ問題集】Cisco ICND1 V3.0模擬問題</title>
+      <title>Cisco ICND1 V3.0模擬問題</title>
+      <id>quiz19impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/19impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【徹底攻略スマホ問題集】IPアドレス特訓問題</title>
+      <title>IPアドレス特訓問題</title>
+      <id>quiz20impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/20impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【徹底攻略スマホ問題集】Cisco ICND2 V3.0模擬問題</title>
+      <title>Cisco ICND2 V3.0模擬問題</title>
+      <id>quiz24impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/24impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【でる語句200】応用情報技術者過去問題集</title>
+      <title>応用情報技術者過去問題集</title>
+      <id>quiz05impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/05impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【でる語句200】情報セキュリティマネジメント問題集</title>
+      <title>情報セキュリティマネジメント問題集</title>
+      <id>quiz07impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/07impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>文系女子のためての公務員試験［数的・判断］問題集</title>
+      <id>quiz22impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/22impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【でる語句200】応用情報技術者</title>
+      <title>応用情報技術者</title>
+      <id>quiz02impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/02impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【徹底攻略スマホ問題集】データベーススペシャリスト教科書</title>
+      <title>データベーススペシャリスト教科書</title>
+      <id>quiz15impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/15impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【でる語句200】情報セキュリティマネジメント</title>
+      <title>情報セキュリティマネジメント</title>
+      <id>quiz04impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/04impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【でる語句200】ネットワークスペシャリスト</title>
+      <title>ネットワークスペシャリスト</title>
+      <id>quiz06impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/06impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>（この用語集は、本書各節冒頭にある「暗記パン（覚えよう！）」をデジタル化したものです。学習シーン合わせて使い分けてください）</title>
+      <id>quiz30impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/30impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【でる語句200】ITパスポート</title>
+      <title>ITパスポート</title>
+      <id>quiz32impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/32impress/</url>
+      </access>
+    </wordbook>
+  </wordbooks>
+</info>

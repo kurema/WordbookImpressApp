@@ -110,8 +110,10 @@ namespace WordbookImpressApp.Views
                         Action=async (s) =>
                         {
                             WordbookImpressLibrary.Storage.TutorialStorage.SetTutorialCompleted(false);
+                            await DisplayAlert("削除",WordbookImpressLibrary.Storage.TutorialStorage.Path+"を削除しました。","OK");
                         }
                     },
+
                 },
 #endif
                 new SettingItems("サポート")
@@ -120,7 +122,22 @@ namespace WordbookImpressApp.Views
                         Action=async (s) =>
                         {
                             await Navigation.PushModalAsync(new TutorialsPage());
-                        }
+                        },
+                    },
+                    //new SettingItem("不具合報告", "不具合報告の選択肢を表示します。"){
+                    //    Children=new ObservableCollection<SettingItems>(){
+                    //        new SettingItems("不具合報告"){
+                    //            new SettingItem("Github Issues","公式の不具合報告アドレス。"){
+                    //                Action=async (s) =>Device.OpenUri(new Uri("https://github.com/kurema/WordbookImpressApp/issues"))
+                    //            },
+                    //            new SettingItem("メール","作者に報告"){
+                    //                Action=async (s) =>Device.OpenUri(new Uri("kurema_makoto_software@yahoo.co.jp"]))
+                    //            },
+                    //        },
+                    //    }
+                    //},
+                    new SettingItem("Wiki","このアプリのWikiを開きます。"){
+                        Action =async (s) =>Device.OpenUri(new Uri("https://github.com/kurema/WordbookImpressApp/wiki"))
                     },
                 },
                 new SettingItems("WordbookImpressについて")

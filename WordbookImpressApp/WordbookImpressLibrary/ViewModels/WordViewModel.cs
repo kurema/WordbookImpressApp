@@ -29,7 +29,7 @@ namespace WordbookImpressLibrary.ViewModels
         private Record.WordStatus WordStatus { get => Record.GetWordStatusByHash(QuizChoice.Hash); set => Record.SetWordStatusByHash(QuizChoice.Hash, value); }
         private Record Record;
 
-        public QuizChoiceViewModel(Models.QuizChoice QuizChoice, Record record)
+        public QuizChoiceViewModel(QuizChoice QuizChoice, Record record)
         {
             this.QuizChoice = QuizChoice;
             this.Record = record;
@@ -37,7 +37,7 @@ namespace WordbookImpressLibrary.ViewModels
 
         public string Head => QuizChoice.Title;
 
-        public string Description => QuizChoice.Description;
+        public string Description => QuizChoice.Answer+"\n\n"+ QuizChoice.Description;
 
         public int AnswerCountTotal
         {

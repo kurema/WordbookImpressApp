@@ -194,5 +194,10 @@ namespace WordbookImpressApp.Views
                 await WordbooksImpressStorage.SaveLocalData();
             }
         }
+
+        private async void ToolbarItem_Clicked_Statistics(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TestStatusPage(new TestStatusesViewModel() { Target = Model }));
+        }
     }
 }

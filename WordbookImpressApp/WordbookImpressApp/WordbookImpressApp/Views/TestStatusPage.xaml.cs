@@ -25,6 +25,11 @@ namespace WordbookImpressApp.Views
             ConfigStorage.Updated += (s, e) => UpdateCalendarGraph();
         }
 
+        public TestStatusPage(TestStatusesViewModel model):this()
+        {
+            this.BindingContext = model;
+        }
+
         protected override void OnBindingContextChanged()
         {
             if (Model == null) return;

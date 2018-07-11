@@ -195,4 +195,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\Tutorial_add.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_statistics_circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_statistics.png" />
+  </ItemGroup>
 </Project>

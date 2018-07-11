@@ -107,6 +107,8 @@
     <Content Include="Assets\icon_add.png" />
     <Content Include="Assets\icon_cancel.png" />
     <Content Include="Assets\icon_save.png" />
+    <Content Include="Assets\icon_statistics.png" />
+    <Content Include="Assets\icon_statistics_circle.png" />
     <Content Include="Assets\icon_wordbook.png" />
     <Content Include="Assets\Question.png" />
     <Content Include="Assets\tango.jpg" />

@@ -6,6 +6,7 @@
              xmlns:vm="clr-namespace:WordbookImpressLibrary.ViewModels;assembly=WordbookImpressLibrary"
              Title="単語帳">
     <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="icon_statistics.png" Text="成績を表示" Clicked="ToolbarItem_Clicked_Statistics" />
         <ToolbarItem Order="Secondary" Text="並び替え" Clicked="ToolbarItem_Clicked_Sort"/>
         <ToolbarItem Order="Secondary" Text="タイトル変更" Clicked="ToolbarItem_Clicked_Rename" x:Name="ToolbarItemRename" />
         <ToolbarItem Order="Secondary" Text="削除" Clicked="ToolbarItem_Clicked_Delete" />

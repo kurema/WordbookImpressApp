@@ -47,19 +47,16 @@ namespace WordbookImpressLibrary.ViewModels
             foreach (var itemVm in items)
             {
                 var item = itemVm.Content;
-                if(result.ContainsKey(item.DateTimeNative.Date))
+                var localDate = item.DateTimeNative.ToLocalTime().Date;
+                if (result.ContainsKey(localDate))
                 {
-                    result[item.DateTimeNative.Date] = Record.TestStatus.GetSum(result[item.DateTimeNative.Date], item);
+                    result[localDate] = Record.TestStatus.GetSum(result[localDate], item);
                 }
                 else
                 {
-                    result[item.DateTimeNative.Date] = item;
+                    result[localDate] = item;
                 }
             }
-
-            //ToDictionary()が便利なのでメモ。
-            //result.ToDictionary((a) => a.Key, (b) => Record.TestStatus.GetCorrectRate(b.Value.AnswerCountCorrect, b.Value.AnswerCountTotal));
-            //var b = result.Select((a) => (a.Key.ToString(), a.Value.AnswerCountCorrect / a.Value.AnswerCountTotal)).ToDictionary((a) => a.Item1, (a) => a.Item2);
 
             return result;
         }

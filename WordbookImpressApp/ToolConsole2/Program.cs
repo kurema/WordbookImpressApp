@@ -17,7 +17,7 @@ namespace WordbookImpressApp.ToolsConsole
         static void Main(string[] args)
         {
             //args = new[] { "xml", "wordbook", @"" , @"" };
-            args = new[] { "xml", "amazon", @"D:\temp\WordbookImpressApp\WordbookImpressApp\WordbookImpressLibrary\Schemas\WordbookSuggestion.xml", @"AKIAJBBN5XQ54KCKTUBQ", @"mT6fjZe/KYOA2rKxW1hheLsznl1BbHrNhDgmWfr5" };
+            //The API Key is suspended.
 
             if (!CheckArgsCount(args, 1)) { return; }
             else if (args[0] == "xml")
@@ -123,6 +123,7 @@ namespace WordbookImpressApp.ToolsConsole
 
                     foreach (var item in book)
                     {
+                        if (item.ids == null) item.ids = new infoBooksBookID[0];
                         if (item.ids?.Length > 0) continue;
                         var result= wrapper.Search(item.title, Nager.AmazonProductAdvertising.Model.AmazonSearchIndex.Books,
                             Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Images|Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Large);
@@ -157,6 +158,8 @@ namespace WordbookImpressApp.ToolsConsole
                         info.books.book = book.ToArray();
                         SerializationHelper.SerializeAsync(info, pathXml).Wait();
                     }
+                    info.books.book = book.ToArray();
+                    SerializationHelper.SerializeAsync(info, pathXml).Wait();
                 }
             }
         }

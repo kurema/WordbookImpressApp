@@ -103,6 +103,17 @@ namespace WordbookImpressApp.Views
                         }
                     }
                 },
+                new SettingItems("成績一覧")
+                {
+                    new SettingItem("一日当たりの回答数目安", (w) => "成績一覧ページのカレンダーグラフに反映されます。現在、" + storage.MaxDailyTestCount+"問。")
+                    {
+                        Action=async (s) =>
+                        {
+                            storage.MaxDailyTestCount=await GetByActionSheet<int>("回答数目安を選択してください。",
+                                new Dictionary<string, int>{ { "10問",10},{ "50問",50},{ "100問",100},{ "500問",500} },storage.MaxDailyTestCount);
+                        }
+                    },
+                },
 #if DEBUG
                 new SettingItems("デバッグ")
                 {
@@ -143,7 +154,7 @@ namespace WordbookImpressApp.Views
                 new SettingItems("WordbookImpressについて")
                 {
                     new SettingItem("オープンソースライセンス", "オープンソースソフトウェアに関するライセンスの詳細"){ Children=licenseChildren},
-                    new SettingItem("プロジェクトページ", "https://github.com/kurema/wordbookImpressApp"){ Action=async (w)=>{Device.OpenUri(new Uri("https://github.com/kurema/wordbookImpressApp/")); } },
+                    new SettingItem("プロジェクトページ", "https://github.com/kurema/wordbookImpressApp",null){ Action=async (w)=>{Device.OpenUri(new Uri("https://github.com/kurema/wordbookImpressApp/")); } },
                 },
             };
 			
@@ -317,7 +328,14 @@ namespace WordbookImpressApp.Views
 
             public bool BoolSetting { get => boolValue != null; }
             private bool? boolValue=null;
-            public bool BoolValue { get => boolValue ?? false; set { SetProperty(ref boolValue, value); OnPropertyChanged(nameof(Detail));Action(this); } }
+            public bool BoolValue { get => boolValue ?? false; set
+                {
+                    //Note: CachingStrategy="RecycleElement"にしておくと、IsVisibleのバインディングが評価される前に表示されているSwitchのIsToggledが往復してBoolSettingがtrueになってしまうようだ。
+                    //Note: そんなん分からん。再現しづらいから気を付けよう。
+                    if (boolValue == null)
+                        return;
+                    SetProperty(ref boolValue, value); OnPropertyChanged(nameof(Detail)); Action(this);
+                } }
             private Func<SettingItem,Task> action;
             public Func<SettingItem,Task> Action { get => action; set => SetProperty(ref action, value); }
             private ObservableCollection<SettingItems> children;

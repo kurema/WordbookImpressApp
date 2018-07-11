@@ -219,11 +219,11 @@ namespace WordbookImpressLibrary.ViewModels
             this.SortKind = Storage.ConfigStorage.Content?.SortKind ?? SortKindInfo.GetDefault();
         }
 
-        public WordbookImpressViewModel(WordbookImpress[] wordbooks, Record record,string Title)
+        public WordbookImpressViewModel(IEnumerable<WordbookImpress> wordbooks, Record record,string Title)
         {
             WordbooksTitle = Title;
             this.Record = record;
-            this.wordbooks = wordbooks;
+            this.wordbooks = wordbooks.ToArray();
 
             this.SortKind = Storage.ConfigStorage.Content?.SortKind ?? SortKindInfo.GetDefault();
         }

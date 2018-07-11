@@ -15,6 +15,10 @@ namespace WordbookImpressLibrary.ViewModels
         public QuizWordChoiceViewModel QuizWordChoice { get; private set; }
 
         public QuizResultViewModel(QuizWordChoiceViewModel quiz) { QuizWordChoice = quiz; }
+        public QuizResultViewModel(TestStatusViewModel vm)
+        {
+            QuizWordChoice = new QuizWordChoiceViewModel(vm.Content);
+        }
 
         public double AnswerCorrectPercentage => TestStatus.AnswerCountTotal == 0 ? 0 : (double)TestStatus.AnswerCountCorrect / TestStatus.AnswerCountTotal * 100.0;
 

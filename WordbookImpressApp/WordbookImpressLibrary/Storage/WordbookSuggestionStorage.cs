@@ -43,6 +43,7 @@ namespace WordbookImpressLibrary.Storage
         {
             using (System.Net.WebClient wc = new System.Net.WebClient())
             {
+                if (System.IO.File.Exists(Path)) System.IO.File.Delete(Path);
                 wc.DownloadFileAsync(new Uri("https://kurema.github.io/api/impress/wordbooks.xml"), Path);
             }
         }

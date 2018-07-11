@@ -41,6 +41,7 @@
                                 <Label Text="問)"/>
                             </StackLayout>
                             <my:PieGraphView x:Name="PieGraph" HorizontalOptions="FillAndExpand" HeightRequest="200" />
+                            <!--<my:CalendarGraphView HeightRequest="90" HorizontalOptions="FillAndExpand"/>-->
                             <Label Text="経過時間" Style="{DynamicResource Key=MySubtitleStyle}"/>
                             <Label Text="{Binding Path=ElapsedTime,Converter={StaticResource tsfVC},ConverterParameter='合計 : [if:TotalMinutesFloor:[TotalMinutesFloor:\{0:00\}]分][Seconds:\{0:00\}]秒'}" />
                             <Label Text="{Binding Path=ElapsedTimeAverage,Converter={StaticResource tsfVC},ConverterParameter='1問当たり : [if:TotalMinutesFloor:[TotalMinutesFloor:\{0:00\}]分][Seconds:\{0:00\}]秒'}" />

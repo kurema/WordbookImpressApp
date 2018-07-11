@@ -60,6 +60,7 @@ namespace WordbookImpressLibrary.Storage
             if (Content == null) return;
             if (System.IO.File.Exists(PathBup)) { System.IO.File.Delete(PathBup); }
             if (System.IO.File.Exists(Path)) { System.IO.File.Move(Path, PathBup); }
+            OnUpdated();
             await Helper.SerializationHelper.SerializeAsync(Content, Path);
         }
 

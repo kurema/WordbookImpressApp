@@ -7,6 +7,8 @@ using System.Collections.ObjectModel;
 using System.Collections;
 using System.Collections.Specialized;
 
+using System.Linq;
+
 namespace WordbookImpressLibrary.ViewModels
 {
     public class QuizWordChoiceViewModel : BaseViewModel
@@ -343,7 +345,18 @@ namespace WordbookImpressLibrary.ViewModels
             }
 
             ElapsedTime += DateTime.Now - DateTimeInitial;
-            Record.TestStatuses.Add(TestStatus = new Record.TestStatus() { RetryStatus = this.retryStatus, ElapsedTime = this.ElapsedTime, AnswerCountCorrect = correct, AnswerCountPass = pass, AnswerCountTotal = total, Key = WordbooksTarget.Length == 1 ? WordbooksTarget[0].Uri : "[combined]", Seed = this.Seed, DateTimeNative = DateTime.UtcNow, ChoiceKind = this.ChoiceType });
+            Record.TestStatuses.Add(TestStatus = new Record.TestStatus()
+            {
+                RetryStatus = this.retryStatus,
+                ElapsedTime = this.ElapsedTime,
+                AnswerCountCorrect = correct,
+                AnswerCountPass = pass,
+                AnswerCountTotal = total,
+                Key = WordbooksTarget.Length == 1 ? WordbooksTarget[0].Uri : WordbooksTarget.Length==Storage.WordbooksImpressStorage.Content.Count? Record.TestStatus.KeyAll: Record.TestStatus.KeyCombined,
+                Seed = this.Seed,
+                DateTimeNative = DateTime.UtcNow,
+                ChoiceKind = this.ChoiceType
+            });
         }
 
         private void EndSwitch(TestResult testResult,string hash, ref int correct,ref int total,ref int pass)
@@ -557,7 +570,37 @@ namespace WordbookImpressLibrary.ViewModels
 
         public enum ChoiceKind
         {
-            Title,Description
+            Title,Description,Combined
+        }
+
+        public QuizWordChoiceViewModel(Record.TestStatus testStatus):this(testStatus, Storage.RecordStorage.Content, Storage.WordbooksImpressStorage.Content)
+        { }
+
+        public QuizWordChoiceViewModel(Record.TestStatus testStatus, Record Record,IEnumerable<WordbookImpress> wordbooks)
+        {
+            this.TestStatus = testStatus;
+
+            this.Seed = testStatus.Seed;
+            this.Record = Record;
+            if (testStatus.Key == Record.TestStatus.KeyAll)
+            {
+                this.WordbooksForChoice = this.WordbooksTarget = wordbooks.ToArray();
+            }
+            else if (testStatus.Key == Record.TestStatus.KeyCombined)
+            {
+                this.WordbooksForChoice = this.WordbooksTarget = wordbooks.ToArray();
+            }
+            else
+            {
+                this.WordbooksForChoice = this.WordbooksTarget = new[] { wordbooks.First((w) => w.Uri == testStatus.Key) };
+            }
+            if (this.WordbooksTarget == null)
+            {
+                this.WordbooksForChoice = this.WordbooksTarget = new WordbookImpress[0];
+            }
+            this.choiceType = testStatus.ChoiceKind;
+
+            TestResults = GetInitialTestResults(WordbooksTarget);
         }
 
         public QuizWordChoiceViewModel():this(new WordbookImpressViewModel())
@@ -583,6 +626,13 @@ namespace WordbookImpressLibrary.ViewModels
             this.WordbooksForChoice = WordbooksForChoice;
             this.ChoiceType = choiceKind;
 
+            TestResults = GetInitialTestResults(WordbooksTarget);
+
+            this.ApplyConfig(config);
+        }
+
+        private static TestResult[] GetInitialTestResults(WordbookImpress[] WordbooksTarget)
+        {
             var tempResults = new List<TestResult>();
             foreach (var w in WordbooksTarget)
             {
@@ -595,9 +645,7 @@ namespace WordbookImpressLibrary.ViewModels
                     tempResults.Add(TestResult.Yet);
                 }
             }
-            TestResults = tempResults.ToArray();
-
-            this.ApplyConfig(config);
+            return tempResults.ToArray();
         }
 
         private int choiceCount;

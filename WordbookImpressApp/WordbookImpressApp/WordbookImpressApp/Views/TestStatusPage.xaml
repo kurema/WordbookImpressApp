@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:my="clr-namespace:WordbookImpressApp.Views"
+             xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
+             x:Class="WordbookImpressApp.Views.TestStatusPage"
+             Title="成績">
+    <ContentPage.Resources>
+        <vc:QuizWordChoiceViewModelTestResultToStringValueConverter x:Key="trsVC" />
+        <vc:TimeSpanFormatValueConverter x:Key="tsfVC" />
+        <vc:StringReplaceValueConverter x:Key="srVC" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand"
+                 HasUnevenRows="true"
+                 CachingStrategy="RecycleElement"
+                  ItemSelected="ListView_ItemSelected"
+                  SeparatorVisibility="None"
+                  >
+            <ListView.Header>
+                <StackLayout>
+                    <!--<Image Margin="10" Source="{Binding Path=Target.UriLogo}" HeightRequest="150" HorizontalOptions="FillAndExpand" Aspect="AspectFit"/>-->
+                    <Label Text="{Binding Path=Target.WordbookTitle}" HorizontalOptions="Center" Style="{DynamicResource Key=MyTitleStyle}" />
+                    <Frame Style="{StaticResource CardStyle}">
+                        <StackLayout>
+                            <Label Text="全体成績" Style="{DynamicResource Key=MySubtitleStyle}"/>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="0">
+                                <StackLayout.Resources>
+                                    <Style TargetType="Label">
+                                        <Setter Property="FontSize" Value="Large" />
+                                    </Style>
+                                </StackLayout.Resources>
+                                <Label Text="{Binding Total.AnswerCountCorrectPercentage,StringFormat='正答率{0:F0}% ('}"/>
+                                <Label Text="{Binding Total.AnswerCountTotal}"/>
+                                <Label Text="問中"/>
+                                <Label Text="{Binding Total.AnswerCountCorrect}"/>
+                                <Label Text="問)"/>
+                            </StackLayout>
+                            <my:PieGraphView x:Name="PieGraph" HorizontalOptions="FillAndExpand" HeightRequest="200" />
+                            <my:CalendarGraphView x:Name="CalendarGraph" HeightRequest="90" HorizontalOptions="FillAndExpand"/>
+                            <Label Text="経過時間" Style="{DynamicResource Key=MySubtitleStyle}"/>
+                            <Label Text="{Binding Path=Total.ElapsedTime,Converter={StaticResource tsfVC},ConverterParameter='合計 : [if:TotalMinutesFloor:[TotalMinutesFloor:\{0:00\}]分][Seconds:\{0:00\}]秒'}" />
+                            <Label Text="{Binding Path=Total.ElapsedTimeAverage,Converter={StaticResource tsfVC},ConverterParameter='1問当たり : [if:TotalMinutesFloor:[TotalMinutesFloor:\{0:00\}]分][Seconds:\{0:00\}]秒'}" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Style="{StaticResource CardStyle}">
+                            <StackLayout>
+                                <Label Text="{Binding Target.WordbookTitle,StringFormat='対象単語帳 : \{0\}'}" />
+                                <Label Text="{Binding Path=DateTimeStartLocal,StringFormat='試験日時 : \{0:yyyy\年MM\月dd\日 tt h\時mm\分\開\始 \}'}" />
+                                <StackLayout Orientation="Horizontal" Spacing="0">
+                                    <StackLayout.Resources>
+                                        <Style TargetType="Label">
+                                            <Setter Property="Margin" Value="0" />
+                                            <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                                        </Style>
+                                    </StackLayout.Resources>
+                                    <Label Text="正解率 " />
+                                    <Label Text="{Binding AnswerCountCorrectPercentage,StringFormat='\{0:F0\}'}" />
+                                    <Label Text="% (" />
+                                    <Label Text="{Binding AnswerCountCorrect}" />
+                                    <Label Text=" / " />
+                                    <Label Text="{Binding AnswerCountTotal}" />
+                                    <Label Text=")" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+  </ContentPage.Content>
+</ContentPage>

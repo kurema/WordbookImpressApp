@@ -384,6 +384,8 @@ namespace WordbookImpressLibrary.Schemas {
         
         private object[] ebookField;
         
+        private object[] voiceField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("wordbook")]
         public wordbook[] wordbook {
@@ -403,6 +405,17 @@ namespace WordbookImpressLibrary.Schemas {
             }
             set {
                 this.ebookField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("voice")]
+        public object[] voice {
+            get {
+                return this.voiceField;
+            }
+            set {
+                this.voiceField = value;
             }
         }
     }

@@ -2,2226 +2,3964 @@
 <info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/WordbookImpressLibrary/Schemas/WordbookSuggestion.xsd">
   <books>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2013年05月号</title>
+      <title>DOS/V POWER REPORT 2013年05月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2013年06月号</title>
+      <title>DOS/V POWER REPORT 2013年06月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2013年07月号</title>
+      <title>DOS/V POWER REPORT 2013年07月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2013年08月号</title>
+      <title>DOS/V POWER REPORT 2013年08月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2013年09月号</title>
+      <title>DOS/V POWER REPORT 2013年09月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2013年10月号</title>
+      <title>DOS/V POWER REPORT 2013年10月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B00ED6Q9O8</id>
+        <id type="ASIN" binding="ebook">B00GRRBID8</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2013年11月号</title>
+      <title>DOS/V POWER REPORT 2013年11月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B00F3S9VEK</id>
+        <id type="ASIN" binding="ebook">B00GRRBIFQ</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2013年12月号</title>
+      <title>DOS/V POWER REPORT 2013年12月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B00FKSNBL2</id>
+        <id type="ASIN" binding="ebook">B00G9TIIV4</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2014年01月号</title>
+      <title>DOS/V POWER REPORT 2014年01月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2014年02月号</title>
+      <title>DOS/V POWER REPORT 2014年02月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2014年03月号</title>
+      <title>DOS/V POWER REPORT 2014年03月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2014年04月号</title>
+      <title>DOS/V POWER REPORT 2014年04月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2014年05月号</title>
+      <title>DOS/V POWER REPORT 2014年05月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B00IXVEGCQ</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2014年06月号</title>
+      <title>DOS/V POWER REPORT 2014年06月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2014年07月号</title>
+      <title>DOS/V POWER REPORT 2014年07月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2014年08月号</title>
+      <title>DOS/V POWER REPORT 2014年08月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2014年09月号</title>
+      <title>DOS/V POWER REPORT 2014年09月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2014年10月号</title>
+      <title>DOS/V POWER REPORT 2014年10月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B00MG87PTI</id>
+        <id type="ASIN" binding="ebook">B00N3IJ8DQ</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2014年11月号</title>
+      <title>DOS/V POWER REPORT 2014年11月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B00NG5SG4I</id>
+        <id type="ASIN" binding="ebook">B00NXBKK4E</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2014年12月号</title>
+      <title>DOS/V POWER REPORT 2014年12月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B00OIN1PCC</id>
+        <id type="ASIN" binding="ebook">B00OXK8622</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2015年01月号</title>
+      <title>DOS/V POWER REPORT 2015年01月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2015年02月号</title>
+      <title>DOS/V POWER REPORT 2015年02月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2015年03月号</title>
+      <title>DOS/V POWER REPORT 2015年03月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2015年04月号</title>
+      <title>DOS/V POWER REPORT 2015年04月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2015年05月号</title>
+      <title>DOS/V POWER REPORT 2015年05月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2015年06月号</title>
+      <title>DOS/V POWER REPORT 2015年06月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2015年07月号</title>
+      <title>DOS/V POWER REPORT 2015年07月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2015年08月号</title>
+      <title>DOS/V POWER REPORT 2015年08月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2015年09月号</title>
+      <title>DOS/V POWER REPORT 2015年09月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2015年10月号</title>
+      <title>DOS/V POWER REPORT 2015年10月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B013S78Q0M</id>
+        <id type="ASIN" binding="ebook">B014EM27ZU</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2015年11月号</title>
+      <title>DOS/V POWER REPORT 2015年11月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B01546O622</id>
+        <id type="ASIN" binding="ebook">B015SDKS3M</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2015年12月号</title>
+      <title>DOS/V POWER REPORT 2015年12月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B016LSWB24</id>
+        <id type="ASIN" binding="ebook">B01779J6GA</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2016年01月号</title>
+      <title>DOS/V POWER REPORT 2016年01月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2016年02月号</title>
+      <title>DOS/V POWER REPORT 2016年02月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2016年03月号</title>
+      <title>DOS/V POWER REPORT 2016年03月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2016年04月号</title>
+      <title>DOS/V POWER REPORT 2016年04月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2016年05月号</title>
+      <title>DOS/V POWER REPORT 2016年05月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2016年06月号</title>
+      <title>DOS/V POWER REPORT 2016年06月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2016年07月号</title>
+      <title>DOS/V POWER REPORT 2016年07月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2016年08月号</title>
+      <title>DOS/V POWER REPORT 2016年08月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2016年09月号</title>
+      <title>DOS/V POWER REPORT 2016年09月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2016年10月号</title>
+      <title>DOS/V POWER REPORT 2016年10月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B01K462PBG</id>
+        <id type="ASIN" binding="ebook">B01IEOHZWO</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2016年11月号</title>
+      <title>DOS/V POWER REPORT 2016年11月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B01LRH7U02</id>
+        <id type="ASIN" binding="ebook">B01IEOI0DW</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2016年12月号</title>
+      <title>DOS/V POWER REPORT 2016年12月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B01MDKILRC</id>
+        <id type="ASIN" binding="ebook">B01IEOI15O</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2017年01月号</title>
+      <title>DOS/V POWER REPORT 2017年01月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2017年02月号</title>
+      <title>DOS/V POWER REPORT 2017年02月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2017年03月号</title>
+      <title>DOS/V POWER REPORT 2017年03月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2017年04月号</title>
+      <title>DOS/V POWER REPORT 2017年04月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2017年05月号</title>
+      <title>DOS/V POWER REPORT 2017年05月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2017年06月号</title>
+      <title>DOS/V POWER REPORT 2017年06月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2017年07月号</title>
+      <title>DOS/V POWER REPORT 2017年07月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2017年08月号</title>
+      <title>DOS/V POWER REPORT 2017年08月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2017年09月号</title>
+      <title>DOS/V POWER REPORT 2017年09月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2017年10月号</title>
+      <title>DOS/V POWER REPORT 2017年10月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B074JRWX5G</id>
+        <id type="ASIN" binding="ebook">B06XNLH2QR</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2017年11月号</title>
+      <title>DOS/V POWER REPORT 2017年11月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B075KZBHDS</id>
+        <id type="ASIN" binding="ebook">B06XKMPJ4M</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2017年12月号</title>
+      <title>DOS/V POWER REPORT 2017年12月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B076BK63ZB</id>
+        <id type="ASIN" binding="ebook">B06XKVDWRP</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2018年01月号</title>
+      <title>DOS/V POWER REPORT 2018年01月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2018年02月号</title>
+      <title>DOS/V POWER REPORT 2018年02月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2018年03月号</title>
+      <title>DOS/V POWER REPORT 2018年03月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2018年04月号</title>
+      <title>DOS/V POWER REPORT 2018年04月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2018年05月号</title>
+      <title>DOS/V POWER REPORT 2018年05月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2018年06月号</title>
+      <title>DOS/V POWER REPORT 2018年06月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
-      <title>DOSV POWER REPORT 2018年07月号</title>
+      <title>DOS/V POWER REPORT 2018年07月号</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
-      <title>DOSV POWER REPORT 2018年08月号</title>
+      <title>DOS/V POWER REPORT 2018年08月号</title>
+      <ids />
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118110106" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 ITパスポート教科書 平成26年度 CBT対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844335014</id>
+        <id type="ASIN" binding="ebook">B00GOLOXZM</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 ITパスポート教科書 平成27年度 CBT対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844337130</id>
+        <id type="ASIN" binding="ebook">B00QEXAP1G</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 ITパスポート教科書 平成28年度 CBT対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339540</id>
+        <id type="ASIN" binding="ebook">B0186T0NJE</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 ITパスポート教科書 平成29年度 CBT対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000167</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>かんたん合格 ITパスポート教科書 平成30年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002690</id>
+        <id type="ASIN" binding="ebook">B077D28VQP</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101018" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz03impress" />
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 ITパスポート過去問題集 平成26年度春期 CBT対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844335162</id>
+        <id type="ASIN" binding="ebook">B00HDAF2R6</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 ITパスポート過去問題集 平成26年度秋期 CBT対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844335944</id>
+        <id type="ASIN" binding="ebook">B00KYFKF88</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 ITパスポート過去問題集 平成27年度春期 CBT対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844337270</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 ITパスポート過去問題集 平成27年度秋期 CBT対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844338188</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 ITパスポート過去問題集 平成28年度春期 CBT対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339567</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 ITパスポート過去問題集 平成28年度秋期 CBT対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844380737</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 ITパスポート過去問題集 平成29年度春期 CBT対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000361</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 ITパスポート過去問題集 平成29年度秋期 CBT対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295001155</id>
+        <id type="ASIN" binding="ebook">B071WLWPM1</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 ITパスポート過去問題集 平成30年度春期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002747</id>
+        <id type="ASIN" binding="ebook">B077XB35NV</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>かんたん合格 ITパスポート過去問題集 平成30年度秋期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295003794</id>
+        <id type="ASIN" binding="ebook">B07DJ7WR2N</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101148" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz32impress" />
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 ネットワークスペシャリスト過去問題集 平成26年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844335480</id>
+        <id type="ASIN" binding="ebook">B00IM7ZP5I</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>かんたん合格 ネットワークスペシャリスト過去問題集 平成27年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844337548</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1114101087" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 基本情報技術者教科書 平成26年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844335006</id>
+        <id type="ASIN" binding="ebook">B00GW8H61K</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 基本情報技術者教科書 平成27年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844337149</id>
+        <id type="ASIN" binding="ebook">B00QEXAOZI</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 基本情報技術者教科書 平成28年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339559</id>
+        <id type="ASIN" binding="ebook">B018I45YBE</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 基本情報技術者教科書 平成29年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000175</id>
+        <id type="ASIN" binding="ebook">B01MSK4W6W</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>かんたん合格 基本情報技術者教科書 平成30年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002682</id>
+        <id type="ASIN" binding="ebook">B077B8CB89</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101019" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz01impress" />
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 基本情報技術者過去問題集 平成26年度秋期</title>
+      <ids>
+        <id type="ASIN" binding="ebook">B00KLZQC4C</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 基本情報技術者過去問題集 平成27年度春期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">484433719X</id>
+        <id type="ASIN" binding="ebook">B00QPSXXZ0</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 基本情報技術者過去問題集 平成27年度秋期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">484433817X</id>
+        <id type="ASIN" binding="ebook">B00YG8PXMC</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 基本情報技術者過去問題集 平成28年度春期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339575</id>
+        <id type="ASIN" binding="ebook">B018LFTDW6</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 基本情報技術者過去問題集 平成28年度秋期</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 基本情報技術者過去問題集 平成29年度春期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">429500037X</id>
+        <id type="ASIN" binding="ebook">B01N77Y82F</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 基本情報技術者過去問題集 平成29年度秋期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295001171</id>
+        <id type="ASIN" binding="ebook">B0723CK4X4</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>かんたん合格 基本情報技術者過去問題集 平成30年度春期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002720</id>
+        <id type="ASIN" binding="ebook">B077HYSHT3</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>かんたん合格 基本情報技術者過去問題集 平成30年度秋期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295003735</id>
+        <id type="ASIN" binding="ebook">B07D98W34X</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101138" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz31impress" />
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>かんたん合格 応用情報技術者過去問題集 平成26年度春期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">484433526X</id>
+        <id type="ASIN" binding="ebook">B00HWSLAFC</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1113101073" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>かんたん合格</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>4K時代の最新版 ドローン空撮入門</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295003956</id>
+        <id type="ASIN" binding="ebook">B07F2K2H73</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117102076" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>BIOS／UEFI 完全攻略読本 Skylake＆Windows 10 対応版</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844380192</id>
+        <id type="ASIN" binding="ebook">B01DIKO07C</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101128" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>BIOS／UEFI 完全攻略読本 Windows 8／7対応版 (自作PC マザーボード )</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844333305</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>DVDで分かる！初めてのパソコン自作</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844380389</id>
+        <id type="ASIN" binding="ebook">B01DIKO05E</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115102059" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>iPhone 5 アプリ事典530 SoftBank＆au対応 ［2013年版］</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844333313</id>
+        <id type="ASIN" binding="ebook">B00B3O4CQ0</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/3331" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>NASオールカタログ2014 (パソコンもスマホもタブレットも、家中かんたんバックアップ！ )</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844335286</id>
+        <id type="ASIN" binding="ebook">B00HKDX2V4</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>NASオールカタログ2016-2017</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844380761</id>
+        <id type="ASIN" binding="ebook">B01HB73K5Q</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116102034" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>PC自作・チューンナップ虎の巻 2013</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">484433302X</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>PC自作・チューンナップ虎の巻 2014</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844334999</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>PC自作・チューンナップ虎の巻 2015</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844337084</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>PC自作・チューンナップ虎の巻 2016</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339486</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>PC自作・チューンナップ虎の巻 2017</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000272</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>PC自作・チューンナップ虎の巻 2018</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002844</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117102064" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>SSD完全攻略読本</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844333666</id>
+        <id type="ASIN" binding="ebook">B00BVUTH0M</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/3366" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>VR2 Vol.1</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844381571</id>
+        <id type="ASIN" binding="ebook">B01LZN6OTR</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116102049" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>Windowsタブレット完全購入ガイド 2014春</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844335715</id>
+        <id type="ASIN" binding="ebook">B00JAWPOM8</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1113102043" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>[コグレマサト] プロ・ブロガーの必ず結果が出るアクセスアップテクニック100　ファンにも検索エンジンにも好かれるブログ運営の極意</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844334417</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1113101013" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>[コグレマサト] 必ず結果が出るブログ運営テクニック100 プロ・ブロガーが教える「俺メディア」の極意</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844331779</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/3177" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>あなたと家族のスマホ代がサクッと半額以下になる本</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339273</id>
+        <id type="ASIN" binding="ebook">B015W034NC</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115102046" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>いちばんやさしいGoogleアナリティクスの教本 人気講師が教えるWeb解析と広告計測の基本</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295003727</id>
+        <id type="ASIN" binding="ebook">B07DXG4KXV</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101119" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>いちばんやさしいデジタルマーケティングの教本 人気講師が教えるメディアと販促の新しい基礎</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002305</id>
+        <id type="ASIN" binding="ebook">B076B8YVBR</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101027" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>いちばんやさしいブロックチェーンの教本 人気講師が教えるビットコインを支える仕組み</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295001449</id>
+        <id type="ASIN" binding="ebook">B075CFG2TY</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101128" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>いちばんやさしい不動産の教本 人気講師が教える土地建物の基本と取引のしくみ</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002968</id>
+        <id type="ASIN" binding="ebook">B078MHBK44</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101024" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>いちばんやさしい機械学習プロジェクトの教本 人気講師が教える仕事にAIを導入する方法</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295003417</id>
+        <id type="ASIN" binding="ebook">B07BXSC9XT</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101044" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>いますぐはじめるドコモのスマホ</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844333801</id>
+        <id type="ASIN" binding="ebook">B00CIR1QD8</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/3380" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>へたっぴさんのためのお絵描き入門 なんでお前は絵が描けないんだ!</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295003840</id>
+        <id type="ASIN" binding="ebook">B07DNX3FGY</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101097" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>パソコン自作宣言2018</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">429500362X</id>
+        <id type="ASIN" binding="ebook">B07BVP7P75</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117102074" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>パソコン自作講座2015</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844336886</id>
+        <id type="ASIN" binding="ebook">B00O0NIW1W</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>世界一やさしい iPhone iPhone X／8／8 Plus対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002771</id>
+        <id type="ASIN" binding="ebook">B077S398XL</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117102054" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>世界一やさしい LINE 最新版</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295001511</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116102067" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>世界一やさしい ウィンドウズ 10 最新版</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">429500278X</id>
+        <id type="ASIN" binding="ebook">B077X6LXX7</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117102062" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>世界一やさしい タイピング</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295003018</id>
+        <id type="ASIN" binding="ebook">B078NM1Q4D</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117102057" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>世界一やさしい ビットコイン＆仮想通貨</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295003751</id>
+        <id type="ASIN" binding="ebook">B07D5B61HR</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117102075" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>忍者増田のレトロゲーム忍法帖</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000868</id>
+        <id type="ASIN" binding="ebook">B06XRVQF5S</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101046" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>新機能がすぐわかる、乗り換えで困らない Windows 8速攻ワザ200</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844333151</id>
+        <id type="ASIN" binding="ebook">B00ATUU9N4</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/3315" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>楽しいガジェットを作る いちばんかんたんなラズベリーパイの本</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844381296</id>
+        <id type="ASIN" binding="ebook">B01LYLJ8VN</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101024" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>無料でWindowsが快適になる鉄板フリーソフト2017「窓の杜」公式</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295001031</id>
+        <id type="ASIN" binding="ebook">B06XWPKSSB</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116102062" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>絶対に失敗しない Windows 10 無料アップグレード</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844338811</id>
+        <id type="ASIN" binding="ebook">B013P0RJUK</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115102039" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>自作PCパーツパーフェクトカタログ 2014</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844335154</id>
+        <id type="ASIN" binding="ebook">B00GZBH3XA</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>自作PCパーツパーフェクトカタログ 2015</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844337173</id>
+        <id type="ASIN" binding="ebook">B00PPQGQOS</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>自作PCパーツパーフェクトカタログ 2016</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339664</id>
+        <id type="ASIN" binding="ebook">B0186T0NHQ</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>自作PCパーツパーフェクトカタログ 2017</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000434</id>
+        <id type="ASIN" binding="ebook">B01N4626JY</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116102054" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>高橋敏也の改造バカ一台&amp;動く改造バカ超大全 怒濤編</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844338358</id>
+        <id type="ASIN" binding="ebook">B010L0C7MM</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101009" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>高橋敏也の改造バカ一台&amp;動く改造バカ超大全 風雲編</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">484433834X</id>
+        <id type="ASIN" binding="ebook">B010L0C7KO</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1114101117" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>その他</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>世界一おもしろいぶっちぎり宅建士 第1巻［宅建業法・その他法令編］合格テキスト＆過去問ベストセレクト 平成27年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844337742</id>
+        <id type="ASIN" binding="ebook">B00V5UG9R2</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他試験</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>世界一おもしろいぶっちぎり宅建士 第2巻［法令上の制限・税・統計編］合格テキスト＆過去問ベストセレクト 平成27年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844337750</id>
+        <id type="ASIN" binding="ebook">B00V5UG9PO</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他試験</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>世界一おもしろいぶっちぎり宅建士 第3巻［権利関係編その1］合格テキスト＆過去問ベストセレクト 平成27年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844337866</id>
+        <id type="ASIN" binding="ebook">B00VFI4RW8</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他試験</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>世界一おもしろいぶっちぎり宅建士 第4巻［権利関係編その2］合格テキスト＆過去問ベストセレクト 平成27年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844337874</id>
+        <id type="ASIN" binding="ebook">B00VFI4NPY</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他試験</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>合格しようぜ！宅建士2016 音声付きテキスト＆問題集 上巻</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339826</id>
+        <id type="ASIN" binding="ebook">B019ONT9SM</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他試験</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>合格しようぜ！宅建士2016 音声付きテキスト＆問題集 下巻</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339834</id>
+        <id type="ASIN" binding="ebook">B019ONT9IW</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他試験</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>合格しようぜ！宅建士2016 音声付き過去10年問題集</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844380087</id>
+        <id type="ASIN" binding="ebook">B01C52VFN6</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他試験</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>合格しようぜ！宅建士2017 音声付きテキスト＆問題集 上巻</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000345</id>
+        <id type="ASIN" binding="ebook">B01MYNYWFL</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他試験</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>合格しようぜ！宅建士2017 音声付きテキスト＆問題集 下巻</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000353</id>
+        <id type="ASIN" binding="ebook">B01N2I6WDM</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他試験</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>合格しようぜ！宅建士2017 音声付き過去13年問題集</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000655</id>
+        <id type="ASIN" binding="ebook">B01N5JH307</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>その他試験</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>合格しようぜ！宅建士2018 基本テキスト</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002704</id>
+        <id type="ASIN" binding="ebook">B077HP77WW</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101080" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz27impress" />
+        <ebook />
+      </special>
       <genre>その他試験</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>合格しようぜ！宅建士2018 音声付きテーマ別ベストセレクト問題集</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295003131</id>
+        <id type="ASIN" binding="ebook">B07BBH1FH4</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101081" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz29impress" />
+        <ebook />
+      </special>
       <genre>その他試験</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>合格しようぜ！宅建士2018 音声付き過去15年問題集</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002887</id>
+        <id type="ASIN" binding="ebook">B078K94PQS</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101082" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz28impress" />
+        <ebook />
+      </special>
       <genre>その他試験</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>試験にココが出る！ 乙種第4類危険物取扱者 教科書＋実践問題</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295003662</id>
+        <id type="ASIN" binding="ebook">B07D3QZ657</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101114" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz30impress" />
+        <ebook />
+      </special>
       <genre>その他試験</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>試験にココが出る！ 消防設備士4類［甲種・乙種］教科書+実践問題</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000078</id>
+        <id type="ASIN" binding="ebook">B01NBDEOZW</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101050" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz12impress" />
+        <ebook />
+      </special>
       <genre>その他試験</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>試験にココが出る！ 消防設備士6類 教科書+実践問題</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002364</id>
+        <id type="ASIN" binding="ebook">B075MBZG6G</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101164" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz25impress" />
+        <ebook />
+      </special>
       <genre>その他試験</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できる100の新法則 Instagramマーケティング 写真1枚で「欲しい」を引き出す技術</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339974</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101088" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できる100の新法則 Tableauタブロー ビジュアルWeb分析 データを収益に変えるマーケターの武器</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844380877</id>
+        <id type="ASIN" binding="ebook">B01M1H78K7</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101008" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できる100の新法則 実践マーケティングオートメーション 会わずに売れるリード育成法</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000507</id>
+        <id type="ASIN" binding="ebook">B06VXXJGKD</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101041" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるAccess 2016 Windows 10／8.1／7対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844380664</id>
+        <id type="ASIN" binding="ebook">B01GPIWNEQ</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101161" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるAutoCAD 2019&amp;2018&amp;2017&amp;2016&amp;2015対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295004057</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101143" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるExcel 2013 Windows 10／8.1／7対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844338234</id>
+        <id type="ASIN" binding="ebook">B012UW81V0</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101011" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるExcel 関数 データ処理の効率アップに役立つ本 2016／2013／2010／2007対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">484438077X</id>
+        <id type="ASIN" binding="ebook">B01ICQA120</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101127" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるPhotoshop Elements 2018 Windows&amp;macOS対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002925</id>
+        <id type="ASIN" binding="ebook">B0793N95GL</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101096" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるWindows 10 パーフェクトブック 困った！＆便利ワザ大全 改訂3版</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002488</id>
+        <id type="ASIN" binding="ebook">B076P6XGTK</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101137" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるWindows 10 改訂2版</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844381199</id>
+        <id type="ASIN" binding="ebook">B01JNYGDLS</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるWindows 10 改訂3版</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">429500247X</id>
+        <id type="ASIN" binding="ebook">B076RQXGBH</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101031" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるWindows 10</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844338757</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるWord 2013 Windows 10／8.1／7対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844338242</id>
+        <id type="ASIN" binding="ebook">B012UW81LU</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101012" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるWord&amp;Excel 2013 Windows 10／8.1／7対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844338250</id>
+        <id type="ASIN" binding="ebook">B012UW81RY</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101013" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるWord&amp;Excel&amp;PowerPoint 2016 Windows 10／8.1／7対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844381563</id>
+        <id type="ASIN" binding="ebook">B01LXEXQKZ</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101036" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できる大事典 Excel 2016 Windows 10／8.1／7対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">484438130X</id>
+        <id type="ASIN" binding="ebook">B01LYRJER2</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101010" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できる大事典 Excel関数 2016／2013／2010対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002259</id>
+        <id type="ASIN" binding="ebook">B075JXK6DZ</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101157" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できる大事典 Windows 10 Home／Pro／Enterprise 対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844380133</id>
+        <id type="ASIN" binding="ebook">B01CCGSTI4</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101083" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるシリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット Androidスマートフォンアプリ超事典1000［2015年版］ スマートフォン＆タブレット対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844337122</id>
+        <id type="ASIN" binding="ebook">B00QGBORWE</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット Androidスマートフォンアプリ超事典1000［2016年版］ スマートフォン＆タブレット対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339761</id>
+        <id type="ASIN" binding="ebook">B019C4UIY2</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101076" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット Evernote 基本＆活用ワザ 完全ガイド</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844335774</id>
+        <id type="ASIN" binding="ebook">B00JUK5WI6</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1113101104" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット Facebook スマートに使いこなす基本＆活用ワザ 210 増補改訂3版</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844333763</id>
+        <id type="ASIN" binding="ebook">B00BWJX1Q8</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/3376" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット HUAWEI P10 Plus／P10／P10 lite基本＆活用ワザ完全ガイド</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002100</id>
+        <id type="ASIN" binding="ebook">B074M7VYD9</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101025" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット HUAWEI P9／P9 lite基本＆活用ワザ完全ガイド</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000558</id>
+        <id type="ASIN" binding="ebook">B01MXW7I70</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101111" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhoneアプリ超事典1000［2015年版］ iPhone／iPad対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844336754</id>
+        <id type="ASIN" binding="ebook">B00O0NIW12</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhoneアプリ超事典1000［2016年版］ iPhone／iPad対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339117</id>
+        <id type="ASIN" binding="ebook">B017K9YPLI</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット iPhoneアプリ超事典1000［2017年版］ iPhone／iPad対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844381547</id>
+        <id type="ASIN" binding="ebook">B01LZKOE28</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101042" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット OneNote 2013 基本マスターブック 最新版 Windows／iPhone&amp;iPad／Androidアプリ対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844336029</id>
+        <id type="ASIN" binding="ebook">B00L318P3E</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット OneNote 2016／2013 基本マスターブック Windows／iPhone＆iPad／Android アプリ対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844380338</id>
+        <id type="ASIN" binding="ebook">B01EKXKZ5C</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101134" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット SoftBank iPhone 5 スマートに使いこなす基本＆活用ワザ 210</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844333003</id>
+        <id type="ASIN" binding="ebook">B00ATUU902</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/3300" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット これからはじめるLINE 基本＆活用ワザ［改訂2版］</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295003166</id>
+        <id type="ASIN" binding="ebook">B07B4XRVSG</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101095" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット 一瞬で差がつく PC活用術 ショートカットキー 全事典</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">484433669X</id>
+        <id type="ASIN" binding="ebook">B00NSCVF2Y</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1114101034" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット＋ Evernote 改訂版</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844329979</id>
+        <id type="ASIN" binding="ebook">B00APVQ6L6</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/2997" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット＋ Evernote 活用編</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844328816</id>
+        <id type="ASIN" binding="ebook">B00APVQ6MK</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/2881" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット＋ G2 L-01F</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844334883</id>
+        <id type="ASIN" binding="ebook">B00GBXRXWI</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1113101062" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット＋ GALAXY Note 3 SC-01F ［docomo 2013年 冬モデル］</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844334913</id>
+        <id type="ASIN" binding="ebook">B00GBXRXMI</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット＋ GALAXY Note II</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844333194</id>
+        <id type="ASIN" binding="ebook">B00B3O4CR4</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット＋ GALAXY S4</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844334026</id>
+        <id type="ASIN" binding="ebook">B00CW6F43I</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1112101147" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット＋ Optimus it L-05E［docomo 2013年 夏モデル］</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844334174</id>
+        <id type="ASIN" binding="ebook">B00DSFT0X2</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1113101024" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット＋ USBメモリー 改訂版 Windows 8&amp;7対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844333577</id>
+        <id type="ASIN" binding="ebook">B00BWJX1P4</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/3357" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット＋ これだけは知っておきたいWindows XP &amp; office 2003サポート終了の危険と対策</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844335499</id>
+        <id type="ASIN" binding="ebook">B00IJTRJRQ</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1113101114" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット＋ ビッグデータ入門 分析から価値を引き出すデータサイエンスの時代へ</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844335294</id>
+        <id type="ASIN" binding="ebook">B00I8BMBRI</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1113101031" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 5 スマートに使いこなす基本＆活用ワザ 210 (au)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844333011</id>
+        <id type="ASIN" binding="ebook">B00ATUU8ZS</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 5 スマートに使いこなす基本＆活用ワザ 210 (ソフトバンク)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844333003</id>
+        <id type="ASIN" binding="ebook">B00ATUU902</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 6 Plus 基本＆活用ワザ 100 (au)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844336975</id>
+        <id type="ASIN" binding="ebook">B00OROLZXQ</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 6 Plus 基本＆活用ワザ 100 (ソフトバンク)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844336991</id>
+        <id type="ASIN" binding="ebook">B00OROLZWM</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 6 Plus 基本＆活用ワザ 100 (ドコモ)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844336983</id>
+        <id type="ASIN" binding="ebook">B00OROLZWC</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 6 基本&amp;活用ワザ 100 (au)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844336940</id>
+        <id type="ASIN" binding="ebook">B00OROM03U</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 6 基本&amp;活用ワザ 100 (ソフトバンク)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844336967</id>
+        <id type="ASIN" binding="ebook">B00OROLZZE</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 6 基本&amp;活用ワザ 100 (ドコモ)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844336959</id>
+        <id type="ASIN" binding="ebook">B00OROLZUO</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 6s Plus 基本＆活用ワザ 100 au完全対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339389</id>
+        <id type="ASIN" binding="ebook">B017QRKVAS</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 6s Plus 基本＆活用ワザ 100 ソフトバンク完全対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339400</id>
+        <id type="ASIN" binding="ebook">B017QRKVBM</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 6s Plus 基本＆活用ワザ 100 ドコモ完全対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339397</id>
+        <id type="ASIN" binding="ebook">B017QRKVDA</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 6s 基本＆活用ワザ 100 au完全対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339354</id>
+        <id type="ASIN" binding="ebook">B017CYNK1C</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 6s 基本＆活用ワザ 100 ソフトバンク完全対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339370</id>
+        <id type="ASIN" binding="ebook">B017CYNK08</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 6s 基本＆活用ワザ 100 ドコモ完全対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339362</id>
+        <id type="ASIN" binding="ebook">B017CYNK4E</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 7 Plus 基本＆活用ワザ100 (au)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000116</id>
+        <id type="ASIN" binding="ebook">B01MCXIZPJ</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 7 Plus 基本＆活用ワザ100 (ソフトバンク)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000132</id>
+        <id type="ASIN" binding="ebook">B01MDQ7QSU</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 7 Plus 基本＆活用ワザ100 (ドコモ)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000124</id>
+        <id type="ASIN" binding="ebook">B01M7TJWWK</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 7 基本＆活用ワザ100 (au)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000086</id>
+        <id type="ASIN" binding="ebook">B01M70OJVI</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 7 基本＆活用ワザ100 (ソフトバンク)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000108</id>
+        <id type="ASIN" binding="ebook">B01M4N1S90</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 7 基本＆活用ワザ100 (ドコモ)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000094</id>
+        <id type="ASIN" binding="ebook">B01M8M7NT8</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 8／8 Plus 基本&amp;活用ワザ100 (au)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002585</id>
+        <id type="ASIN" binding="ebook">B07727CYBN</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 8／8 Plus 基本&amp;活用ワザ100 (ソフトバンク)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002607</id>
+        <id type="ASIN" binding="ebook">B0773GDHG9</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone 8／8 Plus 基本&amp;活用ワザ100 (ドコモ)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002593</id>
+        <id type="ASIN" binding="ebook">B0773F4G3B</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone SE 基本＆活用ワザ100 au完全対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844380680</id>
+        <id type="ASIN" binding="ebook">B01G31EPQE</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone SE 基本＆活用ワザ100 ソフトバンク完全対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844380699</id>
+        <id type="ASIN" binding="ebook">B01G31EPKU</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>できるポケット iPhone SE 基本＆活用ワザ100 ドコモ完全対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844380672</id>
+        <id type="ASIN" binding="ebook">B01G31EPM8</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>できるポケット iPhone X 基本＆活用ワザ100 ドコモ／au／ソフトバンク完全対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002976</id>
+        <id type="ASIN" binding="ebook">B0789H8132</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101090" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>できるポケット iPhone</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>Evernoteオールインワンガイド</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844332430</id>
+        <id type="ASIN" binding="ebook">B00ATUU8GW</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/3243" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>オールインワンガイド</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>Googleサービスオールインワンガイド</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844332880</id>
+        <id type="ASIN" binding="ebook">B009X8GYUA</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/3288" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>オールインワンガイド</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>iPad mini オールインワンガイド</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">484433333X</id>
+        <id type="ASIN" binding="ebook">B00ATUU9NE</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/3333" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>オールインワンガイド</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>iPhone 5 オールインワンガイド</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">484433316X</id>
+        <id type="ASIN" binding="ebook">B00ATUU9MA</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/3316" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>オールインワンガイド</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>OS X Mountain Lion オールインワンガイド</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844332791</id>
+        <id type="ASIN" binding="ebook">B009X8GYTG</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/3279" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>オールインワンガイド</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>徹底攻略 ITパスポート教科書＋模擬問題</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295003522</id>
+        <id type="ASIN" binding="ebook">B07BF7V3X3</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101052" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz03impress" />
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>徹底攻略 LPIC Level1 問題集[Version 4.0]対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339648</id>
+        <id type="ASIN" binding="ebook">B018I45YF0</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101059" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 データベーススペシャリスト教科書 平成26年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844334743</id>
+        <id type="ASIN" binding="ebook">B00FGLY23Y</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 データベーススペシャリスト教科書 平成27年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844336665</id>
+        <id type="ASIN" binding="ebook">B00NE7JV42</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 データベーススペシャリスト教科書 平成28年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844338803</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 データベーススペシャリスト教科書 平成29年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">484438127X</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>徹底攻略 データベーススペシャリスト教科書 平成30年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002291</id>
+        <id type="ASIN" binding="ebook">B075K5M9GC</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101022" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz15impress" />
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 ネットワークスペシャリスト教科書 平成27年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844337556</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 ネットワークスペシャリスト教科書 平成28年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844380214</id>
+        <id type="ASIN" binding="ebook">B01CZDTIJI</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 ネットワークスペシャリスト教科書 平成29年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000825</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>徹底攻略 ネットワークスペシャリスト教科書 平成30年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295003247</id>
+        <id type="ASIN" binding="ebook">B07B4YGDF1</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101115" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz06impress" />
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 基本情報技術者教科書 平成25年度秋期・平成26年度春期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844334085</id>
+        <id type="ASIN" binding="ebook">B00DBRNZP6</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 基本情報技術者教科書 平成27年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">484433705X</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 基本情報技術者教科書 平成28年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">484433932X</id>
+        <id type="ASIN" binding="ebook">B017QRKVA8</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 基本情報技術者教科書 平成29年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">429500023X</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>徹底攻略 基本情報技術者教科書 平成30年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">429500264X</id>
+        <id type="ASIN" binding="ebook">B0773MMW1Z</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101040" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz01impress" />
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 応用情報技術者教科書 平成26年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844335103</id>
+        <id type="ASIN" binding="ebook">B00HDAF2MG</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 応用情報技術者教科書 平成27年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">484433722X</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 応用情報技術者教科書 平成28年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339338</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 応用情報技術者教科書 平成29年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000248</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>徹底攻略 応用情報技術者教科書 平成30年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002666</id>
+        <id type="ASIN" binding="ebook">B0773MLL45</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101078" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz02impress" />
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 応用情報技術者過去問題集 平成28年度 春期・秋期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339966</id>
+        <id type="ASIN" binding="ebook">B01C52VFLS</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 応用情報技術者過去問題集 平成29年度 春期・秋期</title>
+      <ids />
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>徹底攻略 応用情報技術者過去問題集 平成30年度 春期・秋期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002992</id>
+        <id type="ASIN" binding="ebook">B0787ZCFJM</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101079" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz05impress" />
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 情報セキュリティマネジメント予想問題集 ベテラン講師が徹底分析！</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339958</id>
+        <id type="ASIN" binding="ebook">B01C52VFMC</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 情報セキュリティマネジメント教科書 平成28年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339877</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 情報セキュリティマネジメント教科書 平成29年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">429500054X</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>徹底攻略 情報セキュリティマネジメント教科書 平成30年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002895</id>
+        <id type="ASIN" binding="ebook">B078K9W8CT</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101088" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz04impress" />
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 情報セキュリティマネジメント過去問題集 平成28年度秋期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844380745</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 情報セキュリティマネジメント過去問題集 平成29年度春期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000418</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book obsolete="true">
       <title>徹底攻略 情報セキュリティマネジメント過去問題集 平成29年度秋期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295001325</id>
+        <id type="ASIN" binding="ebook">B072KMRQX1</id>
+      </ids>
       <images />
       <links />
-      <special />
+      <special>
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>徹底攻略 情報セキュリティマネジメント過去問題集 平成30年度春期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295002836</id>
+        <id type="ASIN" binding="ebook">B0786XS8HJ</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101087" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz07impress" />
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>徹底攻略 情報処理安全確保支援士教科書</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">429500202X</id>
+        <id type="ASIN" binding="ebook">B07434B2T9</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101148" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz23impress" />
+        <ebook />
+      </special>
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>文系女子のためのFP技能士3級 音声付き合格テキスト＆演習問題</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295001260</id>
+        <id type="ASIN" binding="ebook">B072MH35KQ</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101155" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz21impress" />
+        <ebook />
+      </special>
       <genre>文系女子シリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>文系女子のためのITパスポート合格テキスト＆問題集</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844381253</id>
+        <id type="ASIN" binding="ebook">B01KX87R4K</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101155" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>文系女子シリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>文系女子のためのSPI3突破大作戦テキスト＆問題集</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295000574</id>
+        <id type="ASIN" binding="ebook">B01NCN2WJF</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101068" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz13impress" />
+        <ebook />
+      </special>
       <genre>文系女子シリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
-      <title>文系女子のためのはじめての日商簿記3級 合格テキスト＆仕訳徹底マスター問題集 第2版</title>
+      <title>文系女子のためのはじめての日商簿記3級 合格テキスト＆仕訳徹底マスター問題集</title>
+      <ids />
       <images />
-      <links />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1114101022" type="impress" />
+      </links>
       <special />
+      <genre>文系女子シリーズ</genre>
+      <date_push>2018-07-12</date_push>
+    </book>
+    <book>
+      <title>文系女子のためのはじめての日商簿記3級 合格テキスト＆仕訳徹底マスター問題集 第2版</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844381318</id>
+        <id type="ASIN" binding="ebook">B01LAH0X8K</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101023" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>文系女子シリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>文系女子のための判断推理 音声付きテキスト+トコトン問題集 (公務員試験)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295001961</id>
+        <id type="ASIN" binding="ebook">B07437VP5R</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101149" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz22impress" />
+        <ebook />
+      </special>
       <genre>文系女子シリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>文系女子のための数的推理 音声付きテキスト＋トコトン問題集 (公務員試験)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295001953</id>
+        <id type="ASIN" binding="ebook">B0742ZWGPB</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101135" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz22impress" />
+        <ebook />
+      </special>
       <genre>文系女子シリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>文系女子のための日商簿記2級［商業簿記］合格テキスト＆問題集 (v3)</title>
+      <ids />
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101029" type="impress" />
+      </links>
+      <special>
+        <ebook />
+        <voice />
+      </special>
       <genre>文系女子シリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>文系女子のための日商簿記2級［工業簿記］合格テキスト＆問題集 (v2)</title>
+      <ids />
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101030" type="impress" />
+      </links>
+      <special>
+        <ebook />
+        <voice />
+      </special>
       <genre>文系女子シリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
-      <title>文系女子のための日商簿記3級 合格解き方ナビ問題集</title>
+      <title>文系女子のための日商簿記3級 合格解き方ナビ問題集 (v3)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844381326</id>
+        <id type="ASIN" binding="ebook">B01LAH0X6C</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1116101029" type="impress" />
+      </links>
+      <special>
+        <ebook />
+        <voice />
+      </special>
       <genre>文系女子シリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>文系女子のための日商簿記入門</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844338749</id>
+        <id type="ASIN" binding="ebook">B012FKCNYS</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101014" type="impress" />
+      </links>
+      <special>
+        <ebook />
+        <voice />
+      </special>
       <genre>文系女子シリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>文系女子のための電卓操作入門</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844380524</id>
+        <id type="ASIN" binding="ebook">B01FGYJ03C</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101142" type="impress" />
+      </links>
+      <special>
+        <ebook />
+        <voice />
+      </special>
       <genre>文系女子シリーズ</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>ちょび＆姉ちゃんの『アキバでごはん食べたいな。』 </title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844337254</id>
+        <id type="ASIN" binding="ebook">B074CHBZXR</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1114101041" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>漫画</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>ちょび＆姉ちゃんの『アキバでごはん食べたいな。』2</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844339478</id>
+        <id type="ASIN" binding="ebook">B018JPQ6Z0</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1115101077" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>漫画</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>わがまま DIY 2</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844337637</id>
+        <id type="ASIN" binding="ebook">B00TQGU2WA</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1114101100" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>漫画</genre>
       <date_push>2018-07-09</date_push>
     </book>
     <book>
       <title>わがままDIY 3</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295003239</id>
+        <id type="ASIN" binding="ebook">B079ZVMNFS</id>
+      </ids>
       <images />
-      <links />
-      <special />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101093" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
       <genre>漫画</genre>
       <date_push>2018-07-09</date_push>
     </book>
@@ -2231,39 +3969,86 @@
     <wordbook>
       <title>【でる語句200】基本情報技術者</title>
       <title>基本情報技術者</title>
-      <id>01impress</id>
+      <id>quiz01impress</id>
       <access>
         <url>https://impress.quizgenerator.net/impress/01impress/</url>
       </access>
     </wordbook>
     <wordbook>
+      <title>【でる語句200】応用情報技術者</title>
+      <title>応用情報技術者</title>
+      <id>quiz02impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/02impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
       <title>【でる語句200】ITパスポート</title>
       <title>ITパスポート</title>
-      <id>03impress</id>
+      <id>quiz03impress</id>
       <access>
         <url>https://impress.quizgenerator.net/impress/03impress/</url>
       </access>
     </wordbook>
     <wordbook>
-      <title>【合格しようぜ宅建士】試験によく出る宅建用語150</title>
-      <title>試験によく出る宅建用語150</title>
-      <id>27impress</id>
+      <title>【でる語句200】情報セキュリティマネジメント</title>
+      <title>情報セキュリティマネジメント</title>
+      <id>quiz04impress</id>
       <access>
-        <url>https://impress.quizgenerator.net/impress/27impress/</url>
+        <url>https://impress.quizgenerator.net/impress/04impress/</url>
       </access>
     </wordbook>
     <wordbook>
-      <title>【消防設備士6類】重要用語集</title>
-      <title>重要用語集</title>
-      <id>25impress</id>
+      <title>【でる語句200】応用情報技術者過去問題集</title>
+      <title>応用情報技術者過去問題集</title>
+      <id>quiz05impress</id>
       <access>
-        <url>https://impress.quizgenerator.net/impress/25impress/</url>
+        <url>https://impress.quizgenerator.net/impress/05impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【でる語句200】ネットワークスペシャリスト</title>
+      <title>ネットワークスペシャリスト</title>
+      <id>quiz06impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/06impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【でる語句200】情報セキュリティマネジメント問題集</title>
+      <title>情報セキュリティマネジメント問題集</title>
+      <id>quiz07impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/07impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【消防設備士4類】練習問題帳</title>
+      <title>練習問題帳</title>
+      <id>quiz12impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/12impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>文系女子のためのSPI3『模擬問セレクション』</title>
+      <id>quiz13impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/13impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【徹底攻略スマホ問題集】データベーススペシャリスト教科書</title>
+      <title>データベーススペシャリスト教科書</title>
+      <id>quiz15impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/15impress/</url>
       </access>
     </wordbook>
     <wordbook>
       <title>【徹底攻略スマホ問題集】Cisco ICND1 V3.0模擬問題</title>
       <title>Cisco ICND1 V3.0模擬問題</title>
-      <id>19impress</id>
+      <id>quiz19impress</id>
       <access>
         <url>https://impress.quizgenerator.net/impress/19impress/</url>
       </access>
@@ -2271,77 +4056,77 @@
     <wordbook>
       <title>【徹底攻略スマホ問題集】IPアドレス特訓問題</title>
       <title>IPアドレス特訓問題</title>
-      <id>20impress</id>
+      <id>quiz20impress</id>
       <access>
         <url>https://impress.quizgenerator.net/impress/20impress/</url>
       </access>
     </wordbook>
     <wordbook>
-      <title>【徹底攻略スマホ問題集】Cisco ICND2 V3.0模擬問題</title>
-      <title>Cisco ICND2 V3.0模擬問題</title>
-      <id>24impress</id>
+      <title>FP3級重要キーワード100</title>
+      <id>quiz21impress</id>
       <access>
-        <url>https://impress.quizgenerator.net/impress/24impress/</url>
-      </access>
-    </wordbook>
-    <wordbook>
-      <title>【でる語句200】応用情報技術者過去問題集</title>
-      <title>応用情報技術者過去問題集</title>
-      <id>05impress</id>
-      <access>
-        <url>https://impress.quizgenerator.net/impress/05impress/</url>
-      </access>
-    </wordbook>
-    <wordbook>
-      <title>【でる語句200】情報セキュリティマネジメント問題集</title>
-      <title>情報セキュリティマネジメント問題集</title>
-      <id>07impress</id>
-      <access>
-        <url>https://impress.quizgenerator.net/impress/07impress/</url>
+        <url>https://impress.quizgenerator.net/impress/21impress/</url>
       </access>
     </wordbook>
     <wordbook>
       <title>文系女子のためての公務員試験［数的・判断］問題集</title>
-      <id>22impress</id>
+      <id>quiz22impress</id>
       <access>
         <url>https://impress.quizgenerator.net/impress/22impress/</url>
       </access>
     </wordbook>
     <wordbook>
-      <title>【でる語句200】応用情報技術者</title>
-      <title>応用情報技術者</title>
-      <id>02impress</id>
+      <title>【でる語句200】情報処理安全確保支援士</title>
+      <title>情報処理安全確保支援士</title>
+      <id>quiz23impress</id>
       <access>
-        <url>https://impress.quizgenerator.net/impress/02impress/</url>
+        <url>https://impress.quizgenerator.net/impress/23impress/</url>
       </access>
     </wordbook>
     <wordbook>
-      <title>【徹底攻略スマホ問題集】データベーススペシャリスト教科書</title>
-      <title>データベーススペシャリスト教科書</title>
-      <id>15impress</id>
+      <title>【徹底攻略スマホ問題集】Cisco ICND2 V3.0模擬問題</title>
+      <title>Cisco ICND2 V3.0模擬問題</title>
+      <id>quiz24impress</id>
       <access>
-        <url>https://impress.quizgenerator.net/impress/15impress/</url>
+        <url>https://impress.quizgenerator.net/impress/24impress/</url>
       </access>
     </wordbook>
     <wordbook>
-      <title>【でる語句200】情報セキュリティマネジメント</title>
-      <title>情報セキュリティマネジメント</title>
-      <id>04impress</id>
+      <title>【消防設備士6類】重要用語集</title>
+      <title>重要用語集</title>
+      <id>quiz25impress</id>
       <access>
-        <url>https://impress.quizgenerator.net/impress/04impress/</url>
+        <url>https://impress.quizgenerator.net/impress/25impress/</url>
       </access>
     </wordbook>
     <wordbook>
-      <title>【でる語句200】ネットワークスペシャリスト</title>
-      <title>ネットワークスペシャリスト</title>
-      <id>06impress</id>
+      <title>【合格しようぜ宅建士】試験によく出る宅建用語150</title>
+      <title>試験によく出る宅建用語150</title>
+      <id>quiz27impress</id>
       <access>
-        <url>https://impress.quizgenerator.net/impress/06impress/</url>
+        <url>https://impress.quizgenerator.net/impress/27impress/</url>
       </access>
     </wordbook>
     <wordbook>
-      <title>（この用語集は、本書各節冒頭にある「暗記パン（覚えよう！）」をデジタル化したものです。学習シーン合わせて使い分けてください）</title>
-      <id>30impress</id>
+      <title>【合格しようぜ宅建士】○×チェック300問 Part 2</title>
+      <title>○×チェック300問 Part 2</title>
+      <id>quiz28impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/28impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【合格しようぜ宅建士】○×チェック300問 Part 1</title>
+      <title>○×チェック300問 Part 1</title>
+      <id>quiz29impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/29impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【乙種第4類危険物取扱者】暗記用語</title>
+      <title>暗記用語</title>
+      <id>quiz30impress</id>
       <access>
         <url>https://impress.quizgenerator.net/impress/30impress/</url>
       </access>
@@ -2349,7 +4134,7 @@
     <wordbook>
       <title>【でる語句200】ITパスポート</title>
       <title>ITパスポート</title>
-      <id>32impress</id>
+      <id>quiz32impress</id>
       <access>
         <url>https://impress.quizgenerator.net/impress/32impress/</url>
       </access>

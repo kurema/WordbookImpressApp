@@ -180,8 +180,13 @@ namespace WordbookImpressApp.Views
                 var item = new EntryWithOptionViewModel.EntryWithOptionViewModelEntry(Model.WordbookTitleHtml, Model.WordbookTitleHtml);
                 options.Add(item);
             }
+            foreach(var item in WordbookSuggestionStorage.GetNameSuggestions(Model.Uri))
+            {
+                if (item != Model.WordbookTitleUser)
+                    options.Add(new EntryWithOptionViewModel.EntryWithOptionViewModelEntry(item, item));
+            }
             if (Model == null) return;
-            var vm = (new WordbookImpressLibrary.ViewModels.EntryWithOptionViewModel("タイトルを入力してください。", options, Model.WordbookTitle));
+            var vm = (new EntryWithOptionViewModel("タイトルを入力してください。", options, Model.WordbookTitle));
             var page = new EntryWithOptionPage(vm);
             var waitHandle = new System.Threading.EventWaitHandle(false, System.Threading.EventResetMode.AutoReset);
             page.Disappearing += (s, e2) => waitHandle.Set();

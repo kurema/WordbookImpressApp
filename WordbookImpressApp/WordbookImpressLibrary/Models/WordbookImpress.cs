@@ -9,7 +9,12 @@ namespace WordbookImpressLibrary.Models
     public class WordbookImpress:IWordbook
     {
         private Uri uri;
-        public string Uri { get => uri?.ToString()??""; set { if (value != null && value != "") uri = new Uri(value); } }
+        public string Uri { get => uri?.ToString()??""; set { if (value != null && value != "")
+                {
+                    value = value.ToLower();
+                    if (!value.EndsWith("/")) value += "/";
+                    uri = new Uri(value);
+                } } }
 
         private Uri uriLogo;
         public string UriLogo { get => uriLogo?.ToString()??""; set { if (value != null && value != "") uriLogo = new Uri(value); } }

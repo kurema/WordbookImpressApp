@@ -17,7 +17,6 @@ namespace WordbookImpressApp.ToolsConsole
         static void Main(string[] args)
         {
             //args = new[] { "xml", "wordbook", @"" , @"" };
-            //The API Key is suspended.
 
             if (!CheckArgsCount(args, 1)) { return; }
             else if (args[0] == "xml")
@@ -38,7 +37,7 @@ namespace WordbookImpressApp.ToolsConsole
                         {
                             if (File.Exists(file) && Path.GetExtension(file) == ".pdf")
                             {
-                                var title = Path.GetFileNameWithoutExtension(file);
+                                var title = Path.GetFileNameWithoutExtension(file).Replace("DOSV POWER REPORT", "DOS/V POWER REPORT");
                                 if (title.Contains("(軽量版)")) continue;
                                 if (Path.GetFileName(item) == "DOSV POWER REPORT 付録") continue;
                                 if (book.Count((b) => b.title == title) == 0)
@@ -48,11 +47,13 @@ namespace WordbookImpressApp.ToolsConsole
                                     newbook.special = new infoBooksBookSpecial() { ebook = new object[] { new object() } };
                                     newbook.genre = Path.GetFileName(item);
                                     newbook.special = new infoBooksBookSpecial();
+                                    newbook.special.ebook = new[] { new object() };
                                     newbook.images = new infoBooksBookImage[0];
                                     newbook.links = new infoBooksBookLink[0];
                                     newbook.obsolete = defaultObsolete;
                                     newbook.date_pushSpecified = true;
                                     newbook.date_push = DateTime.Now.Date;
+                                    newbook.ids = new infoBooksBookID[0];
                                     book.Add(newbook);
                                 }
                             }
@@ -106,10 +107,10 @@ namespace WordbookImpressApp.ToolsConsole
                 }
                 else if (args[1] == "amazon")
                 {
-                    if (!CheckArgsCount(args, 5)) { return; }
+                    if (!CheckArgsCount(args, 3)) { return; }
                     string pathXml = args[2];
-                    string AmazonAccessKey = args[3];
-                    string AmazonSecretKey = args[4];
+                    string AmazonAccessKey = WordbookImpressLibrary.APIKeys.AmazonAccessKey;
+                    string AmazonSecretKey = WordbookImpressLibrary.APIKeys.AmazonSecretKey;
 
                     var info = File.Exists(pathXml) ? SerializationHelper.DeserializeAsync<info>(pathXml).Result : new info();
                     var book = info?.books?.book?.ToList();
@@ -161,7 +162,44 @@ namespace WordbookImpressApp.ToolsConsole
                     info.books.book = book.ToArray();
                     SerializationHelper.SerializeAsync(info, pathXml).Wait();
                 }
+                else if (args[1] == "link")
+                {
+                    if (!CheckArgsCount(args, 3)) { return; }
+                    string pathXml = args[2];
+                    var info = File.Exists(pathXml) ? SerializationHelper.DeserializeAsync<info>(pathXml).Result : new info();
+                    var book = info?.books?.book?.ToList() ?? new List<infoBooksBook>();
+                    foreach(var item in book)
+                    {
+                        if (item.obsolete) continue;
+                        if (item?.links != null && item.links.Count() > 0) continue;
+                        Console.WriteLine(item.title);
+                        SetClipBoard(item.title + " site:book.impress.co.jp");
+                        Console.WriteLine("URL?");
+                        var url = Console.ReadLine().Replace("\n", "").Replace("\r", "");
+                        if (string.IsNullOrWhiteSpace(url)) continue;
+                        if (url.Contains("book.impress.co.jp"))
+                        {
+                            item.links = new infoBooksBookLink[] { new infoBooksBookLink() { @ref = url, type = "impress" } };
+                        }
+                        else
+                        {
+                            item.links = new infoBooksBookLink[] { new infoBooksBookLink() { @ref = url, type = "general" } };
+                        }
+                        info.books.book = book.ToArray();
+                        SerializationHelper.SerializeAsync(info, pathXml).Wait();
+                    }
+                    //info.books.book = book.ToArray();
+                    //SerializationHelper.SerializeAsync(info, pathXml).Wait();
+                }
             }
+        }
+
+        static void SetClipBoard(string text)
+        {
+            System.Threading.Thread t = new System.Threading.Thread(() => { System.Windows.Forms.Clipboard.SetText(text); });
+            t.SetApartmentState(System.Threading.ApartmentState.STA);
+            t.Start();
+            t.Join();
         }
 
         static bool CheckArgsCount(string[] args, int count)

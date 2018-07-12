@@ -55,11 +55,7 @@ namespace WordbookImpressApp.Storage
             {
                 try
                 {
-                    using (var sr = new System.IO.StreamReader(typeof(LicenseStorage).Assembly.GetManifestResourceStream(nameof(WordbookImpressApp) + ".Licenses." + item.Name + ".txt")))
-                    {
-                        item.LicenseText = await sr.ReadToEndAsync();
-                    }
-
+                    item.LicenseText = await LoadLicenseText(item.Name);
                 }
                 catch
                 {
@@ -68,6 +64,19 @@ namespace WordbookImpressApp.Storage
             }
             IsLicenseTextLoaded = true;
             NugetDatas = nugets;
+        }
+
+        public async static Task<string> LoadLicenseText(string name)
+        {
+            try
+            {
+                using (var sr = new System.IO.StreamReader(typeof(LicenseStorage).Assembly.GetManifestResourceStream(nameof(WordbookImpressApp) + ".Licenses." + name + ".txt")))
+                {
+                    return await sr.ReadToEndAsync();
+                }
+            }
+            catch { }
+            return "";
         }
     }
 }

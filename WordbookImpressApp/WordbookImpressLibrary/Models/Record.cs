@@ -85,6 +85,14 @@ namespace WordbookImpressLibrary.Models
             public static bool KeyEqual(string a,string b)
             {
                 if (a == b) return true;
+                if (a == KeyAll || b == KeyAll) return true;
+                if (a == KeyCombined || b == KeyCombined) return true;
+                return false;
+            }
+
+            public static bool KeyContains(string a, string b)
+            {
+                if (a == b) return true;
                 if (a == KeyAll) return true;
                 if (a == KeyCombined) return true;
                 return false;

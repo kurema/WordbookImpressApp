@@ -1,11 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
              Title="メニュー"
              x:Class="WordbookImpressApp.Views.MasterPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vc:BooleanNotValueConverter x:Key="NotVC" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ListView x:Name="ListViewMenuItems"
-              SeparatorVisibility="Default"
+              SeparatorVisibility="None"
               HasUnevenRows="true"
                   ItemSelected="ListViewMenuItems_ItemSelected"
               ItemsSource="{Binding MenuItems}">
@@ -20,8 +26,8 @@
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Image Margin="10" Source="{Binding Icon}" HeightRequest="30" WidthRequest="30" VerticalOptions="FillAndExpand"  Grid.Column="0"/>
-                            <StackLayout Padding="0,15" HorizontalOptions="FillAndExpand" Grid.Column="1">
+                            <Image IsVisible="{Binding SimpleItem,Converter={StaticResource NotVC}}" Margin="10" Source="{Binding Icon}" HeightRequest="30" WidthRequest="30" VerticalOptions="FillAndExpand"  Grid.Column="0"/>
+                            <StackLayout IsVisible="{Binding SimpleItem,Converter={StaticResource NotVC}}" Padding="0,15" HorizontalOptions="FillAndExpand" Grid.Column="1">
                                 <StackLayout HorizontalOptions="FillAndExpand">
                                     <Label VerticalOptions="FillAndExpand" 
                     VerticalTextAlignment="Center" 
@@ -33,6 +39,7 @@
                     FontSize="Small"/>
                                 </StackLayout>
                             </StackLayout>
+                            <Label Margin="15" Grid.ColumnSpan="2" IsVisible="{Binding SimpleItem}" Text="{Binding Title}" />
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

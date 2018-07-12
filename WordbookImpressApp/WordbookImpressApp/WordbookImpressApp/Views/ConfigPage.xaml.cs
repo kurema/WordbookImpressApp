@@ -105,12 +105,28 @@ namespace WordbookImpressApp.Views
                 },
                 new SettingItems("成績一覧")
                 {
-                    new SettingItem("一日当たりの回答数目安", (w) => "成績一覧ページのカレンダーグラフに反映されます。現在、" + storage.MaxDailyTestCount+"問。")
+                    new SettingItem("一日当たりの回答数目安", (w) => "成績一覧ページのカレンダーグラフに反映されます。現在" + storage.MaxDailyTestCount+"問。")
                     {
                         Action=async (s) =>
                         {
                             storage.MaxDailyTestCount=await GetByActionSheet<int>("回答数目安を選択してください。",
                                 new Dictionary<string, int>{ { "10問",10},{ "50問",50},{ "100問",100},{ "500問",500} },storage.MaxDailyTestCount);
+                        }
+                    },
+                    new SettingItem("無回答を表示", (w) => storage.ShowStatisticsZeroAnswer?"無回答でも成績一覧に表示します。":"無回答の場合成績一覧に表示しません。",storage.ShowStatisticsZeroAnswer)
+                    {
+                        Action=async (s) =>
+                        {
+                            storage.ShowStatisticsZeroAnswer=s.BoolValue;
+                        }
+                    },
+                    new SettingItem("Amazon アソシエイトID", "スコア共有時に使用されるAmazon アソシエイトIDを設定します。")
+                    {
+                        Action =async (s)=>{
+                            var dic=new Dictionary<string,string>();
+                            dic.Add("アプリ製作者のID",WordbookImpressLibrary.APIKeys.AmazonAssociateTag);
+                            if(!string.IsNullOrWhiteSpace( storage.CustomAmazonAssociateTag) && storage.CustomAmazonAssociateTag!=WordbookImpressLibrary.APIKeys.AmazonAssociateTag) dic.Add(storage.CustomAmazonAssociateTag,storage.CustomAmazonAssociateTag);
+                            storage.CustomAmazonAssociateTag=await GetByActionSheet<string>("Amazon アソシエイトIDを選択してください。",dic,storage.CustomAmazonAssociateTag,false);
                         }
                     },
                 },
@@ -154,6 +170,17 @@ namespace WordbookImpressApp.Views
                 new SettingItems("WordbookImpressについて")
                 {
                     new SettingItem("オープンソースライセンス", "オープンソースソフトウェアに関するライセンスの詳細"){ Children=licenseChildren},
+                    new SettingItem("ライセンス", "このアプリのライセンスを表示。"){
+                        Action = async (a) =>
+                        {
+                            await Navigation.PushAsync(new LicenseInfoPage(new WordbookImpressLibrary.Models.License.NormalLicense(){
+                                LicenseText =await Storage.LicenseStorage.LoadLicenseText("WordbookImpress")
+                                ,Name="WordbookImpress"
+                                ,ProjectName="WordbookImpress"
+                                ,LicenseUrl="https://github.com/kurema/WordbookImpressApp/blob/master/LICENSE"
+                            }));
+                        }
+                    },
                     new SettingItem("プロジェクトページ", "https://github.com/kurema/wordbookImpressApp",null){ Action=async (w)=>{Device.OpenUri(new Uri("https://github.com/kurema/wordbookImpressApp/")); } },
                 },
             };

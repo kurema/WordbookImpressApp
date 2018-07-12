@@ -21,5 +21,7 @@ namespace WordbookImpressLibrary.Models
         public ViewModels.WordbookImpressViewModel.SortKindInfo SortKind = ViewModels.WordbookImpressViewModel.SortKindInfo.GetDefault();
 
         public int MaxDailyTestCount = 100;
+        public bool ShowStatisticsZeroAnswer = true;
+        public string CustomAmazonAssociateTag = "";
     }
 }

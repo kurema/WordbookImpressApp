@@ -46,8 +46,8 @@
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Row="0" Grid.Column="0" Text="{Binding IsVisibleHead,Converter={StaticResource BoolStringVC},ConverterParameter=単語表示:単語非表示:エラー}" TextColor="{Binding IsVisibleHead,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#888888:#FF0000}" Command="{Binding SwitchVisibilityHeadCommand}"/>
-                        <Button Grid.Row="0" Grid.Column="1" Text="{Binding IsVisibleDescription,Converter={StaticResource BoolStringVC},ConverterParameter=説明表示:説明非表示:エラー}" TextColor="{Binding IsVisibleDescription,Converter={StaticResource BoolColorVC},ConverterParameter=#000000:#888888:#FF0000}" Command="{Binding SwitchVisibilityDescriptionCommand}"/>
+                        <Button Grid.Row="0" Grid.Column="0" Text="{Binding IsVisibleHead,Converter={StaticResource BoolStringVC},ConverterParameter=単語表示:単語非表示:エラー}" TextColor="{Binding IsVisibleHead,Converter={StaticResource BoolColorVC},ConverterParameter=#FFFFFF:#88FFFFFF:#FF0000}" Command="{Binding SwitchVisibilityHeadCommand}"/>
+                        <Button Grid.Row="0" Grid.Column="1" Text="{Binding IsVisibleDescription,Converter={StaticResource BoolStringVC},ConverterParameter=説明表示:説明非表示:エラー}" TextColor="{Binding IsVisibleDescription,Converter={StaticResource BoolColorVC},ConverterParameter=#FFFFFF:#88FFFFFF:#FF0000}" Command="{Binding SwitchVisibilityDescriptionCommand}"/>
                         <Button Grid.Row="1" Grid.Column="0" Text="単語クイズ" Clicked="Button_Clicked" IsEnabled="{Binding HasWords}"/>
                         <Button Grid.Row="1" Grid.Column="1" Text="説明クイズ" Clicked="Button_Clicked2"/>
                     </Grid>

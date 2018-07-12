@@ -43,7 +43,7 @@ namespace WordbookImpressApp.Views
             this.BindingContext = model;
         }
 
-        private void Button_Clicked_Tweet(object sender, EventArgs e)
+        private async void Button_Clicked_Tweet(object sender, EventArgs e)
         {
             string mon = "";
             var time= ValueConverters.TimeSpanFormatValueConverter.FormatTimeSpan(Model.ElapsedTime, "[if:TotalMinutesFloor:[TotalMinutesFloor:{0:00}]分][Seconds:{0:00}]秒");
@@ -63,7 +63,35 @@ namespace WordbookImpressApp.Views
             {
                 mon = Model.AnswerCountTotal.ToString() + "問中" + Model.AnswerCountCorrect.ToString() + "問正解しました！";
             }
-            Device.OpenUri(new System.Uri("twitter://post?message=" + System.Web.HttpUtility.UrlEncode(Model.Wordbook.WordbookTitle + "のクイズを" + time + "で" + mon + "\n#wordbook_impress ")));
+
+            var wb = WordbookImpressLibrary.Storage.WordbookSuggestionStorage.GetBookWithWordbook(Model.Wordbook.Uri);
+            string adTextAmazon = "";
+            if (wb.Count() > 0) {
+                Random rd = new Random();
+                var id1 = wb[rd.Next(wb.Count())]?.ids?.Where((t) => t.type == "ASIN" && t.binding== "printed_book");
+                Nager.AmazonProductAdvertising.Model.AmazonItemResponse itemResponse = null;
+                if (id1.Count() > 0 && id1.First().Value != null)
+                {
+                    itemResponse = await WordbookImpressLibrary.Storage.AmazonStorage.AmazonWrapperShare.LookupAsync(id1.First().Value);
+                }
+                else
+                {
+                    var id2 = wb[0]?.ids?.Where((t) => t.type == "ASIN" && t.binding == "ebook");
+                    if (id2.Count() > 0 && id2.First().Value != null)
+                    {
+                        itemResponse = await WordbookImpressLibrary.Storage.AmazonStorage.AmazonWrapperShare.LookupAsync(id2.First().Value);
+                    }
+                }
+                if (itemResponse?.Items?.Item?.Length > 0)
+                {
+                    //var url = System.Text.RegularExpressions.Regex.Replace(itemResponse.Items.Item[0].DetailPageURL,@"[^a-zA-Z0-9\.\/\-\=\&\:\%\?]+", (a) => System.Web.HttpUtility.UrlEncode(a.Value));
+                    var url = Uri.EscapeUriString(itemResponse.Items.Item[0].DetailPageURL);
+                    //I thought it's good idea to percent-encode Amazon Associate Tag which is Ascii for security, but RFC3986 says no. Maybe that's why the easy method is not provided.
+                    //url = url.Replace(WordbookImpressLibrary.APIKeys.AmazonAssociateTagShare, System.Web.HttpUtility.UrlEncode(WordbookImpressLibrary.APIKeys.AmazonAssociateTagShare));
+                    adTextAmazon = "\n\nこの単語帳は「" + wb[0].title + "」を買えば付いてきます。\n" + url + "\n";
+                }
+            }
+            Device.OpenUri(new Uri("twitter://post?message=" + System.Web.HttpUtility.UrlEncode(Model.Wordbook.WordbookTitle + "のクイズを" + time + "で" + mon + "\n#wordbook_impress "+ adTextAmazon+ "\n単語帳アプリは現在開発中\nhttps://github.com/kurema/WordbookImpressApp")));
         }
 
         private bool Pushing;

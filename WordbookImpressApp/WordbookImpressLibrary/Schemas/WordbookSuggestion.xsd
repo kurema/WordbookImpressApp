@@ -71,6 +71,7 @@
                         <xs:sequence>
                           <xs:element ref="wordbook"  minOccurs="0" maxOccurs="unbounded" />
                           <xs:element name="ebook" minOccurs="0"  maxOccurs="unbounded" />
+                          <xs:element name="voice" minOccurs="0"  maxOccurs="unbounded" />
                         </xs:sequence>
                       </xs:complexType>
                     </xs:element>

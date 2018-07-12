@@ -32,11 +32,24 @@ namespace WordbookImpressLibrary.Helper
 
         public static async Task<T> DeserializeAsync<T>(string path)
         {
+            try
+            {
+                using (var sr = new StreamReader(path))
+                {
+                    return await DeserializeAsync<T>(sr);
+                }
+            }
+            finally
+            {
+            }
+        }
+
+        public static async Task<T> DeserializeAsync<T>(TextReader sr)
+        {
             await semaphore.WaitAsync();
             try
             {
                 var xs = new XmlSerializer(typeof(T));
-                using (var sr = new StreamReader(path))
                 using (var xr = XmlReader.Create(sr, new XmlReaderSettings() { CheckCharacters = false }))
                 {
                     return await Task.Run(() => (T)xs.Deserialize(xr));

@@ -1,3 +1,0 @@
-kurema
-KUREMADESKTOP 
-2018”N7ŒŽ11“ú  11:16:35

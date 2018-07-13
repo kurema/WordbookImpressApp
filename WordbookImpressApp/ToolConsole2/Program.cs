@@ -10,6 +10,9 @@ using System.Text.RegularExpressions;
 
 using Nager.AmazonProductAdvertising;
 
+using WordbookImpressLibrary.Schemas.WordbookSuggestion;
+using WordbookImpressLibrary.Schemas.AuthorInformation;
+
 namespace WordbookImpressApp.ToolsConsole
 {
     class Program

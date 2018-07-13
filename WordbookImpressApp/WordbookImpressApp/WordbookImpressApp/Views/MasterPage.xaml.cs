@@ -41,7 +41,7 @@ namespace WordbookImpressApp.Views
                     new MasterMenuItem { Title = "ストア",Description="書籍を購入" ,Icon="icon_store.png"},
 #endif
                     new MasterMenuItem { TargetType=typeof(ConfigPage), Title = "設定",Description="単語帳の設定" ,Replace=false,Icon="icon_config.png" },
-                    new MasterMenuItem { Title = "kuremaについて",SimpleItem=true },
+                    new MasterMenuItem { TargetType=typeof(DeveloperInfoPage), Title = "kuremaについて",SimpleItem=true,Replace=false },
                 });
             }
             public event PropertyChangedEventHandler PropertyChanged;

@@ -180,7 +180,7 @@ namespace WordbookImpressApp.Views
                 var item = new EntryWithOptionViewModel.EntryWithOptionViewModelEntry(Model.WordbookTitleHtml, Model.WordbookTitleHtml);
                 options.Add(item);
             }
-            foreach(var item in WordbookSuggestionStorage.GetNameSuggestions(Model.Uri))
+            foreach(var item in RemoteStorage.GetNameSuggestions(Model.Uri))
             {
                 if (item != Model.WordbookTitleUser)
                     options.Add(new EntryWithOptionViewModel.EntryWithOptionViewModelEntry(item, item));

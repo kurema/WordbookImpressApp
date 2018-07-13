@@ -332,3 +332,4 @@ ASALocalRun/
 # For security
 *.3dm
 APIKeys.cs
+copy.bat

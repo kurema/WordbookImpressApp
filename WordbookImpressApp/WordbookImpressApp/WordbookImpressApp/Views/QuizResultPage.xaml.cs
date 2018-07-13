@@ -64,7 +64,7 @@ namespace WordbookImpressApp.Views
                 mon = Model.AnswerCountTotal.ToString() + "問中" + Model.AnswerCountCorrect.ToString() + "問正解しました！";
             }
 
-            var wb = WordbookImpressLibrary.Storage.WordbookSuggestionStorage.GetBookWithWordbook(Model.Wordbook.Uri);
+            var wb = WordbookImpressLibrary.Storage.RemoteStorage.GetBookWithWordbook(Model.Wordbook.Uri);
             string adTextAmazon = "";
             if (wb.Count() > 0) {
                 Random rd = new Random();
@@ -84,7 +84,6 @@ namespace WordbookImpressApp.Views
                 }
                 if (itemResponse?.Items?.Item?.Length > 0)
                 {
-                    //var url = System.Text.RegularExpressions.Regex.Replace(itemResponse.Items.Item[0].DetailPageURL,@"[^a-zA-Z0-9\.\/\-\=\&\:\%\?]+", (a) => System.Web.HttpUtility.UrlEncode(a.Value));
                     var url = Uri.EscapeUriString(itemResponse.Items.Item[0].DetailPageURL);
                     //I thought it's good idea to percent-encode Amazon Associate Tag which is Ascii for security, but RFC3986 says no. Maybe that's why the easy method is not provided.
                     //url = url.Replace(WordbookImpressLibrary.APIKeys.AmazonAssociateTagShare, System.Web.HttpUtility.UrlEncode(WordbookImpressLibrary.APIKeys.AmazonAssociateTagShare));

@@ -3761,7 +3761,10 @@
     </book>
     <book>
       <title>文系女子のためのはじめての日商簿記3級 合格テキスト＆仕訳徹底マスター問題集</title>
-      <ids />
+      <ids>
+        <id type="ASIN" binding="printed_book">4844336398</id>
+        <id type="ASIN" binding="ebook">B00MIM1KG6</id>
+      </ids>
       <images />
       <links>
         <link ref="https://book.impress.co.jp/books/1114101022" type="impress" />
@@ -4129,6 +4132,14 @@
       <id>quiz30impress</id>
       <access>
         <url>https://impress.quizgenerator.net/impress/30impress/</url>
+      </access>
+    </wordbook>
+    <wordbook>
+      <title>【でる語句200】基本情報技術者</title>
+      <title>基本情報技術者</title>
+      <id>quiz31impress</id>
+      <access>
+        <url>https://impress.quizgenerator.net/impress/31impress/</url>
       </access>
     </wordbook>
     <wordbook>

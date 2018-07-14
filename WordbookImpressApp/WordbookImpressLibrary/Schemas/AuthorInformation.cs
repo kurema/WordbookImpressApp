@@ -254,6 +254,8 @@ namespace WordbookImpressLibrary.Schemas.AuthorInformation {
         
         private authorGroupDonationTitle titleField;
         
+        private string addressField;
+        
         private string srcField;
         
         private string title1Field;
@@ -265,6 +267,17 @@ namespace WordbookImpressLibrary.Schemas.AuthorInformation {
             }
             set {
                 this.titleField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string address {
+            get {
+                return this.addressField;
+            }
+            set {
+                this.addressField = value;
             }
         }
         

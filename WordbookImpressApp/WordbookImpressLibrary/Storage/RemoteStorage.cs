@@ -47,6 +47,7 @@ namespace WordbookImpressLibrary.Storage
         {
             using (System.Net.WebClient wc = new System.Net.WebClient())
             {
+                wc.CachePolicy = new System.Net.Cache.RequestCachePolicy(System.Net.Cache.RequestCacheLevel.NoCacheNoStore);
                 var client = new System.Net.Http.HttpClient();
                 try
                 {

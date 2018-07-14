@@ -2,10 +2,10 @@
 <author xmlns="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/WordbookImpressLibrary/Schemas/AuthorInformation.xsd">
   <name>kurema</name>
   <links>
-    <link title="kindle" src="https://www.amazon.co.jp/%E6%9A%AE%E9%96%93%E7%9C%9F/e/B077X71C4C/ref=as_li_ss_tl?ie=UTF8&amp;linkCode=ll2&amp;tag=kurema_wbimpress-22&amp;linkId=a350fe5c8d30ef7555ff3420e2edae73" />
+    <link title="Kindle" src="https://www.amazon.co.jp/%E6%9A%AE%E9%96%93%E7%9C%9F/e/B077X71C4C/ref=as_li_ss_tl?ie=UTF8&amp;linkCode=ll2&amp;tag=kurema_wbimpress-22&amp;linkId=a350fe5c8d30ef7555ff3420e2edae73" />
+    <link title="Twitter" src="https://twitter.com/kurema_makoto" />
     <link title="Youtube" src="https://www.youtube.com/channel/UCRXOgsw-LUdgPSN95myPw7g" />
     <link title="Blog" src="https://kuremako.wordpress.com" />
-    <link title="Twitter" src="https://twitter.com/kurema_makoto" />
   </links>
   <donations>
     <group title="Crypto Currency">
@@ -15,9 +15,16 @@
           <entry language="en">Crypto Currency</entry>
         </multilingal>
       </title>
-      <donation title="Monacoin" src="monacoin:MDGaLPfnvrFaKFzFehpv359ndHq3KcLMLx?label=https%3A%2F%2Fgithub.com%2Fkurema%2FWordbookImpressApp" />
-      <donation title="Ringo" src="ringo:RF1oivTq8BshPaxgGmguNfDXUGQYSPHmH8?label=https%3A%2F%2Fgithub.com%2Fkurema%2FWordbookImpressApp" />
-      <donation title="BitZeny" src="bitzeny:ZhWHtnWUh5VCMPkUUB9iXxMKcZEFC17UUT?label=https%3A%2F%2Fgithub.com%2Fkurema%2FWordbookImpressApp"/>
+      <!--<donation title="XEM/NEM" address="NDZLWSWNG2TLHNHK7XIUEWAOEJYHRLW3VP4OXHLZ"/>-->
+      <donation title="Monacoin" src="monacoin:MDGaLPfnvrFaKFzFehpv359ndHq3KcLMLx?label=https%3A%2F%2Fgithub.com%2Fkurema%2FWordbookImpressApp" address="MDGaLPfnvrFaKFzFehpv359ndHq3KcLMLx"/>
+      <donation title="Ringo" src="ringo:RF1oivTq8BshPaxgGmguNfDXUGQYSPHmH8?label=https%3A%2F%2Fgithub.com%2Fkurema%2FWordbookImpressApp" address="RF1oivTq8BshPaxgGmguNfDXUGQYSPHmH8"/>
+      <donation title="BitZeny" src="bitzeny:ZhWHtnWUh5VCMPkUUB9iXxMKcZEFC17UUT?label=https%3A%2F%2Fgithub.com%2Fkurema%2FWordbookImpressApp" address="ZhWHtnWUh5VCMPkUUB9iXxMKcZEFC17UUT"/>
+      <donation title="Sha1coin" src="sha1coin:SgJLg9VAm6TNRDAuQgioUYhvDybgvNQ5LN?label=https%3A%2F%2Fgithub.com%2Fkurema%2FWordbookImpressApp" address="SgJLg9VAm6TNRDAuQgioUYhvDybgvNQ5LN" />
+      <donation title="Yenten" src="yenten:YSab9KTWsA2kPKvYsiAGXoy3VFdqSFssyP?label=https%3A%2F%2Fgithub.com%2Fkurema%2FWordbookImpressApp" address="YSab9KTWsA2kPKvYsiAGXoy3VFdqSFssyP" />
+      <!-- Some coin don't have Uri Scheme. -->
+      <!--<donation title="StrongHands" address="SZ14Y7jyUx1jAMydsEfkbfvFb8eCK1fJfW"/>-->
+      <!--<donation title="koto" address="k1Kst8UmPAHgLbGXg7okD4HqbCfPrJQ6Wok" />-->
+      <!--<donation title="NEETCOIN" address="NhX4FB5ZioHuwgM4CDEM6BEanGzTf5P9Gk"/>-->
     </group>
   </donations>
 </author>

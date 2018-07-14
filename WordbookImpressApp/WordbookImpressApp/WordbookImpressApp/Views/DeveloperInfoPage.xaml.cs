@@ -14,6 +14,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 using WordbookImpressLibrary.Storage;
+using WordbookImpressLibrary.Helper;
 
 namespace WordbookImpressApp.Views
 {
@@ -26,28 +27,52 @@ namespace WordbookImpressApp.Views
 		{
 			InitializeComponent ();
 
-            this.BindingContext = new DeveloperInfoViewModel();
+            this.BindingContextChanged += (s, e) => LinksUpdate();
+
+            DeveloperInfoViewModel model;
+            this.BindingContext = model = new DeveloperInfoViewModel(Navigation);
+            this.Model.PropertyChanged += (s, e) => LinksUpdate();
+            RemoteStorage.Updated += (s, e) => { LinksUpdate();  };
 
             {
                 GithubGrid.ColumnDefinitions = new ColumnDefinitionCollection();
                 GithubGrid.Children.Clear();
-                AddGithubInfo("GithubUser.Repos", "Projects");
-                AddGithubInfo("GithubUser.Followers", "Followers");
-                AddGithubInfo("GithubUser.Following", "Following");
+                AddGithubInfo("GithubUser.Repos", "Projects", "OpenUriCommand", "GithubUser.HtmlUrl");
+                AddGithubInfo("GithubUser.Followers", "Followers", "OpenUriCommand", "GithubUser.HtmlUrl");
+                //AddGithubInfo("GithubUser.Following", "Following", "OpenUriCommand", "GithubUser.HtmlUrl");
+                AddGithubInfo("TwitterUser.FollowersCount", "Twitter\nFollowers", "OpenUriCommand", "TwitterUser.Url");
+                //AddGithubInfo("TwitterUser.FollowingsCount", "Following", "OpenUriCommand", "GithubUser.HtmlUrl");
             }
 
             UpdateGithubInfo();
+            UpdateTwitterInfo();
         }
 
         public async void UpdateGithubInfo()
         {
-
-            var github = new Octokit.GitHubClient(new Octokit.ProductHeaderValue(nameof(WordbookImpressApp)));
-            var user = await github.User.Get("kurema");
-            Model.GithubUser = new GithubUserViewModel(user);
+            try
+            {
+                var github = new Octokit.GitHubClient(new Octokit.ProductHeaderValue(nameof(WordbookImpressApp)));
+                var user = await github.User.Get("kurema");
+                Model.GithubUser = new GithubUserViewModel(user);
+            }
+            catch { }
         }
 
-        public void AddGithubInfo(string source,string Header)
+        public async void UpdateTwitterInfo()
+        {
+            try
+            {
+                var key = await Storage.TwitterStorage.GetAppOnlyToken();
+                var tws = await key.Statuses.UserTimelineAsync(count => 100, screen_name => "kurema_makoto", include_rts => false);
+                Model.TwitterTimeline = new ObservableCollection<TweetViewModel>(tws.Select(s => new TweetViewModel(s)));
+                Model.TwitterUser = new TwitterUserInfoViewModel(tws.First()?.User);
+            }
+            catch(Exception e) {
+            }
+        }
+
+        public void AddGithubInfo(string source, string Header, string command=null,string commandParameter=null)
         {
             var cnt = GithubGrid.ColumnDefinitions?.Count() ?? 0;
 
@@ -55,13 +80,59 @@ namespace WordbookImpressApp.Views
             var sl = new StackLayout();
             var fc = new FontSizeConverter();
             {
-                var label = new Label() {HorizontalTextAlignment = TextAlignment.Center, FontSize = (double)fc.ConvertFromInvariantString("Large"), FontAttributes = FontAttributes.Bold };
+                var label = new Label() {HorizontalTextAlignment = TextAlignment.Center, HorizontalOptions=LayoutOptions.CenterAndExpand, FontSize = (double)fc.ConvertFromInvariantString("Large"), FontAttributes = FontAttributes.Bold };
                 label.SetBinding(Label.TextProperty, source);
+                //if (Taped != null)
+                //    label.GestureRecognizers.Add(new TapGestureRecognizer() { Command = new DelegateCommand((o) => true, (o) => { try { Taped(); } catch { } }) });
+                if(command != null)
+                {
+                    {
+                        var gr = new TapGestureRecognizer();
+                        gr.SetBinding(TapGestureRecognizer.CommandProperty, command);
+                        gr.SetBinding(TapGestureRecognizer.CommandParameterProperty, commandParameter);
+                        sl.GestureRecognizers.Add(gr);
+                    }
+                    {
+                        var gr = new ClickGestureRecognizer();
+                        gr.SetBinding(ClickGestureRecognizer.CommandProperty, command);
+                        gr.SetBinding(ClickGestureRecognizer.CommandParameterProperty, commandParameter);
+                        sl.GestureRecognizers.Add(gr);
+                    }
+                }
                 sl.Children.Add(label);
             }
-            sl.Children.Add(new Label() { Text = Header,  HorizontalTextAlignment = TextAlignment.Center });
+            sl.Children.Add(new Label() { Text = Header,  HorizontalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.CenterAndExpand });
             Grid.SetColumn(sl, cnt);
             GithubGrid.Children.Add(sl);
+        }
+
+        private void LinksUpdate()
+        {
+            Links.Children.Clear();
+
+            if (!String.IsNullOrWhiteSpace(Model?.GithubUser?.Email))
+            {
+                var command = new DelegateCommand((o) => true, (o) => { try { Device.OpenUri(new Uri(Model.GithubUser.Email)); } catch { } });
+                LinkUpdateAddLink("Email", command);
+            }
+
+            if (Model?.AuthorInformation?.Links != null)
+            {
+                foreach (var item in Model.AuthorInformation.Links)
+                {
+                    LinkUpdateAddLink(item.Title, item.OpenUriCommand);
+                }
+            }
+        }
+
+        private void LinkUpdateAddLink(string title,System.Windows.Input.ICommand command)
+        {
+            var label = new Label();
+            label.Text = title;
+            label.GestureRecognizers.Add(new TapGestureRecognizer() { Command = command });
+            label.GestureRecognizers.Add(new ClickGestureRecognizer() { Command = command });
+            label.Margin = 10;
+            Links.Children.Add(label);
         }
 
         public class DeveloperInfoViewModel:WordbookImpressLibrary.ViewModels.BaseViewModel
@@ -70,15 +141,52 @@ namespace WordbookImpressApp.Views
             public GithubUserViewModel GithubUser { get => _GithubUser; set => SetProperty(ref _GithubUser, value); }
 
             private AuthorInformationViewModel authorInformation;
-            public AuthorInformationViewModel AuthorInformation { get => authorInformation ?? new AuthorInformationViewModel(RemoteStorage.AuthorInformation); }
+            public AuthorInformationViewModel AuthorInformation { get => authorInformation = authorInformation ?? (RemoteStorage.AuthorInformation != null ? new AuthorInformationViewModel(RemoteStorage.AuthorInformation, navigation) : null); }
 
-            private WordbookImpressLibrary.Helper.DelegateCommand openUriCommand;
-            public WordbookImpressLibrary.Helper.DelegateCommand OpenUriCommand => openUriCommand = openUriCommand ?? new WordbookImpressLibrary.Helper.DelegateCommand((o) => true,
+            public void AuthorInformationUpdated() => OnPropertyChanged(nameof(AuthorInformation));
+
+            private ObservableCollection<TweetViewModel> twitterTimeline = new ObservableCollection<TweetViewModel>();
+            public ObservableCollection<TweetViewModel> TwitterTimeline { get => twitterTimeline; set => SetProperty(ref twitterTimeline, value); }
+
+            private TwitterUserInfoViewModel twitterUser;
+            public TwitterUserInfoViewModel TwitterUser { get => twitterUser; set => SetProperty(ref twitterUser, value); }
+
+            private DelegateCommand openUriCommand;
+            public DelegateCommand OpenUriCommand => openUriCommand = openUriCommand ?? new WordbookImpressLibrary.Helper.DelegateCommand((o) => true,
                 (o) =>
                 {
-                    Device.OpenUri(new Uri(o.ToString()));
+                    try
+                    {
+                        Device.OpenUri(new Uri(o.ToString()));
+                    }
+                    catch { }
                 });
 
+
+            private INavigation navigation;
+
+            public DeveloperInfoViewModel(INavigation navigation)
+            {
+                this.navigation = navigation;
+
+                RemoteStorage.Updated += (s, e) => OnPropertyChanged(nameof(AuthorInformation));
+            }
+        }
+
+        public class TwitterUserInfoViewModel
+        {
+            private CoreTweet.User user;
+            public int FollowersCount => user.FollowersCount;
+            public int FollowingsCount => user.FriendsCount;
+            public string ProfileBackgroundImageUrl => user.ProfileBackgroundImageUrlHttps;
+            public string ProfileBannerUrl => user.ProfileBannerUrl;
+            public string ProfileUrl => user.Url;
+            //Why CoreTweet do not have this!?
+            public string Url => "https://twitter.com/" + user?.ScreenName;
+
+            public TwitterUserInfoViewModel(CoreTweet.User user) {
+                this.user = user;
+            }
         }
 
         public class GithubUserViewModel
@@ -95,7 +203,24 @@ namespace WordbookImpressApp.Views
             public bool? Hireable => user.Hireable;
             public string Email => user.Email;
 
+            public string HtmlUrl => user.HtmlUrl;
+
             public GithubUserViewModel(Octokit.User user) { this.user = user; }
+        }
+
+        public class TweetViewModel
+        {
+            //public string FullText => status?.FullText;
+            public string Text => status?.Text;
+            public DateTimeOffset DateTime => status?.CreatedAt ?? new DateTimeOffset();
+            //Why CoreTweet do not have this!?
+            public string Url => "https://twitter.com/" + status.User.Id + "/status/" + status.Id;
+
+            private CoreTweet.Status status;
+            public TweetViewModel(CoreTweet.Status status)
+            {
+                this.status = status;
+            }
         }
 
         public class AuthorInformationViewModel
@@ -104,7 +229,9 @@ namespace WordbookImpressApp.Views
 
             public string Name => author.name;
 
-            public AuthorInformationViewModel(author author) { this.author = author; }
+            private INavigation navigation;
+
+            public AuthorInformationViewModel(author author, INavigation navigation) { this.author = author; this.navigation = navigation; }
 
             private ObservableCollection<Link> links;
             public ObservableCollection<Link> Links { get => links = links ?? GetLinks(); }
@@ -115,25 +242,50 @@ namespace WordbookImpressApp.Views
                 var result=new ObservableCollection<Link>();
                 foreach (var item in author.links)
                 {
-                    result.Add(new Link(WordbookImpressLibrary.Storage.RemoteStorage.GetStringByMultilingal(item?.title?.multilingal) ?? item.title1, item.src));
+                    result.Add(new Link(RemoteStorage.GetStringByMultilingal(item?.title?.multilingal) ?? item.title1, item.src));
                 }
                 return result;
             }
 
-            private ObservableCollection<Group<Link>> donations;
-            public ObservableCollection<AuthorInformationViewModel.Group<Link>> Donations { get => donations ?? GetDonations(); }
-            public ObservableCollection<AuthorInformationViewModel.Group<Link>> GetDonations()
+            public DelegateCommand OpenDonationCommand { get => new DelegateCommand(
+                (p) => true,(p)=>
+                {
+                    new ConfigPage();
+                    var result = new ObservableCollection<ConfigPage.SettingItems>();
+                    foreach (var item in Donations)
+                    {
+                        var items = new ConfigPage.SettingItems(item.Title);
+                        foreach (var item2 in item)
+
+                        {
+                            items.Add(new ConfigPage.SettingItem(item2.Title, item2.Address)
+                            {
+
+                                Action = async (w) => { try { Device.OpenUri(new Uri(item2.Src)); } catch { } }
+                            });
+                        }
+                        result.Add(items);
+                    }
+                    navigation.PushAsync(new ConfigPage(result) { Title = "寄付" });
+                }); }
+
+
+            private ObservableCollection<Group<LinkDonation>> donations;
+            public ObservableCollection<AuthorInformationViewModel.Group<LinkDonation>> Donations { get => donations=donations ?? GetDonations(); }
+
+            public ObservableCollection<AuthorInformationViewModel.Group<LinkDonation>> GetDonations()
             {
-                if (author?.donations == null) return new ObservableCollection<Group<Link>>();
-                var result= new ObservableCollection<Group<Link>>();
+                if (author?.donations == null) return new ObservableCollection<Group<LinkDonation>>();
+                var result= new ObservableCollection<Group<LinkDonation>>();
                 foreach (var gp in author.donations)
                 {
-                    var group = new Group<Link>();
-                    group.Title = WordbookImpressLibrary.Storage.RemoteStorage.GetStringByMultilingal(gp.title.multilingal) ?? gp.title1;
+                    var group = new Group<LinkDonation>();
+                    group.Title = WordbookImpressLibrary.Storage.RemoteStorage.GetStringByMultilingal(gp?.title?.multilingal) ?? gp.title1;
                     foreach(var item in gp.donation)
                     {
-                        group.Add(new Link(RemoteStorage.GetStringByMultilingal(item.title.multilingal) ?? item.title1, item.src));
+                        group.Add(new LinkDonation(RemoteStorage.GetStringByMultilingal(item?.title?.multilingal) ?? item.title1, item.src,item.address));
                     }
+                    result.Add(group);
                 }
                 return result;
             }
@@ -153,8 +305,21 @@ namespace WordbookImpressApp.Views
                 public WordbookImpressLibrary.Helper.DelegateCommand OpenUriCommand => openUriCommand = openUriCommand ?? new WordbookImpressLibrary.Helper.DelegateCommand((o) => true,
                     (o) =>
                     {
-                        Device.OpenUri(new Uri(Src));
+                        try
+                        {
+                            Device.OpenUri(new Uri(Src));
+                        }
+                        catch { }
                     });
+            }
+
+            public class LinkDonation : Link
+            {
+                public string Address { get; set; }
+
+                public LinkDonation(string title, string src) : base(title,src) { }
+                public LinkDonation(string title, string src,string Address) : base(title, src) { this.Address = Address; }
+
             }
 
             public class Group<T> : ObservableCollection<T>,INotifyPropertyChanged
@@ -183,6 +348,17 @@ namespace WordbookImpressApp.Views
             }
                 )
             { Title="寄付"});
+        }
+
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            ((ListView)sender).SelectedItem = null;
+            //((TweetViewModel)e.SelectedItem)
+            try
+            {
+                Device.OpenUri(new Uri(((TweetViewModel)e.SelectedItem).Url));
+            }
+            catch { }
         }
     }
 }

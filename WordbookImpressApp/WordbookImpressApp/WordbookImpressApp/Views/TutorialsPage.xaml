@@ -9,6 +9,9 @@
               >
     <CarouselPage.Resources>
         <vc:BooleanNotValueConverter x:Key="notVC" />
+        <Style TargetType="Button">
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
     </CarouselPage.Resources>
     <CarouselPage.ItemTemplate>
         <DataTemplate>
@@ -25,8 +28,8 @@
                     </Grid.ColumnDefinitions>
                     <Image Margin="20" Source="{Binding ImageUrl}" Grid.ColumnSpan="2" Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="Fill" />
                     <StackLayout HorizontalOptions="FillAndExpand" Padding="10" Spacing="10" Grid.ColumnSpan="2" Grid.Row="1">
-                        <Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Text="{Binding TitleText}" Style="{DynamicResource Key=TitleStyle}" />
-                        <Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Text="{Binding DescriptionText}" />
+                        <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Text="{Binding TitleText}" Style="{DynamicResource Key=TitleStyle}" />
+                        <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Text="{Binding DescriptionText}" />
                     </StackLayout>
                     <Button Clicked="Button_Clicked_Finish"  IsVisible="{Binding Parent.IsLastPage,Converter={StaticResource notVC}}" Text="スキップ" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="0"/>
                     <Button Command="{Binding Parent.NextPageCommand}" IsVisible="{Binding Parent.IsLastPage,Converter={StaticResource notVC}}" Text="次へ" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="1"/>

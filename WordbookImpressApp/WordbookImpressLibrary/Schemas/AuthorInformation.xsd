@@ -55,6 +55,7 @@ xmlns:xs="http://www.w3.org/2001/XMLSchema"
                             </xs:complexType>
                           </xs:element>
                         </xs:sequence>
+                        <xs:attribute name="address" type="xs:string" use="optional" />
                         <xs:attribute name="src" type="xs:anyURI" />
                         <xs:attribute name="title" type="xs:string" />
                       </xs:complexType>

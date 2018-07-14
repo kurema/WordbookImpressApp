@@ -24,11 +24,12 @@
         <ScrollView>
             <StackLayout>
                 <Grid HeightRequest="200" BackgroundColor="Accent">
+                    <Image Source="{Binding TwitterUser.ProfileBannerUrl}" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
                     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                         <Frame CornerRadius="20" Padding="0" Margin="0" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100">
                             <Image Margin="0" Source="{Binding GithubUser.AvatarUri}" />
                         </Frame>
-                        <Label Text="{Binding GithubUser.Name}" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+                        <Label Text="{Binding GithubUser.Name}" TextColor="White" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
                     </StackLayout>
                 </Grid>
                 <Grid x:Name="GithubGrid" />
@@ -42,17 +43,22 @@
                 <Frame Style="{StaticResource CardStyleDeveloperInfo}">
                     <StackLayout>
                         <Label Style="{StaticResource GroupHeader}" Text="Contact" />
-                        <ListView ItemsSource="{Binding AuthorInformation.Links}" HasUnevenRows="True" SeparatorVisibility="None" VerticalOptions="Start">
+                        <StackLayout x:Name="Links" />
+                        <Label Style="{StaticResource GroupHeader}" Text="Support" />
+                        <Button HorizontalOptions="Start" Text="Donate" Command="{Binding AuthorInformation.OpenDonationCommand}"/>
+
+                    </StackLayout>
+                </Frame>
+                <Frame Style="{StaticResource CardStyleDeveloperInfo}">
+                    <StackLayout>
+                        <Label Style="{StaticResource GroupHeader}" Text="Timeline" />
+                        <ListView HeightRequest="500" ItemsSource="{Binding TwitterTimeline}" HasUnevenRows="True" ItemSelected="ListView_ItemSelected">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
-                                        <!--<Button Text="{Binding Title}" Command="{Binding OpenUriCommand}"/>-->
-                                        <Label Text="{Binding Title}" Margin="10">
-                                            <Label.GestureRecognizers>
-                                                <ClickGestureRecognizer Command="{Binding OpenUriCommand}"/>
-                                                <TapGestureRecognizer Command="{Binding OpenUriCommand}"/>
-                                            </Label.GestureRecognizers>
-                                        </Label>
+                                        <StackLayout Padding="10">
+                                            <Label Text="{Binding Text}" />
+                                        </StackLayout>
                                     </ViewCell>
                                 </DataTemplate>
                             </ListView.ItemTemplate>

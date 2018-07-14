@@ -39,6 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CoreTweet" Version="0.9.0.415" />
     <PackageReference Include="Nager.AmazonProductAdvertising" Version="1.2.1" />
     <PackageReference Include="Octokit" Version="0.30.0" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.1" />

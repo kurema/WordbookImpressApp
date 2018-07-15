@@ -78,30 +78,28 @@ namespace WordbookImpressApp.Views
 
             GithubGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
             var sl = new StackLayout();
+            if (command != null)
+            {
+                {
+                    var gr = new TapGestureRecognizer();
+                    gr.SetBinding(TapGestureRecognizer.CommandProperty, command);
+                    gr.SetBinding(TapGestureRecognizer.CommandParameterProperty, commandParameter);
+                    sl.GestureRecognizers.Add(gr);
+                }
+                {
+                    var gr = new ClickGestureRecognizer();
+                    gr.SetBinding(ClickGestureRecognizer.CommandProperty, command);
+                    gr.SetBinding(ClickGestureRecognizer.CommandParameterProperty, commandParameter);
+                    sl.GestureRecognizers.Add(gr);
+                }
+            }
             var fc = new FontSizeConverter();
             {
                 var label = new Label() {HorizontalTextAlignment = TextAlignment.Center, HorizontalOptions=LayoutOptions.CenterAndExpand, FontSize = (double)fc.ConvertFromInvariantString("Large"), FontAttributes = FontAttributes.Bold };
                 label.SetBinding(Label.TextProperty, source);
-                //if (Taped != null)
-                //    label.GestureRecognizers.Add(new TapGestureRecognizer() { Command = new DelegateCommand((o) => true, (o) => { try { Taped(); } catch { } }) });
-                if(command != null)
-                {
-                    {
-                        var gr = new TapGestureRecognizer();
-                        gr.SetBinding(TapGestureRecognizer.CommandProperty, command);
-                        gr.SetBinding(TapGestureRecognizer.CommandParameterProperty, commandParameter);
-                        sl.GestureRecognizers.Add(gr);
-                    }
-                    {
-                        var gr = new ClickGestureRecognizer();
-                        gr.SetBinding(ClickGestureRecognizer.CommandProperty, command);
-                        gr.SetBinding(ClickGestureRecognizer.CommandParameterProperty, commandParameter);
-                        sl.GestureRecognizers.Add(gr);
-                    }
-                }
                 sl.Children.Add(label);
             }
-            sl.Children.Add(new Label() { Text = Header,  HorizontalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.CenterAndExpand });
+            sl.Children.Add(new Label() { Text = Header, HorizontalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.CenterAndExpand, TextColor = new Color(0.0, 0.0, 0.0, 0.5) });
             Grid.SetColumn(sl, cnt);
             GithubGrid.Children.Add(sl);
         }
@@ -113,26 +111,41 @@ namespace WordbookImpressApp.Views
             if (!String.IsNullOrWhiteSpace(Model?.GithubUser?.Email))
             {
                 var command = new DelegateCommand((o) => true, (o) => { try { Device.OpenUri(new Uri(Model.GithubUser.Email)); } catch { } });
-                LinkUpdateAddLink("Email", command);
+                LinkUpdateAddLink("Email", Model.GithubUser.Email, command);
             }
 
             if (Model?.AuthorInformation?.Links != null)
             {
                 foreach (var item in Model.AuthorInformation.Links)
                 {
-                    LinkUpdateAddLink(item.Title, item.OpenUriCommand);
+                    LinkUpdateAddLink(item.Title, item.Src, item.OpenUriCommand);
                 }
             }
         }
 
-        private void LinkUpdateAddLink(string title,System.Windows.Input.ICommand command)
+        private void LinkUpdateAddLink(string title,string detail, System.Windows.Input.ICommand command)
         {
-            var label = new Label();
-            label.Text = title;
-            label.GestureRecognizers.Add(new TapGestureRecognizer() { Command = command });
-            label.GestureRecognizers.Add(new ClickGestureRecognizer() { Command = command });
-            label.Margin = 10;
-            Links.Children.Add(label);
+            var stack = new StackLayout();
+            {
+                stack.Padding = 10;
+                stack.GestureRecognizers.Add(new TapGestureRecognizer() { Command = command });
+                stack.GestureRecognizers.Add(new ClickGestureRecognizer() { Command = command });
+            }
+            {
+                var label = new Label();
+                label.Text = title;
+                stack.Children.Add(label);
+            }
+            {
+                var label = new Label();
+                label.Text = detail;
+                //label.VerticalTextAlignment = TextAlignment.End;
+                //label.VerticalOptions = LayoutOptions.EndAndExpand;
+                label.TextColor = new Color(0, 0, 0, 0.5);
+                label.LineBreakMode = LineBreakMode.TailTruncation;
+                stack.Children.Add(label);
+            }
+            Links.Children.Add(stack);
         }
 
         public class DeveloperInfoViewModel:WordbookImpressLibrary.ViewModels.BaseViewModel
@@ -212,7 +225,8 @@ namespace WordbookImpressApp.Views
         {
             //public string FullText => status?.FullText;
             public string Text => status?.Text;
-            public DateTimeOffset DateTime => status?.CreatedAt ?? new DateTimeOffset();
+            public DateTime DateTime => status?.CreatedAt.ToLocalTime().DateTime ?? new DateTime();
+            public string DateTimeString => DateTime.ToString(System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat);
             //Why CoreTweet do not have this!?
             public string Url => "https://twitter.com/" + status.User.Id + "/status/" + status.Id;
 
@@ -258,10 +272,32 @@ namespace WordbookImpressApp.Views
                         foreach (var item2 in item)
 
                         {
-                            items.Add(new ConfigPage.SettingItem(item2.Title, item2.Address)
+                            items.Add(new ConfigPage.SettingItem(item2.Title, string.IsNullOrWhiteSpace(item2.Address)?item2.Src: item2.Address)
                             {
 
-                                Action = async (w) => { try { Device.OpenUri(new Uri(item2.Src)); } catch { } }
+                                Action = async (w) =>
+                                {
+                                    if (item2.Src != null)
+                                    {
+                                        try { Device.OpenUri(new Uri(item2.Src)); }
+                                        catch
+                                        {
+                                            try
+                                            {
+                                                await navigation.PushModalAsync(new QRCodePage(item2.Src));
+                                            }
+                                            catch (Exception e) { }
+                                        }
+                                    }
+                                    else if (item2.Address != null)
+                                    {
+                                        try
+                                        {
+                                            await navigation.PushModalAsync(new QRCodePage(item2.Address));
+                                        }
+                                        catch (Exception e) { }
+                                    }
+                                }
                             });
                         }
                         result.Add(items);
@@ -335,19 +371,6 @@ namespace WordbookImpressApp.Views
                 }
                 #endregion
             }
-        }
-
-        private async void Button_Clicked_Donate(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ConfigPage(new System.Collections.ObjectModel.ObservableCollection<ConfigPage.SettingItems>()
-            {
-                new ConfigPage.SettingItems("仮想通貨")
-                {
-                    new ConfigPage.SettingItem("ビットコイン",""){Action=async (s)=>{Device.OpenUri(new Uri("monacoin:aaa")); } }
-                }
-            }
-                )
-            { Title="寄付"});
         }
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

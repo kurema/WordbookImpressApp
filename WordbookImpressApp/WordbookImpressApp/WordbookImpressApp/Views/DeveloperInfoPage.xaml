@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WordbookImpressApp.Views.DeveloperInfoPage"
+             Title="プロフィール"
              x:Name="page"
              >
     <ContentPage.Resources>
@@ -58,6 +59,7 @@
                                     <ViewCell>
                                         <StackLayout Padding="10">
                                             <Label Text="{Binding Text}" />
+                                            <Label Text="{Binding DateTimeString}" TextColor="#88000000" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand"/>
                                         </StackLayout>
                                     </ViewCell>
                                 </DataTemplate>

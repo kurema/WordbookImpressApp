@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             x:Class="WordbookImpressApp.Views.QRCodePage">
+    <ContentPage.Content>
+        <Grid Margin="50">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <!--<Image x:Name="QRCanvas" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Aspect="AspectFit"/>-->
+            <zxing:ZXingBarcodeImageView Grid.Row="0" x:Name="barcode" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="160" HeightRequest="160" />
+            <Label Grid.Row="1" x:Name="QRText" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

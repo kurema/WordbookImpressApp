@@ -55,7 +55,7 @@ namespace WordbookImpressApp.Views
                 (a) => a.Key, (b) =>
                 {
                     var rate = Record.TestStatus.GetCorrectRate(b.Value.AnswerCountCorrect, b.Value.AnswerCountTotal);
-                    return new SkiaSharp.SKColor((byte)(255 * rate), (byte)(255 * (1 - rate)), 0
+                    return new SkiaSharp.SKColor((byte)(255 * (1 - rate)), (byte)(255 * rate), 0
                         , (byte)(255 * Math.Min((float)ConfigStorage.Content.MaxDailyTestCount, b.Value.AnswerCountTotal) / Math.Max(ConfigStorage.Content.MaxDailyTestCount, 1)));
                 }
                 );

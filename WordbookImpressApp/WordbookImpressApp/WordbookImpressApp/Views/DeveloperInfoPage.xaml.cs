@@ -46,6 +46,11 @@ namespace WordbookImpressApp.Views
 
             UpdateGithubInfo();
             UpdateTwitterInfo();
+
+            storeItems.Clear();
+            
+            storeItems.AddASIN("B00N3IJ8DQ"); 
+            storeItems.AddASIN("B077X71C4C");
         }
 
         public async void UpdateGithubInfo()

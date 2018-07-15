@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WordbookImpressApp.Views.StoreItemsView">
+             x:Class="WordbookImpressApp.Views.StoreItemsView"
+             >
   <ContentView.Content>
-        <ScrollView Orientation="Horizontal">
-            <StackLayout Orientation="Horizontal">
-                
-            </StackLayout>
+        <ScrollView Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal" x:Name="stackLayout" Spacing="5"/>
         </ScrollView>
   </ContentView.Content>
 </ContentView>

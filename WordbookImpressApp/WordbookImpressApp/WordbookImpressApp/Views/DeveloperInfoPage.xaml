@@ -50,6 +50,12 @@
 
                     </StackLayout>
                 </Frame>
+                <Frame Style="{StaticResource CardStyleDeveloperInfo}" xmlns:my="clr-namespace:WordbookImpressApp.Views">
+                    <StackLayout>
+                        <Label Style="{StaticResource GroupHeader}" Text="Books" />
+                        <my:StoreItemsView x:Name="storeItems"/>
+                    </StackLayout>
+                </Frame>
                 <Frame Style="{StaticResource CardStyleDeveloperInfo}">
                     <StackLayout>
                         <Label Style="{StaticResource GroupHeader}" Text="Timeline" />

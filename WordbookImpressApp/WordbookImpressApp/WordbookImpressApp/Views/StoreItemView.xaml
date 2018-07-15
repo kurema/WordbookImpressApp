@@ -8,13 +8,14 @@
         <TapGestureRecognizer Tapped="ClickGestureRecognizer_Clicked" />
     </ContentView.GestureRecognizers>
     <ContentView.Content>
-        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="Start">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Image x:Name="image" Grid.Row="0"/>
-            <Label x:Name="label" Grid.Row="1" FontSize="Small" LineBreakMode="MiddleTruncation" />
-        </Grid>
+        <RelativeLayout>
+            <Image x:Name="image" 
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Factor=1.0,Property=Width}"/>
+            <Label x:Name="label" Grid.Row="1" FontSize="Small" LineBreakMode="MiddleTruncation"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToView,ElementName=image,Factor=1}"
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,ElementName=image,Factor=1}"
+                   
+                   />
+        </RelativeLayout>
     </ContentView.Content>
 </ContentView>

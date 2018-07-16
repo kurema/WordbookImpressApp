@@ -25,10 +25,10 @@ namespace WordbookImpressApp.Views
 			InitializeComponent ();
 		}
 
-        public StoreItemView Add(string title,ImageSource source,Action action=null)
+        public StoreItemView Add(string title,string price, ImageSource source,Action action=null)
         {
             this.HeightRequest = DefaultHeight;
-            var result = new StoreItemView(title, source, action) { VerticalOptions = LayoutOptions.FillAndExpand };
+            var result = new StoreItemView(title, price, source, action) { VerticalOptions = LayoutOptions.FillAndExpand };
             stackLayout.Children.Add(result);
             return result;
         }
@@ -45,23 +45,47 @@ namespace WordbookImpressApp.Views
             {
                 try
                 {
-                    var child = Add(result.ItemAttributes.Title, ImageSource.FromUri(new Uri(result.LargeImage.URL)), () => { try { Device.OpenUri(new Uri(result.DetailPageURL)); } catch { } });
+                    //var child = Add(result.ItemAttributes.Title, result?.OfferSummary?.LowestNewPrice?.FormattedPrice ?? "-", ImageSource.FromUri(new Uri(result.LargeImage.URL)), () => { try { Device.OpenUri(new Uri(result.DetailPageURL)); } catch { } });
+                    var child = Add(result?.ItemAttributes?.Title, result?.ItemAttributes?.ListPrice?.FormattedPrice ?? "" , ImageSource.FromUri(new Uri(result.LargeImage.URL)), () => { try { Device.OpenUri(new Uri(result.DetailPageURL)); } catch { } });
                 }
                 catch (Exception e) { }
             }
         }
 
+        public static Nager.AmazonProductAdvertising.Model.AmazonResponseGroup AmazonRequiredResponse => Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.ItemAttributes | Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Images | Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.OfferSummary;
+
         public async void AddASIN(params string[] asins)
         {
-            Nager.AmazonProductAdvertising.Model.AmazonItemResponse results = null;
-            for(int i = 0; i < 3; i++) {
-                results = await AmazonStorage.AmazonWrapper.LookupAsync(asins.ToList());
-                if (results != null) { break; }
-                await Task.Delay(500);
+            try
+            {
+                var result = await TryFetch(async () => await AmazonStorage.AmazonWrapper?.LookupAsync(asins.ToList(), AmazonRequiredResponse));
+                if (result?.Items?.Item == null) return;
+                AddAmazonItem(result.Items.Item);
             }
-            if (results?.Items?.Item == null) return;
+            catch (Exception e) { }
+        }
 
-            AddAmazonItem(results.Items.Item);
+        public async void AddSearchResult(string keyword, Nager.AmazonProductAdvertising.Model.AmazonSearchIndex index = Nager.AmazonProductAdvertising.Model.AmazonSearchIndex.All)
+        {
+            try
+            {
+                var result = await TryFetch(async () => await AmazonStorage.AmazonWrapper?.SearchAsync(keyword, index, AmazonRequiredResponse));
+                if (result?.Items?.Item == null) return;
+                AddAmazonItem(result.Items.Item);
+            }
+            catch (Exception e) { }
+        }
+
+        public async Task<T> TryFetch<T>(Func<Task<T>> func,  int count=3, int waitMilliseconds = 500)
+        {
+            T result = default(T);
+            for(int i = 0; i < count; i++)
+            {
+                result = await func();
+                if (result != null && !result.Equals(default(T))) break;
+                await Task.Delay(waitMilliseconds);
+            }
+            return result;
         }
 	}
 }

@@ -2,20 +2,22 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WordbookImpressApp.Views.StoreItemView"
+             xmlns:my="clr-namespace:WordbookImpressApp.Views"
              VerticalOptions="FillAndExpand" HorizontalOptions="Start">
     <ContentView.GestureRecognizers>
         <ClickGestureRecognizer Clicked="ClickGestureRecognizer_Clicked"/>
         <TapGestureRecognizer Tapped="ClickGestureRecognizer_Clicked" />
     </ContentView.GestureRecognizers>
     <ContentView.Content>
-        <RelativeLayout>
-            <Image x:Name="image" 
-                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Factor=1.0,Property=Width}"/>
-            <Label x:Name="label" Grid.Row="1" FontSize="Small" LineBreakMode="MiddleTruncation"
-                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToView,ElementName=image,Factor=1}"
-                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,ElementName=image,Factor=1}"
-                   
-                   />
-        </RelativeLayout>
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="Start" x:Name="grid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Image x:Name="image" Grid.Row="0"/>
+            <my:HumbleWidthLabel x:Name="label" Grid.Row="1" FontSize="Small" LineBreakMode="MiddleTruncation" TextColor="Black" HorizontalTextAlignment="Center"/>
+            <my:HumbleWidthLabel x:Name="labelPrice" TextColor="Accent" Grid.Row="2" FontSize="Small" LineBreakMode="MiddleTruncation" HorizontalTextAlignment="End"/>
+        </Grid>
     </ContentView.Content>
 </ContentView>

@@ -46,11 +46,13 @@ namespace WordbookImpressApp.Views
 
             UpdateGithubInfo();
             UpdateTwitterInfo();
+            UpdateAmazonInfo();
+        }
 
+        public async void UpdateAmazonInfo()
+        {
             storeItems.Clear();
-            
-            storeItems.AddASIN("B00N3IJ8DQ"); 
-            storeItems.AddASIN("B077X71C4C");
+            storeItems.AddSearchResult("B077X71C4C", Nager.AmazonProductAdvertising.Model.AmazonSearchIndex.Books);
         }
 
         public async void UpdateGithubInfo()

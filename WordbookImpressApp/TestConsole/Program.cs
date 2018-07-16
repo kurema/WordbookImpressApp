@@ -1,10 +1,22 @@
 ﻿using System;
+using Nager.AmazonProductAdvertising;
+using WordbookImpressLibrary;
 
 namespace TestConsole
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            var authentification = new AmazonAuthentication();
+            authentification.AccessKey = APIKeys.AmazonAccessKey;
+            authentification.SecretKey = APIKeys.AmazonSecretKey;
+            var w = new AmazonWrapper(authentification, AmazonEndpoint.JP, "kurema-22");
+            //var AmazonRequiredResponse = Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.ItemAttributes | Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Images | Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.OfferSummary;
+            var s = w.Search("倫理 哲学", responseGroup: Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Large);
+        }
+
+        static void Main2(string[] args)
         {
             var sr = new System.IO.StreamReader(@"D:\temp\WordbookImpressApp\res\nuget\list.csv");
             sr.ReadLine();

@@ -324,4 +324,26 @@ namespace WordbookImpressApp.ValueConverters
             throw new NotImplementedException();
         }
     }
+
+    public class SpecialToTextValueConverter : Xamarin.Forms.IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var t = (value as WordbookImpressLibrary.Schemas.WordbookSuggestion.infoBooksBookSpecial);
+            if (t == null) return "";
+            var texts = parameter.ToString().Split('/');
+            if (texts.Length < 5) return "";
+            List<string> result = new List<string>();
+            if (t.ebook?.Length > 0) result.Add(texts[1]);
+            if (t.wordbook?.Length > 0) result.Add(texts[2]);
+            if (t.voice?.Length > 0) result.Add(texts[3]);
+            if (result.Count == 0) return texts[4];
+            return texts[0] + " " + string.Join(" ", result);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

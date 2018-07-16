@@ -23,6 +23,7 @@ namespace WordbookImpressLibrary.Models
             set
             {
                 Words = new Dictionary<string, WordStatus>();
+                if (value == null) return;
                 foreach(var item in value)
                 {
                     Words[item.Hash] = item;

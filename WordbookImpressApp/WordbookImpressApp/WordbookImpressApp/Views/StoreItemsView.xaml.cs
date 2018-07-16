@@ -18,7 +18,7 @@ namespace WordbookImpressApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StoreItemsView : ContentView
     {
-        public double DefaultHeight { get; set; } = 200;
+        public double DefaultHeight { get; set; } = 180;
 
         public StoreItemsView ()
 		{
@@ -45,8 +45,19 @@ namespace WordbookImpressApp.Views
             {
                 try
                 {
-                    //var child = Add(result.ItemAttributes.Title, result?.OfferSummary?.LowestNewPrice?.FormattedPrice ?? "-", ImageSource.FromUri(new Uri(result.LargeImage.URL)), () => { try { Device.OpenUri(new Uri(result.DetailPageURL)); } catch { } });
-                    var child = Add(result?.ItemAttributes?.Title, result?.ItemAttributes?.ListPrice?.FormattedPrice ?? "" , ImageSource.FromUri(new Uri(result.LargeImage.URL)), () => { try { Device.OpenUri(new Uri(result.DetailPageURL)); } catch { } });
+                    var child = Add(result?.ItemAttributes?.Title,
+                        result?.OfferSummary?.LowestNewPrice?.FormattedPrice ?? (result?.OfferSummary?.LowestUsedPrice?.FormattedPrice != null ? "中古" + result?.OfferSummary?.LowestUsedPrice?.FormattedPrice : null) ?? "",
+                        ImageSource.FromUri(new Uri(result.LargeImage.URL)), async () =>
+                        {
+                            try { Device.OpenUri(new Uri(result.DetailPageURL)); } catch { }
+                            var history = await PurchaseHistoryStorage.GetPurchaseHistory();
+                            if (history != null && !history.ClickedASIN.Contains(result.ASIN)) history.ClickedASIN.Add(result.ASIN);
+                            PurchaseHistoryStorage.SaveLocalData();
+                        });
+                    //if (result?.LargeImage?.Width != null && result?.LargeImage?.Height != null && result.LargeImage.Height.Units == result.LargeImage.Width.Units)
+                    //{
+                    //    child.WidthRequest = DefaultHeight / (double)result.LargeImage.Height.Value * (double)result.LargeImage.Width.Value;
+                    //}
                 }
                 catch (Exception e) { }
             }
@@ -54,26 +65,42 @@ namespace WordbookImpressApp.Views
 
         public static Nager.AmazonProductAdvertising.Model.AmazonResponseGroup AmazonRequiredResponse => Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.ItemAttributes | Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Images | Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.OfferSummary;
 
-        public async void AddASIN(params string[] asins)
+        public async Task<Nager.AmazonProductAdvertising.Model.AmazonItemResponse> AddASIN(params string[] asins)
         {
             try
             {
-                var result = await TryFetch(async () => await AmazonStorage.AmazonWrapper?.LookupAsync(asins.ToList(), AmazonRequiredResponse));
-                if (result?.Items?.Item == null) return;
+                var result = await TryFetch(async () => await AmazonStorage.AmazonWrapper?.LookupAsync(asins.Take(10).ToList(), AmazonRequiredResponse));
+                if (result?.Items?.Item == null) return null;
                 AddAmazonItem(result.Items.Item);
+                return result;
             }
-            catch (Exception e) { }
+            catch (Exception e) { return null; }
         }
 
-        public async void AddSearchResult(string keyword, Nager.AmazonProductAdvertising.Model.AmazonSearchIndex index = Nager.AmazonProductAdvertising.Model.AmazonSearchIndex.All)
+        public async Task<(Nager.AmazonProductAdvertising.Model.AmazonItemResponse, Nager.AmazonProductAdvertising.Model.AmazonItemResponse)> AddRelaed(params string[] asins)
+        {
+            try
+            {
+                var result = await TryFetch(async () => await AmazonStorage.AmazonWrapper?.LookupAsync(asins.ToList(), Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Similarities));
+                if (result?.Items?.Item == null) return (null, null);
+                var related = result?.Items?.Item?.SelectMany((w) => w?.SimilarProducts)?.Where((w) => w != null)?.Select((w) => w?.ASIN)?.ToArray();
+                var result2 = await AddASIN(related);
+                return (result,result2);
+            }
+            catch (Exception e) { return (null, null); }
+        }
+
+
+        public async Task<Nager.AmazonProductAdvertising.Model.AmazonItemResponse> AddSearchResult(string keyword, Nager.AmazonProductAdvertising.Model.AmazonSearchIndex index = Nager.AmazonProductAdvertising.Model.AmazonSearchIndex.All)
         {
             try
             {
                 var result = await TryFetch(async () => await AmazonStorage.AmazonWrapper?.SearchAsync(keyword, index, AmazonRequiredResponse));
-                if (result?.Items?.Item == null) return;
+                if (result?.Items?.Item == null) return null;
                 AddAmazonItem(result.Items.Item);
+                return result;
             }
-            catch (Exception e) { }
+            catch (Exception e) { return null; }
         }
 
         public async Task<T> TryFetch<T>(Func<Task<T>> func,  int count=3, int waitMilliseconds = 500)

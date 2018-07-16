@@ -37,9 +37,7 @@ namespace WordbookImpressApp.Views
                         BindingContext=new WordbookImpressLibrary.ViewModels.TestStatusesViewModel()
                         {  Target=new WordbookImpressLibrary.ViewModels.WordbookImpressViewModel(WordbookImpressLibrary.Storage.WordbooksImpressStorage.Content.ToArray(),WordbookImpressLibrary.Storage.RecordStorage.Content,"全体成績")} });
                     }  },
-#if DEBUG
-                    new MasterMenuItem { Title = "ストア",Description="書籍を購入" ,Icon="icon_store.png"},
-#endif
+                    new MasterMenuItem { TargetType=typeof(StorePage),Title = "ストア",Description="書籍を購入" ,Icon="icon_store.png",Replace=false},
                     new MasterMenuItem { TargetType=typeof(ConfigPage), Title = "設定",Description="単語帳の設定" ,Replace=false,Icon="icon_config.png" },
                     new MasterMenuItem { TargetType=typeof(DeveloperInfoPage), Title = "kuremaについて",SimpleItem=true,Replace=false },
                 });

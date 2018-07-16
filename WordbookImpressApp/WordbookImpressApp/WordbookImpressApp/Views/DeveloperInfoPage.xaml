@@ -50,9 +50,9 @@
 
                     </StackLayout>
                 </Frame>
-                <Frame Style="{StaticResource CardStyleDeveloperInfo}" xmlns:my="clr-namespace:WordbookImpressApp.Views">
+                <Frame Style="{StaticResource CardStyleDeveloperInfo}" xmlns:my="clr-namespace:WordbookImpressApp.Views" Padding="0,10">
                     <StackLayout>
-                        <Label Style="{StaticResource GroupHeader}" Text="Books" />
+                        <Label Style="{StaticResource GroupHeader}" Text="Books" Margin="20" />
                         <my:StoreItemsView x:Name="storeItems"/>
                     </StackLayout>
                 </Frame>

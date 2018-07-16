@@ -103,16 +103,16 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Correct.png" />
-    <Content Include="Assets\icon_add.png" />
-    <Content Include="Assets\icon_cancel.png" />
-    <Content Include="Assets\icon_save.png" />
-    <Content Include="Assets\icon_statistics.png" />
-    <Content Include="Assets\icon_statistics_circle.png" />
-    <Content Include="Assets\icon_wordbook.png" />
-    <Content Include="Assets\Question.png" />
-    <Content Include="Assets\tango.jpg" />
-    <Content Include="Assets\Title.png" />
+    <Content Include="Correct.png" />
+    <Content Include="icon_add.png" />
+    <Content Include="icon_cancel.png" />
+    <Content Include="icon_save.png" />
+    <Content Include="icon_statistics.png" />
+    <Content Include="icon_statistics_circle.png" />
+    <Content Include="icon_wordbook.png" />
+    <Content Include="Question.png" />
+    <Content Include="tango.jpg" />
+    <Content Include="Title.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />
@@ -137,13 +137,13 @@
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-200.png" />
     <Content Include="Assets\StoreLogo.scale-400.png" />
-    <Content Include="Assets\Tutorial_add.png" />
-    <Content Include="Assets\Tutorial_buy.jpg" />
-    <Content Include="Assets\Tutorial_privilege.png" />
+    <Content Include="Tutorial_add.png" />
+    <Content Include="Tutorial_buy.jpg" />
+    <Content Include="Tutorial_privilege.png" />
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
-    <Content Include="Assets\Wrong.png" />
+    <Content Include="Wrong.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>

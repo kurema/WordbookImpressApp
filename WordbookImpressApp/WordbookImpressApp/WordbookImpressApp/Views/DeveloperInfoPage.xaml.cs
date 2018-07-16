@@ -52,7 +52,7 @@ namespace WordbookImpressApp.Views
         public async void UpdateAmazonInfo()
         {
             storeItems.Clear();
-            storeItems.AddSearchResult("B077X71C4C", Nager.AmazonProductAdvertising.Model.AmazonSearchIndex.Books);
+            await storeItems.AddSearchResult("B077X71C4C", Nager.AmazonProductAdvertising.Model.AmazonSearchIndex.Books);
         }
 
         public async void UpdateGithubInfo()

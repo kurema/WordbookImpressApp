@@ -1,0 +1,1 @@
+Get-Package | Export-Csv -path ..\res\license\nuget.csv

@@ -18,15 +18,15 @@ namespace WordbookImpressLibrary.Models
 
         private Uri uriLogo;
         public string UriLogo { get => uriLogo?.ToString()??""; set { if (value != null && value != "") uriLogo = new Uri(value); } }
-        public string Title { get; private set; } = "";
+        public string Title { get; set; } = "";
         public string TitleUser { get; set; } = "";
-        public Word[] Words { get; private set; } = new Word[0];
+        public Word[] Words { get; set; } = new Word[0];
 
-        public Authentication Authentication { get; private set; }
+        public Authentication Authentication { get; set; }
 
         public bool IsValid => uri != null || Words == null;
 
-        public QuizChoice[] QuizChoices { get; private set; } = new QuizChoice[0];
+        public QuizChoice[] QuizChoices { get; set; } = new QuizChoice[0];
 
         public async Task<(WordbookImpress wordbook, string html, string data)> Reload()
         {

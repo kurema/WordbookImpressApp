@@ -2,15 +2,15 @@
 Impress Books用の単語帳アプリ
 
 ## プラットフォーム
-- [ ] Android (Xamarin Formsで開発中)
-- [ ] iOS (Macとライセンスがあれば比較的容易に移植可能)
+- [ ] Android (Xamarin Forms。ほぼ完成)
+- [ ] ~~iOS (Macとライセンスがあれば比較的容易に移植可能)~~
 - [ ] Windows UWP (Xamarin Formsではなくネイティブ開発予定)
-- [ ] Windows Forms (普通のデスクトップアプリ。wpf。)
+- [ ] Windows Desktop (普通のデスクトップアプリ。wpf。)
 
 ## ToDo
 - [x] テスト成績一覧
 - [x] テスト後成績
-- [ ] ストア
+- [x] ストア
 - [x] Amazon検索
 - [x] アプリ情報 (ライセンス) (設定内で済ます。)
 - [x] オープンソースライセンス

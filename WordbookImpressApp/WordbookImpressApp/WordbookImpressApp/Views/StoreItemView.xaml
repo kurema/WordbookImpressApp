@@ -9,15 +9,16 @@
         <TapGestureRecognizer Tapped="ClickGestureRecognizer_Clicked" />
     </ContentView.GestureRecognizers>
     <ContentView.Content>
-        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="Start" x:Name="grid">
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="Start" x:Name="grid" RowSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
+            <my:HumbleWidthLabel x:Name="label" Grid.Row="1" FontSize="Small" LineBreakMode="TailTruncation" TextColor="Black" HorizontalTextAlignment="Center"/>
+            <my:HumbleWidthLabel x:Name="labelPrice" TextColor="Accent" Grid.Row="2" FontSize="Small" LineBreakMode="HeadTruncation" HorizontalTextAlignment="End"/>
+            
             <Image x:Name="image" Grid.Row="0"/>
-            <my:HumbleWidthLabel x:Name="label" Grid.Row="1" FontSize="Small" LineBreakMode="MiddleTruncation" TextColor="Black" HorizontalTextAlignment="Center"/>
-            <my:HumbleWidthLabel x:Name="labelPrice" TextColor="Accent" Grid.Row="2" FontSize="Small" LineBreakMode="MiddleTruncation" HorizontalTextAlignment="End"/>
         </Grid>
     </ContentView.Content>
 </ContentView>

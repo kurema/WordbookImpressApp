@@ -128,7 +128,7 @@ namespace WordbookImpressApp.Views
                 AddAmazonItem(result.Items.Item);
                 return result;
             }
-            catch (Exception e) { return null; }
+            catch { return null; }
         }
 
         public async Task<T> TryFetch<T>(Func<Task<T>> func,  int count=3, int waitMilliseconds = 500)

@@ -160,8 +160,8 @@
     <PackageReference Include="SkiaSharp.Views.Forms">
       <Version>1.60.2</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.1.0.583944" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.637273" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.5" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WordbookImpressApp\WordbookImpressApp.csproj">

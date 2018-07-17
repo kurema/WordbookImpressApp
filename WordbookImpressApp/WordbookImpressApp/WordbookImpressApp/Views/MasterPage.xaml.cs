@@ -44,7 +44,6 @@ namespace WordbookImpressApp.Views
             }
         }
 
-
         public class MasterMenuItem
         {
             public string Icon { get; set; } = "";

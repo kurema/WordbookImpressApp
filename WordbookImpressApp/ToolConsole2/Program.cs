@@ -116,7 +116,7 @@ namespace WordbookImpressApp.ToolsConsole
                     string AmazonSecretKey = WordbookImpressLibrary.APIKeys.AmazonSecretKey;
 
                     var info = File.Exists(pathXml) ? SerializationHelper.DeserializeAsync<info>(pathXml).Result : new info();
-                    var book = info?.books?.book?.ToList();
+                    var book = info?.books?.book?.OrderByDescending(t => t.date_pushSpecified ? t?.date_push.Ticks : 0)?.ToList();
                     if (book == null) return;
 
                     var authentification = new AmazonAuthentication();
@@ -131,6 +131,7 @@ namespace WordbookImpressApp.ToolsConsole
                         if (item.ids?.Length > 0) continue;
                         var result= wrapper.Search(item.title, Nager.AmazonProductAdvertising.Model.AmazonSearchIndex.Books,
                             Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Images|Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Large);
+                        System.Threading.Thread.Sleep(100);
 
                         int i = 0;
                         if (result?.Items?.Item == null) continue;

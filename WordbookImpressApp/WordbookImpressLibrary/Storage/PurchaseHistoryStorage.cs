@@ -12,7 +12,7 @@ namespace WordbookImpressLibrary.Storage
     public class PurchaseHistoryStorage
     {
         private static PurchaseHistory Content;
-        public static string Path { get; set; } = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "record.xml");
+        public static string Path { get; set; } = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "history.xml");
         public static string PathBup { get; set; } = Path + ".bup";
 
         public static async Task<PurchaseHistory> GetPurchaseHistory()

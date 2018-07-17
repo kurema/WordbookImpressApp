@@ -36,14 +36,21 @@ namespace WordbookImpressApp.Views
             StackLayout stack = null;
             //stack = AddTitleLabel("インプレスブックス", stack);
             stack= await AddSearchResult("インプレスブックスの本", "インプレス");
-            stack = await AddBooksWithSpecialWordbook("単語帳が手に入る本", action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupByGenreSpecialWordbook())));
+            stack = await AddBooksWithSpecialNew("最近追加された特典本", action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupsByGenre())));
+            //stack = await AddBooksWithSpecialWordbook("単語帳が手に入る本", action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupByGenreSpecialWordbook())));
+            stack = await AddBooksWithSpecialWordbook("単語帳が手に入る本", action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupsByWordbooks())));
             stack = await AddBooksWithSpecialEbook("本文PDFが手に入る本", action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupByGenreSpecialEbook())));
 
             var history = await WordbookImpressLibrary.Storage.PurchaseHistoryStorage.GetPurchaseHistory();
             if (history.ClickedASIN.Count() > 0)
             {
                 var asin = history.ClickedASIN[(new Random().Next(history.ClickedASIN.Count()))];
-                await AddRelated("以前クリックした本に関連", asin);
+                await AddRelated((w)=> {
+                    var basic = "以前クリックした本に関連";
+                    var item = w?.Items?.Item;
+                    if (item == null || item.Length == 0) return basic;
+                    return item[0]?.ItemAttributes?.Title + "に関連" ?? basic;
+                    }, asin);
             }
 
             stack = await AddSearchResult("kuremaの本", "B077X71C4C");
@@ -56,17 +63,26 @@ namespace WordbookImpressApp.Views
             return stack;
         }
 
+        public async Task<StackLayout> AddBooksWithSpecialNew(string title, StackLayout stack = null, Action action = null)
+        {
+            try
+            {
+                return await AddBooksWithSpecial(title, WordbookImpressLibrary.Storage.RemoteStorage.WordbookSuggestion?.books?.book?.OrderByDescending(t => t.date_pushSpecified ? t?.date_push.Ticks : 0), stack, action);
+            }
+            catch { return null; }
+        }
+
         public async Task<StackLayout> AddBooksWithSpecialEbook(string title, StackLayout stack = null, Action action = null)
         {
-            return await AddBooksWithSpecial(title, (b) => b?.special?.ebook?.Count() > 0 == true && b?.obsolete != true, stack, action);
+            return await AddBooksWithSpecialRandomOrder(title, (b) => b?.special?.ebook?.Count() > 0 == true && b?.obsolete != true, stack, action);
         }
 
         public async Task<StackLayout> AddBooksWithSpecialWordbook(string title, StackLayout stack = null, Action action = null)
         {
-            return await AddBooksWithSpecial(title, (b) => b?.special?.wordbook?.Count() > 0 == true && b?.obsolete != true, stack, action);
+            return await AddBooksWithSpecialRandomOrder(title, (b) => b?.special?.wordbook?.Count() > 0 == true && b?.obsolete != true, stack, action);
         }
 
-        public async Task<StackLayout> AddBooksWithSpecial(string title, Func<WordbookImpressLibrary.Schemas.WordbookSuggestion.infoBooksBook,bool> func,StackLayout stack=null,Action action=null)
+        public async Task<StackLayout> AddBooksWithSpecialRandomOrder(string title, Func<WordbookImpressLibrary.Schemas.WordbookSuggestion.infoBooksBook,bool> func,StackLayout stack=null,Action action=null)
         {
             try
             {
@@ -74,8 +90,18 @@ namespace WordbookImpressApp.Views
                 //読みづらいが、指定条件で検索したWordbookSuggestionの本の中をランダムで並び替え、できれば実本、ないならKindle本のASINを取得しています。
                 var w = WordbookImpressLibrary.Storage.RemoteStorage.WordbookSuggestion?.books?.book
                     ?.Where(func)
-                    ?.OrderBy((t) => rand.Next())
-                    ?.Select((b) => (b?.ids?.FirstOrDefault((id) => id.type == "ASIN" && id.binding == "printed_book") ?? b?.ids?.FirstOrDefault((id) => id.type == "ASIN" && id.binding == "ebook"))?.Value)?.Where((s) => s != null)?.Take(10)?.ToArray();
+                    ?.OrderBy((t) => rand.Next());
+                return await AddBooksWithSpecial(title, w, stack, action);
+            }
+            catch { return null; }
+        }
+
+        public async Task<StackLayout> AddBooksWithSpecial(string title, IOrderedEnumerable<WordbookImpressLibrary.Schemas.WordbookSuggestion.infoBooksBook> books, StackLayout stack = null, Action action = null)
+        {
+            try
+            {
+                var PreferPrintedBook = WordbookImpressLibrary.Storage.ConfigStorage.Content?.StorePreferPrintedBook ?? true;
+                var w = books?.Select((b) => (b?.ids?.FirstOrDefault((id) => id.type == "ASIN" && id.binding == (PreferPrintedBook ? "printed_book" : "ebook")) ?? b?.ids?.FirstOrDefault((id) => id.type == "ASIN" && id.binding == (PreferPrintedBook ? "ebook" : "printed_book")))?.Value)?.Where((s) => s != null)?.ToArray();
                 if (w?.Count() > 0)
                 {
                     StoreItemsCardContentView storeItems;
@@ -83,7 +109,8 @@ namespace WordbookImpressApp.Views
                     stack.Children.Add(storeItems = new StoreItemsCardContentView(title));
 
                     var res = await storeItems.StoreItems.AddASIN(w.ToArray());
-                    if (action != null) {
+                    if (action != null)
+                    {
                         storeItems.ActionMore = () => { try { action(); } catch { } };
                     }
                     else if (res?.Items?.MoreSearchResultsUrl != null)
@@ -97,10 +124,10 @@ namespace WordbookImpressApp.Views
                     return null;
                 }
             }
-            catch (Exception e){ return null; }
+            catch (Exception e) { return null; }
         }
 
-        public async Task<StackLayout> AddSearchResult(string title,string word, StackLayout stack = null)
+        public async Task<StackLayout> AddSearchResult(string title, string word, StackLayout stack = null)
         {
             try
             {
@@ -118,15 +145,16 @@ namespace WordbookImpressApp.Views
             catch { return null; }
         }
 
-        public async Task<StackLayout> AddRelated(string title, string ASIN, StackLayout stack = null)
+        public async Task<StackLayout> AddRelated(Func<Nager.AmazonProductAdvertising.Model.AmazonItemResponse, string> titleFunc,string ASIN, StackLayout stack = null)
         {
             try
             {
                 StoreItemsCardContentView storeItems;
                 stack = stack ?? AddFrame();
-                stack.Children.Add(storeItems = new StoreItemsCardContentView(title));
+                stack.Children.Add(storeItems = new StoreItemsCardContentView());
 
                 var res = await storeItems.StoreItems.AddRelaed(ASIN);
+                storeItems.ItemsTitle = titleFunc?.Invoke(res.Item1) ?? "";
                 if (res.Item2?.Items?.MoreSearchResultsUrl != null)
                 {
                     storeItems.ActionMore = () => { try { Device.OpenUri(new Uri(res.Item2?.Items?.MoreSearchResultsUrl)); } catch { } };

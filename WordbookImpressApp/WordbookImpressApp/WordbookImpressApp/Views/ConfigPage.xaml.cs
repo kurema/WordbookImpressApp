@@ -130,6 +130,29 @@ namespace WordbookImpressApp.Views
                         }
                     },
                 },
+                new SettingItems("ストア")
+                {
+
+                    new SettingItem("印刷版を優先", (w) => storage.StorePreferPrintedBook?"印刷版の本を優先して表示します。":"電子書籍を優先して表示します。",storage.StorePreferPrintedBook)
+                    {
+                        Action=async (s) =>
+                        {
+                            storage.StorePreferPrintedBook=s.BoolValue;
+                        }
+                    },
+                    new SettingItem("リンクを開くストア", "リンクを開く際のストアを設定します。")
+                    {
+                        Action=async (s) =>
+                        {
+                            storage.StoreOpenBookLink=await GetByActionSheet<string>("リンクで開くストアを選択してください。",
+                                new Dictionary<string, string>{
+                                    { "Amazon", "[DetailPageURL]" } 
+                                    ,{ "yodobashi.com", "https://www.yodobashi.com/category/81001/?word=[ISBN,EAN,Title]" }
+                                    ,{ "楽天ブックス", "https://books.rakuten.co.jp/search/nm?sitem=[ISBN,EAN,Title]"}//アフィリエイト設定は相当めんどくさそうなのでパス。
+                                },storage.StoreOpenBookLink);
+                        }
+                    },
+                },
 #if DEBUG
                 new SettingItems("デバッグ")
                 {
@@ -148,7 +171,9 @@ namespace WordbookImpressApp.Views
                     new SettingItem("チュートリアル", "初回チュートリアルを表示します。"){
                         Action=async (s) =>
                         {
-                            await Navigation.PushModalAsync(new TutorialsPage());
+                            var page= new TutorialsPage();
+                            NavigationPage.SetHasNavigationBar(page,false);
+                            await Navigation.PushAsync(page);
                         },
                     },
                     //new SettingItem("不具合報告", "不具合報告の選択肢を表示します。"){

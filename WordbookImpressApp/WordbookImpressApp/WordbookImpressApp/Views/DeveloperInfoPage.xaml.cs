@@ -75,7 +75,7 @@ namespace WordbookImpressApp.Views
                 Model.TwitterTimeline = new ObservableCollection<TweetViewModel>(tws.Select(s => new TweetViewModel(s)));
                 Model.TwitterUser = new TwitterUserInfoViewModel(tws.First()?.User);
             }
-            catch(Exception e) {
+            catch {
             }
         }
 
@@ -291,16 +291,20 @@ namespace WordbookImpressApp.Views
                                         {
                                             try
                                             {
-                                                await navigation.PushModalAsync(new QRCodePage(item2.Src));
+                                                var page = new QRCodePage(item2.Src);
+                                                NavigationPage.SetHasNavigationBar(page, false);
+                                                await navigation.PushAsync(page);
                                             }
-                                            catch (Exception e) { }
+                                            catch { }
                                         }
                                     }
                                     else if (item2.Address != null)
                                     {
                                         try
                                         {
-                                            await navigation.PushModalAsync(new QRCodePage(item2.Address));
+                                            var page = new QRCodePage(item2.Address);
+                                            NavigationPage.SetHasNavigationBar(page, false);
+                                            await navigation.PushAsync(page);
                                         }
                                         catch (Exception e) { }
                                     }

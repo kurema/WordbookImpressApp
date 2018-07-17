@@ -90,7 +90,18 @@ namespace WordbookImpressApp.Views
                     adTextAmazon = "\n\nこの単語帳は「" + wb[0].title + "」を買えば付いてきます。\n" + url + "\n";
                 }
             }
-            Device.OpenUri(new Uri("twitter://post?message=" + System.Web.HttpUtility.UrlEncode(Model.Wordbook.WordbookTitle + "のクイズを" + time + "で" + mon + "\n#wordbook_impress "+ adTextAmazon+ "\n単語帳アプリは現在開発中\nhttps://github.com/kurema/WordbookImpressApp")));
+            string message= System.Web.HttpUtility.UrlEncode(Model.Wordbook.WordbookTitle + "のクイズを" + time + "で" + mon + "\n#wordbook_impress " + adTextAmazon + "\n単語帳アプリは現在開発中\nhttps://github.com/kurema/WordbookImpressApp");
+            try
+            {
+                Device.OpenUri(new Uri("twitter://post?message=" + message));
+            }
+            catch {
+                try
+                {
+                    Device.OpenUri(new Uri("http://twitter.com/?status=" + message));
+                }
+                catch { }
+            }
         }
 
         private bool Pushing;
@@ -103,7 +114,8 @@ namespace WordbookImpressApp.Views
             var page = WordsPage;
             var selectTarget = ((QuizResultViewModel.TestResultItemViewModel)e.SelectedItem).Word;
             page.SelectedItem = selectTarget;
-            await Navigation.PushModalAsync(page);
+            NavigationPage.SetHasNavigationBar(page, false);
+            await Navigation.PushAsync(page);
             WordsPageSemaphore.Release();
             (sender as ListView).SelectedItem = null;
             Pushing = false;
@@ -146,7 +158,9 @@ namespace WordbookImpressApp.Views
             Pushing = true;
             //workaround.
             OnBackButtonPressed();
-            await Navigation.PushModalAsync(new QuizWordChoicePage(new QuizWordChoiceViewModel(Model.Wordbook , Model.Seed, Model.ChoiceKind) { RetryStatus=QuizWordChoiceViewModel.RetryStatusEnum.Retry}));
+            var page = new QuizWordChoicePage(new QuizWordChoiceViewModel(Model.Wordbook, Model.Seed, Model.ChoiceKind) { RetryStatus = QuizWordChoiceViewModel.RetryStatusEnum.Retry });
+            NavigationPage.SetHasNavigationBar(page, false);
+            await Navigation.PushAsync(page);
             Pushing = false;
         }
 
@@ -155,7 +169,9 @@ namespace WordbookImpressApp.Views
             if (Model == null) return;
             Pushing = true;
             OnBackButtonPressed();
-            await Navigation.PushModalAsync(new QuizWordChoicePage(Model.QuizWordChoice, true));
+            var page = new QuizWordChoicePage(Model.QuizWordChoice, true);
+            NavigationPage.SetHasNavigationBar(page, false);
+            await Navigation.PushAsync(page);
             Pushing = false;
         }
     }

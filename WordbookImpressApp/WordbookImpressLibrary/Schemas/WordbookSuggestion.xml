@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/WordbookImpressLibrary/Schemas/WordbookSuggestion.xsd">
   <books>
+    <book>
+      <title>いちばんやさしい為替の教本 人気講師が教える実務で使える通貨と経済のしくみ</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295004073</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101124" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>その他</genre>
+      <date_push>2018-07-13</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 情報セキュリティマネジメント過去問題集 平成30年度秋期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295003808</id>
+        <id type="ASIN" binding="ebook">B07DN8HCDB</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101149" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz07impress" />
+        <ebook />
+      </special>
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-13</date_push>
+    </book>
+    <book>
+      <title>文系女子のためのはじめての日商簿記3級 合格テキスト＆仕訳徹底マスター問題集</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4844336398</id>
+        <id type="ASIN" binding="ebook">B00MIM1KG6</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1114101022" type="impress" />
+      </links>
+      <special />
+      <genre>文系女子シリーズ</genre>
+      <date_push>2018-07-12</date_push>
+    </book>
     <book obsolete="true">
       <title>DOS/V POWER REPORT 2013年05月号</title>
       <ids />
@@ -3760,20 +3806,6 @@
       <date_push>2018-07-09</date_push>
     </book>
     <book>
-      <title>文系女子のためのはじめての日商簿記3級 合格テキスト＆仕訳徹底マスター問題集</title>
-      <ids>
-        <id type="ASIN" binding="printed_book">4844336398</id>
-        <id type="ASIN" binding="ebook">B00MIM1KG6</id>
-      </ids>
-      <images />
-      <links>
-        <link ref="https://book.impress.co.jp/books/1114101022" type="impress" />
-      </links>
-      <special />
-      <genre>文系女子シリーズ</genre>
-      <date_push>2018-07-12</date_push>
-    </book>
-    <book>
       <title>文系女子のためのはじめての日商簿記3級 合格テキスト＆仕訳徹底マスター問題集 第2版</title>
       <ids>
         <id type="ASIN" binding="printed_book">4844381318</id>
@@ -3965,33 +3997,6 @@
       </special>
       <genre>漫画</genre>
       <date_push>2018-07-09</date_push>
-    </book>
-    <book>
-      <title>いちばんやさしい為替の教本 人気講師が教える実務で使える通貨と経済のしくみ</title>
-      <ids />
-      <images />
-      <links>
-        <link ref="https://book.impress.co.jp/books/1117101124" type="impress" />
-      </links>
-      <special>
-        <ebook />
-      </special>
-      <genre>その他</genre>
-      <date_push>2018-07-13</date_push>
-    </book>
-    <book>
-      <title>徹底攻略 情報セキュリティマネジメント過去問題集 平成30年度秋期</title>
-      <ids />
-      <images />
-      <links>
-        <link ref="https://book.impress.co.jp/books/1117101149" type="impress" />
-      </links>
-      <special>
-        <wordbook ref="quiz07impress" />
-        <ebook />
-      </special>
-      <genre>徹底攻略</genre>
-      <date_push>2018-07-13</date_push>
     </book>
   </books>
   <searchwords />

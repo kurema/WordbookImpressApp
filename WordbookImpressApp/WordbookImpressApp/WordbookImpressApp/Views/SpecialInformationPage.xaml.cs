@@ -32,6 +32,11 @@ namespace WordbookImpressApp.Views
             //Model[0].Content[0].special
         }
 
+        public static Groups GetGroupsByWordbooks()
+        {
+            return new Groups((WordbookImpressLibrary.Storage.RemoteStorage.WordbookSuggestion?.books?.book?.Where(b => b?.special?.wordbook?.Count() > 0)?.GroupBy(b => b.special.wordbook[0].@ref))?.Select(a => new Group() { Content = a?.ToList(), Head = WordbookImpressLibrary.Storage.RemoteStorage.WordbookSuggestion?.wordbooks?.FirstOrDefault(w => w?.id == a.Key)?.title?.FirstOrDefault() ?? "" }));
+        }
+
         public static Groups GetGroupsByGenre(Func<infoBooksBook,bool> filter=null)
         {
             filter = filter ?? (a => true);
@@ -48,7 +53,7 @@ namespace WordbookImpressApp.Views
             return GetGroupsByGenre((b) => b?.special?.wordbook?.Count() > 0);
         }
 
-        public class Groups: ObservableCollection<Group>
+        public class Groups: ObservableCollection<Group>, INotifyPropertyChanged
         {
             private bool showObsolete = false;
 
@@ -71,9 +76,31 @@ namespace WordbookImpressApp.Views
                     {
                         item.ShowObsolete = value;
                     }
-                    showObsolete = value;
+                    SetProperty(ref showObsolete, value);
                 }
             }
+
+
+            #region INotifyPropertyChanged
+            protected bool SetProperty<T>(ref T backingStore, T value,
+                [System.Runtime.CompilerServices.CallerMemberName]string propertyName = "",
+                System.Action onChanged = null)
+            {
+                if (System.Collections.Generic.EqualityComparer<T>.Default.Equals(backingStore, value))
+                    return false;
+
+                backingStore = value;
+                onChanged?.Invoke();
+                OnPropertyChanged(propertyName);
+                return true;
+            }
+            public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+            protected void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = "")
+            {
+                PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+            #endregion
+
         }
         
         public class Group : IEnumerable<infoBooksBook>,System.Collections.Specialized.INotifyCollectionChanged,INotifyPropertyChanged
@@ -82,9 +109,9 @@ namespace WordbookImpressApp.Views
             private bool showObsolete = false;
             public bool ShowObsolete { get => showObsolete; set {
                     if (ShowObsolete == value) return;
-                    if (ShowObsolete == true) OnCollectionChanged(NotifyCollectionChangedAction.Remove, Content.Where((c) => c.obsolete == true).ToList());
-                    if (ShowObsolete == false) OnCollectionChanged(NotifyCollectionChangedAction.Add, Content.Where((c) => c.obsolete == true).ToList());
                     SetProperty(ref showObsolete, value);
+                    if (value == false) OnCollectionChanged(NotifyCollectionChangedAction.Remove, Content.Where((c) => c.obsolete == true).ToList());
+                    if (value == true) OnCollectionChanged(NotifyCollectionChangedAction.Add, Content.Where((c) => c.obsolete == true).ToList());
                 } }
 
             private string head;
@@ -136,10 +163,12 @@ namespace WordbookImpressApp.Views
             }
         }
 
-        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             ((ListView)sender).SelectedItem = null;
             var item = e.SelectedItem as infoBooksBook;
+            if (item == null) return;
+            await Navigation.PushAsync(new SpecialInformationItemPage(new WordbookImpressLibrary.ViewModels.BookInformationViewModel(item)));
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)

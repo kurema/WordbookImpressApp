@@ -21,7 +21,7 @@ namespace WordbookImpressLibrary.Helper
                 var xs = new XmlSerializer(typeof(T));
                 using (var sw = new StreamWriter(path))
                 {
-                    await Task.Run(() => xs.Serialize(sw, data));
+                    await Task.Run(() => { try { xs.Serialize(sw, data); } catch { } });
                 }
             }
             finally
@@ -52,7 +52,7 @@ namespace WordbookImpressLibrary.Helper
                 var xs = new XmlSerializer(typeof(T));
                 using (var xr = XmlReader.Create(sr, new XmlReaderSettings() { CheckCharacters = false }))
                 {
-                    return await Task.Run(() => (T)xs.Deserialize(xr));
+                    return await Task.Run<T>(() => { try { return (T)xs.Deserialize(xr); } catch { return default(T); } });
                 }
             }
             finally

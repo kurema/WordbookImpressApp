@@ -11,6 +11,8 @@ using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics;
 
+using System.Text.RegularExpressions;
+
 using WordbookImpressLibrary.Storage;
 
 namespace WordbookImpressApp.Views
@@ -49,7 +51,7 @@ namespace WordbookImpressApp.Views
                         result?.OfferSummary?.LowestNewPrice?.FormattedPrice ?? (result?.OfferSummary?.LowestUsedPrice?.FormattedPrice != null ? "中古" + result?.OfferSummary?.LowestUsedPrice?.FormattedPrice : null) ?? "",
                         ImageSource.FromUri(new Uri(result.LargeImage.URL)), async () =>
                         {
-                            try { Device.OpenUri(new Uri(result.DetailPageURL)); } catch { }
+                            try { Device.OpenUri(new Uri(GetBookDetailUrl(result))); } catch { }
                             var history = await PurchaseHistoryStorage.GetPurchaseHistory();
                             if (history != null && !history.ClickedASIN.Contains(result.ASIN)) history.ClickedASIN.Add(result.ASIN);
                             PurchaseHistoryStorage.SaveLocalData();
@@ -59,8 +61,34 @@ namespace WordbookImpressApp.Views
                     //    child.WidthRequest = DefaultHeight / (double)result.LargeImage.Height.Value * (double)result.LargeImage.Width.Value;
                     //}
                 }
-                catch (Exception e) { }
+                catch { }
             }
+        }
+
+        public static string GetBookDetailUrl(Nager.AmazonProductAdvertising.Model.Item item)
+        {
+            var dic = new Dictionary<string, string>()
+            {
+                { "DetailPageURL", item?.DetailPageURL },
+                { "Title", System.Web.HttpUtility.UrlEncode(item?.ItemAttributes?.Title??"") },
+                { "Author", System.Web.HttpUtility.UrlEncode(string.Join(" ", item?.ItemAttributes?.Author??new string[0])??"") },
+                { "ISBN", item?.ItemAttributes?.ISBN },
+                { "EAN", item?.ItemAttributes?.EAN },
+                { "ASIN", item?.ASIN },
+            };
+
+            var result = WordbookImpressLibrary.Storage.ConfigStorage.Content.StoreOpenBookLink ?? "[DetailPageURL]";
+            result = Regex.Replace(result, @"\[([a-zA-Z,]+)\]", a =>
+             {
+                 var keys = a.Groups[1].Value.Split(',');
+                 foreach (var key in keys)
+                 {
+                     if (dic.ContainsKey(key) && !String.IsNullOrWhiteSpace(dic[key])) return dic[key];
+                 }
+                 return a.Value;
+             });
+
+            return result;
         }
 
         public static Nager.AmazonProductAdvertising.Model.AmazonResponseGroup AmazonRequiredResponse => Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.ItemAttributes | Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Images | Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.OfferSummary;
@@ -81,13 +109,13 @@ namespace WordbookImpressApp.Views
         {
             try
             {
-                var result = await TryFetch(async () => await AmazonStorage.AmazonWrapper?.LookupAsync(asins.ToList(), Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Similarities));
+                var result = await TryFetch(async () => await AmazonStorage.AmazonWrapper?.LookupAsync(asins.ToList(), Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Similarities | Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.ItemAttributes));
                 if (result?.Items?.Item == null) return (null, null);
                 var related = result?.Items?.Item?.SelectMany((w) => w?.SimilarProducts)?.Where((w) => w != null)?.Select((w) => w?.ASIN)?.ToArray();
                 var result2 = await AddASIN(related);
                 return (result,result2);
             }
-            catch (Exception e) { return (null, null); }
+            catch { return (null, null); }
         }
 
 

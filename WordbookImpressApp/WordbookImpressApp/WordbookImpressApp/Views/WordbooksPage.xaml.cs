@@ -39,7 +39,7 @@ namespace WordbookImpressApp.Views
         {
             if (Pushing) return;
             Pushing = true;
-            await Navigation.PushModalAsync(new NavigationPage(new Views.NewWordbookPage()));
+            await Navigation.PushAsync(new NewWordbookPage());
             Pushing = false;
 
         }

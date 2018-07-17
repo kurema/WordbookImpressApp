@@ -52,14 +52,14 @@ namespace WordbookImpressApp.Views
             await WordbooksImpressStorage.SaveLocalData();
 
             MessagingCenter.Send(this, "AddItem", this.WordbookInfo);
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
 
             Adding = false;
         }
 
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }

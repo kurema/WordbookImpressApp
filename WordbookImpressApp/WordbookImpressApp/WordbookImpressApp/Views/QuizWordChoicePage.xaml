@@ -59,9 +59,7 @@
                 <!-- Using HeightRequest="5" is not smart. But it seems the only way. https://forums.xamarin.com/discussion/45889/remove-margin-in-progressbar -->
                 <ProgressBar HeightRequest="5" Grid.Row="2" Progress="{Binding Progress}"  VerticalOptions="Fill" HorizontalOptions="FillAndExpand"/>
             </Grid>
-            <!--<Grid IsVisible="{Binding DescriptionDisplay,Converter={StaticResource NotVC}}">-->
-                <Button BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Transparent" Clicked="ClickGestureRecognizer_Clicked" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource StringSwitchVC},ConverterParameter='Choice:False::Correct:True::Wrong:True'}" />
-            <!--</Grid>-->
+            <Button BackgroundColor="Transparent" BorderColor="Transparent" TextColor="Transparent" Clicked="ClickGestureRecognizer_Clicked" IsVisible="{Binding CurrentQuizStatus,Converter={StaticResource StringSwitchVC},ConverterParameter='Choice:False::Correct:True::Wrong:True'}" />
             <!-- ToDo: 解説をスクロールできない問題をどう解決するか。 -->
         </Grid>
     </ContentPage.Content>

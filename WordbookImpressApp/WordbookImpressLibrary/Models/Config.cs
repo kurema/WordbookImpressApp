@@ -23,5 +23,8 @@ namespace WordbookImpressLibrary.Models
         public int MaxDailyTestCount = 100;
         public bool ShowStatisticsZeroAnswer = true;
         public string CustomAmazonAssociateTag = "";
+
+        public bool StorePreferPrintedBook = true;
+        public string StoreOpenBookLink = "[DetailPageURL]";
     }
 }

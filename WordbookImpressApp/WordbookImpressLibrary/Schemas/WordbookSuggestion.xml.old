@@ -3675,7 +3675,7 @@
       <genre>徹底攻略</genre>
       <date_push>2018-07-09</date_push>
     </book>
-    <book>
+    <book obsolete="true">
       <title>徹底攻略 情報セキュリティマネジメント過去問題集 平成30年度春期</title>
       <ids>
         <id type="ASIN" binding="printed_book">4295002836</id>
@@ -3965,6 +3965,35 @@
       </special>
       <genre>漫画</genre>
       <date_push>2018-07-09</date_push>
+    </book>
+    <book>
+      <title>いちばんやさしい為替の教本 人気講師が教える実務で使える通貨と経済のしくみ</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295004073</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101124" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>その他</genre>
+      <date_push>2018-07-13</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 情報セキュリティマネジメント過去問題集 平成30年度秋期</title>
+      <ids />
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1117101149" type="impress" />
+      </links>
+      <special>
+        <wordbook ref="quiz07impress" />
+        <ebook />
+      </special>
+      <genre>徹底攻略</genre>
+      <date_push>2018-07-13</date_push>
     </book>
   </books>
   <searchwords />

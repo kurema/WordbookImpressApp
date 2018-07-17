@@ -45,7 +45,9 @@ namespace WordbookImpressApp.Views
         {
             Model.End();
             RecordStorage.SaveLocalData();
-            Navigation.PushModalAsync(new QuizResultPage(new QuizResultViewModel(Model)));
+            var page = new QuizResultPage(new QuizResultViewModel(Model));
+            NavigationPage.SetHasNavigationBar(page, false);
+            Navigation.PushAsync(page);
             base.OnDisappearing();
         }
 
@@ -66,7 +68,7 @@ namespace WordbookImpressApp.Views
             }
             else
             {
-                await Navigation.PopModalAsync();
+                await Navigation.PopAsync();
             }
             Pushing = false;
         }
@@ -83,7 +85,7 @@ namespace WordbookImpressApp.Views
             }
             else
             {
-                await Navigation.PopModalAsync();
+                await Navigation.PopAsync();
             }
             Pushing = false;
         }

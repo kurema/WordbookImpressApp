@@ -19,7 +19,7 @@ namespace WordbookImpressApp.Storage
             {
                 return appOnlyToken = await OAuth2.GetTokenAsync(APIKeys.TwitterConsumerKey, APIKeys.TwitterConsumerSecret);
             }
-            catch(Exception e)
+            catch
             {
                 return null;
             }

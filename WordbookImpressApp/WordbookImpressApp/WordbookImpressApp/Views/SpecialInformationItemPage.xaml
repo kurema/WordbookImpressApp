@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:v="clr-namespace:WordbookImpressApp.Views"
+             xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
+             x:Class="WordbookImpressApp.Views.SpecialInformationItemPage"
+             BackgroundColor="White"
+             Title="書籍詳細">
+    <ContentPage.Resources>
+        <vc:NullOrEmptyStringToTextValueConverter x:Key="snvc"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Links}" HasUnevenRows="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ItemSelected="ListView_ItemSelected">
+            <ListView.Header>
+                <StackLayout Margin="10">
+                    <Label Text="{Binding Author}" TextColor="Accent" FontSize="Small" Margin="5"/>
+                    <Label Text="{Binding Title}" FontSize="Medium" FontAttributes="Bold" Margin="5"/>
+                    <Image IsVisible="{Binding CoverImage,Converter={StaticResource snvc},ConverterParameter='False:True'}" Source="{Binding CoverImage}" HeightRequest="300" Aspect="AspectFit" Margin="20"/>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Text="価格:" HorizontalOptions="End" TextColor="#888888" />
+                        <Label Grid.Column="1" Text="{Binding Price}" TextColor="Red" />
+                    </Grid>
+                </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Margin="20">
+                            <Label FontSize="Medium" Text="{Binding Title}"/>
+                            <Label FontSize="Small" Text="{Binding Url}" TextColor="#888888" LineBreakMode="TailTruncation" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <StackLayout Margin="10" HorizontalOptions="FillAndExpand">
+                    <v:StoreItemsView x:Name="storeItems" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+            </ListView.Footer>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

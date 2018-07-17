@@ -70,7 +70,9 @@ namespace WordbookImpressApp.Views
         {
             if (Pushing) return;
             Pushing = true;
-            await Navigation.PushModalAsync(new QuizWordChoicePage(new QuizWordChoiceViewModel(Model, QuizWordChoiceViewModel.ChoiceKind.Title)));
+            var page = new QuizWordChoicePage(new QuizWordChoiceViewModel(Model, QuizWordChoiceViewModel.ChoiceKind.Title));
+            NavigationPage.SetHasNavigationBar(page, false);
+            await Navigation.PushAsync(page);
             Pushing = false;
         }
 
@@ -78,7 +80,9 @@ namespace WordbookImpressApp.Views
         {
             if (Pushing) return;
             Pushing = true;
-            await Navigation.PushModalAsync(new QuizWordChoicePage(new QuizWordChoiceViewModel(Model, QuizWordChoiceViewModel.ChoiceKind.Description)));
+            var page = new QuizWordChoicePage(new QuizWordChoiceViewModel(Model, QuizWordChoiceViewModel.ChoiceKind.Description));
+            NavigationPage.SetHasNavigationBar(page, false);
+            await Navigation.PushAsync(page);
             Pushing = false;
         }
 

@@ -94,7 +94,7 @@ namespace WordbookImpressApp.Views
                 OnPropertyChanged(propertyName);
                 return true;
             }
-            public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+            public new event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
             protected void OnPropertyChanged([System.Runtime.CompilerServices.CallerMemberName] string propertyName = "")
             {
                 PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));

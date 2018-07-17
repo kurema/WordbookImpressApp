@@ -22,7 +22,7 @@ namespace WordbookImpressApp.Views
             this.BindingContext = new MasterViewModel();
 		}
 
-        public class MasterViewModel : INotifyPropertyChanged
+        public class MasterViewModel
         {
             public ObservableCollection<MasterMenuItem> MenuItems { get; }
             public MasterViewModel()
@@ -42,7 +42,6 @@ namespace WordbookImpressApp.Views
                     new MasterMenuItem { TargetType=typeof(DeveloperInfoPage), Title = "kuremaについて",SimpleItem=true,Replace=false },
                 });
             }
-            public event PropertyChangedEventHandler PropertyChanged;
         }
 
 

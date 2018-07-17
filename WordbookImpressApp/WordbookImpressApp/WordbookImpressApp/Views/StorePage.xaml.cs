@@ -124,7 +124,7 @@ namespace WordbookImpressApp.Views
                     return null;
                 }
             }
-            catch (Exception e) { return null; }
+            catch { return null; }
         }
 
         public async Task<StackLayout> AddSearchResult(string title, string word, StackLayout stack = null)

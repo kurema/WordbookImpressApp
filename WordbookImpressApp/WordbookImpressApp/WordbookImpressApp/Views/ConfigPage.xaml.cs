@@ -59,7 +59,7 @@ namespace WordbookImpressApp.Views
                 {
                     new SettingItem("記憶済み", (w)=>storage.SkipChecked?"クイズで記憶済みにチェックした単語をスキップします。":"クイズで記憶済みにチェックした単語も出題します。", ! storage.SkipChecked)
                     {
-                        Action=async (s)=>{storage.SkipChecked=! s.BoolValue; }
+                        Action=(s)=>{storage.SkipChecked=! s.BoolValue; return Task.CompletedTask; }
                     },
                     new SettingItem("正解数",(w)=> storage.SkipMinCorrect==int.MaxValue?"正解数に関わらず出題します。": storage.SkipMinCorrect+ "回正解した単語をスキップします。"){
                         Action=async (s)=>{
@@ -115,9 +115,10 @@ namespace WordbookImpressApp.Views
                     },
                     new SettingItem("無回答を表示", (w) => storage.ShowStatisticsZeroAnswer?"無回答でも成績一覧に表示します。":"無回答の場合成績一覧に表示しません。",storage.ShowStatisticsZeroAnswer)
                     {
-                        Action=async (s) =>
+                        Action=(s) =>
                         {
                             storage.ShowStatisticsZeroAnswer=s.BoolValue;
+                            return Task.CompletedTask;
                         }
                     },
                     new SettingItem("Amazon アソシエイトID", "スコア共有時に使用されるAmazon アソシエイトIDを設定します。")
@@ -135,9 +136,10 @@ namespace WordbookImpressApp.Views
 
                     new SettingItem("印刷版を優先", (w) => storage.StorePreferPrintedBook?"印刷版の本を優先して表示します。":"電子書籍を優先して表示します。",storage.StorePreferPrintedBook)
                     {
-                        Action=async (s) =>
+                        Action= (s) =>
                         {
                             storage.StorePreferPrintedBook=s.BoolValue;
+                            return Task.CompletedTask;
                         }
                     },
                     new SettingItem("リンクを開くストア", "リンクを開く際のストアを設定します。")
@@ -189,7 +191,7 @@ namespace WordbookImpressApp.Views
                     //    }
                     //},
                     new SettingItem("Wiki","このアプリのWikiを開きます。"){
-                        Action =async (s) =>Device.OpenUri(new Uri("https://github.com/kurema/WordbookImpressApp/wiki"))
+                        Action = (s) =>{ try{ Device.OpenUri(new Uri("https://github.com/kurema/WordbookImpressApp/wiki")); }catch{ } return Task.CompletedTask; }
                     },
                 },
                 new SettingItems("WordbookImpressについて")
@@ -206,7 +208,7 @@ namespace WordbookImpressApp.Views
                             }));
                         }
                     },
-                    new SettingItem("プロジェクトページ", "https://github.com/kurema/wordbookImpressApp",null){ Action=async (w)=>{Device.OpenUri(new Uri("https://github.com/kurema/wordbookImpressApp/")); } },
+                    new SettingItem("プロジェクトページ", "https://github.com/kurema/wordbookImpressApp",null){ Action= (w)=>{try{ Device.OpenUri(new Uri("https://github.com/kurema/wordbookImpressApp/")); }catch{ } return Task.CompletedTask; } },
                 },
             };
 			

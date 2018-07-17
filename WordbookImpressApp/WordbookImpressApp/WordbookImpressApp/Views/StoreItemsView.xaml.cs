@@ -102,7 +102,7 @@ namespace WordbookImpressApp.Views
                 AddAmazonItem(result.Items.Item);
                 return result;
             }
-            catch (Exception e) { return null; }
+            catch { return null; }
         }
 
         public async Task<(Nager.AmazonProductAdvertising.Model.AmazonItemResponse, Nager.AmazonProductAdvertising.Model.AmazonItemResponse)> AddRelaed(params string[] asins)

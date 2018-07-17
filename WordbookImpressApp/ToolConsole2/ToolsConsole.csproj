@@ -35,8 +35,8 @@
     <Reference Include="Nager.AmazonProductAdvertising, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Nager.AmazonProductAdvertising.1.2.1\lib\net461\Nager.AmazonProductAdvertising.dll</HintPath>
     </Reference>
-    <Reference Include="Nager.ArticleNumber, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Nager.ArticleNumber.1.0.3\lib\net461\Nager.ArticleNumber.dll</HintPath>
+    <Reference Include="Nager.ArticleNumber, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nager.ArticleNumber.1.0.4\lib\net461\Nager.ArticleNumber.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

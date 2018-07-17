@@ -306,7 +306,7 @@ namespace WordbookImpressApp.Views
                                             NavigationPage.SetHasNavigationBar(page, false);
                                             await navigation.PushAsync(page);
                                         }
-                                        catch (Exception e) { }
+                                        catch { }
                                     }
                                 }
                             });

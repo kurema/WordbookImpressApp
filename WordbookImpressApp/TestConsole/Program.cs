@@ -8,9 +8,11 @@ namespace TestConsole
     {
         static void Main(string[] args)
         {
-            var authentification = new AmazonAuthentication();
-            authentification.AccessKey = APIKeys.AmazonAccessKey;
-            authentification.SecretKey = APIKeys.AmazonSecretKey;
+            var authentification = new AmazonAuthentication
+            {
+                AccessKey = APIKeys.AmazonAccessKey,
+                SecretKey = APIKeys.AmazonSecretKey
+            };
             var w = new AmazonWrapper(authentification, AmazonEndpoint.JP, "kurema-22");
             //var AmazonRequiredResponse = Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.ItemAttributes | Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Images | Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.OfferSummary;
             var s = w.Search("倫理 哲学", responseGroup: Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Large);

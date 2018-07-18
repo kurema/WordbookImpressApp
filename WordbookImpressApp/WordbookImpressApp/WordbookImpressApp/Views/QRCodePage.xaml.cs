@@ -21,6 +21,7 @@ namespace WordbookImpressApp.Views
 
         public QRCodePage(string text) : this()
         {
+
             barcode.BarcodeOptions =
                 new ZXing.QrCode.QrCodeEncodingOptions
                 {
@@ -28,7 +29,7 @@ namespace WordbookImpressApp.Views
                     Height = 300,
                     Width = 300,
                     Margin = 0,
-                    //CharacterSet= "Shift_JIS",
+                    CharacterSet= "UTF-8",
                     };
             barcode.BarcodeFormat = ZXing.BarcodeFormat.QR_CODE;
             barcode.BackgroundColor = Color.Transparent;

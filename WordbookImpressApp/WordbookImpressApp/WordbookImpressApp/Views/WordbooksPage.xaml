@@ -8,13 +8,8 @@
         <vm:WordbooksImpressViewModel />
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="追加" Clicked="AddItem_Clicked" Icon="icon_add.png">
-            <!--<ToolbarItem.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="UWP" Value="add.png"/>
-                </OnPlatform>
-            </ToolbarItem.Icon>-->
-        </ToolbarItem>
+        <ToolbarItem Text="追加" Clicked="AddItem_Clicked" Icon="icon_add.png" />
+        <ToolbarItem Text="並び替え" Clicked="ToolbarItem_Clicked" Order="Secondary" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ListView x:Name="ItemsListView" 

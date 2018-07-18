@@ -19,6 +19,7 @@ namespace WordbookImpressLibrary.Models
         public int SkipMinCorrect = int.MaxValue;
         public int ChoiceCount = 4;
         public ViewModels.WordbookImpressViewModel.SortKindInfo SortKind = ViewModels.WordbookImpressViewModel.SortKindInfo.GetDefault();
+        public ViewModels.WordbooksImpressViewModel.OrderStatus SortKindWordbooks;
 
         public int MaxDailyTestCount = 100;
         public bool ShowStatisticsZeroAnswer = true;

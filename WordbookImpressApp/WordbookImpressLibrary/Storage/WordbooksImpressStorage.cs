@@ -39,14 +39,13 @@ namespace WordbookImpressLibrary.Storage
                 }
 
                 public WordbookItem() { }
-                public WordbookItem(IWordbook item) {
-                    if (item is WordbookImpress m)
+                public WordbookItem(IWordbook item)
+                {
+                    //https://ufcpp.net/study/csharp/datatype/typeswitch/?p=2
+                    switch (item)
                     {
-                        this.ContentImpress = m;
-                    }
-                    else if (item is WordbookGeneral l)
-                    {
-                        this.ContentGeneral = l;
+                        case WordbookImpress m: this.ContentImpress = m; break;
+                        case WordbookGeneral l: this.ContentGeneral = l; break;
                     }
                 }
 
@@ -81,7 +80,7 @@ namespace WordbookImpressLibrary.Storage
             IWordbook[] result;
             try
             {
-                result = await Helper.SerializationHelper.DeserializeAsync<IWordbook[]>(Path);
+                result = Serialization.WordbookItem.Convert(await Helper.SerializationHelper.DeserializeAsync<Serialization.WordbookItem[]>(Path));
             }
             catch
             {
@@ -111,8 +110,8 @@ namespace WordbookImpressLibrary.Storage
             {
                 await Helper.SerializationHelper.SerializeAsync(Serialization.WordbookItem.ConvertBack(Content.ToArray()), Path);
             }
-            catch(Exception e) {
-                System.Diagnostics.Debug.Print(e.ToString());
+            catch
+            {
             }
         }
 

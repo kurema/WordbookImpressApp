@@ -149,23 +149,23 @@ namespace WordbookImpressApp.Views
 
             var options = new List<string>(labels.Count * 2);
             var optionsDic = new Dictionary<string,WordbookImpressViewModel.SortKindInfo>();
-            string currentOrderName = "";
             foreach (var item in labels)
             {
-                foreach(var b in new[] { true, false })
+                if (currentOrder.Kind == item.Value)
                 {
-                    var word = item.Key + (b ? " (昇順)" : " (降順)");
-                    var val = new WordbookImpressViewModel.SortKindInfo(item.Value, b);
+                    var word = item.Key + " * " + (!currentOrder.Ascending ? "" : "(降順)");
                     options.Add(word);
-                    optionsDic.Add(word, val);
-
-                    if (currentOrder.Ascending == val.Ascending && currentOrder.Kind == val.Kind)
-                        currentOrderName = word;
+                    optionsDic.Add(word, new WordbookImpressViewModel.SortKindInfo(item.Value, !currentOrder.Ascending));
+                }
+                else
+                {
+                    options.Add(item.Key);
+                    optionsDic.Add(item.Key, new WordbookImpressViewModel.SortKindInfo(item.Value, true));
                 }
             }
 
             string cancel = "キャンセル";
-            var alertResult = await DisplayActionSheet("並び替え (現在 : "+currentOrderName+")", cancel, "", options.ToArray());
+            var alertResult = await DisplayActionSheet("並び替え", cancel, "", options.ToArray());
             if (string.IsNullOrEmpty(alertResult) || alertResult == cancel) { return; }
             ConfigStorage.Content.SortKind = Model.SortKind = optionsDic[alertResult];
             ConfigStorage.SaveLocalData();

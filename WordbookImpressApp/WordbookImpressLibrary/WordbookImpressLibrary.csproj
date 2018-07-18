@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ViewModels\QuizWordChoiceViewModel.cs~RF1925eb6c.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CsvHelper" Version="7.1.1" />
     <PackageReference Include="Nager.AmazonProductAdvertising" Version="1.2.1" />
   </ItemGroup>

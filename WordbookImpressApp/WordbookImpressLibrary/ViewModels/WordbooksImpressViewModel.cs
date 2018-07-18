@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using WordbookImpressLibrary.Models;
 using System.Collections.ObjectModel;
 
+using System.Linq;
+
 namespace WordbookImpressLibrary.ViewModels
 {
     public class WordbooksImpressViewModel : BaseViewModel
@@ -12,7 +14,7 @@ namespace WordbookImpressLibrary.ViewModels
         private ObservableCollection<WordbookImpressViewModel> wordbooks;
         public ObservableCollection<WordbookImpressViewModel> Wordbooks
         {
-            get => wordbooks;
+            get => new ObservableCollection<WordbookImpressViewModel>(Order.Apply(wordbooks));
             set => SetProperty(ref wordbooks, value);
         }
 
@@ -20,6 +22,37 @@ namespace WordbookImpressLibrary.ViewModels
         {
             this.wordbooks = new ObservableCollection<WordbookImpressViewModel>();
         }
+
+        public enum OrderKind
+        {
+            Default=0,Title,Url
+        }
+
+        public struct OrderStatus
+        {
+            public bool Reversed { get; set; }
+            public OrderKind Kind { get; set; }
+
+            public IEnumerable<WordbookImpressViewModel> Apply(IList<WordbookImpressViewModel> w)
+            {
+                if (Reversed) return ApplyKind(w);
+                else return ApplyKind(w).Reverse();
+            }
+
+
+            public IEnumerable<WordbookImpressViewModel> ApplyKind(IList<WordbookImpressViewModel> w)
+            {
+                switch (Kind)
+                {
+                    case OrderKind.Title:return w.OrderBy(a => a.WordbookTitle);
+                    case OrderKind.Url:return w.OrderBy(a => a.Uri);
+                    default: case OrderKind.Default: return w;
+                }
+            }
+        }
+
+        private OrderStatus _Order;
+        public OrderStatus Order { get => _Order; set { SetProperty(ref _Order, value); OnPropertyChanged(nameof(Wordbooks)); } }
 
 
         public WordbooksImpressViewModel(Record record)

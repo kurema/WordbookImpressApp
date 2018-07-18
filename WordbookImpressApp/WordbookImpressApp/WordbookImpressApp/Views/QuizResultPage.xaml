@@ -24,7 +24,7 @@
             <ListView.Header>
                 <StackLayout>
                     <Image Margin="10" Source="{Binding Path=Wordbook.UriLogo}" HeightRequest="150" HorizontalOptions="FillAndExpand" Aspect="AspectFit"/>
-                    <Label Text="{Binding Path=Wordbook.WordbookTitle}" HorizontalOptions="Center" Style="{DynamicResource Key=MyTitleStyle}" />
+                    <Label Text="{Binding Path=Wordbook.WordbookTitle}" HorizontalOptions="Center" Style="{DynamicResource Key=MyTitleStyle}"  Margin="10"/>
                     <Frame Style="{StaticResource CardStyle}">
                         <StackLayout>
                             <Label Text="成績" Style="{DynamicResource Key=MySubtitleStyle}"/>

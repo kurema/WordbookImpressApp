@@ -45,11 +45,11 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            <ListView.Footer>
+            <!--<ListView.Footer>
                 <StackLayout Margin="10" HorizontalOptions="FillAndExpand">
                     <v:StoreItemsView x:Name="storeItems" HorizontalOptions="FillAndExpand" />
                 </StackLayout>
-            </ListView.Footer>
+            </ListView.Footer>-->
         </ListView>
     </ContentPage.Content>
 </ContentPage>

@@ -26,17 +26,19 @@ namespace WordbookImpressApp.Views
 
         protected override void OnBindingContextChanged()
         {
-            //if(Model!=null) Model.SimilarPrepared += Model_RelatedPrepared;
+            //この辺をアンコメントするとなぜか別画面でも画面が真っ白になって操作不能になる。
+            //理由はわけわからん。Xamarin Formsのバグだと思う。
+            //if (Model != null) Model.SimilarPrepared += Model_RelatedPrepared;
 
             base.OnBindingContextChanged();
         }
 
-        private async void Model_RelatedPrepared(object sender, EventArgs e)
-        {
-            if (Model.Similar == null || Model.Similar.Count() == 0) return;
-            storeItems.Clear();
-            await storeItems.AddASIN(Model.Similar.ToArray());
-        }
+        //private async void Model_RelatedPrepared(object sender, EventArgs e)
+        //{
+        //    if (Model.Similar == null || Model.Similar.Count() == 0) return;
+        //    storeItems.Clear();
+        //    await storeItems.AddASIN(Model.Similar.ToArray());
+        //}
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {

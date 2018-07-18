@@ -14,6 +14,7 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 using WordbookImpressLibrary.Storage;
+using WordbookImpressLibrary.Helper;
 
 namespace WordbookImpressApp.Views
 {
@@ -97,7 +98,7 @@ namespace WordbookImpressApp.Views
         {
             try
             {
-                var result = await TryFetch(async () => await AmazonStorage.AmazonWrapper?.LookupAsync(asins.Take(10).ToList(), AmazonRequiredResponse));
+                var result = await Functions.TryFetch(async () => await AmazonStorage.AmazonWrapper?.LookupAsync(asins.Take(10).ToList(), AmazonRequiredResponse));
                 if (result?.Items?.Item == null) return null;
                 AddAmazonItem(result.Items.Item);
                 return result;
@@ -109,7 +110,7 @@ namespace WordbookImpressApp.Views
         {
             try
             {
-                var result = await TryFetch(async () => await AmazonStorage.AmazonWrapper?.LookupAsync(asins.ToList(), Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Similarities | Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.ItemAttributes));
+                var result = await Functions.TryFetch(async () => await AmazonStorage.AmazonWrapper?.LookupAsync(asins.ToList(), Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.Similarities | Nager.AmazonProductAdvertising.Model.AmazonResponseGroup.ItemAttributes));
                 if (result?.Items?.Item == null) return (null, null);
                 var related = result?.Items?.Item?.SelectMany((w) => w?.SimilarProducts)?.Where((w) => w != null)?.Select((w) => w?.ASIN)?.ToArray();
                 var result2 = await AddASIN(related);
@@ -123,24 +124,12 @@ namespace WordbookImpressApp.Views
         {
             try
             {
-                var result = await TryFetch(async () => await AmazonStorage.AmazonWrapper?.SearchAsync(keyword, index, AmazonRequiredResponse));
+                var result = await Functions.TryFetch(async () => await AmazonStorage.AmazonWrapper?.SearchAsync(keyword, index, AmazonRequiredResponse));
                 if (result?.Items?.Item == null) return null;
                 AddAmazonItem(result.Items.Item);
                 return result;
             }
             catch { return null; }
-        }
-
-        public async Task<T> TryFetch<T>(Func<Task<T>> func,  int count=3, int waitMilliseconds = 500)
-        {
-            T result = default(T);
-            for(int i = 0; i < count; i++)
-            {
-                result = await func();
-                if (result != null && !result.Equals(default(T))) break;
-                await Task.Delay(waitMilliseconds);
-            }
-            return result;
         }
 	}
 }

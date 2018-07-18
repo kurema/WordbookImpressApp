@@ -29,10 +29,10 @@ namespace WordbookImpressLibrary.ViewModels
             get
             {
                 if (target != null) return target;
-                var result = new List<Models.WordbookImpress>();
+                var result = new List<Models.IWordbook>();
                 foreach(var item in Storage.WordbooksImpressStorage.Content)
                 {
-                    if(Models.Record.TestStatus.KeyEqual(item.Uri, Key))
+                    if(Models.Record.TestStatus.KeyEqual(item.Id, Key))
                     {
                         result.Add(item);
                     }

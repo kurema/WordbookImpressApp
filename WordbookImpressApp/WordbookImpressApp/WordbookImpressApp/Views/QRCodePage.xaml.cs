@@ -24,11 +24,12 @@ namespace WordbookImpressApp.Views
             barcode.BarcodeOptions =
                 new ZXing.QrCode.QrCodeEncodingOptions
                 {
-                    ErrorCorrection = ZXing.QrCode.Internal.ErrorCorrectionLevel.H,
+                    ErrorCorrection = ZXing.QrCode.Internal.ErrorCorrectionLevel.M,
                     Height = 300,
                     Width = 300,
-                    Margin = 10,
-                };
+                    Margin = 0,
+                    //CharacterSet= "Shift_JIS",
+                    };
             barcode.BarcodeFormat = ZXing.BarcodeFormat.QR_CODE;
             barcode.BackgroundColor = Color.Transparent;
             barcode.BarcodeValue = text;

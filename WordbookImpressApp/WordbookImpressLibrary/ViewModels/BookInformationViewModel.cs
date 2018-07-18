@@ -42,8 +42,8 @@ namespace WordbookImpressLibrary.ViewModels
                 var asins = book?.ids?.OrderBy(a => a.binding == PreferPrintedBook ? 0 : 2).Select(a => a.Value);
                 if (asins != null && asins.Count() > 0)
                 {
-                    //var result = await Storage.AmazonStorage.AmazonWrapper.LookupAsync(asins.ToArray(), AmazonResponseGroup.Images | AmazonResponseGroup.OfferSummary | AmazonResponseGroup.ItemAttributes | AmazonResponseGroup.Similarities);
-                    var result = await Storage.AmazonStorage.AmazonWrapper.LookupAsync(asins.ToArray(), AmazonResponseGroup.Images | AmazonResponseGroup.OfferSummary | AmazonResponseGroup.ItemAttributes | AmazonResponseGroup.Similarities);
+                    AmazonItemResponse result;
+                    result = await Helper.Functions.TryFetch(async () => await Storage.AmazonStorage.AmazonWrapper.LookupAsync(asins.ToArray(), AmazonResponseGroup.Images | AmazonResponseGroup.OfferSummary | AmazonResponseGroup.ItemAttributes | AmazonResponseGroup.Similarities));
                     SetValue(book, result?.Items?.Item);
                 }
             });

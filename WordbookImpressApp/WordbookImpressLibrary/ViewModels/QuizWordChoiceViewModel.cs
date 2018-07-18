@@ -95,7 +95,7 @@ namespace WordbookImpressLibrary.ViewModels
 
         public class ChoicesEnumerable : IEnumerable<ChoicesEnumerable.ChoicesEnumerableItem>, INotifyCollectionChanged
         {
-            private WordbookImpress[] wordbooks;
+            private IWordbook[] wordbooks;
             private int seed;
             private ChoiceKind choiceKind;
             private int count;
@@ -118,7 +118,7 @@ namespace WordbookImpressLibrary.ViewModels
             }
 
 
-            public ChoicesEnumerable(WordbookImpress[] wordbook, int seed, ChoiceKind choiceKind, int count, Word answerWord)
+            public ChoicesEnumerable(IWordbook[] wordbook, int seed, ChoiceKind choiceKind, int count, Word answerWord)
             {
                 this.wordbooks = wordbook;
                 this.seed = seed;
@@ -226,10 +226,10 @@ namespace WordbookImpressLibrary.ViewModels
         private Word CurrentWord { get => AnswerOrder.Length == 0 || CurrentWordCount>=AnswerOrder.Length ? new Word() : AnswerOrder[CurrentWordCount]; }
         private QuizChoice CurrentQuizChoice { get => QuizOrder.Length == 0 || currentQuizChoiceCount >= QuizOrder.Length ? new QuizChoice() : QuizOrder[CurrentQuizChoiceCount]; }
         private Record Record;
-        private WordbookImpress[] WordbooksTarget;
+        private IWordbook[] WordbooksTarget;
         private WordbookImpressViewModel wordbookTargetViewModel;
         public WordbookImpressViewModel WordbookTargetViewModel => wordbookTargetViewModel ?? (WordbooksTarget.Length==1? wordbookTargetViewModel = new WordbookImpressViewModel(WordbooksTarget[0], Record): wordbookTargetViewModel = new WordbookImpressViewModel(WordbooksTarget, Record,"総合単語帳"));
-        private WordbookImpress[] WordbooksForChoice;
+        private IWordbook[] WordbooksForChoice;
         private bool currentModeWord = true;
         private bool CurrentModeWord { get => AnswerOrder.Length == 0 ? false : currentModeWord; set
             {
@@ -352,7 +352,7 @@ namespace WordbookImpressLibrary.ViewModels
                 AnswerCountCorrect = correct,
                 AnswerCountPass = pass,
                 AnswerCountTotal = total,
-                Key = WordbooksTarget.Length == 1 ? WordbooksTarget[0].Uri : WordbooksTarget.Length==Storage.WordbooksImpressStorage.Content.Count? Record.TestStatus.KeyAll: Record.TestStatus.KeyCombined,
+                Key = WordbooksTarget.Length == 1 ? WordbooksTarget[0].Id : WordbooksTarget.Length==Storage.WordbooksImpressStorage.Content.Count? Record.TestStatus.KeyAll: Record.TestStatus.KeyCombined,
                 Seed = this.Seed,
                 DateTimeNative = DateTime.UtcNow,
                 ChoiceKind = this.ChoiceType
@@ -576,7 +576,7 @@ namespace WordbookImpressLibrary.ViewModels
         public QuizWordChoiceViewModel(Record.TestStatus testStatus):this(testStatus, Storage.RecordStorage.Content, Storage.WordbooksImpressStorage.Content)
         { }
 
-        public QuizWordChoiceViewModel(Record.TestStatus testStatus, Record Record,IEnumerable<WordbookImpress> wordbooks)
+        public QuizWordChoiceViewModel(Record.TestStatus testStatus, Record Record,IEnumerable<IWordbook> wordbooks)
         {
             this.TestStatus = testStatus;
 
@@ -592,7 +592,7 @@ namespace WordbookImpressLibrary.ViewModels
             }
             else
             {
-                this.WordbooksForChoice = this.WordbooksTarget = new[] { wordbooks.First((w) => w.Uri == testStatus.Key) };
+                this.WordbooksForChoice = this.WordbooksTarget = new[] { wordbooks.First((w) => w.Id == testStatus.Key) };
             }
             if (this.WordbooksTarget == null)
             {
@@ -615,10 +615,10 @@ namespace WordbookImpressLibrary.ViewModels
         {
         }
 
-        public QuizWordChoiceViewModel(Record Record, ChoiceKind choiceKind, WordbookImpress[] WordbookTarget, WordbookImpress[] WordbooksForChoice, Config config)
+        public QuizWordChoiceViewModel(Record Record, ChoiceKind choiceKind, IWordbook[] WordbookTarget, IWordbook[] WordbooksForChoice, Config config)
             :this(Record,choiceKind,WordbookTarget,WordbooksForChoice,config,new Random().Next()) { }
 
-        public QuizWordChoiceViewModel(Record Record, ChoiceKind choiceKind, WordbookImpress[] WordbookTarget, WordbookImpress[] WordbooksForChoice, Config config, int Seed)
+        public QuizWordChoiceViewModel(Record Record, ChoiceKind choiceKind, IWordbook[] WordbookTarget, IWordbook[] WordbooksForChoice, Config config, int Seed)
         {
             this.Seed = Seed;
             this.Record = Record;
@@ -631,7 +631,7 @@ namespace WordbookImpressLibrary.ViewModels
             this.ApplyConfig(config);
         }
 
-        private static TestResult[] GetInitialTestResults(WordbookImpress[] WordbooksTarget)
+        private static TestResult[] GetInitialTestResults(IWordbook[] WordbooksTarget)
         {
             var tempResults = new List<TestResult>();
             foreach (var w in WordbooksTarget)

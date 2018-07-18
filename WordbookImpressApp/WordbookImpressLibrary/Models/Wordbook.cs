@@ -12,5 +12,15 @@ namespace WordbookImpressLibrary.Models
         string Title { get; }
         Word[] Words { get; }
         QuizChoice[] QuizChoices { get; }
+        string Id { get; }
+    }
+
+    public class WordbookGeneral : IWordbook
+    {
+        public bool IsValid { get => true; }
+        public string Title { get; set; }
+        public Word[] Words { get; set; }
+        public QuizChoice[] QuizChoices { get; set; }
+        public string Id { get; set; }
     }
 }

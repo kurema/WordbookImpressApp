@@ -10,7 +10,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <zxing:ZXingBarcodeImageView Grid.Row="0" x:Name="barcode" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" WidthRequest="160" HeightRequest="160" />
-            <Label Grid.Row="1" x:Name="QRText" />
+            <Label HorizontalTextAlignment="Center" Grid.Row="1" x:Name="QRText" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

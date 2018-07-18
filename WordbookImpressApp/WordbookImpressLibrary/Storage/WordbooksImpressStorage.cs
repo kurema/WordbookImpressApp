@@ -6,51 +6,97 @@ using System.Threading.Tasks;
 using WordbookImpressLibrary.Models;
 using System.Collections.ObjectModel;
 
+using System.Linq;
 
 namespace WordbookImpressLibrary.Storage
 {
     public static class WordbooksImpressStorage
     {
-        private static ObservableCollection<WordbookImpress> content;
-        public static ObservableCollection<WordbookImpress> Content { get => content; private set { content = value; content.CollectionChanged += (s, e) => OnUpdated(); } }
+        private static ObservableCollection<IWordbook> content;
+        public static ObservableCollection<IWordbook> Content { get => content; private set { content = value; content.CollectionChanged += (s, e) => OnUpdated(); } }
         public static string Path { get; set; } = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "wordbooks_impress.xml");
         public static string PathBup { get; set; } = Path + ".bup";
 
-        public static void Add(WordbookImpress item)
+        public class Serialization
+        {
+            public class WordbookItem
+            {
+                //ToDo: You have to fix this agter you implemented IWordbook;
+                public WordbookImpress ContentImpress { get; set; } = null;
+                public WordbookGeneral ContentGeneral { get; set; } = null;
+
+                public IWordbook GetContent()
+                {
+                    if (ContentImpress != null)
+                    {
+                        return ContentImpress;
+                    }
+                    else if(ContentGeneral!=null)
+                    {
+                        return ContentGeneral;
+                    }
+                    return null;
+                }
+
+                public WordbookItem() { }
+                public WordbookItem(IWordbook item) {
+                    if (item is WordbookImpress m)
+                    {
+                        this.ContentImpress = m;
+                    }
+                    else if (item is WordbookGeneral l)
+                    {
+                        this.ContentGeneral = l;
+                    }
+                }
+
+                public static IWordbook[] Convert(WordbookItem[] arg)
+                {
+                    return arg.Select(s => s.GetContent()).ToArray();
+                }
+
+                public static WordbookItem[] ConvertBack(IWordbook[] arg)
+                {
+                    return arg.Select(a => new WordbookItem(a)).ToArray();
+                }
+            }
+        }
+
+        public static void Add(IWordbook item)
         {
             foreach(var wb in Content)
             {
-                if (wb.Uri == item.Uri) return;
+                if (wb.Id == item.Id) return;
             }
             Content.Add(item);
         }
 
-        public static async Task<WordbookImpress[]> LoadLocalData()
+        public static async Task<IWordbook[]> LoadLocalData()
         {
             if (!System.IO.File.Exists(Path))
             {
-                Content = new ObservableCollection<WordbookImpress>();
+                Content = new ObservableCollection<IWordbook>();
                 return new WordbookImpress[0];
             }
-            WordbookImpress[] result;
+            IWordbook[] result;
             try
             {
-                result = await Helper.SerializationHelper.DeserializeAsync<WordbookImpress[]>(Path);
+                result = await Helper.SerializationHelper.DeserializeAsync<IWordbook[]>(Path);
             }
             catch
             {
                 try
                 {
-                    result = await Helper.SerializationHelper.DeserializeAsync<WordbookImpress[]>(PathBup);
+                    result = Serialization.WordbookItem.Convert(await Helper.SerializationHelper.DeserializeAsync<Serialization.WordbookItem[]>(PathBup));
                     if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
                     if (System.IO.File.Exists(PathBup)) { System.IO.File.Move(PathBup, Path); }
                 }
                 catch
                 {
-                    result = new WordbookImpress[0];
+                    result = new IWordbook[0];
                 }
             }
-            Content = new ObservableCollection<WordbookImpress>(result);
+            Content = new ObservableCollection<IWordbook>(result);
             OnUpdated();
             return result;
         }
@@ -61,7 +107,13 @@ namespace WordbookImpressLibrary.Storage
             if (System.IO.File.Exists(PathBup)) { System.IO.File.Delete(PathBup); }
             if (System.IO.File.Exists(Path)) { System.IO.File.Move(Path, PathBup); }
             OnUpdated();
-            await Helper.SerializationHelper.SerializeAsync(Content, Path);
+            try
+            {
+                await Helper.SerializationHelper.SerializeAsync(Serialization.WordbookItem.ConvertBack(Content.ToArray()), Path);
+            }
+            catch(Exception e) {
+                System.Diagnostics.Debug.Print(e.ToString());
+            }
         }
 
         public static event EventHandler Updated;

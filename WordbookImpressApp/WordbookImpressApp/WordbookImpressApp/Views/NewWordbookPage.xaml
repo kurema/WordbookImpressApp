@@ -14,6 +14,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Spacing="20" Padding="15">
+                <!--<Picker x:Name="picker" Title="種類"/>-->
                 <Label Text="タイトル" FontSize="Medium"/>
                 <Entry Text="{Binding TitleUser}" FontSize="Medium" Placeholder="(任意)"/>
                 <Label Text="URL" FontSize="Medium" />

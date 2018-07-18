@@ -16,6 +16,8 @@ namespace WordbookImpressLibrary.Models
                     uri = new Uri(value);
                 } } }
 
+        public string Id => Uri;
+
         private Uri uriLogo;
         public string UriLogo { get => uriLogo?.ToString()??""; set { if (value != null && value != "") uriLogo = new Uri(value); } }
         public string Title { get; set; } = "";

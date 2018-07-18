@@ -25,7 +25,7 @@ namespace WordbookImpressLibrary.ViewModels
         public WordbookImpressViewModel Target { get => target; set
             {
                 SetProperty(ref target, value);
-                Items = TestStatusViewModel.GetTestStatusesGeneral((w) => (Storage.ConfigStorage.Content.ShowStatisticsZeroAnswer || w.AnswerCountTotal > 0) && value.Wordbooks.Count((a) => Record.TestStatus.KeyEqual(a.Uri, w.Key)) > 0);
+                Items = TestStatusViewModel.GetTestStatusesGeneral((w) => (Storage.ConfigStorage.Content.ShowStatisticsZeroAnswer || w.AnswerCountTotal > 0) && value.Wordbooks.Count((a) => Record.TestStatus.KeyEqual(a.Id, w.Key)) > 0);
             }
         }
 

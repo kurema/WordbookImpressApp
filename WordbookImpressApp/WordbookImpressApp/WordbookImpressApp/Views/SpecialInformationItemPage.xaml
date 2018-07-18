@@ -29,10 +29,19 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Margin="20">
-                            <Label FontSize="Medium" Text="{Binding Title}"/>
-                            <Label FontSize="Small" Text="{Binding Url}" TextColor="#888888" LineBreakMode="TailTruncation" />
-                        </StackLayout>
+                        <Grid Margin="15">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" FontSize="Medium" Text="{Binding Title}"/>
+                            <Label Grid.Row="1" FontSize="Small" Text="{Binding Url}" TextColor="#888888" LineBreakMode="TailTruncation" />
+                            <Button Text="QRコード" Grid.Column="1" Grid.RowSpan="2" Clicked="Button_Clicked" CommandParameter="{Binding Url}" Margin="0"/>
+                        </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

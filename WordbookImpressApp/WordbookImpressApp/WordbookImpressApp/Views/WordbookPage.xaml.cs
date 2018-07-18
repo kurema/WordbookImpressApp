@@ -50,7 +50,7 @@ namespace WordbookImpressApp.Views
             try
             {
                 //ToList()はおかしいけどコストは0に近いと思う。
-                this.BindingContext = new WordbookImpressViewModel(WordbooksImpressStorage.Content.ToList().Find(w => w.Uri == this.Model.Uri), Model.Record);
+                this.BindingContext = new WordbookImpressViewModel(WordbooksImpressStorage.Content.ToList().Find(w => w.Id == this.Model.Uri), Model.Record);
             }
             catch
             {

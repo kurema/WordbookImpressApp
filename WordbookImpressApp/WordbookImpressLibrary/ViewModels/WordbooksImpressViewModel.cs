@@ -27,13 +27,14 @@ namespace WordbookImpressLibrary.ViewModels
             this.wordbooks = new ObservableCollection<WordbookImpressViewModel>();
         }
 
-        public WordbooksImpressViewModel(IEnumerable<WordbookImpress> arg, Record record)
+        public WordbooksImpressViewModel(IEnumerable<IWordbook> arg, Record record)
         {
             if (arg == null) { this.wordbooks = new ObservableCollection<WordbookImpressViewModel>(); return; }
             var result = new List<WordbookImpressViewModel>();
             foreach(var item in arg)
             {
-                result.Add(new WordbookImpressViewModel(item, record));
+                if (item is WordbookImpress)
+                    result.Add(new WordbookImpressViewModel((WordbookImpress)item, record));
             }
             this.wordbooks = new ObservableCollection<WordbookImpressViewModel>(result);
         }

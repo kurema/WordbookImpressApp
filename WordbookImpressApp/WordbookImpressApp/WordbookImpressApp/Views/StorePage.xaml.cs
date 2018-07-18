@@ -33,27 +33,31 @@ namespace WordbookImpressApp.Views
 
         public async void PrepareStore()
         {
-            StackLayout stack = null;
-            //stack = AddTitleLabel("インプレスブックス", stack);
-            stack= await AddSearchResult("インプレスブックスの本", "インプレス");
-            stack = await AddBooksWithSpecialNew("最近追加された特典本", action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupsByGenre())));
-            //stack = await AddBooksWithSpecialWordbook("単語帳が手に入る本", action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupByGenreSpecialWordbook())));
-            stack = await AddBooksWithSpecialWordbook("単語帳が手に入る本", action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupsByWordbooks())));
-            stack = await AddBooksWithSpecialEbook("本文PDFが手に入る本", action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupByGenreSpecialEbook())));
+            List<Task> tasks = new List<Task>();
+            tasks.Add(AddSearchResult("インプレスブックスの本", "インプレス"));
+            tasks.Add(AddBooksWithSpecialNew("最近追加された特典本", action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupsByGenre()))));
+            tasks.Add(AddBooksWithSpecialWordbook("単語帳が手に入る本", action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupsByWordbooks()))));
+            tasks.Add(AddBooksWithSpecialEbook("本文PDFが手に入る本", action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupByGenreSpecialEbook()))));
 
             var history = await WordbookImpressLibrary.Storage.PurchaseHistoryStorage.GetPurchaseHistory();
             if (history.ClickedASIN.Count() > 0)
             {
                 var asin = history.ClickedASIN[(new Random().Next(history.ClickedASIN.Count()))];
-                await AddRelated((w)=> {
+                tasks.Add(AddRelated((w) =>
+                {
                     var basic = "以前クリックした本に関連";
                     var item = w?.Items?.Item;
                     if (item == null || item.Length == 0) return basic;
                     return item[0]?.ItemAttributes?.Title + "に関連" ?? basic;
-                    }, asin);
+                }, asin));
             }
 
-            stack = await AddSearchResult("kuremaの本", "B077X71C4C");
+            tasks.Add(AddSearchResult("kuremaの本", "B077X71C4C"));
+
+            foreach(var task in tasks)
+            {
+                await task;
+            }
         }
 
         public StackLayout AddTitleLabel(string title, StackLayout stack = null)

@@ -13,20 +13,40 @@ using WordbookImpressLibrary.ViewModels;
 
 namespace WordbookImpressApp.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NewWordbookPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class NewWordbookPage : ContentPage
+    {
         public WordbookImpressLibrary.Models.WordbookImpressInfo WordbookInfo { get; set; }
         public String TitleUser { get; set; }
 
-		public NewWordbookPage ()
-		{
-			InitializeComponent ();
+        public NewWordbookPage()
+        {
+            InitializeComponent();
 
             WordbookInfo = new WordbookImpressLibrary.Models.WordbookImpressInfo();
 
             BindingContext = this;
-		}
+
+            //picker.ItemsSource = new PickerItem[] {
+            //    new PickerItem("インプレスブックス","impress"),
+            //    new PickerItem("CSV","csv"),
+            //};
+        }
+
+        public class PickerItem
+        {
+            public string Title { get; set; }
+            public string Id { get; set; }
+            public PickerItem(string title,string id)
+            {
+                this.Title = title;
+                this.Id = id;
+            }
+            public override string ToString()
+            {
+                return Title;
+            }
+        }
 
         bool Adding = false;
 

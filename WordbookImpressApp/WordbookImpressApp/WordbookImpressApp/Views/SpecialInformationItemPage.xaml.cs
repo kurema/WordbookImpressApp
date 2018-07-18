@@ -41,11 +41,16 @@ namespace WordbookImpressApp.Views
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             ((ListView)sender).SelectedItem = null;
-            var item = e.SelectedItem as WordbookImpressLibrary.ViewModels.BookInformationViewModel.BookInformationLinkViewModel;
-            if (item != null)
+            if (e.SelectedItem is WordbookImpressLibrary.ViewModels.BookInformationViewModel.BookInformationLinkViewModel item)
             {
                 try { Device.OpenUri(new Uri(item.Url)); } catch { }
             }
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            string url = (string)((Button)sender).CommandParameter;
+            await Navigation.PushAsync(new QRCodePage(url));
         }
     }
 }

@@ -12,9 +12,9 @@ namespace WordbookImpressLibrary.ViewModels
     public class WordbookImpressViewModel : BaseViewModel
     {
         private string WordbooksTitle { get; set; } = "";
-        private WordbookImpress[] wordbooks;
-        public WordbookImpress[] Wordbooks { get => wordbooks ?? new WordbookImpress[] { wordbook }; }
-        private WordbookImpress wordbook;
+        private IWordbook[] wordbooks;
+        public IWordbook[] Wordbooks { get => wordbooks ?? new IWordbook[] { wordbook }; }
+        private IWordbook wordbook;
         public bool HasMultipleWordbook { get => wordbooks != null; }
         public bool HasWords
         {
@@ -27,14 +27,16 @@ namespace WordbookImpressLibrary.ViewModels
             }
         }
 
-        public String Uri => HasMultipleWordbook ? "" : wordbook?.Uri;
-        public String UriLogo => Storage.ImageCacheStorage.GetImageUrl(HasMultipleWordbook ? "":wordbook?.UriLogo)??"tango.jpg";
+        public String Uri => !CurrentTargetWordbookImpress ? "" : ((WordbookImpress)wordbook)?.Uri;
+        public String UriLogo => Storage.ImageCacheStorage.GetImageUrl(!CurrentTargetWordbookImpress ? "" : ((WordbookImpress)wordbook)?.UriLogo)??"tango.jpg";
         public String WordbookTitle => String.IsNullOrEmpty(WordbookTitleUser) ? WordbookTitleHtml : WordbookTitleUser;
-        public String WordbookTitleUser { get => HasMultipleWordbook ? WordbooksTitle : wordbook?.TitleUser; set { if (HasMultipleWordbook) return; wordbook.TitleUser = value; OnPropertyChanged();OnPropertyChanged(nameof(WordbookTitle)); } }
+        public String WordbookTitleUser { get => !CurrentTargetWordbookImpress ? WordbooksTitle : ((WordbookImpress)wordbook)?.TitleUser; set { if (HasMultipleWordbook) return; ((WordbookImpress)wordbook).TitleUser = value; OnPropertyChanged();OnPropertyChanged(nameof(WordbookTitle)); } }
         public String WordbookTitleHtml => HasMultipleWordbook ? "" : wordbook?.Title;
 
-        public String AuthenticationUserName => HasMultipleWordbook ? "" : (wordbook?.Authentication?.UserName ?? "");
-        public String AuthenticationPassword => HasMultipleWordbook ? "" : (wordbook?.Authentication?.Password ?? "");
+        public String AuthenticationUserName => !CurrentTargetWordbookImpress ? "" : (((WordbookImpress)wordbook)?.Authentication?.UserName ?? "");
+        public String AuthenticationPassword => !CurrentTargetWordbookImpress ? "" : (((WordbookImpress)wordbook)?.Authentication?.Password ?? "");
+
+        public bool CurrentTargetWordbookImpress => !HasMultipleWordbook && wordbook is WordbookImpress;
 
         private ObservableCollection<IWordViewModel> GetWords()
         {
@@ -211,7 +213,7 @@ namespace WordbookImpressLibrary.ViewModels
         public WordbookImpressViewModel():this(new WordbookImpress(),new Record())
         { }
 
-        public WordbookImpressViewModel(WordbookImpress wordbook,Record record)
+        public WordbookImpressViewModel(IWordbook wordbook,Record record)
         {
             this.Record = record;
             this.wordbook = wordbook;
@@ -219,7 +221,7 @@ namespace WordbookImpressLibrary.ViewModels
             this.SortKind = Storage.ConfigStorage.Content?.SortKind ?? SortKindInfo.GetDefault();
         }
 
-        public WordbookImpressViewModel(IEnumerable<WordbookImpress> wordbooks, Record record,string Title)
+        public WordbookImpressViewModel(IEnumerable<IWordbook> wordbooks, Record record,string Title)
         {
             WordbooksTitle = Title;
             this.Record = record;
@@ -234,7 +236,7 @@ namespace WordbookImpressLibrary.ViewModels
             {
                 IsBusy = true;
                 var w = new List<IWordViewModel>();
-                foreach (var wb in wordbooks)
+                foreach (WordbookImpress wb in wordbooks)
                 {
                     await wb.Reload();
                     foreach (var item in wb.Words)
@@ -247,10 +249,10 @@ namespace WordbookImpressLibrary.ViewModels
                 IsBusy = false;
                 return (null, null, null);
             }
-            else
+            else if(wordbook is WordbookImpress wbi)
             {
                 IsBusy = true;
-                var result = await wordbook.Reload();
+                var result = await wbi.Reload();
                 OnPropertyChanged(nameof(UriLogo));
                 OnPropertyChanged(nameof(WordbookTitle));
 
@@ -264,6 +266,7 @@ namespace WordbookImpressLibrary.ViewModels
                 IsBusy = false;
                 return result;
             }
+            else { return (null, null, null); }
         }
 
         public ReloadCommandClass ReloadCommand => new ReloadCommandClass(this);

@@ -20,9 +20,9 @@ namespace WordbookImpressApp.Views
         public SkiaSharp.SKColor DefaultColor { get; set; } = new SkiaSharp.SKColor(250, 250, 250, 255);
         public SkiaSharp.SKColor TextColor { get; set; } = new SkiaSharp.SKColor(0, 0, 0, 180);
 
-        public float FontHeight { get; set; } = 25;
+        public float FontHeight { get; set; } = 0;
         public float Spacing { get; set; } = 2;
-        public float TextMargin = 5;
+        public float TextMargin = 0;
 
 
         protected override void OnPaintSurface(SKPaintSurfaceEventArgs e)
@@ -34,10 +34,10 @@ namespace WordbookImpressApp.Views
             var w = e.Info.Width;
             var h = e.Info.Height;
 
-            float fh = FontHeight;
+            float fh = FontHeight == 0 ? h / 10.0f : FontHeight;
             float spacing = Spacing;
 
-            float textMargin = TextMargin;
+            float textMargin = TextMargin == 0 ? h / 14 : TextMargin;
 
             float cellSize = (h - fh - textMargin) / 7.0f;
 

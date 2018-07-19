@@ -9,5 +9,14 @@ namespace WordbookImpressLibrary.Models
         public string Url { get; set; } = @"https://impress.quizgenerator.net/impress/00impress/";
         public string ID { get; set; } = "";
         public string Password { get; set; } = "";
+        public string Format { get; set; } = "";
+
+        public static class Formats
+        {
+            public static string DataJs => "quizgenerator.data.js";
+            public static string ConfigJs => "quizgenerator.config.js";
+            public static string QuizGenerator => "quizgenerator";
+            public static string Csv => "csv";
+        }
     }
 }

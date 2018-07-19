@@ -14,38 +14,25 @@ using WordbookImpressLibrary.ViewModels;
 namespace WordbookImpressApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NewWordbookPage : ContentPage
+    public partial class NewWordbookPage : TabbedPage
     {
-        public WordbookImpressLibrary.Models.WordbookImpressInfo WordbookInfo { get; set; }
-        public String TitleUser { get; set; }
+        public RegisterWordbookViewModel ModelImpress
+        {
+            get => TabImpress.BindingContext as RegisterWordbookViewModel;
+            set => TabImpress.BindingContext = value;
+        }
 
         public NewWordbookPage()
         {
             InitializeComponent();
 
-            WordbookInfo = new WordbookImpressLibrary.Models.WordbookImpressInfo();
+            ModelImpress = new RegisterWordbookViewModel() { Format = WordbookImpressInfo.Formats.QuizGenerator };
 
-            BindingContext = this;
-
-            //picker.ItemsSource = new PickerItem[] {
-            //    new PickerItem("インプレスブックス","impress"),
-            //    new PickerItem("CSV","csv"),
+            //elv.Entries = new EntryListViewItem[] {
+            //    new EntryListViewItem(){Title="タイトル",ImageUrl="icon_g_title.png",PlaceHolder="タイトル (任意)"},
+            //    new EntryListViewItem(){Title="タイトル",ImageUrl="icon_g_title.png",PlaceHolder="タイトル (任意)"},
             //};
-        }
-
-        public class PickerItem
-        {
-            public string Title { get; set; }
-            public string Id { get; set; }
-            public PickerItem(string title,string id)
-            {
-                this.Title = title;
-                this.Id = id;
-            }
-            public override string ToString()
-            {
-                return Title;
-            }
+            //elv.Update();
         }
 
         bool Adding = false;
@@ -55,9 +42,12 @@ namespace WordbookImpressApp.Views
             if (Adding) return;
             Adding = true;
             WordbookImpress result;
+            var wbi = ModelImpress.GetWordbookInfo();
             try
             {
-                result = (await WordbookImpress.Load(WordbookInfo)).wordbook;
+                var res = await WordbookImpress.Load(wbi);
+                wbi.Format = res.format;
+                result = res.wordbook;
             }
             catch
             {
@@ -65,13 +55,14 @@ namespace WordbookImpressApp.Views
                 Adding = false;
                 return;
             }
-            result.TitleUser = TitleUser;
-            WordbooksImpressInfoStorage.Add(WordbookInfo);
+            result.TitleUser = ModelImpress.Title;
+            WordbooksImpressInfoStorage.Add(wbi);
             await WordbooksImpressInfoStorage.SaveLocalData();
             WordbooksImpressStorage.Add(result);
             await WordbooksImpressStorage.SaveLocalData();
 
-            MessagingCenter.Send(this, "AddItem", this.WordbookInfo);
+            //I dont think MessagingCenter is useful. event is enough.
+            //MessagingCenter.Send(this, "AddItem", this.WordbookInfo);
             await Navigation.PopAsync();
 
             Adding = false;

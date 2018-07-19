@@ -24,5 +24,38 @@ namespace WordbookImpressLibrary.Helper
             }
             return result;
         }
+
+        public static Dictionary<string, List<string>> GetCsvDictionary(System.IO.TextReader tr) {
+            using (var reader = new CsvHelper.CsvReader(tr))
+            {
+                reader.Read();
+                reader.ReadHeader();
+                var headers = new List<string>();
+                var result = new Dictionary<string, List<string>>();
+                foreach (var item in reader.Context.HeaderRecord)
+                {
+                    if (result.ContainsKey(item))
+                    {
+                        int i = 0;
+                        for (; result.ContainsKey(item + i); i++) { }
+                        result.Add(item + i, new List<string>());
+                        headers.Add(item + i);
+                    }
+                    else
+                    {
+                        result.Add(item, new List<string>());
+                        headers.Add(item);
+                    }
+                }
+                while (reader.Read())
+                {
+                    for (int i = 0; i < Math.Min(headers.Count, reader.Context.Record.Length); i++)
+                    {
+                        result[headers[i]].Add(reader.Context.Record[i]);
+                    }
+                }
+                return result;
+            }
+        }
     }
 }

@@ -8,6 +8,20 @@ namespace TestConsole
     {
         static void Main(string[] args)
         {
+            using (var reader = new CsvHelper.CsvReader(new System.IO.StringReader("column1,column2\n001,33\navb,aa\n")))
+            {
+                reader.Read();
+                reader.ReadHeader();
+                while (reader.Read())
+                {
+                    var s= reader.GetField(1);
+                    var t = reader.Context.HeaderRecord;
+                }
+            }
+        }
+
+        static void Main3(string[] args)
+        {
             var authentification = new AmazonAuthentication
             {
                 AccessKey = APIKeys.AmazonAccessKey,

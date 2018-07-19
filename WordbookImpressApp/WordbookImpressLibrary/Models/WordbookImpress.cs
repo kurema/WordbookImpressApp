@@ -30,7 +30,7 @@ namespace WordbookImpressLibrary.Models
 
         public QuizChoice[] QuizChoices { get; set; } = new QuizChoice[0];
 
-        public async Task<(WordbookImpress wordbook, string html, string data)> Reload()
+        public async Task<(WordbookImpress wordbook, string html, string data, string format)> Reload()
         {
             var result = await Load(this.uri, this.Authentication);
             Reload(result.wordbook);
@@ -45,12 +45,12 @@ namespace WordbookImpressLibrary.Models
             this.QuizChoices = wordbook.QuizChoices;
         }
 
-        public static async Task<(WordbookImpress wordbook, string html, string data)> Load(WordbookImpressLibrary.Models.WordbookImpressInfo info)
+        public static async Task<(WordbookImpress wordbook, string html, string data,string format)> Load(WordbookImpressLibrary.Models.WordbookImpressInfo info)
         {
             return await Load(new Uri( info.Url), new Authentication() { Password = info.Password, UserName = info.ID });
         }
 
-        public static async Task<(WordbookImpress wordbook,string html,string data)> Load(Uri uri, Authentication authentication)
+        public static async Task<(WordbookImpress wordbook,string html,string data, string format)> Load(Uri uri, Authentication authentication)
         {
             var result = new WordbookImpress
             {
@@ -59,6 +59,7 @@ namespace WordbookImpressLibrary.Models
             };
             string html;
             string dataJs;
+            string format = "";
 
             {
                 var req = System.Net.WebRequest.Create(uri);
@@ -78,6 +79,7 @@ namespace WordbookImpressLibrary.Models
             }
             try
             {
+                format = WordbookImpressInfo.Formats.DataJs;
                 System.Uri.TryCreate(uri, "data.js", out Uri uriData);
                 var req = System.Net.WebRequest.Create(uriData);
                 if (authentication == null || authentication.IsEmpty)
@@ -94,6 +96,7 @@ namespace WordbookImpressLibrary.Models
             }
             catch
             {
+                format = WordbookImpressInfo.Formats.ConfigJs;
                 System.Uri.TryCreate(uri, "config.js", out Uri uriData);
                 var req = System.Net.WebRequest.Create(uriData);
                 if (authentication == null || authentication.IsEmpty)
@@ -108,7 +111,7 @@ namespace WordbookImpressLibrary.Models
                     }
                 }
             }
-            return (result, html, dataJs);
+            return (result, html, dataJs,format);
         }
 
         public static QuizChoice[] GetWordsConfig(string text)

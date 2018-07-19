@@ -1,30 +1,112 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WordbookImpressApp.Views.NewWordbookPage"
-             xmlns:vm="clr-namespace:WordbookImpressLibrary.Models;assembly=WordbookImpressLibrary"
+            xmlns:vm="clr-namespace:WordbookImpressLibrary.ViewModels;assembly=WordbookImpressLibrary"
+            xmlns:v="clr-namespace:WordbookImpressApp.Views"
+            xmlns:om="clr-namespace:System.Collections.Generic;assembly=netstandard"
+            BackgroundColor="#F5F5F5"
              Title="追加">
-    <ContentPage.BindingContext>
-        <vm:WordbookImpressInfo />
-    </ContentPage.BindingContext>
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="保存" Clicked="AddItem_Clicked" Icon="icon_save" />
-        <ToolbarItem Text="取り消し" Clicked="Cancel_Clicked" Icon="icon_cancel"/>
-    </ContentPage.ToolbarItems>
-    <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Spacing="10" Padding="15">
-                <!--<Picker x:Name="picker" Title="種類"/>-->
-                <Label Text="タイトル" FontSize="Medium"/>
-                <Entry Text="{Binding TitleUser}" FontSize="Medium" Placeholder="(任意)"/>
-                <Label Text="URL" FontSize="Medium" />
-                <Entry Text="{Binding WordbookInfo.Url}" FontSize="Medium" />
-                <Label Text="ID" FontSize="Medium" />
-                <Editor Text="{Binding WordbookInfo.ID}" FontSize="Medium" />
-                <Label Text="Password" FontSize="Medium" />
-                <Editor Text="{Binding WordbookInfo.Password}" FontSize="Medium" />
-                <!--<Button Text="Save" Clicked="ToolbarItem_Clicked"/>-->
-            </StackLayout>
-        </ScrollView>
-    </ContentPage.Content>
-</ContentPage>
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="StackLayout" x:Key="StackStyle">
+                <Setter Property="Spacing" Value="10" />
+                <Setter Property="Padding" Value="15" />
+            </Style>
+            <Color x:Key="SeparatorColor">#DDDDDD</Color>
+            <Style TargetType="BoxView" x:Key="Separator">
+                <Setter Property="BackgroundColor" Value="{StaticResource SeparatorColor}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+            <Style x:Key="Title" TargetType="Label">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+            <Style x:Key="Header" TargetType="Label">
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+        </ResourceDictionary>
+    </TabbedPage.Resources>
+    <ContentPage Title="インプレスブックス" x:Name="TabImpress">
+        <ContentPage.BindingContext >
+            <vm:RegisterWordbookViewModel />
+        </ContentPage.BindingContext>
+        <ContentPage.ToolbarItems>
+            <ToolbarItem Text="保存" Clicked="AddItem_Clicked" Icon="icon_save" />
+            <ToolbarItem Text="取り消し" Clicked="Cancel_Clicked" Icon="icon_cancel" />
+        </ContentPage.ToolbarItems>
+        <ContentPage.Content>
+            <ScrollView>
+                <StackLayout>
+                    <Label Text="ログイン情報" Style="{StaticResource Title}" />
+                    <Grid BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="1"/>
+                        </Grid.RowDefinitions>
+                        <!--<Label Style="{StaticResource Header}" Grid.Column="0" Grid.Row="1" Text="タイトル"/>
+                        <Label Style="{StaticResource Header}" Grid.Column="0" Grid.Row="3" Text="URL" />
+                        <Label Style="{StaticResource Header}" Grid.Column="0" Grid.Row="5" Text="ID" />
+                        <Label Style="{StaticResource Header}" Grid.Column="0" Grid.Row="7" Text="Password"  />-->
+                        <!--<Image Source="icon_g_title.png" Grid.Column="0" Grid.Row="1" VerticalOptions="Center"  BindingContext="{x:Reference ve1}" HeightRequest="{Binding MinimumHeightRequest}"  />-->
+                        <Image Margin="5,0" Source="icon_g_title.png" Grid.Column="0" Grid.Row="1" HeightRequest="40" VerticalOptions="Center" />
+                        <Image Margin="5,0" Source="icon_g_url.png" Grid.Column="0" Grid.Row="3" HeightRequest="40" VerticalOptions="Center" />
+                        <Image Margin="5,0" Source="icon_g_id.png" Grid.Column="0" Grid.Row="5" HeightRequest="40" VerticalOptions="Center" />
+                        <Image Margin="5,0" Source="icon_g_pw.png" Grid.Column="0" Grid.Row="7" HeightRequest="40" VerticalOptions="Center"  />
+                        <v:HumbleEntry Grid.Column="1" Grid.Row="1" Text="{Binding Title}"  Placeholder="タイトル (任意)" x:Name="ve1"/>
+                        <v:HumbleEntry Grid.Column="1" Grid.Row="3" Text="{Binding Url}" Placeholder="URL" />
+                        <v:HumbleEntry Grid.Column="1" Grid.Row="5" Text="{Binding ID}" Placeholder="ID" />
+                        <v:HumbleEntry Grid.Column="1" Grid.Row="7" Text="{Binding Password}" Placeholder="Password" />
+                        <BoxView Grid.ColumnSpan="2" Grid.Row="0" Style="{StaticResource Separator}" />
+                        <BoxView Grid.ColumnSpan="2" Grid.Row="2" Style="{StaticResource Separator}" />
+                        <BoxView Grid.ColumnSpan="2" Grid.Row="4" Style="{StaticResource Separator}" />
+                        <BoxView Grid.ColumnSpan="2" Grid.Row="6" Style="{StaticResource Separator}" />
+                        <BoxView Grid.ColumnSpan="2" Grid.Row="8" Style="{StaticResource Separator}" />
+                    </Grid>
+                    <!--<v:EntryListView BorderColor="{StaticResource SeparatorColor}" BorderWidth="1" BackgroundColor="White" x:Name="elv">
+                        --><!--<v:EntryListView.Entries>
+                            <v:EntryListViewItem Title="タイトル" ImageUrl="icon_g_title.png" PlaceHolder="タイトル (任意)"/>
+                            <v:EntryListViewItem Title="タイトル" ImageUrl="icon_g_title.png" PlaceHolder="タイトル (任意)"/>
+                        </v:EntryListView.Entries>--><!--
+                    </v:EntryListView>-->
+                </StackLayout>
+            </ScrollView>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="CSV">
+        <ContentPage.BindingContext >
+            <vm:RegisterWordbookViewModel />
+        </ContentPage.BindingContext>
+        <ContentPage.ToolbarItems>
+            <ToolbarItem Text="保存" Clicked="AddItem_Clicked" Icon="icon_save" />
+            <ToolbarItem Text="取り消し" Clicked="Cancel_Clicked" Icon="icon_cancel" />
+        </ContentPage.ToolbarItems>
+        <ContentPage.Content>
+            <ScrollView>
+                <StackLayout Style="{StaticResource StackStyle}">
+                    <Label Text="タイトル" />
+                    <Entry Text="{Binding Title}"  Placeholder="(任意)"/>
+                    <Label Text="URL"  />
+                    <Entry Text="{Binding Url}"  />
+                    <Label Text="ID"  />
+                    <Editor Text="{Binding ID}"  />
+                    <Label Text="Password"  />
+                    <Editor Text="{Binding Password}"  />
+                </StackLayout>
+            </ScrollView>
+        </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>

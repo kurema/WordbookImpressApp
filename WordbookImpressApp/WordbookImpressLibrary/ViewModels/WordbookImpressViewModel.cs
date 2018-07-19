@@ -30,7 +30,8 @@ namespace WordbookImpressLibrary.ViewModels
         public String Uri => !CurrentTargetWordbookImpress ? "" : ((WordbookImpress)wordbook)?.Uri;
         public String UriLogo => Storage.ImageCacheStorage.GetImageUrl(!CurrentTargetWordbookImpress ? "" : ((WordbookImpress)wordbook)?.UriLogo)??"tango.jpg";
         public String WordbookTitle => String.IsNullOrEmpty(WordbookTitleUser) ? WordbookTitleHtml : WordbookTitleUser;
-        public String WordbookTitleUser { get => !CurrentTargetWordbookImpress ? WordbooksTitle : ((WordbookImpress)wordbook)?.TitleUser; set { if (HasMultipleWordbook) return; ((WordbookImpress)wordbook).TitleUser = value; OnPropertyChanged();OnPropertyChanged(nameof(WordbookTitle)); } }
+        public String WordbookTitleUser { get => HasMultipleWordbook ? WordbooksTitle : wordbook?.TitleUser;
+            set { if (HasMultipleWordbook) return; wordbook.TitleUser = value; OnPropertyChanged();OnPropertyChanged(nameof(WordbookTitle)); } }
         public String WordbookTitleHtml => HasMultipleWordbook ? "" : wordbook?.Title;
 
         public String AuthenticationUserName => !CurrentTargetWordbookImpress ? "" : (((WordbookImpress)wordbook)?.Authentication?.UserName ?? "");
@@ -230,7 +231,7 @@ namespace WordbookImpressLibrary.ViewModels
             this.SortKind = Storage.ConfigStorage.Content?.SortKind ?? SortKindInfo.GetDefault();
         }
 
-        public async Task<(WordbookImpress wordbook, string html, string data)> Reload()
+        public async Task<(WordbookImpress wordbook, string html, string data,string format)> Reload()
         {
             if (HasMultipleWordbook)
             {
@@ -247,7 +248,7 @@ namespace WordbookImpressLibrary.ViewModels
                 }
 
                 IsBusy = false;
-                return (null, null, null);
+                return (null, null, null,null);
             }
             else if(wordbook is WordbookImpress wbi)
             {
@@ -266,7 +267,7 @@ namespace WordbookImpressLibrary.ViewModels
                 IsBusy = false;
                 return result;
             }
-            else { return (null, null, null); }
+            else { return (null, null, null, null); }
         }
 
         public ReloadCommandClass ReloadCommand => new ReloadCommandClass(this);

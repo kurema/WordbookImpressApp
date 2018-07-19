@@ -25,7 +25,7 @@ namespace WordbookImpressApp.Views
             WordbooksImpressStorage.Updated += WordbookImpressStorage_Updated;
             this.Appearing += WordbookImpressStorage_Updated;
 
-            MessagingCenter.Subscribe<NewWordbookPage, WordbookImpressInfo>(this, "AddItem", WordbookImpressStorage_Updated);
+            //MessagingCenter.Subscribe<NewWordbookPage, WordbookImpressInfo>(this, "AddItem", WordbookImpressStorage_Updated);
         }
 
         private void WordbookImpressStorage_Updated(object sender, object e)

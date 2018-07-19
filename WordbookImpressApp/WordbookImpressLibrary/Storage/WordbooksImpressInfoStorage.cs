@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using WordbookImpressLibrary.Models;
 using System.Collections.ObjectModel;
 
+using System.Linq;
+
 namespace WordbookImpressLibrary.Storage
 {
     public static class WordbooksImpressInfoStorage
@@ -17,6 +19,7 @@ namespace WordbookImpressLibrary.Storage
 
         public static void Add(WordbookImpressInfo item)
         {
+            if (Content?.Count(a => a.Url == item.Url && a.ID == item.ID && a.Password == item.Password && a.Format == item.Format) > 0) return;
             Content.Add(item);
         }
 

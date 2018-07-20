@@ -18,6 +18,7 @@ namespace WordbookImpressLibrary.ViewModels
 
         public string GetString<T>(T value)
         {
+            if (value == null) return "";
             foreach (var item in this.Options)
             {
                 if (item.IsSpecialValue && value.ToString() ==item.Content.ToString()) { return item.Message; }

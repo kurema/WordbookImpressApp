@@ -28,7 +28,7 @@ namespace WordbookImpressLibrary.ViewModels
         }
 
         public String Uri => !CurrentTargetWordbookImpress ? "" : ((WordbookImpress)wordbook)?.Uri;
-        public String UriLogo => Storage.ImageCacheStorage.GetImageUrl(!CurrentTargetWordbookImpress ? "" : ((WordbookImpress)wordbook)?.UriLogo)??"tango.jpg";
+        public String UriLogo => Storage.ImageCacheStorage.GetImageUrl(!CurrentTargetWordbookImpress ? null : ((WordbookImpress)wordbook)?.UriLogo) ?? Storage.ImageCacheStorage.PlaceholderWordbook;
         public String WordbookTitle => String.IsNullOrEmpty(WordbookTitleUser) ? WordbookTitleHtml : WordbookTitleUser;
         public String WordbookTitleUser { get => HasMultipleWordbook ? WordbooksTitle : wordbook?.TitleUser;
             set { if (HasMultipleWordbook) return; wordbook.TitleUser = value; OnPropertyChanged();OnPropertyChanged(nameof(WordbookTitle)); } }

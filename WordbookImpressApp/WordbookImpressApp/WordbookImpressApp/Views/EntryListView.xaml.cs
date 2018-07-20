@@ -17,27 +17,9 @@ namespace WordbookImpressApp.Views
             InitializeComponent();
         }
 
-        //public static readonly BindableProperty PlaceholderColorProperty =
-        //    BindableProperty.Create(nameof(PlaceholderColor), typeof(Color), typeof(EntryListView), propertyChanged: (b, o, n) => ((EntryListView)b).PlaceholderColor = (Color)n, defaultValueCreator: a => new Color(0.5));
-        //public Color PlaceholderColor { get => (Color)GetValue(PlaceholderColorProperty); set => SetValue(PlaceholderColorProperty, value); }
         public Color PlaceholderColor { get; set; }
-
-        //public static readonly BindableProperty BorderColorProperty =
-        //    BindableProperty.Create(nameof(BorderColor), typeof(Color), typeof(EntryListView), propertyChanged: (b, o, n) => ((EntryListView)b).BorderColor = (Color)n, defaultValueCreator: a => new Color(0.5));
-        //public Color BorderColor { get => (Color)GetValue(BorderColorProperty); set => SetValue(BorderColorProperty, value); }
         public Color BorderColor { get; set; }
-
-        //public static readonly BindableProperty BorderWidthProperty =
-        //    BindableProperty.Create(nameof(BorderWidth), typeof(double), typeof(EntryListView), propertyChanged: (b, o, n) => ((EntryListView)b).BorderWidth = (double)n);
-        //public double BorderWidth { get => (double)GetValue(BorderWidthProperty); set => SetValue(BorderWidthProperty, value); }
         public double BorderWidth { get; set; }
-
-        //public static readonly BindableProperty EntriesProperty =
-        //    BindableProperty.Create(nameof(Entries), typeof(IEnumerable<EntryListViewItem>), typeof(EntryListView), propertyChanged: (b, o, n) => ((EntryListView)b).Entries = (IEnumerable<EntryListViewItem>)n, defaultValueCreator: (a) => new EntryListViewItem[0]);
-        //public IEnumerable<EntryListViewItem> Entries { get => (IEnumerable<EntryListViewItem>)GetValue(EntriesProperty); set {
-        //        SetValue(EntriesProperty, value);
-        //        Update();
-        //    } }
         public IEnumerable<EntryListViewItem> Entries { get; set; }
 
         public void Update()
@@ -117,9 +99,13 @@ namespace WordbookImpressApp.Views
                             grid.Children.Add(view);
                             Grid.SetColumn(view, 1);
                             Grid.SetRow(view, i * 2 + 1);
-                            if (!string.IsNullOrWhiteSpace(item.DefaultText))
+                            if (!string.IsNullOrWhiteSpace(item.EntryBinding))
                             {
-                                view.Text = item.DefaultText;
+                                view.SetBinding(Entry.TextProperty, item.EntryBinding);
+                            }
+                            else if (!string.IsNullOrWhiteSpace(item.EntryDefault))
+                            {
+                                view.Text = item.EntryDefault;
                             }
 
                             //Ugly.
@@ -142,6 +128,7 @@ namespace WordbookImpressApp.Views
         public Action<string> Action { get; set; }
         public string ImageUrl { get; set; }
         public string PlaceHolder { get; set; }
-        public string DefaultText { get; set; }
+        public string EntryDefault { get; set; }
+        public string EntryBinding { get; set; }
     }
 }

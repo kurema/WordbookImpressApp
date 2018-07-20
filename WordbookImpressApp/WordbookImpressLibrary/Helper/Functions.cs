@@ -4,6 +4,8 @@ using System.Text;
 
 using System.Threading.Tasks;
 
+using System.Text.RegularExpressions;
+
 namespace WordbookImpressLibrary.Helper
 {
     public static class Functions
@@ -56,6 +58,38 @@ namespace WordbookImpressLibrary.Helper
                 }
                 return result;
             }
+        }
+
+        public static (bool? isSmb,string url) DistinguishHttpCifs(string url,string ID="",string Password="")
+        {
+            ID = ID ?? "";
+            Password = Password ?? "";
+            if (Regex.Match(url, @"^https?\:\/\/", RegexOptions.IgnoreCase).Success)
+            {
+                return (false, url);
+            }
+            else
+            {
+                {
+                    var match = Regex.Match(url, @"^smb\:\/\/([^\/]+)\/(.*)$", RegexOptions.IgnoreCase);
+                    if (match.Success)
+                    {
+                        if (match.Groups[1].Value.Contains("@"))
+                        {
+                            return (true, url);
+                        }
+                        else
+                        {
+                            return (true, "smb://" + ID + ":" + Password + "@" + match.Groups[1].Value + "/" + match.Groups[2].Value);
+                        }
+                    }
+                }
+                if (url.StartsWith(@"\\"))
+                {
+                    return (true, "smb://" + ID + ":" + Password + "@" + url.Replace(@"\", "/").Substring(2));
+                }
+            }
+            return (null, null);
         }
     }
 }

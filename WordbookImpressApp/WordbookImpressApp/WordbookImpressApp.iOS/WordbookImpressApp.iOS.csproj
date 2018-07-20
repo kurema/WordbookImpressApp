@@ -161,9 +161,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Title.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Correct.png" />
   </ItemGroup>
   <ItemGroup>
@@ -216,5 +213,11 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\icon_g_title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_g_encoding.png" />
   </ItemGroup>
 </Project>

@@ -106,6 +106,7 @@
     <Content Include="Correct.png" />
     <Content Include="icon_add.png" />
     <Content Include="icon_cancel.png" />
+    <Content Include="icon_g_encoding.png" />
     <Content Include="icon_g_id.png" />
     <Content Include="icon_g_pen.png" />
     <Content Include="icon_g_pw.png" />
@@ -117,7 +118,6 @@
     <Content Include="icon_wordbook.png" />
     <Content Include="Question.png" />
     <Content Include="tango.jpg" />
-    <Content Include="Title.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />
@@ -142,6 +142,7 @@
     <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\StoreLogo.scale-200.png" />
     <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Title.png" />
     <Content Include="Tutorial_add.png" />
     <Content Include="Tutorial_buy.jpg" />
     <Content Include="Tutorial_privilege.png" />

@@ -53,6 +53,7 @@ namespace WordbookImpressApp
 
         private async void Load()
         {
+            WordbookImpressLibrary.Storage.ImageCacheStorage.PlaceholderWordbook = "tango.jpg";
             await WordbookImpressLibrary.Storage.WordbooksImpressInfoStorage.LoadLocalData();
             await WordbookImpressLibrary.Storage.RecordStorage.LoadLocalData();
             await WordbookImpressLibrary.Storage.WordbooksImpressStorage.LoadLocalData();

@@ -6,7 +6,7 @@ namespace WordbookImpressLibrary.Models
 {
     public class WordbookImpressInfo
     {
-        public string Url { get; set; } = @"https://impress.quizgenerator.net/impress/00impress/";
+        public string Url { get; set; } = DefaultUrl;
         public string ID { get; set; } = "";
         public string Password { get; set; } = "";
         public string Format { get; set; } = "";
@@ -18,5 +18,7 @@ namespace WordbookImpressLibrary.Models
             public static string QuizGenerator => "quizgenerator";
             public static string Csv => "csv";
         }
+
+        public static string DefaultUrl=> @"https://impress.quizgenerator.net/impress/00impress/";
     }
 }

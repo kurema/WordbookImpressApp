@@ -8,6 +8,8 @@ namespace WordbookImpressLibrary.Storage
     {
         public static string Path { get; set; } = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "img");
 
+        public static string PlaceholderWordbook { get; set; }
+
         public static string GetHash(string url)
         {
             byte[] input = Encoding.ASCII.GetBytes(url);
@@ -22,6 +24,30 @@ namespace WordbookImpressLibrary.Storage
             return result;
         }
 
+        public static void Clear()
+        {
+            try
+            {
+                if (System.IO.Directory.Exists(Path))
+                {
+                    var items = System.IO.Directory.GetFiles(Path);
+                    foreach (var item in items)
+                    {
+                        System.IO.File.Delete(item);
+                    }
+                }
+                else if(System.IO.File.Exists(Path))
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+            catch { }
+        }
+
         public static string GetPath(string url)
         {
             return System.IO.Path.Combine(Path, GetHash(url));
@@ -29,6 +55,7 @@ namespace WordbookImpressLibrary.Storage
 
         public static string GetImageUrl(string url)
         {
+            return url;
             if (string.IsNullOrEmpty(url))
             {
                 return null;
@@ -40,6 +67,10 @@ namespace WordbookImpressLibrary.Storage
             }
             else
             {
+                if (System.IO.Directory.Exists(Path))
+                {
+                    System.IO.Directory.CreateDirectory(Path);
+                }
                 using (System.Net.WebClient wc = new System.Net.WebClient())
                 {
                     wc.DownloadFileAsync(new Uri(url), path);

@@ -11,21 +11,32 @@
         <ResourceDictionary>
             <Style TargetType="StackLayout" x:Key="StackStyle">
                 <Setter Property="Spacing" Value="10" />
-                <Setter Property="Padding" Value="15" />
+                <Setter Property="Padding" Value="0" />
             </Style>
             <Color x:Key="SeparatorColor">#DDDDDD</Color>
-            <Style TargetType="BoxView" x:Key="Separator">
-                <Setter Property="BackgroundColor" Value="{StaticResource SeparatorColor}" />
-                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-                <Setter Property="VerticalOptions" Value="FillAndExpand" />
-            </Style>
+            <Color x:Key="TextColor">#444444</Color>
             <Style x:Key="Title" TargetType="Label">
                 <Setter Property="Margin" Value="10"/>
                 <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="Accent"/>
             </Style>
-            <Style x:Key="Header" TargetType="Label">
-                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            <Style x:Key="Normal" TargetType="Label">
                 <Setter Property="Margin" Value="5"/>
+                <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="BorderColor" Value="{StaticResource SeparatorColor}" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="BorderWidth" Value="0,1"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="TextColor" Value="{StaticResource TextColor}"/>
+            </Style>
+            <Style TargetType="Editor">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="HeightRequest" Value="150"/>
             </Style>
         </ResourceDictionary>
     </TabbedPage.Resources>
@@ -39,72 +50,51 @@
         </ContentPage.ToolbarItems>
         <ContentPage.Content>
             <ScrollView>
-                <StackLayout>
-                    <Label Text="ログイン情報" Style="{StaticResource Title}" />
-                    <Grid BackgroundColor="White">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="1"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="1"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="1"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="1"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="1"/>
-                        </Grid.RowDefinitions>
-                        <!--<Label Style="{StaticResource Header}" Grid.Column="0" Grid.Row="1" Text="タイトル"/>
-                        <Label Style="{StaticResource Header}" Grid.Column="0" Grid.Row="3" Text="URL" />
-                        <Label Style="{StaticResource Header}" Grid.Column="0" Grid.Row="5" Text="ID" />
-                        <Label Style="{StaticResource Header}" Grid.Column="0" Grid.Row="7" Text="Password"  />-->
-                        <!--<Image Source="icon_g_title.png" Grid.Column="0" Grid.Row="1" VerticalOptions="Center"  BindingContext="{x:Reference ve1}" HeightRequest="{Binding MinimumHeightRequest}"  />-->
-                        <Image Margin="5,0" Source="icon_g_title.png" Grid.Column="0" Grid.Row="1" HeightRequest="40" VerticalOptions="Center" />
-                        <Image Margin="5,0" Source="icon_g_url.png" Grid.Column="0" Grid.Row="3" HeightRequest="40" VerticalOptions="Center" />
-                        <Image Margin="5,0" Source="icon_g_id.png" Grid.Column="0" Grid.Row="5" HeightRequest="40" VerticalOptions="Center" />
-                        <Image Margin="5,0" Source="icon_g_pw.png" Grid.Column="0" Grid.Row="7" HeightRequest="40" VerticalOptions="Center"  />
-                        <v:HumbleEntry Grid.Column="1" Grid.Row="1" Text="{Binding Title}"  Placeholder="タイトル (任意)" x:Name="ve1"/>
-                        <v:HumbleEntry Grid.Column="1" Grid.Row="3" Text="{Binding Url}" Placeholder="URL" />
-                        <v:HumbleEntry Grid.Column="1" Grid.Row="5" Text="{Binding ID}" Placeholder="ID" />
-                        <v:HumbleEntry Grid.Column="1" Grid.Row="7" Text="{Binding Password}" Placeholder="Password" />
-                        <BoxView Grid.ColumnSpan="2" Grid.Row="0" Style="{StaticResource Separator}" />
-                        <BoxView Grid.ColumnSpan="2" Grid.Row="2" Style="{StaticResource Separator}" />
-                        <BoxView Grid.ColumnSpan="2" Grid.Row="4" Style="{StaticResource Separator}" />
-                        <BoxView Grid.ColumnSpan="2" Grid.Row="6" Style="{StaticResource Separator}" />
-                        <BoxView Grid.ColumnSpan="2" Grid.Row="8" Style="{StaticResource Separator}" />
-                    </Grid>
-                    <!--<v:EntryListView BorderColor="{StaticResource SeparatorColor}" BorderWidth="1" BackgroundColor="White" x:Name="elv">
-                        --><!--<v:EntryListView.Entries>
-                            <v:EntryListViewItem Title="タイトル" ImageUrl="icon_g_title.png" PlaceHolder="タイトル (任意)"/>
-                            <v:EntryListViewItem Title="タイトル" ImageUrl="icon_g_title.png" PlaceHolder="タイトル (任意)"/>
-                        </v:EntryListView.Entries>--><!--
-                    </v:EntryListView>-->
+                <StackLayout Style="{StaticResource StackStyle}">
+                    <Label Text="認証情報" Style="{StaticResource Title}" />
+                    <v:EntryListView BorderColor="{StaticResource SeparatorColor}" BorderWidth="1" BackgroundColor="White" x:Name="EntryListLogin" />
+                    <Label Text="タイトル" Style="{StaticResource Title}" />
+                    
+                    <v:EntryListView BorderColor="{StaticResource SeparatorColor}" BorderWidth="1" BackgroundColor="White" x:Name="EntryListTitle" />
+                    <Label Text="タイトルは後からでも変更できます。&#10;空白の場合自動的に設定されます。&#10;URLから候補を表示できる場合もあります。" Style="{StaticResource Normal}" />
+                    <Button Text="URLから候補を表示" Clicked="Button_Clicked"/>
+                    
+                    <Label Text="自動入力" Style="{StaticResource Title}"/>
+                    <Editor Completed="Editor_Completed"/>
+                    <Label Text="特典ページの内容を張り付ける事で一括入力ができます。" Style="{StaticResource Normal}" />
+                    
+                    <Label Text="入手" Style="{StaticResource Title}" />
+                    <Button Text="入手元を表示" Clicked="Button_Clicked_1" />
+                    <Label Text="単語帳やその他の特典が入手できる書籍はストアからも探せます。" Style="{StaticResource Normal}" />
+                    
+                    <Label Text="回復" Style="{StaticResource Title}" />
+                    <Button Text="削除済み単語帳の表示" Clicked="Button_Clicked_2" />
+                    <Label Text="削除した単語帳を回復します。" Style="{StaticResource Normal}" />
                 </StackLayout>
             </ScrollView>
         </ContentPage.Content>
     </ContentPage>
-    <ContentPage Title="CSV">
+    <ContentPage Title="CSV" x:Name="TabCsv">
         <ContentPage.BindingContext >
-            <vm:RegisterWordbookViewModel />
+            <vm:RegisterWordbookCsvViewModel />
         </ContentPage.BindingContext>
         <ContentPage.ToolbarItems>
-            <ToolbarItem Text="保存" Clicked="AddItem_Clicked" Icon="icon_save" />
+            <ToolbarItem Text="保存" Clicked="AddItem_Clicked_Csv" Icon="icon_save" />
             <ToolbarItem Text="取り消し" Clicked="Cancel_Clicked" Icon="icon_cancel" />
         </ContentPage.ToolbarItems>
         <ContentPage.Content>
             <ScrollView>
                 <StackLayout Style="{StaticResource StackStyle}">
-                    <Label Text="タイトル" />
-                    <Entry Text="{Binding Title}"  Placeholder="(任意)"/>
-                    <Label Text="URL"  />
-                    <Entry Text="{Binding Url}"  />
-                    <Label Text="ID"  />
-                    <Editor Text="{Binding ID}"  />
-                    <Label Text="Password"  />
-                    <Editor Text="{Binding Password}"  />
+                    <Label Text="認証情報" Style="{StaticResource Title}" />
+                    <v:EntryListView BorderColor="{StaticResource SeparatorColor}" BorderWidth="1" BackgroundColor="White" x:Name="EntryListLoginCsv" />
+                    <Label Text="HTTPやSMB/CIFS(ファイル共有)のアドレスを指定できます。&#10;必要ならIDとパスワードを入力してください。&#10;SMB/CIFSは&quot;smb://UserName:Password@ServerIP/ShareName/...&quot;や&quot;\\servername\ShareName\...&quot;のような形式です。" Style="{StaticResource Normal}" />
+
+                    <v:EntryListView BorderColor="{StaticResource SeparatorColor}" BorderWidth="1" BackgroundColor="White" x:Name="EntryListEncodingCsv" />
+                    <Button Text="選択" Clicked="Button_Clicked_3" />
+                    <Label Text="ファイルの文字コードを設定してください。" Style="{StaticResource Normal}" />
+
+                    <v:EntryListView BorderColor="{StaticResource SeparatorColor}" BorderWidth="1" BackgroundColor="White" x:Name="EntryListTitleCsv" />
+                    <Label Text="タイトルは後からでも変更できます。" Style="{StaticResource Normal}" />
                 </StackLayout>
             </ScrollView>
         </ContentPage.Content>

@@ -16,7 +16,7 @@
                   ItemSelected="ListViewMenuItems_ItemSelected"
               ItemsSource="{Binding MenuItems}">
             <ListView.Header>
-                <Image Source="Title.png" HorizontalOptions="Fill"/>
+                <Image Source="Title.jpg" HorizontalOptions="Fill"/>
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>

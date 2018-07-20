@@ -20,10 +20,11 @@ namespace WordbookImpressApp.Views
 		{
 			InitializeComponent ();
 
-            this.BindingContext = new WordbooksImpressViewModel(WordbooksImpressStorage.Content, RecordStorage.Content);
+            this.BindingContext = new WordbooksImpressViewModel(WordbooksImpressStorage.Content, RecordStorage.Content) { Order = ConfigStorage.Content?.SortKindWordbooks ?? default(WordbooksImpressViewModel.OrderStatus) };
 
             WordbooksImpressStorage.Updated += WordbookImpressStorage_Updated;
             this.Appearing += WordbookImpressStorage_Updated;
+            ConfigStorage.Updated += WordbookImpressStorage_Updated;
 
             //MessagingCenter.Subscribe<NewWordbookPage, WordbookImpressInfo>(this, "AddItem", WordbookImpressStorage_Updated);
         }

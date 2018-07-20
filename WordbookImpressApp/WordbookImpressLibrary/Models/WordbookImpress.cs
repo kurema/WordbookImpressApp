@@ -19,7 +19,7 @@ namespace WordbookImpressLibrary.Models
         public string Id => Uri;
 
         private Uri uriLogo;
-        public string UriLogo { get => uriLogo?.ToString()??""; set { if (value != null && value != "") uriLogo = new Uri(value); } }
+        public string UriLogo { get => uriLogo?.ToString()??null; set { if (value != null && value != "") uriLogo = new Uri(value); } }
         public string Title { get; set; } = "";
         public string TitleUser { get; set; } = "";
         public Word[] Words { get; set; } = new Word[0];

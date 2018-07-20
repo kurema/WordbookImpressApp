@@ -45,5 +45,8 @@ namespace WordbookImpressLibrary.ViewModels
 
         private string[] __CsvDescriptionKeys;
         public string[] _CsvDescriptionKeys { get => __CsvDescriptionKeys; set => SetProperty(ref __CsvDescriptionKeys, value); }
+
+        private string _Encoding;
+        public string Encoding { get => _Encoding; set => SetProperty(ref _Encoding, value); }
     }
 }

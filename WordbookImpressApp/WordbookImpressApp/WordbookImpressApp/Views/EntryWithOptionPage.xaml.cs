@@ -38,6 +38,13 @@ namespace WordbookImpressApp.Views
             this.BindingContext = model;
         }
 
+        public Task<bool> WaitEntry()
+        {
+            var waitHandle = new System.Threading.EventWaitHandle(false, System.Threading.EventResetMode.AutoReset);
+            this.Disappearing += (s, e2) => waitHandle.Set();
+            return Task.Run(() => waitHandle.WaitOne());
+        }
+
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {

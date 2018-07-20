@@ -35,8 +35,8 @@ namespace WordbookImpressLibrary.ViewModels
 
             public IEnumerable<WordbookImpressViewModel> Apply(IList<WordbookImpressViewModel> w)
             {
-                if (Reversed) return ApplyKind(w);
-                else return ApplyKind(w).Reverse();
+                if (Reversed) return ApplyKind(w).Reverse();
+                else return ApplyKind(w);
             }
 
 
@@ -80,6 +80,7 @@ namespace WordbookImpressLibrary.ViewModels
                 var result = new Helper.DelegateCommand((o) => !this.IsBusy, async (o) =>
                 {
                     this.IsBusy = true;
+                    Storage.ImageCacheStorage.Clear();
                     foreach (var item in wordbooks)
                     {
                         await item.Reload();

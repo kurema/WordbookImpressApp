@@ -173,7 +173,7 @@ namespace WordbookImpressApp.Views
 
         private async void ToolbarItem_Clicked_Rename(object sender, EventArgs e)
         {
-            var options = new ObservableCollection<WordbookImpressLibrary.ViewModels.EntryWithOptionViewModel.EntryWithOptionViewModelEntry>();
+            var options = new ObservableCollection<EntryWithOptionViewModel.EntryWithOptionViewModelEntry>();
             if (!string.IsNullOrEmpty(Model.WordbookTitleUser) && Model.WordbookTitleUser!= Model.WordbookTitleHtml)
             {
                 var item = new EntryWithOptionViewModel.EntryWithOptionViewModelEntry(Model.WordbookTitleUser, Model.WordbookTitleUser);

@@ -10,6 +10,8 @@ using Xamarin.Forms.Xaml;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 
+using System.Linq;
+
 namespace WordbookImpressApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -20,14 +22,36 @@ namespace WordbookImpressApp.Views
 			InitializeComponent ();
 
             this.BindingContext = new MasterViewModel();
+            UpdateEnableImpress();
+            WordbookImpressLibrary.Storage.ConfigStorage.Updated += (s, e) => UpdateEnableImpress();
 		}
 
-        public class MasterViewModel
+        public class MasterViewModel:INotifyPropertyChanged
         {
-            public ObservableCollection<MasterMenuItem> MenuItems { get; }
+            private MasterMenuItem[] menuItemsOriginal;
+            public event PropertyChangedEventHandler PropertyChanged;
+            public MasterMenuItem[] MenuItems
+            {
+                get => menuItemsOriginal.Where(a => string.IsNullOrEmpty(a.Id) || (!ExcludedIds?.Contains(a.Id)?? true)).ToArray();
+                set
+                {
+                    menuItemsOriginal = value;
+                    OnPropertyChanged(nameof(MenuItems));
+                    excludedIds = new string[0];
+                    OnPropertyChanged(nameof(ExcludedIds));
+                }
+            }
+            private string[] excludedIds;
+            public string[] ExcludedIds { get => excludedIds; set { excludedIds = value; OnPropertyChanged(nameof(ExcludedIds));OnPropertyChanged(nameof(MenuItems)); } }
+
+            protected void OnPropertyChanged(string name)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            }
+
             public MasterViewModel()
             {
-                MenuItems = new ObservableCollection<MasterMenuItem>(new[] {
+                menuItemsOriginal = new[] {
                     new MasterMenuItem { TargetType=typeof(Views.WordbooksPage), Title = "単語帳",Description="登録済み単語帳",Icon="icon_wordbook.png" },
                     new MasterMenuItem { Title = "総合単語帳",Description="全ての単語帳を総合",Icon="icon_wordbook.png"  ,Replace=false,Action=async (p)=>{
                         await ((NavigationPage)p.Detail).PushAsync(new WordbookPage(new WordbookImpressLibrary.ViewModels.WordbookImpressViewModel(WordbookImpressLibrary.Storage.WordbooksImpressStorage.Content.ToArray(),WordbookImpressLibrary.Storage.RecordStorage.Content,"総合単語帳")));
@@ -37,11 +61,20 @@ namespace WordbookImpressApp.Views
                         BindingContext=new WordbookImpressLibrary.ViewModels.TestStatusesViewModel()
                         {  Target=new WordbookImpressLibrary.ViewModels.WordbookImpressViewModel(WordbookImpressLibrary.Storage.WordbooksImpressStorage.Content.ToArray(),WordbookImpressLibrary.Storage.RecordStorage.Content,"全体成績")} });
                     }  },
-                    new MasterMenuItem { TargetType=typeof(StorePage),Title = "ストア",Description="書籍を購入" ,Icon="icon_store.png",Replace=false},
+                    new MasterMenuItem { TargetType = typeof(StorePage), Title = "ストア", Description = "書籍を購入", Icon = "icon_store.png", Replace = false ,Id="Store"},
                     new MasterMenuItem { TargetType=typeof(ConfigPage), Title = "設定",Description="単語帳の設定" ,Replace=false,Icon="icon_config.png" },
                     new MasterMenuItem { TargetType=typeof(DeveloperInfoPage), Title = "kuremaについて",SimpleItem=true,Replace=false },
-                });
+                };
             }
+        }
+
+        public void UpdateEnableImpress()
+        {
+            var enabled = WordbookImpressLibrary.Storage.ConfigStorage.Content?.EnableImpressBookFeature;
+            if (enabled == null) return;
+            var model = this.BindingContext as MasterViewModel;
+            if (model == null) return;
+            model.ExcludedIds = enabled.Value ? new string[0] : new string[] { "Store" };
         }
 
         public class MasterMenuItem
@@ -54,6 +87,9 @@ namespace WordbookImpressApp.Views
             public Type TargetType { get; set; }
             public Action<MasterDetailPage> Action { get; set; }
             public bool Replace { get; set; } = true;
+            private bool visible = true;
+            public string Id { get; set; } = null;
+
         }
 
         private void ListViewMenuItems_ItemSelected(object sender, SelectedItemChangedEventArgs e)

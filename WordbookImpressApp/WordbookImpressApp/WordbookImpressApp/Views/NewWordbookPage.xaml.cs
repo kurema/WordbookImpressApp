@@ -61,11 +61,13 @@ namespace WordbookImpressApp.Views
                 new EntryListViewItem(){Title="文字コード",ImageUrl="icon_g_encoding.png",PlaceHolder="文字コード",EntryBinding="Encoding"},
             };
             EntryListEncodingCsv.Update();
+
+            ModelCsv.Encoding = (Encoding.GetEncodings().FirstOrDefault(a => a.Name.ToLower() == "shift_jis").Name ?? Encoding.UTF8.EncodingName);
         }
 
         bool Adding = false;
 
-        private async void AddItem_Clicked_Csv(object sender, EventArgs e)
+        private async void AddItem_Clicked_Csv_Preview(object sender, EventArgs e)
         {
             var (isSmb, url) = WordbookImpressLibrary.Helper.Functions.DistinguishHttpCifs(ModelCsv.Url, ModelCsv.ID, ModelCsv.Password);
             if (isSmb == false)
@@ -76,7 +78,6 @@ namespace WordbookImpressApp.Views
                 var file = new SharpCifs.Smb.SmbFile(url);
                 if(file.IsFile())
                 {
-                    Dictionary<string, List<string>> dic;
                     try
                     {
                         using (var stream = file.GetInputStream())
@@ -84,19 +85,29 @@ namespace WordbookImpressApp.Views
 
                             if (System.IO.Path.GetExtension(url).ToLower() == ".csv")
                             {
-                                using (var sr = new System.IO.StreamReader(stream))
+                                System.Text.Encoding encoding;
+                                try {
+                                    encoding = Encoding.GetEncoding(ModelCsv.Encoding);
+                                } catch {
+                                    encoding = Encoding.UTF8;
+                                }
+                                using (var sr = new System.IO.StreamReader(stream,encoding))
                                 {
-                                    dic = WordbookImpressLibrary.Helper.Functions.GetCsvDictionary(sr);
+                                    var dic = WordbookImpressLibrary.Helper.Functions.GetCsvDictionary(sr);
+                                    sheetCsv.SetDitcionary(dic);
                                 }
                             }
                             else if (System.IO.Path.GetExtension(url).ToLower() == ".xlsx")
                             {
-                                //dic = Helper.Helper.GetXlsxDictionary(stream);
-                                //dic = Helper.Helper.GetXlsxDictionaryOpenXml(stream);
+                                var dic = WordbookImpressLibrary.Helper.SpreadSheet.GetXlsxDictionaryOpenXml(stream);
+                                sheetCsv.SetDitcionary(dic);
                             }
                         }
                     }
-                    catch { }
+                    catch {
+                        await DisplayAlert("警告", "ファイルの読み取りに失敗しました。", "OK");
+                        return;
+                    }
                 }
                 else
                 {
@@ -243,5 +254,6 @@ namespace WordbookImpressApp.Views
             await page.WaitEntry();
             ModelCsv.Encoding = vm.GetValue<string>().Item1;
         }
+
     }
 }

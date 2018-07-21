@@ -27,5 +27,7 @@ namespace WordbookImpressLibrary.Models
 
         public bool StorePreferPrintedBook = true;
         public string StoreOpenBookLink = "[DetailPageURL]";
+
+        public bool EnableImpressBookFeature = true;
     }
 }

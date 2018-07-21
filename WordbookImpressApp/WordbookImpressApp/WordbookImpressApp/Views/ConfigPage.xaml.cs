@@ -133,7 +133,6 @@ namespace WordbookImpressApp.Views
                 },
                 new SettingItems("ストア")
                 {
-
                     new SettingItem("印刷版を優先", (w) => storage.StorePreferPrintedBook?"印刷版の本を優先して表示します。":"電子書籍を優先して表示します。",storage.StorePreferPrintedBook)
                     {
                         Action= (s) =>
@@ -152,6 +151,14 @@ namespace WordbookImpressApp.Views
                                     ,{ "yodobashi.com", "https://www.yodobashi.com/category/81001/?word=[ISBN,EAN,Title]" }
                                     ,{ "楽天ブックス", "https://books.rakuten.co.jp/search/nm?sitem=[ISBN,EAN,Title]"}//アフィリエイト設定は相当めんどくさそうなのでパス。
                                 },storage.StoreOpenBookLink);
+                        }
+                    },
+                    new SettingItem("インプレスブックス関連機能", (w) => storage.EnableImpressBookFeature?"ストア及びインプレスブックス単語帳機能をオンにします。":"ストア及びインプレスブックス単語帳機能をオフにします。",storage.EnableImpressBookFeature)
+                    {
+                        Action= (s) =>
+                        {
+                            storage.EnableImpressBookFeature=s.BoolValue;
+                            return Task.CompletedTask;
                         }
                     },
                 },

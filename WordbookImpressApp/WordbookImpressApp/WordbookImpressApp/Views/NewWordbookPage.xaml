@@ -70,6 +70,7 @@
                     <Label Text="回復" Style="{StaticResource Title}" />
                     <Button Text="削除済み単語帳の表示" Clicked="Button_Clicked_2" />
                     <Label Text="削除した単語帳を回復します。" Style="{StaticResource Normal}" />
+
                 </StackLayout>
             </ScrollView>
         </ContentPage.Content>
@@ -79,7 +80,7 @@
             <vm:RegisterWordbookCsvViewModel />
         </ContentPage.BindingContext>
         <ContentPage.ToolbarItems>
-            <ToolbarItem Text="保存" Clicked="AddItem_Clicked_Csv" Icon="icon_save" />
+            <ToolbarItem Text="保存" Icon="icon_save" />
             <ToolbarItem Text="取り消し" Clicked="Cancel_Clicked" Icon="icon_cancel" />
         </ContentPage.ToolbarItems>
         <ContentPage.Content>
@@ -95,6 +96,14 @@
 
                     <v:EntryListView BorderColor="{StaticResource SeparatorColor}" BorderWidth="1" BackgroundColor="White" x:Name="EntryListTitleCsv" />
                     <Label Text="タイトルは後からでも変更できます。" Style="{StaticResource Normal}" />
+
+                    <Label Text="列選択" Style="{StaticResource Title}" />
+                    <Picker />
+                    <Picker />
+
+                    <Label Text="プレビュー" Style="{StaticResource Title}" />
+                    <v:SpreadSheetView x:Name="sheetCsv" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                    <Button Text="表示" Clicked="AddItem_Clicked_Csv_Preview" />
                 </StackLayout>
             </ScrollView>
         </ContentPage.Content>

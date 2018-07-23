@@ -25,7 +25,7 @@ namespace WordbookImpressLibrary.Models
         public QuizChoice[] QuizChoices { get; set; }
         public string Id { get; set; }
 
-        public static async Task<Dictionary<string, List<string>>> LoadFromCsvHttp(string url, Authentication authentication, Encoding encoding)
+        public static async Task<List<KeyValuePair<string, List<string>>>> LoadFromCsvHttp(string url, Authentication authentication, Encoding encoding)
         {
             var req = System.Net.WebRequest.Create(new Uri(url));
             if (authentication != null && !authentication.IsEmpty)

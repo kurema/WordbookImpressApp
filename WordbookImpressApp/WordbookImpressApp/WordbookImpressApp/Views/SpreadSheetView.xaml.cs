@@ -22,7 +22,7 @@ namespace WordbookImpressApp.Views
             Init();
 		}
 
-        public void SetDitcionary(Dictionary<string, List<string>> dic)
+        public void SetDitcionary(Dictionary<string, List<string>> dic,int maxRow=30)
         {
             Init();
             int c = 0;
@@ -34,17 +34,19 @@ namespace WordbookImpressApp.Views
                 {
                     AddCell(cell, c, r);
                     r++;
+                    if (r > maxRow) break;
                 }
                 c++;
             }
         }
 
-        public void SetDitcionary(Dictionary<WordbookImpressLibrary.Helper.SpreadSheet.RowColumn, string> dic)
+        public void SetDitcionary(Dictionary<WordbookImpressLibrary.Helper.SpreadSheet.RowColumn, string> dic,int maxRow=30)
         {
             Init();
             foreach(var item in dic)
             {
-                AddCell(item.Value, item.Key.Column - 1, item.Key.Row - 1, item.Key.Row == 1);
+                if (item.Key.Row < maxRow)
+                    AddCell(item.Value, item.Key.Column, item.Key.Row, item.Key.Row == 0);
             }
         }
 

@@ -37,14 +37,11 @@ namespace WordbookImpressLibrary.ViewModels
         private string _CsvHeadKey;
         public string CsvHeadKey { get => _CsvHeadKey; set => SetProperty(ref _CsvHeadKey, value); }
 
-        private string[] _CsvHeadKeys;
-        public string[] CsvHeadKeys { get => _CsvHeadKeys; set => SetProperty(ref _CsvHeadKeys, value); }
-
         private string _CsvDescriptionKey;
         public string CsvDescriptionKey { get => _CsvDescriptionKey; set => SetProperty(ref _CsvDescriptionKey, value); }
 
-        private string[] __CsvDescriptionKeys;
-        public string[] _CsvDescriptionKeys { get => __CsvDescriptionKeys; set => SetProperty(ref __CsvDescriptionKeys, value); }
+        private string[] _CsvHeaders;
+        public string[] CsvHeaders { get => _CsvHeaders; set => SetProperty(ref _CsvHeaders, value); }
 
         private string _Encoding;
         public string Encoding { get => _Encoding; set => SetProperty(ref _Encoding, value); }

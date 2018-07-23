@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using System.Text.RegularExpressions;
 
+using System.Linq;
+
 namespace WordbookImpressLibrary.Helper
 {
     public static class Functions
@@ -27,25 +29,18 @@ namespace WordbookImpressLibrary.Helper
             return result;
         }
 
-        public static Dictionary<string, List<string>> GetCsvDictionary(System.IO.TextReader tr) {
+        public static List<KeyValuePair<string, List<string>>> GetCsvDictionary(System.IO.TextReader tr)
+        {
             using (var reader = new CsvHelper.CsvReader(tr))
             {
                 reader.Read();
                 reader.ReadHeader();
                 var headers = new List<string>();
-                var result = new Dictionary<string, List<string>>();
+                var result = new List<KeyValuePair<string, List<string>>>();
                 foreach (var item in reader.Context.HeaderRecord)
                 {
-                    if (result.ContainsKey(item))
                     {
-                        int i = 0;
-                        for (; result.ContainsKey(item + i); i++) { }
-                        result.Add(item + i, new List<string>());
-                        headers.Add(item + i);
-                    }
-                    else
-                    {
-                        result.Add(item, new List<string>());
+                        result.Add(new KeyValuePair<string, List<string>>(item, new List<string>()));
                         headers.Add(item);
                     }
                 }
@@ -53,7 +48,7 @@ namespace WordbookImpressLibrary.Helper
                 {
                     for (int i = 0; i < Math.Min(headers.Count, reader.Context.Record.Length); i++)
                     {
-                        result[headers[i]].Add(reader.Context.Record[i]);
+                        result[i].Value.Add(reader.Context.Record[i]);
                     }
                 }
                 return result;
@@ -64,7 +59,7 @@ namespace WordbookImpressLibrary.Helper
         {
             ID = ID ?? "";
             Password = Password ?? "";
-            if (Regex.Match(url, @"^https?\:\/\/", RegexOptions.IgnoreCase).Success)
+            if (Regex.Match(url, @"^https?\:\/\/|^ftp\:\/\/", RegexOptions.IgnoreCase).Success)
             {
                 return (false, url);
             }

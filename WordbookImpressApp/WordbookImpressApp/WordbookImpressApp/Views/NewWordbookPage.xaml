@@ -98,11 +98,12 @@
                     <Label Text="タイトルは後からでも変更できます。" Style="{StaticResource Normal}" />
 
                     <Label Text="列選択" Style="{StaticResource Title}" />
-                    <Picker />
-                    <Picker />
+                    <Picker Title="単語名" ItemsSource="{Binding CsvHeaders}" />
+                    <Picker Title="説明" ItemsSource="{Binding CsvHeaders}"/>
 
                     <Label Text="プレビュー" Style="{StaticResource Title}" />
-                    <v:SpreadSheetView x:Name="sheetCsv" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                    <!--<v:SpreadSheetView x:Name="sheetCsv" HorizontalOptions="FillAndExpand" VerticalOptions="Start" />-->
+                    <v:SpreadSheetImageView x:Name="sheetImgCsv" HorizontalOptions="FillAndExpand" HeightRequest="400" />
                     <Button Text="表示" Clicked="AddItem_Clicked_Csv_Preview" />
                 </StackLayout>
             </ScrollView>

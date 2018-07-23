@@ -62,7 +62,7 @@ namespace WordbookImpressApp.Views
             };
             EntryListEncodingCsv.Update();
 
-            ModelCsv.Encoding = (Encoding.GetEncodings().FirstOrDefault(a => a.Name.ToLower() == "shift_jis").Name ?? Encoding.UTF8.EncodingName);
+            ModelCsv.Encoding = (Encoding.GetEncodings().FirstOrDefault(a => a.Name.ToLower() == "shift_jis")?.Name ?? Encoding.UTF8.EncodingName);
         }
 
         bool Adding = false;
@@ -72,52 +72,80 @@ namespace WordbookImpressApp.Views
             var (isSmb, url) = WordbookImpressLibrary.Helper.Functions.DistinguishHttpCifs(ModelCsv.Url, ModelCsv.ID, ModelCsv.Password);
             if (isSmb == false)
             {
-
-            }else if (isSmb == true)
-            {
-                var file = new SharpCifs.Smb.SmbFile(url);
-                if(file.IsFile())
+                var client = System.Net.WebRequest.Create(url);
+                client.Credentials = new System.Net.NetworkCredential(ModelCsv.ID, ModelCsv.Password);
+                using(var stream=(await client.GetResponseAsync()).GetResponseStream())
                 {
-                    try
+                    SetSpreadsheet(stream, url);
+                }
+            }
+            else if (isSmb == true)
+            {
+                try
+                {
+                    var file = new SharpCifs.Smb.SmbFile(url);
+                    if (file.IsFile())
                     {
-                        using (var stream = file.GetInputStream())
+                        try
                         {
-
-                            if (System.IO.Path.GetExtension(url).ToLower() == ".csv")
+                            using (var stream = file.GetInputStream())
                             {
-                                System.Text.Encoding encoding;
-                                try {
-                                    encoding = Encoding.GetEncoding(ModelCsv.Encoding);
-                                } catch {
-                                    encoding = Encoding.UTF8;
-                                }
-                                using (var sr = new System.IO.StreamReader(stream,encoding))
-                                {
-                                    var dic = WordbookImpressLibrary.Helper.Functions.GetCsvDictionary(sr);
-                                    sheetCsv.SetDitcionary(dic);
-                                }
-                            }
-                            else if (System.IO.Path.GetExtension(url).ToLower() == ".xlsx")
-                            {
-                                var dic = WordbookImpressLibrary.Helper.SpreadSheet.GetXlsxDictionaryOpenXml(stream);
-                                sheetCsv.SetDitcionary(dic);
+                                SetSpreadsheet(stream, url);
                             }
                         }
+                        catch
+                        {
+                            await DisplayAlert("警告", "ファイルの読み取りに失敗しました。", "OK");
+                            return;
+                        }
                     }
-                    catch {
-                        await DisplayAlert("警告", "ファイルの読み取りに失敗しました。", "OK");
+                    else
+                    {
+                        await DisplayAlert("警告", "ファイルが見当たりません。", "OK");
                         return;
                     }
                 }
-                else
+                catch
                 {
-                    await DisplayAlert("警告", "ファイルが見当たりません。", "OK");
+                    await DisplayAlert("警告", "ファイルの読み取りに失敗しました。", "OK");
                     return;
                 }
             }
 
         }
 
+        private void SetSpreadsheet(System.IO.Stream stream,string url)
+        {
+            if (System.IO.Path.GetExtension(url).ToLower() == ".csv")
+            {
+                System.Text.Encoding encoding;
+                try
+                {
+                    encoding = Encoding.GetEncoding(ModelCsv.Encoding);
+                }
+                catch
+                {
+                    encoding = Encoding.UTF8;
+                }
+                using (var sr = new System.IO.StreamReader(stream, encoding))
+                {
+                    var dic = WordbookImpressLibrary.Helper.Functions.GetCsvDictionary(sr);
+                    //sheetCsv.SetDitcionary(dic,30);
+                    sheetImgCsv.Load(new WordbookImpressLibrary.Helper.SpreadSheet.SpreadSheetProviderCsv(dic));
+                    sheetImgCsv.InvalidateSurface();
+                    ModelCsv.CsvHeaders = dic.Select(a => a.Key).ToArray();
+                }
+            }
+            else if (System.IO.Path.GetExtension(url).ToLower() == ".xlsx")
+            {
+                var dic = WordbookImpressLibrary.Helper.SpreadSheet.GetXlsxDictionaryOpenXml(stream);
+                //sheetCsv.SetDitcionary(dic,30);
+                sheetImgCsv.Load(new WordbookImpressLibrary.Helper.SpreadSheet.SpreadSheetProviderCellList(dic));
+                sheetImgCsv.InvalidateSurface();
+                ModelCsv.CsvHeaders = dic.Where(a => a.Key.Row == 0).OrderBy(a => a.Key.Column).Select(a => a.Value).ToArray();
+            }
+            return;
+        }
 
         private async void AddItem_Clicked(object sender, EventArgs e)
         {
@@ -143,8 +171,6 @@ namespace WordbookImpressApp.Views
             WordbooksImpressStorage.Add(result);
             await WordbooksImpressStorage.SaveLocalData();
 
-            //I dont think MessagingCenter is useful. event is enough.
-            //MessagingCenter.Send(this, "AddItem", this.WordbookInfo);
             await Navigation.PopAsync();
 
             Adding = false;
@@ -171,11 +197,8 @@ namespace WordbookImpressApp.Views
             }
             var vm = (new EntryWithOptionViewModel("タイトルを入力してください。", options, ModelImpress.Title));
             var page = new EntryWithOptionPage(vm);
-            //var waitHandle = new System.Threading.EventWaitHandle(false, System.Threading.EventResetMode.AutoReset);
-            //page.Disappearing += (s, e2) => waitHandle.Set();
             await Navigation.PushAsync(page);
             await page.WaitEntry();
-            //await Task.Run(() => waitHandle.WaitOne());
             var tmp = vm.GetValue<string>();
             if (tmp.Item2)
             {
@@ -187,7 +210,6 @@ namespace WordbookImpressApp.Views
         {
             var text = ((Editor)sender).Text;
             if (string.IsNullOrWhiteSpace(text)) return;
-            //var m1 = new Regex(@"(.+)\n・URL：(.+)\n・ID：(.+)\n・パスワード：(.+)").Match(text);
             {
                 var match = new Regex(@"https://impress.quizgenerator.net/impress/\d+impress/").Match(text);
                 if (match.Success && (string.IsNullOrWhiteSpace(match.Value) || ModelImpress.Url.ToLower() == WordbookImpressInfo.DefaultUrl))
@@ -210,7 +232,7 @@ namespace WordbookImpressApp.Views
                 }
             }
             {
-                var match = new Regex(@"(パスワード|Password)[：\:\s\t]+([a-zA-Z\d]+)",RegexOptions.IgnoreCase).Match(text);
+                var match = new Regex(@"(パスワード|Password|[Ｐｐ]ａｓｓｗｏｒｄ)[：\:\s\t]+([a-zA-Z\d]+)",RegexOptions.IgnoreCase).Match(text);
                 if (match.Success && ModelImpress.Password == "")
                 {
                     ModelImpress.Password = match.Groups[2].Value;

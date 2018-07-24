@@ -24,6 +24,7 @@ namespace WordbookImpressLibrary.Storage
                 //ToDo: You have to fix this agter you implemented IWordbook;
                 public WordbookImpress ContentImpress { get; set; } = null;
                 public WordbookGeneral ContentGeneral { get; set; } = null;
+                public WordbookCsv ContentCsv { get; set; } = null;
 
                 public IWordbook GetContent()
                 {
@@ -34,6 +35,9 @@ namespace WordbookImpressLibrary.Storage
                     else if(ContentGeneral!=null)
                     {
                         return ContentGeneral;
+                    }else if(ContentCsv!=null)
+                    {
+                        return ContentCsv;
                     }
                     return null;
                 }
@@ -45,18 +49,19 @@ namespace WordbookImpressLibrary.Storage
                     switch (item)
                     {
                         case WordbookImpress m: this.ContentImpress = m; break;
+                        case WordbookCsv c:this.ContentCsv = c;break;
                         case WordbookGeneral l: this.ContentGeneral = l; break;
                     }
                 }
 
                 public static IWordbook[] Convert(WordbookItem[] arg)
                 {
-                    return arg.Select(s => s.GetContent()).ToArray();
+                    return arg.Select(s => s.GetContent()).Where(a => a != null).ToArray();
                 }
 
                 public static WordbookItem[] ConvertBack(IWordbook[] arg)
                 {
-                    return arg.Select(a => new WordbookItem(a)).ToArray();
+                    return arg.Where(a => a != null).Select(a => new WordbookItem(a)).ToArray();
                 }
             }
         }

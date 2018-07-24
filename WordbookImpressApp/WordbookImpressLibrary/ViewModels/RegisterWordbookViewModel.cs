@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
+using System.Linq;
+
 namespace WordbookImpressLibrary.ViewModels
 {
     public class RegisterWordbookViewModel : BaseViewModel
@@ -34,16 +36,64 @@ namespace WordbookImpressLibrary.ViewModels
 
     public class RegisterWordbookCsvViewModel: RegisterWordbookViewModel
     {
-        private string _CsvHeadKey;
-        public string CsvHeadKey { get => _CsvHeadKey; set => SetProperty(ref _CsvHeadKey, value); }
+        private CsvHeader _CsvHeadKey;
+        public CsvHeader CsvHeadKey { get => _CsvHeadKey; set => SetProperty(ref _CsvHeadKey, value); }
 
-        private string _CsvDescriptionKey;
-        public string CsvDescriptionKey { get => _CsvDescriptionKey; set => SetProperty(ref _CsvDescriptionKey, value); }
+        private CsvHeader _CsvDescriptionKey;
+        public CsvHeader CsvDescriptionKey { get => _CsvDescriptionKey; set => SetProperty(ref _CsvDescriptionKey, value); }
 
-        private string[] _CsvHeaders;
-        public string[] CsvHeaders { get => _CsvHeaders; set => SetProperty(ref _CsvHeaders, value); }
+        private CsvHeader[] _CsvHeaders;
+        public CsvHeader[] CsvHeaders { get => _CsvHeaders; set => SetProperty(ref _CsvHeaders, value); }
 
         private string _Encoding;
         public string Encoding { get => _Encoding; set => SetProperty(ref _Encoding, value); }
+
+        private string _CurrentlyLoaded;
+        public string CurrentlyLoaded { get => _CurrentlyLoaded; set => SetProperty(ref _CurrentlyLoaded, value); }
+
+        private Helper.SpreadSheet.ISpreadSheetProvider _SpreadSheet;
+        public Helper.SpreadSheet.ISpreadSheetProvider SpreadSheet { get => _SpreadSheet; set => SetProperty(ref _SpreadSheet, value); }
+
+        public class CsvHeader
+        {
+            public string Title { get; set; }
+            public int Index { get; set; }
+        }
+
+        public Models.WordbookCsv GetModel()
+        {
+            if (SpreadSheet == null || CsvHeadKey == null || CsvDescriptionKey == null || CsvHeadKey.Index == CsvDescriptionKey.Index) return null;
+            var indexHead = CsvHeadKey.Index;
+            var indexDesc = CsvDescriptionKey.Index;
+            var size = SpreadSheet.GetSize();
+            var words = SpreadSheet.GetCells()
+                .Where(a => a.RowColumn.Column == indexHead || a.RowColumn.Column == indexDesc)
+                .GroupBy(a => a.RowColumn.Row)
+                .Select(a =>
+                {
+                    var t = a.FirstOrDefault(b => b.RowColumn.Column == indexHead);
+                    var d = a.FirstOrDefault(b => b.RowColumn.Column == indexDesc);
+                    if (String.IsNullOrWhiteSpace(t.Text) || String.IsNullOrWhiteSpace(d.Text)) return null;
+                    return new Models.Word() { Title = t.Text, Description = d.Text };
+                }).Where(a => a != null).ToArray();
+
+            return new Models.WordbookCsv()
+            {
+                ColumnDescriptionHeader = CsvDescriptionKey.Title,
+                ColumnDescriptionIndex = indexDesc,
+                ColumnTitleHeader = CsvHeadKey.Title,
+                ColumnTitleIndex = indexHead,
+                Id = Guid.NewGuid().ToString(),
+                OriginalUrl = Url,
+                QuizChoices = new Models.QuizChoice[0],
+                TitleUser = this.Title,
+                Words = words,
+                Authentication = new Models.Authentication()
+                {
+                    UserName = ID,
+                    //Password is not recorder for security.
+                }
+            };
+        }
     }
 }

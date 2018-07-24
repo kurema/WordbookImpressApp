@@ -53,7 +53,7 @@ namespace WordbookImpressApp.Views
             EntryListLoginCsv.Entries = new EntryListViewItem[] {
                 new EntryListViewItem(){Title="URL",ImageUrl="icon_g_url.png",PlaceHolder="URL",EntryBinding="Url"},
                 new EntryListViewItem(){Title="ID",ImageUrl="icon_g_id.png",PlaceHolder="ID (任意)",EntryBinding="ID"},
-                new EntryListViewItem(){Title="Password",ImageUrl="icon_g_pw.png",PlaceHolder="Password (任意)",EntryBinding="Password"},
+                new EntryListViewItem(){Title="Password",ImageUrl="icon_g_pw.png",PlaceHolder="Password (任意)",EntryBinding="Password",Password=true},
             };
             EntryListLoginCsv.Update();
 
@@ -69,52 +69,61 @@ namespace WordbookImpressApp.Views
 
         private async void AddItem_Clicked_Csv_Preview(object sender, EventArgs e)
         {
+            await PreviewCsvAsync();
+        }
+
+        private async Task PreviewCsvAsync()
+        {
+            activity.IsVisible = true;
+            activity.IsRunning = true;
+            await PreviewCsv();
+            activity.IsVisible = false;
+            activity.IsRunning = false;
+        }
+
+        private async Task PreviewCsv()
+        {
             var (isSmb, url) = WordbookImpressLibrary.Helper.Functions.DistinguishHttpCifs(ModelCsv.Url, ModelCsv.ID, ModelCsv.Password);
             if (isSmb == false)
             {
                 var client = System.Net.WebRequest.Create(url);
                 client.Credentials = new System.Net.NetworkCredential(ModelCsv.ID, ModelCsv.Password);
-                using(var stream=(await client.GetResponseAsync()).GetResponseStream())
+                using (var stream = (await client.GetResponseAsync()).GetResponseStream())
                 {
                     SetSpreadsheet(stream, url);
+                    ModelCsv.CurrentlyLoaded = ModelCsv.Url;
                 }
             }
             else if (isSmb == true)
             {
                 try
                 {
-                    var file = new SharpCifs.Smb.SmbFile(url);
-                    if (file.IsFile())
+                    await Task.Run(() =>
                     {
-                        try
+                        var file = new SharpCifs.Smb.SmbFile(url);
+                        if (file.IsFile())
                         {
                             using (var stream = file.GetInputStream())
                             {
                                 SetSpreadsheet(stream, url);
+                                ModelCsv.CurrentlyLoaded = ModelCsv.Url;
                             }
                         }
-                        catch
-                        {
-                            await DisplayAlert("警告", "ファイルの読み取りに失敗しました。", "OK");
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        await DisplayAlert("警告", "ファイルが見当たりません。", "OK");
-                        return;
-                    }
+                    });
                 }
                 catch
                 {
-                    await DisplayAlert("警告", "ファイルの読み取りに失敗しました。", "OK");
+                    await DisplayAlert("報告", "ファイルの読み取りに失敗しました。", "OK");
                     return;
                 }
             }
-
+            else
+            {
+                await DisplayAlert("報告", "適切なアドレスを入力してください。", "OK");
+            }
         }
 
-        private void SetSpreadsheet(System.IO.Stream stream,string url)
+        private async void SetSpreadsheet(System.IO.Stream stream,string url)
         {
             if (System.IO.Path.GetExtension(url).ToLower() == ".csv")
             {
@@ -129,20 +138,22 @@ namespace WordbookImpressApp.Views
                 }
                 using (var sr = new System.IO.StreamReader(stream, encoding))
                 {
-                    var dic = WordbookImpressLibrary.Helper.Functions.GetCsvDictionary(sr);
-                    //sheetCsv.SetDitcionary(dic,30);
-                    sheetImgCsv.Load(new WordbookImpressLibrary.Helper.SpreadSheet.SpreadSheetProviderCsv(dic));
-                    sheetImgCsv.InvalidateSurface();
-                    ModelCsv.CsvHeaders = dic.Select(a => a.Key).ToArray();
+                    var dic = WordbookImpressLibrary.Helper.SpreadSheet.GetCsvDictionary(sr);
+                    var page = new NewWordbookCsvPreviewPage(ModelCsv);
+                    page.SpreadSheetImageView.Load(ModelCsv.SpreadSheet = new WordbookImpressLibrary.Helper.SpreadSheet.SpreadSheetProviderCsv(dic));
+                    await Navigation.PushAsync(page);
+                    page.SpreadSheetImageView.InvalidateSurface();
+                    ModelCsv.CsvHeaders = dic.Select((a, index) => new RegisterWordbookCsvViewModel.CsvHeader() { Title = a.Key, Index = index }).ToArray();
                 }
             }
             else if (System.IO.Path.GetExtension(url).ToLower() == ".xlsx")
             {
                 var dic = WordbookImpressLibrary.Helper.SpreadSheet.GetXlsxDictionaryOpenXml(stream);
-                //sheetCsv.SetDitcionary(dic,30);
-                sheetImgCsv.Load(new WordbookImpressLibrary.Helper.SpreadSheet.SpreadSheetProviderCellList(dic));
-                sheetImgCsv.InvalidateSurface();
-                ModelCsv.CsvHeaders = dic.Where(a => a.Key.Row == 0).OrderBy(a => a.Key.Column).Select(a => a.Value).ToArray();
+                var page = new NewWordbookCsvPreviewPage(ModelCsv);
+                page.SpreadSheetImageView.Load(ModelCsv.SpreadSheet = new WordbookImpressLibrary.Helper.SpreadSheet.SpreadSheetProviderCellList(dic));
+                await Navigation.PushAsync(page);
+                page.SpreadSheetImageView.InvalidateSurface();
+                ModelCsv.CsvHeaders = dic.Where(a => a.Key.Row == 0).OrderBy(a => a.Key.Column).Select(a => new RegisterWordbookCsvViewModel.CsvHeader() { Title = a.Value, Index = a.Key.Column }).ToArray();
             }
             return;
         }
@@ -277,5 +288,24 @@ namespace WordbookImpressApp.Views
             ModelCsv.Encoding = vm.GetValue<string>().Item1;
         }
 
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            if (ModelCsv == null) return;
+            if (ModelCsv.CurrentlyLoaded == ModelCsv.Url
+                && ModelCsv.CsvHeadKey?.Index != ModelCsv.CsvDescriptionKey?.Index
+                && ModelCsv.CsvHeadKey != null && ModelCsv.CsvDescriptionKey != null
+                )
+            {
+                var result = ModelCsv?.GetModel();
+                if (result == null) return;
+                WordbooksImpressStorage.Content.Add(result);
+                await WordbooksImpressStorage.SaveLocalData();
+                await Navigation.PopAsync();
+            }
+            else
+            {
+                await PreviewCsvAsync();
+            }
+        }
     }
 }

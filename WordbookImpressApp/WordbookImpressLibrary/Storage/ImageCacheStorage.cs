@@ -56,27 +56,28 @@ namespace WordbookImpressLibrary.Storage
         public static string GetImageUrl(string url)
         {
             return url;
-            if (string.IsNullOrEmpty(url))
-            {
-                return null;
-            }
-            var path = GetPath(url);
-            if (System.IO.File.Exists(path))
-            {
-                return path;
-            }
-            else
-            {
-                if (System.IO.Directory.Exists(Path))
-                {
-                    System.IO.Directory.CreateDirectory(Path);
-                }
-                using (System.Net.WebClient wc = new System.Net.WebClient())
-                {
-                    wc.DownloadFileAsync(new Uri(url), path);
-                }
-                return url;
-            }
+            // disabled image cache.
+            //if (string.IsNullOrEmpty(url))
+            //{
+            //    return null;
+            //}
+            //var path = GetPath(url);
+            //if (System.IO.File.Exists(path))
+            //{
+            //    return path;
+            //}
+            //else
+            //{
+            //    if (System.IO.Directory.Exists(Path))
+            //    {
+            //        System.IO.Directory.CreateDirectory(Path);
+            //    }
+            //    using (System.Net.WebClient wc = new System.Net.WebClient())
+            //    {
+            //        wc.DownloadFileAsync(new Uri(url), path);
+            //    }
+            //    return url;
+            //}
         }
 
         public static void SaveImage(string url)

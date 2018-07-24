@@ -29,32 +29,6 @@ namespace WordbookImpressLibrary.Helper
             return result;
         }
 
-        public static List<KeyValuePair<string, List<string>>> GetCsvDictionary(System.IO.TextReader tr)
-        {
-            using (var reader = new CsvHelper.CsvReader(tr))
-            {
-                reader.Read();
-                reader.ReadHeader();
-                var headers = new List<string>();
-                var result = new List<KeyValuePair<string, List<string>>>();
-                foreach (var item in reader.Context.HeaderRecord)
-                {
-                    {
-                        result.Add(new KeyValuePair<string, List<string>>(item, new List<string>()));
-                        headers.Add(item);
-                    }
-                }
-                while (reader.Read())
-                {
-                    for (int i = 0; i < Math.Min(headers.Count, reader.Context.Record.Length); i++)
-                    {
-                        result[i].Value.Add(reader.Context.Record[i]);
-                    }
-                }
-                return result;
-            }
-        }
-
         public static (bool? isSmb,string url) DistinguishHttpCifs(string url,string ID="",string Password="")
         {
             ID = ID ?? "";

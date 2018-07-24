@@ -60,7 +60,7 @@ namespace WordbookImpressLibrary.ViewModels
             var remain = new List<QuizChoice>();
             foreach (var w in WordbooksTarget)
             {
-                if (w.QuizChoices.Length == 0) { continue; }
+                if (w.QuizChoices?.Length == 0) { continue; }
                 remain.AddRange(w.QuizChoices);
             }
             while (remain.Count > 0)
@@ -640,7 +640,7 @@ namespace WordbookImpressLibrary.ViewModels
                 {
                     tempResults.Add(TestResult.Yet);
                 }
-                for (int i = 0; i < w.QuizChoices.Length; i++)
+                for (int i = 0; i < w.QuizChoices?.Length; i++)
                 {
                     tempResults.Add(TestResult.Yet);
                 }

@@ -66,8 +66,7 @@ namespace WordbookImpressLibrary.ViewModels
             var result = new List<WordbookImpressViewModel>();
             foreach(var item in arg)
             {
-                if (item is WordbookImpress)
-                    result.Add(new WordbookImpressViewModel((WordbookImpress)item, record));
+                result.Add(new WordbookImpressViewModel(item, record));
             }
             this.wordbooks = new ObservableCollection<WordbookImpressViewModel>(result);
         }

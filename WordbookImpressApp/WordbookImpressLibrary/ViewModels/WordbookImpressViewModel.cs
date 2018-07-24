@@ -18,13 +18,19 @@ namespace WordbookImpressLibrary.ViewModels
         public bool HasMultipleWordbook { get => wordbooks != null; }
         public bool HasWords
         {
-            get {
-                foreach(var item in Wordbooks)
+            get
+            {
+                foreach (var item in Wordbooks)
                 {
-                    if (item.Words.Length > 0) return true;
+                    if (item?.Words?.Length > 0) return true;
                 }
                 return false;
             }
+        }
+
+        public bool ContainsId(string id)
+        {
+            return this.Wordbooks?.Count(a => a.Id == id) > 0;
         }
 
         public String Uri => !CurrentTargetWordbookImpress ? "" : ((WordbookImpress)wordbook)?.Uri;
@@ -46,13 +52,19 @@ namespace WordbookImpressLibrary.ViewModels
                 var w = new List<IWordViewModel>();
                 foreach (var wb in this.wordbooks)
                 {
-                    foreach (var item in wb.Words)
+                    if (wb.Words != null)
                     {
-                        w.Add(new WordViewModel(item, Record));
+                        foreach (var item in wb.Words)
+                        {
+                            w.Add(new WordViewModel(item, Record));
+                        }
                     }
-                    foreach (var item in wb.QuizChoices)
+                    if (wb.QuizChoices != null)
                     {
-                        w.Add(new QuizChoiceViewModel(item, Record));
+                        foreach (var item in wb.QuizChoices)
+                        {
+                            w.Add(new QuizChoiceViewModel(item, Record));
+                        }
                     }
                 }
                 return new ObservableCollection<IWordViewModel>(w);
@@ -60,13 +72,19 @@ namespace WordbookImpressLibrary.ViewModels
             else
             {
                 var w = new List<IWordViewModel>();
-                foreach (var item in wordbook.Words)
+                if (wordbook?.Words != null)
                 {
-                    w.Add(new WordViewModel(item, Record));
+                    foreach (var item in wordbook.Words)
+                    {
+                        w.Add(new WordViewModel(item, Record));
+                    }
                 }
-                foreach (var item in wordbook.QuizChoices)
+                if (wordbook?.QuizChoices != null)
                 {
-                    w.Add(new QuizChoiceViewModel(item, Record));
+                    foreach (var item in wordbook.QuizChoices)
+                    {
+                        w.Add(new QuizChoiceViewModel(item, Record));
+                    }
                 }
                 return new ObservableCollection<IWordViewModel>(w);
             }
@@ -85,6 +103,7 @@ namespace WordbookImpressLibrary.ViewModels
             get
             {
                 if (WordsCache != null) return WordsCache;
+                if (words == null) return new ObservableCollection<IWordViewModel>();
                 if (String.IsNullOrEmpty(SearchWord))
                 {
                     switch (SortKind.Kind)
@@ -127,7 +146,11 @@ namespace WordbookImpressLibrary.ViewModels
                 }
                 return WordsCache = new ObservableCollection<IWordViewModel>(words.Where((w) => w.Head.Contains(SearchWord) || w.Description.Contains(SearchWord)).OrderBy(w => (w.Head == SearchWord ? "0" : (w.Head.Contains(SearchWord) ? "1" : "2")) + w.Head));
             }
-            set { SetProperty(ref _words, value); SearchWord = ""; }
+            set {
+                _words = value;
+                OnPropertyChanged();
+                //SetProperty(ref _words, value);
+                SearchWord = ""; }
         }
 
         private String searchWord = "";
@@ -231,16 +254,45 @@ namespace WordbookImpressLibrary.ViewModels
             this.SortKind = Storage.ConfigStorage.Content?.SortKind ?? SortKindInfo.GetDefault();
         }
 
+
         public async Task<(WordbookImpress wordbook, string html, string data,string format)> Reload()
         {
+            if (IsBusy) return (null, null, null, null);
             if (HasMultipleWordbook)
             {
                 IsBusy = true;
                 var w = new List<IWordViewModel>();
-                foreach (WordbookImpress wb in wordbooks)
+                foreach (var wb in wordbooks)
                 {
-                    await wb.Reload();
-                    foreach (var item in wb.Words)
+                    if (wb is WordbookImpress wbi)
+                    {
+                        await wbi.Reload();
+                        foreach (var item in wbi.Words)
+                        {
+                            w.Add(new WordViewModel(item, Record));
+                        }
+                    }
+                    else
+                    {
+                        w.AddRange(wb.Words.Select(a => new WordViewModel(a, Record)).ToArray());
+                    }
+                }
+                Words = new ObservableCollection<IWordViewModel>(w);
+
+                IsBusy = false;
+                return (null, null, null, null);
+            }
+            else if (wordbook is WordbookImpress wbi)
+            {
+                IsBusy = true;
+                var result = await wbi.Reload();
+                OnPropertyChanged(nameof(UriLogo));
+                OnPropertyChanged(nameof(WordbookTitle));
+
+                if (result.wordbook?.Words != null)
+                {
+                    var w = new List<IWordViewModel>();
+                    foreach (var item in result.wordbook.Words)
                     {
                         w.Add(new WordViewModel(item, Record));
                     }
@@ -248,26 +300,13 @@ namespace WordbookImpressLibrary.ViewModels
                 }
 
                 IsBusy = false;
-                return (null, null, null,null);
-            }
-            else if(wordbook is WordbookImpress wbi)
-            {
-                IsBusy = true;
-                var result = await wbi.Reload();
-                OnPropertyChanged(nameof(UriLogo));
-                OnPropertyChanged(nameof(WordbookTitle));
-
-                var w = new List<IWordViewModel>();
-                foreach (var item in result.wordbook.Words)
-                {
-                    w.Add(new WordViewModel(item, Record));
-                }
-                Words = new ObservableCollection<IWordViewModel>(w);
-
-                IsBusy = false;
                 return result;
             }
-            else { return (null, null, null, null); }
+            else
+            {
+                IsBusy = false;
+                return (null, null, null, null);
+            }
         }
 
         public ReloadCommandClass ReloadCommand => new ReloadCommandClass(this);

@@ -49,12 +49,13 @@ namespace WordbookImpressApp.Views
             var model = this.Model;
             try
             {
-                //ToList()はおかしいけどコストは0に近いと思う。
-                this.BindingContext = new WordbookImpressViewModel(WordbooksImpressStorage.Content.ToList().Find(w => w.Id == this.Model.Uri), Model.Record);
+                this.BindingContext = new WordbookImpressViewModel(WordbooksImpressStorage.Content.ToList().Find(w => this.Model.ContainsId(w.Id)), Model.Record);
+                model.IsBusy = false;
             }
             catch
             {
                 this.BindingContext = model;
+                model.IsBusy = false;
             }
         }
 
@@ -69,6 +70,8 @@ namespace WordbookImpressApp.Views
         private async void Button_Clicked(object sender, EventArgs e)
         {
             if (Pushing) return;
+            if (IsBusy) return;
+            if (Model.Words == null || Model.Words.Count == 0) return;
             Pushing = true;
             var page = new QuizWordChoicePage(new QuizWordChoiceViewModel(Model, QuizWordChoiceViewModel.ChoiceKind.Title));
             NavigationPage.SetHasNavigationBar(page, false);
@@ -79,6 +82,8 @@ namespace WordbookImpressApp.Views
         private async void Button_Clicked2(object sender, EventArgs e)
         {
             if (Pushing) return;
+            if (IsBusy) return;
+            if (Model.Words == null || Model.Words.Count == 0) return;
             Pushing = true;
             var page = new QuizWordChoicePage(new QuizWordChoiceViewModel(Model, QuizWordChoiceViewModel.ChoiceKind.Description));
             NavigationPage.SetHasNavigationBar(page, false);

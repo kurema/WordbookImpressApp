@@ -31,7 +31,17 @@ namespace WordbookImpressLibrary.Models
             if (authentication != null && !authentication.IsEmpty)
                 req.Credentials = new System.Net.NetworkCredential(authentication.UserName, authentication.Password);
             var webres = await req.GetResponseAsync();
-            return Helper.Functions.GetCsvDictionary(new System.IO.StreamReader(webres.GetResponseStream()));
+            return Helper.SpreadSheet.GetCsvDictionary(new System.IO.StreamReader(webres.GetResponseStream()));
         }
+    }
+
+    public class WordbookCsv : WordbookGeneral
+    {
+        public string OriginalUrl { get; set; }
+        public int ColumnTitleIndex { get; set; }
+        public string ColumnTitleHeader { get; set; }
+        public int ColumnDescriptionIndex { get; set; }
+        public string ColumnDescriptionHeader { get; set; }
+        public Authentication Authentication { get; set; }
     }
 }

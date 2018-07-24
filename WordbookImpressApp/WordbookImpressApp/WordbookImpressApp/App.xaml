@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:v="clr-namespace:WordbookImpressApp.Views"
              x:Class="WordbookImpressApp.App">
 	<Application.Resources>
         <Style TargetType="Label">
@@ -28,6 +29,40 @@
             <Style x:Key="MySubtitleStyle" TargetType="Label" BaseResourceKey="SubtitleStyle">
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Large" />
+            </Style>
+
+            <Color x:Key="AddPage_Background">#F5F5F5</Color>
+            <Style TargetType="StackLayout" x:Key="AddPage_StackStyle">
+                <Setter Property="Spacing" Value="10" />
+                <Setter Property="Padding" Value="0" />
+            </Style>
+            <Color x:Key="AddPage_SeparatorColor">#DDDDDD</Color>
+            <Color x:Key="AddPage_TextColor">#444444</Color>
+            <Style x:Key="AddPage_Title" TargetType="Label">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="Accent"/>
+            </Style>
+            <Style x:Key="AddPage_Normal" TargetType="Label">
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="TextColor" Value="{StaticResource AddPage_TextColor}"/>
+            </Style>
+            <Style x:Key="AddPage_Button" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="BorderColor" Value="{StaticResource AddPage_SeparatorColor}" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="BorderWidth" Value="0,1"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="TextColor" Value="{StaticResource AddPage_TextColor}"/>
+            </Style>
+            <Style x:Key="AddPage_Editor" TargetType="Editor">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="HeightRequest" Value="150"/>
+            </Style>
+            <Style x:Key="AddPage_EntryListView" TargetType="v:EntryListView">
+                <Setter Property="BackgroundColor" Value="White" />
             </Style>
         </ResourceDictionary>
 	</Application.Resources>

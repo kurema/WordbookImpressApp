@@ -1,12 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WordbookImpressApp.Views.NewWordbookCsvPreviewPage">
+             x:Class="WordbookImpressApp.Views.NewWordbookCsvPreviewPage"
+            xmlns:v="clr-namespace:WordbookImpressApp.Views"
+            BackgroundColor="{StaticResource Key=AddPage_Background}"
+             Title="プレビュー"
+             >
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="項目選択" Style="{StaticResource AddPage_Title}" />
+            <Label Grid.Row="1" Text="列を選択してください。" Style="{StaticResource AddPage_Normal}" />
+            <Picker Grid.Row="2" Title="単語名" ItemDisplayBinding="{Binding Title}" SelectedItem="{Binding CsvHeadKey}" ItemsSource="{Binding CsvHeaders}" />
+            <Picker Grid.Row="3" Title="説明" ItemDisplayBinding="{Binding Title}" SelectedItem="{Binding CsvDescriptionKey}" ItemsSource="{Binding CsvHeaders}"/>
+            <v:SpreadSheetImageView Grid.Row="4" x:Name="sheetImgCsv" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

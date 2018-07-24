@@ -96,6 +96,7 @@ namespace WordbookImpressApp.Views
                                 PlaceholderColor = this.PlaceholderColor
                             };
                             view.PropertyChanged += (s, e) => item.Action?.Invoke(view.Text);
+                            view.IsPassword = item.Password;
                             grid.Children.Add(view);
                             Grid.SetColumn(view, 1);
                             Grid.SetRow(view, i * 2 + 1);
@@ -130,5 +131,6 @@ namespace WordbookImpressApp.Views
         public string PlaceHolder { get; set; }
         public string EntryDefault { get; set; }
         public string EntryBinding { get; set; }
+        public bool Password { get; set; } = false;
     }
 }

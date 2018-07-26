@@ -35,7 +35,6 @@
                     <Button Clicked="Button_Clicked_Finish"  IsVisible="{Binding Parent.IsLastPage,Converter={StaticResource notVC}}" Text="{i18n:Translate TutorialButtonSkip}" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="0"/>
                     <Button Command="{Binding Parent.NextPageCommand}" IsVisible="{Binding Parent.IsLastPage,Converter={StaticResource notVC}}" Text="{i18n:Translate TutorialButtonNext}" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="1"/>
                     <Button Clicked="Button_Clicked_Finish" IsVisible="{Binding Parent.IsLastPage}" Text="{i18n:Translate TutorialButtonDone}" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="1"/>
-                    <!--<Button Clicked="Button_Clicked_Finish" IsVisible="{Binding Parent.IsSinglePage}" Text="戻る" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" Grid.Row="2" Grid.ColumnSpan="2"/>-->
                 </Grid>
             </ContentPage>
         </DataTemplate>

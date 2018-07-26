@@ -129,9 +129,6 @@
   <data name="AlertNo" xml:space="preserve">
     <value>いいえ</value>
   </data>
-  <data name="AlertWarning" xml:space="preserve">
-    <value>注意</value>
-  </data>
   <data name="AlertYes" xml:space="preserve">
     <value>はい</value>
   </data>
@@ -848,5 +845,138 @@ https://affiliate.amazon.co.jp/help/operating/paapilicenseagreement</comment>
   </data>
   <data name="WordWarning" xml:space="preserve">
     <value>警告</value>
+  </data>
+  <data name="NewWordbookAlertFailedToAuth" xml:space="preserve">
+    <value>認証に失敗しました。</value>
+  </data>
+  <data name="NewWordbookAlertFailedToLoad" xml:space="preserve">
+    <value>ファイルの読み取りに失敗しました。</value>
+  </data>
+  <data name="NewWordbookAlertRecoverNotFound" xml:space="preserve">
+    <value>削除された単語帳がありません。</value>
+  </data>
+  <data name="NewWordbookAlertWrongAddress" xml:space="preserve">
+    <value>アドレスが不適切です。</value>
+  </data>
+  <data name="NewWordbookCommonAuthTitle" xml:space="preserve">
+    <value>認証情報</value>
+  </data>
+  <data name="NewWordbookCommonTitleTitle" xml:space="preserve">
+    <value>タイトル</value>
+  </data>
+  <data name="NewWordbookDefaultEncoding" xml:space="preserve">
+    <value>shift_jis</value>
+    <comment>All character is lower case.</comment>
+  </data>
+  <data name="NewWordbookEncodingMessage" xml:space="preserve">
+    <value>エンコードを設定してください</value>
+  </data>
+  <data name="NewWordbookEntryListEncoding" xml:space="preserve">
+    <value>文字コード</value>
+  </data>
+  <data name="NewWordbookEntryListId" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="NewWordbookEntryListOptional" xml:space="preserve">
+    <value> (任意)</value>
+  </data>
+  <data name="NewWordbookEntryListPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="NewWordbookEntryListTitle" xml:space="preserve">
+    <value>タイトル</value>
+  </data>
+  <data name="NewWordbookEntryListUrl" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="NewWordbookRecoverMessage" xml:space="preserve">
+    <value>復活する単語帳を選択してください。</value>
+  </data>
+  <data name="NewWordbookRecoverTitle" xml:space="preserve">
+    <value>単語帳</value>
+  </data>
+  <data name="NewWordbookRequestTitleMessage" xml:space="preserve">
+    <value>タイトルを入力してください。</value>
+  </data>
+  <data name="NewWordbookTabCsvAuthMessage" xml:space="preserve">
+    <value>HTTPやSMB/CIFS(ファイル共有)のアドレスを指定できます。
+必要ならIDとパスワードを入力してください。
+SMB/CIFSのアドレスは以下ような形式です。
+"smb://UserName:Password@ServerIP/ShareName/..."
+"\\servername\ShareName\..."</value>
+  </data>
+  <data name="NewWordbookTabCsvColumnButtonPreview" xml:space="preserve">
+    <value>プレビュー</value>
+  </data>
+  <data name="NewWordbookTabCsvColumnPickerDetail" xml:space="preserve">
+    <value>説明</value>
+  </data>
+  <data name="NewWordbookTabCsvColumnPickerHead" xml:space="preserve">
+    <value>単語名</value>
+  </data>
+  <data name="NewWordbookTabCsvColumnTitle" xml:space="preserve">
+    <value>列選択</value>
+  </data>
+  <data name="NewWordbookTabCsvEncodeButton" xml:space="preserve">
+    <value>選択</value>
+  </data>
+  <data name="NewWordbookTabCsvEncodeMessage" xml:space="preserve">
+    <value>ファイルの文字コードを設定してください。</value>
+  </data>
+  <data name="NewWordbookTabCsvTitle" xml:space="preserve">
+    <value>CSV/XLSX</value>
+  </data>
+  <data name="NewWordbookTabCsvTitleMessage" xml:space="preserve">
+    <value>タイトルは後からでも変更できます。</value>
+  </data>
+  <data name="NewWordbookTabImpressAutoMessage" xml:space="preserve">
+    <value>特典ページの内容を張り付ける事で一括入力ができます。</value>
+  </data>
+  <data name="NewWordbookTabImpressAutoTitle" xml:space="preserve">
+    <value>自動入力</value>
+  </data>
+  <data name="NewWordbookTabImpressGetButton" xml:space="preserve">
+    <value>入手元を表示</value>
+  </data>
+  <data name="NewWordbookTabImpressGetMessage" xml:space="preserve">
+    <value>単語帳やその他の特典が入手できる書籍はストアからも探せます。</value>
+  </data>
+  <data name="NewWordbookTabImpressGetTitle" xml:space="preserve">
+    <value>入手</value>
+  </data>
+  <data name="NewWordbookTabImpressRecoverButton" xml:space="preserve">
+    <value>削除済み単語帳の表示</value>
+  </data>
+  <data name="NewWordbookTabImpressRecoverMessage" xml:space="preserve">
+    <value>削除した単語帳を回復します。</value>
+  </data>
+  <data name="NewWordbookTabImpressRecoverTitle" xml:space="preserve">
+    <value>回復</value>
+  </data>
+  <data name="NewWordbookTabImpressTitle" xml:space="preserve">
+    <value>インプレスブックス</value>
+  </data>
+  <data name="NewWordbookTabImpressTitleFromUrl" xml:space="preserve">
+    <value>URLから候補を表示</value>
+  </data>
+  <data name="NewWordbookTabImpressTitleMessage" xml:space="preserve">
+    <value>タイトルは後からでも変更できます。
+空白の場合自動的に設定されます。
+URLから候補を表示できる場合もあります。</value>
+  </data>
+  <data name="NewWordbookToolbarItemCancel" xml:space="preserve">
+    <value>取り消し</value>
+  </data>
+  <data name="NewWordbookToolbarItemSave" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="TitleNewWordbook" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="WordReport" xml:space="preserve">
+    <value>報告</value>
+  </data>
+  <data name="StoreItemsCardContentMore" xml:space="preserve">
+    <value>もっと見る</value>
   </data>
 </root>

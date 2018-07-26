@@ -46,13 +46,6 @@ namespace WordbookImpressApp.Views
             base.OnParentSet();
         }
 
-        //protected override void OnAppearing()
-        //{
-        //    base.OnAppearing();
-
-        //    Proceed.BindingContext = new ProceedViewModel(this);
-        //}
-
         private void Button_Clicked_SearchWeblio(object sender, EventArgs e)
         {
             Device.OpenUri(new Uri(String.Format(AppResources.WordPageSearchDictionaryUrl, System.Web.HttpUtility.UrlEncode(Model.Head))));

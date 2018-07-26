@@ -2,6 +2,7 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:WordbookImpressApp.Views"
+             xmlns:i18n="clr-namespace:WordbookImpressApp.Extensions"
              x:Class="WordbookImpressApp.Views.StoreItemsCardContentView">
   <ContentView.Content>
         <Grid Margin="0,10">
@@ -10,7 +11,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label FontAttributes="Bold" Grid.Row="0" x:Name="labelTitle" HorizontalOptions="Start" HorizontalTextAlignment="Start" Margin="10,5" />
-            <Label TextColor="Accent" HorizontalOptions="End" HorizontalTextAlignment="End" Text="もっと見る" IsVisible="False" x:Name="labelMore" Margin="10,5">
+            <Label TextColor="Accent" HorizontalOptions="End" HorizontalTextAlignment="End" Text="{i18n:Translate StoreItemsCardContentMore}" IsVisible="False" x:Name="labelMore" Margin="10,5">
                 <Label.GestureRecognizers>
                     <ClickGestureRecognizer Clicked="ClickGestureRecognizer_Clicked" />
                     <TapGestureRecognizer Tapped="ClickGestureRecognizer_Clicked" />

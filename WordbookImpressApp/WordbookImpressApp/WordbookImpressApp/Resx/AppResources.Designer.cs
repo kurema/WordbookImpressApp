@@ -97,15 +97,6 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   注意 に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string AlertWarning {
-            get {
-                return ResourceManager.GetString("AlertWarning", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   はい に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AlertYes {
@@ -359,6 +350,60 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
+        ///   認証に失敗しました。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookAlertFailedToAuth {
+            get {
+                return ResourceManager.GetString("NewWordbookAlertFailedToAuth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ファイルの読み取りに失敗しました。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookAlertFailedToLoad {
+            get {
+                return ResourceManager.GetString("NewWordbookAlertFailedToLoad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   削除された単語帳がありません。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookAlertRecoverNotFound {
+            get {
+                return ResourceManager.GetString("NewWordbookAlertRecoverNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   アドレスが不適切です。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookAlertWrongAddress {
+            get {
+                return ResourceManager.GetString("NewWordbookAlertWrongAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   認証情報 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookCommonAuthTitle {
+            get {
+                return ResourceManager.GetString("NewWordbookCommonAuthTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   タイトル に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookCommonTitleTitle {
+            get {
+                return ResourceManager.GetString("NewWordbookCommonTitleTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   列を選択してください。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookCsvPreviewMessage {
@@ -391,6 +436,309 @@ namespace WordbookImpressApp.Resx {
         internal static string NewWordbookCsvPreviewTitle {
             get {
                 return ResourceManager.GetString("NewWordbookCsvPreviewTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   shift_jis に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookDefaultEncoding {
+            get {
+                return ResourceManager.GetString("NewWordbookDefaultEncoding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   エンコードを設定してください に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookEncodingMessage {
+            get {
+                return ResourceManager.GetString("NewWordbookEncodingMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   文字コード に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookEntryListEncoding {
+            get {
+                return ResourceManager.GetString("NewWordbookEntryListEncoding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ID に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookEntryListId {
+            get {
+                return ResourceManager.GetString("NewWordbookEntryListId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///    (任意) に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookEntryListOptional {
+            get {
+                return ResourceManager.GetString("NewWordbookEntryListOptional", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Password に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookEntryListPassword {
+            get {
+                return ResourceManager.GetString("NewWordbookEntryListPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   タイトル に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookEntryListTitle {
+            get {
+                return ResourceManager.GetString("NewWordbookEntryListTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   URL に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookEntryListUrl {
+            get {
+                return ResourceManager.GetString("NewWordbookEntryListUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   復活する単語帳を選択してください。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookRecoverMessage {
+            get {
+                return ResourceManager.GetString("NewWordbookRecoverMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   単語帳 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookRecoverTitle {
+            get {
+                return ResourceManager.GetString("NewWordbookRecoverTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   タイトルを入力してください。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookRequestTitleMessage {
+            get {
+                return ResourceManager.GetString("NewWordbookRequestTitleMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   HTTPやSMB/CIFS(ファイル共有)のアドレスを指定できます。
+        ///必要ならIDとパスワードを入力してください。
+        ///SMB/CIFSのアドレスは以下ような形式です。
+        ///&quot;smb://UserName:Password@ServerIP/ShareName/...&quot;
+        ///&quot;\\servername\ShareName\...&quot; に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabCsvAuthMessage {
+            get {
+                return ResourceManager.GetString("NewWordbookTabCsvAuthMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   プレビュー に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabCsvColumnButtonPreview {
+            get {
+                return ResourceManager.GetString("NewWordbookTabCsvColumnButtonPreview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   説明 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabCsvColumnPickerDetail {
+            get {
+                return ResourceManager.GetString("NewWordbookTabCsvColumnPickerDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   単語名 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabCsvColumnPickerHead {
+            get {
+                return ResourceManager.GetString("NewWordbookTabCsvColumnPickerHead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   列選択 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabCsvColumnTitle {
+            get {
+                return ResourceManager.GetString("NewWordbookTabCsvColumnTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   選択 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabCsvEncodeButton {
+            get {
+                return ResourceManager.GetString("NewWordbookTabCsvEncodeButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   ファイルの文字コードを設定してください。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabCsvEncodeMessage {
+            get {
+                return ResourceManager.GetString("NewWordbookTabCsvEncodeMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   CSV/XLSX に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabCsvTitle {
+            get {
+                return ResourceManager.GetString("NewWordbookTabCsvTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   タイトルは後からでも変更できます。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabCsvTitleMessage {
+            get {
+                return ResourceManager.GetString("NewWordbookTabCsvTitleMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   特典ページの内容を張り付ける事で一括入力ができます。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabImpressAutoMessage {
+            get {
+                return ResourceManager.GetString("NewWordbookTabImpressAutoMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   自動入力 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabImpressAutoTitle {
+            get {
+                return ResourceManager.GetString("NewWordbookTabImpressAutoTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   入手元を表示 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabImpressGetButton {
+            get {
+                return ResourceManager.GetString("NewWordbookTabImpressGetButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   単語帳やその他の特典が入手できる書籍はストアからも探せます。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabImpressGetMessage {
+            get {
+                return ResourceManager.GetString("NewWordbookTabImpressGetMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   入手 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabImpressGetTitle {
+            get {
+                return ResourceManager.GetString("NewWordbookTabImpressGetTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   削除済み単語帳の表示 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabImpressRecoverButton {
+            get {
+                return ResourceManager.GetString("NewWordbookTabImpressRecoverButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   削除した単語帳を回復します。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabImpressRecoverMessage {
+            get {
+                return ResourceManager.GetString("NewWordbookTabImpressRecoverMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   回復 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabImpressRecoverTitle {
+            get {
+                return ResourceManager.GetString("NewWordbookTabImpressRecoverTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   インプレスブックス に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabImpressTitle {
+            get {
+                return ResourceManager.GetString("NewWordbookTabImpressTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   URLから候補を表示 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabImpressTitleFromUrl {
+            get {
+                return ResourceManager.GetString("NewWordbookTabImpressTitleFromUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   タイトルは後からでも変更できます。
+        ///空白の場合自動的に設定されます。
+        ///URLから候補を表示できる場合もあります。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookTabImpressTitleMessage {
+            get {
+                return ResourceManager.GetString("NewWordbookTabImpressTitleMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   取り消し に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookToolbarItemCancel {
+            get {
+                return ResourceManager.GetString("NewWordbookToolbarItemCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   保存 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookToolbarItemSave {
+            get {
+                return ResourceManager.GetString("NewWordbookToolbarItemSave", resourceCulture);
             }
         }
         
@@ -1473,6 +1821,15 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
+        ///   もっと見る に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string StoreItemsCardContentMore {
+            get {
+                return ResourceManager.GetString("StoreItemsCardContentMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   インプレス に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StoreItemsImpressSearchWord {
@@ -1652,6 +2009,15 @@ namespace WordbookImpressApp.Resx {
         internal static string TitleMaster {
             get {
                 return ResourceManager.GetString("TitleMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   追加 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TitleNewWordbook {
+            get {
+                return ResourceManager.GetString("TitleNewWordbook", resourceCulture);
             }
         }
         
@@ -2166,6 +2532,15 @@ namespace WordbookImpressApp.Resx {
         internal static string WordQuiz {
             get {
                 return ResourceManager.GetString("WordQuiz", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   報告 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string WordReport {
+            get {
+                return ResourceManager.GetString("WordReport", resourceCulture);
             }
         }
         

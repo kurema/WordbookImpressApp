@@ -32,26 +32,12 @@
                         <StackLayout>
                             <Label Text="{i18n:Translate StatisticsRecordTitle}" Style="{DynamicResource Key=MySubtitleStyle}"/>
                             <Label Text="{Binding Converter={StaticResource qrtVC},ConverterParameter={i18n:Translate FormatWordbookRateInfo}}" FontSize="Large" HorizontalOptions="CenterAndExpand"/>
-                            <!--<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="0">
-                                <StackLayout.Resources>
-                                    <Style TargetType="Label">
-                                        <Setter Property="FontSize" Value="Large" />
-                                    </Style>
-                                </StackLayout.Resources>
-                                --><!--<Label Text="{Binding AnswerCorrectPercentage,StringFormat='正答率{0:F0}% ('}"/>
-                                <Label Text="{Binding AnswerCountTotal}"/>
-                                <Label Text="問中"/>
-                                <Label Text="{Binding AnswerCountCorrect}"/>
-                                <Label Text="問)"/>--><!--
-                            </StackLayout>-->
                             <my:PieGraphView x:Name="PieGraph" HorizontalOptions="FillAndExpand" HeightRequest="200" />
-                            <!--<my:CalendarGraphView HeightRequest="90" HorizontalOptions="FillAndExpand"/>-->
                             <Label Text="{i18n:Translate StatisticsPastTimeSpan}" Style="{DynamicResource Key=MySubtitleStyle}"/>
                             <Label Text="{Binding Path=ElapsedTime,Converter={StaticResource tsfVC},ConverterParameter={i18n:Translate StatisticsTimeSpanTotalFormat}}" />
                             <Label Text="{Binding Path=ElapsedTimeAverage,Converter={StaticResource tsfVC},ConverterParameter={i18n:Translate StatisticsTimeSpanSingleFormat}}" />
                             <Label Text="{i18n:Translate StatisticsOther}" Style="{DynamicResource Key=MySubtitleStyle}"/>
                             <Label Text="{Binding Path=DateTimeStartLocal,StringFormat={i18n:Translate StatisticsTestDateFormat}}" />
-                            <!--<Label Text="{Binding Path=DateTimeStart}" />-->
                             <Label Text="{Binding ChoiceKind,Converter={StaticResource srVC},ConverterParameter={i18n:Translate StatisticsQuizChoiceTypeParameter}}" />
                             <Label Text="{Binding RetryStatus,Converter={StaticResource srVC},ConverterParameter={i18n:Translate StatisticsQuizRetryStatusParameter}}" />
                         </StackLayout>
@@ -65,8 +51,6 @@
                 <DataTemplate>
                     <ViewCell>
                         <Frame Style="{StaticResource CardStyle}" BackgroundColor="{Binding Result,Converter={StaticResource trsVC},ConverterParameter=#FFFFFF:#FFCCCC:#CCCCCC:#CCCCCC:#FF0000}">
-                            <!--<Frame Margin="5" CornerRadius="2" HasShadow="True" IsVisible="{Binding Result,Converter={StaticResource trsVC},ConverterParameter=True:True:False:False:False}" BackgroundColor="{Binding Result,Converter={StaticResource trsVC},ConverterParameter=#FFFFFF:#FFCCCC:#FFFFFF:#FFFFFF:#FFFFFF}">-->
-                        <!--<Frame Margin="5" CornerRadius="2" HasShadow="True" BackgroundColor="#FFFFFF">-->
                             <StackLayout>
                                 <Label Text="{Binding Word.Head}" FontSize="Large" FontAttributes="Bold"/>
                                 <Label Text="{Binding Word.Description}" />
@@ -79,13 +63,6 @@
                                     </StackLayout.Resources>
                                     <Label Text="{Binding Result,Converter={StaticResource trsVC},ConverterParameter={i18n:Translate StatisticsQuizResultParameter}}" FontAttributes="Bold" Margin="0,0,5,0"/>
                                     <Label Text="{Binding Converter={StaticResource trtVC},ConverterParameter={i18n:Translate FormatWordbookRateInfo}}"/>
-                                    <!--<Label Text="正解率 " />
-                                    <Label Text="{Binding Word.AnswerCountCorrectPercentage,StringFormat='\{0:F0\}'}" />
-                                    <Label Text="% (" />
-                                    <Label Text="{Binding Word.AnswerCountCorrect}" />
-                                    <Label Text=" / " />
-                                    <Label Text="{Binding Word.AnswerCountTotal}" />
-                                    <Label Text=")" />-->
                                 </StackLayout>
                             </StackLayout>
                         </Frame>

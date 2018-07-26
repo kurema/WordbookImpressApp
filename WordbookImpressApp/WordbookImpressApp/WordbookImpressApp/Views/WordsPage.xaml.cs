@@ -27,7 +27,6 @@ namespace WordbookImpressApp.Views
             }
         }
 
-
         public System.Threading.SemaphoreSlim CanPushSemaphore = new System.Threading.SemaphoreSlim(1,1);
         public WordsPage(WordbookImpressViewModel model) : this()
         {

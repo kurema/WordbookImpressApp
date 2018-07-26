@@ -42,15 +42,6 @@
                     <Frame  Padding="20,10,20,10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="FillAndExpand">
                         <StackLayout>
                             <Label Text="{Binding Converter={StaticResource iwtVC},ConverterParameter={i18n:Translate FormatWordbookRateInfo}}"/>
-                            <!--<StackLayout Orientation="Horizontal" Spacing="0">
-                                <Label Text="正解率 " />
-                                <Label Text="{Binding AnswerCountCorrectPercentage,StringFormat='\{0:F0\}'}" />
-                                <Label Text="% (" />
-                                <Label Text="{Binding AnswerCountCorrect}" />
-                                <Label Text=" / " />
-                                <Label Text="{Binding AnswerCountTotal}" />
-                                <Label Text=")" />
-                            </StackLayout>-->
                             <StackLayout Orientation="Horizontal">
                                 <Switch IsToggled="{Binding ExcludeRemembered,Mode=TwoWay}"/>
                                 <Label VerticalOptions="CenterAndExpand" Text="{i18n:Translate WordPageRememberCheck}" />

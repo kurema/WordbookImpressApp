@@ -14,6 +14,8 @@ using WordbookImpressLibrary.ViewModels;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 
+using WordbookImpressApp.Resx;
+
 namespace WordbookImpressApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -31,6 +33,11 @@ namespace WordbookImpressApp.Views
             set => TabCsv.BindingContext = value;
         }
 
+        private string GetOptional(string Text)
+        {
+            return Text + AppResources.NewWordbookEntryListOptional;
+        }
+
         public NewWordbookPage()
         {
             InitializeComponent();
@@ -44,30 +51,30 @@ namespace WordbookImpressApp.Views
             ModelCsv = new RegisterWordbookCsvViewModel() { Format = WordbookImpressInfo.Formats.Csv };
 
             EntryListTitleCsv.Entries= EntryListTitle.Entries = new EntryListViewItem[] {
-                new EntryListViewItem(){Title="タイトル",ImageUrl="icon_g_title.png",PlaceHolder="タイトル (任意)",EntryBinding="Title"},
+                new EntryListViewItem(){Title=AppResources.NewWordbookEntryListTitle,ImageUrl="icon_g_title.png",PlaceHolder=GetOptional(AppResources.NewWordbookEntryListTitle),EntryBinding="Title"},
             };
             EntryListTitle.Update();
             EntryListTitleCsv.Update();
 
             EntryListLogin.Entries = new EntryListViewItem[] {
-                new EntryListViewItem(){Title="URL",ImageUrl="icon_g_url.png",PlaceHolder="URL",EntryBinding="Url"},
-                new EntryListViewItem(){Title="ID",ImageUrl="icon_g_id.png",PlaceHolder="ID",EntryBinding="ID"},
-                new EntryListViewItem(){Title="Password",ImageUrl="icon_g_pw.png",PlaceHolder="Password",EntryBinding="Password"},
+                new EntryListViewItem(){Title=AppResources.NewWordbookEntryListUrl,ImageUrl="icon_g_url.png",PlaceHolder=AppResources.NewWordbookEntryListUrl,EntryBinding="Url"},
+                new EntryListViewItem(){Title=AppResources.NewWordbookEntryListId,ImageUrl="icon_g_id.png",PlaceHolder=AppResources.NewWordbookEntryListId,EntryBinding="ID"},
+                new EntryListViewItem(){Title=AppResources.NewWordbookEntryListPassword,ImageUrl="icon_g_pw.png",PlaceHolder=AppResources.NewWordbookEntryListPassword,EntryBinding="Password"},
             };
             EntryListLogin.Update();
             EntryListLoginCsv.Entries = new EntryListViewItem[] {
-                new EntryListViewItem(){Title="URL",ImageUrl="icon_g_url.png",PlaceHolder="URL",EntryBinding="Url"},
-                new EntryListViewItem(){Title="ID",ImageUrl="icon_g_id.png",PlaceHolder="ID (任意)",EntryBinding="ID"},
-                new EntryListViewItem(){Title="Password",ImageUrl="icon_g_pw.png",PlaceHolder="Password (任意)",EntryBinding="Password",Password=true},
+                new EntryListViewItem(){Title=AppResources.NewWordbookEntryListUrl,ImageUrl="icon_g_url.png",PlaceHolder=AppResources.NewWordbookEntryListUrl,EntryBinding="Url"},
+                new EntryListViewItem(){Title=AppResources.NewWordbookEntryListId,ImageUrl="icon_g_id.png",PlaceHolder=GetOptional(AppResources.NewWordbookEntryListId),EntryBinding="ID"},
+                new EntryListViewItem(){Title=AppResources.NewWordbookEntryListPassword,ImageUrl="icon_g_pw.png",PlaceHolder=GetOptional(AppResources.NewWordbookEntryListPassword),EntryBinding="Password",Password=true},
             };
             EntryListLoginCsv.Update();
 
             EntryListEncodingCsv.Entries = EntryListTitle.Entries = new EntryListViewItem[] {
-                new EntryListViewItem(){Title="文字コード",ImageUrl="icon_g_encoding.png",PlaceHolder="文字コード",EntryBinding="Encoding"},
+                new EntryListViewItem(){Title=AppResources.NewWordbookEntryListEncoding,ImageUrl="icon_g_encoding.png",PlaceHolder=AppResources.NewWordbookEntryListEncoding,EntryBinding="Encoding"},
             };
             EntryListEncodingCsv.Update();
 
-            ModelCsv.Encoding = (Encoding.GetEncodings().FirstOrDefault(a => a.Name.ToLower() == "shift_jis")?.Name ?? Encoding.UTF8.EncodingName);
+            ModelCsv.Encoding = (Encoding.GetEncodings().FirstOrDefault(a => a.Name.ToLower() == AppResources.NewWordbookDefaultEncoding)?.Name ?? Encoding.UTF8.EncodingName);
         }
 
         bool Adding = false;
@@ -118,13 +125,13 @@ namespace WordbookImpressApp.Views
                 }
                 catch
                 {
-                    await DisplayAlert("報告", "ファイルの読み取りに失敗しました。", "OK");
+                    await DisplayAlert(AppResources.WordReport, AppResources.NewWordbookAlertFailedToLoad, AppResources.AlertConfirmed);
                     return;
                 }
             }
             else
             {
-                await DisplayAlert("報告", "適切なアドレスを入力してください。", "OK");
+                await DisplayAlert(AppResources.WordReport, AppResources.NewWordbookAlertWrongAddress, AppResources.AlertConfirmed);
             }
         }
 
@@ -177,7 +184,7 @@ namespace WordbookImpressApp.Views
             }
             catch
             {
-                await DisplayAlert("認証失敗", "認証に失敗しました。", "OK");
+                await DisplayAlert(AppResources.WordReport, AppResources.NewWordbookAlertFailedToAuth, AppResources.AlertConfirmed);
                 Adding = false;
                 return;
             }
@@ -211,7 +218,7 @@ namespace WordbookImpressApp.Views
                 if (item != ModelImpress.Title)
                     options.Add(new EntryWithOptionViewModel.EntryWithOptionViewModelEntry(item, item));
             }
-            var vm = (new EntryWithOptionViewModel("タイトルを入力してください。", options, ModelImpress.Title));
+            var vm = (new EntryWithOptionViewModel(AppResources.NewWordbookRequestTitleMessage, options, ModelImpress.Title));
             var page = new EntryWithOptionPage(vm);
             await Navigation.PushAsync(page);
             await page.WaitEntry();
@@ -267,10 +274,10 @@ namespace WordbookImpressApp.Views
             var items = WordbooksImpressInfoStorage.Content.Where(a => !urls.Contains(a.Url));
             if (items.Count() == 0)
             {
-                await DisplayAlert("単語帳","削除された単語帳がありません。","OK");
+                await DisplayAlert(AppResources.WordReport,AppResources.NewWordbookAlertRecoverNotFound, AppResources.AlertConfirmed);
                 return;
             }
-            var answer = await DisplayActionSheet("単語帳", "復活する単語帳を選択してください。", null, items.Select(a => a.Url).ToArray());
+            var answer = await DisplayActionSheet(AppResources.NewWordbookRecoverMessage, AppResources.AlertCancel, null, items.Select(a => a.Url).ToArray());
             var result = items.FirstOrDefault(a => a.Url == answer);
             if (result != null)
             {
@@ -283,9 +290,9 @@ namespace WordbookImpressApp.Views
         private async void Button_Clicked_3(object sender, EventArgs e)
         {
             var options=new ObservableCollection<EntryWithOptionViewModel.EntryWithOptionViewModelEntry>();
-            var encs = Encoding.GetEncodings().OrderBy(a => new[] { "shift_jis" , "utf-8","utf-16","utf-16be" }.Contains(a.Name.ToLower())?0:1).Select(enc => new EntryWithOptionViewModel.EntryWithOptionViewModelEntry(enc.Name, enc.Name));
+            var encs = Encoding.GetEncodings().OrderBy(a => new[] {AppResources.NewWordbookDefaultEncoding, "utf-8","utf-16","utf-16be" }.Contains(a.Name.ToLower())?0:1).Select(enc => new EntryWithOptionViewModel.EntryWithOptionViewModelEntry(enc.Name, enc.Name));
 
-            var vm = new EntryWithOptionViewModel("エンコードを設定してください", new ObservableCollection<EntryWithOptionViewModel.EntryWithOptionViewModelEntry>(encs) , ModelCsv.Encoding ?? ""
+            var vm = new EntryWithOptionViewModel(AppResources.NewWordbookTabCsvEncodeMessage, new ObservableCollection<EntryWithOptionViewModel.EntryWithOptionViewModelEntry>(encs) , ModelCsv.Encoding ?? ""
                 , a=> { try { Encoding.GetEncoding(a.ToString()); } catch { return false; } return true; });
             var page = new EntryWithOptionPage(vm);
             await Navigation.PushAsync(page);

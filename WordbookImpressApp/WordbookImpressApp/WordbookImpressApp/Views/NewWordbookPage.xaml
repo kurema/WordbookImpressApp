@@ -5,76 +5,78 @@
             xmlns:vm="clr-namespace:WordbookImpressLibrary.ViewModels;assembly=WordbookImpressLibrary"
             xmlns:v="clr-namespace:WordbookImpressApp.Views"
             xmlns:om="clr-namespace:System.Collections.Generic;assembly=netstandard"
+            xmlns:i18n="clr-namespace:WordbookImpressApp.Extensions"
             BackgroundColor="{StaticResource AddPage_Background}"
-             Title="追加">
+             Title="{i18n:Translate TitleNewWordbook}">
     <TabbedPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Button" BasedOn="{StaticResource AddPage_Button}" />
             <Style TargetType="Editor" BasedOn="{StaticResource AddPage_Editor}" />
         </ResourceDictionary>
     </TabbedPage.Resources>
-    <ContentPage Title="インプレスブックス" x:Name="TabImpress">
+    <ContentPage Title="{i18n:Translate NewWordbookTabImpressTitle}" x:Name="TabImpress">
         <ContentPage.BindingContext >
             <vm:RegisterWordbookViewModel />
         </ContentPage.BindingContext>
         <ContentPage.ToolbarItems>
-            <ToolbarItem Text="保存" Clicked="AddItem_Clicked" Icon="icon_save" />
-            <ToolbarItem Text="取り消し" Clicked="Cancel_Clicked" Icon="icon_cancel" />
+            <ToolbarItem Text="{i18n:Translate NewWordbookToolbarItemSave}" Clicked="AddItem_Clicked" Icon="icon_save" />
+            <ToolbarItem Text="{i18n:Translate NewWordbookToolbarItemCancel}" Clicked="Cancel_Clicked" Icon="icon_cancel" />
         </ContentPage.ToolbarItems>
         <ContentPage.Content>
             <ScrollView>
                 <StackLayout Style="{StaticResource AddPage_StackStyle}">
-                    <Label Text="認証情報" Style="{StaticResource AddPage_Title}" />
+                    <Label Text="{i18n:Translate NewWordbookCommonAuthTitle}" Style="{StaticResource AddPage_Title}" />
                     <v:EntryListView BorderColor="{StaticResource AddPage_SeparatorColor}" BorderWidth="1" Style="{StaticResource AddPage_EntryListView}" x:Name="EntryListLogin" />
-                    <Label Text="タイトル" Style="{StaticResource AddPage_Title}" />
-
+                    
+                    <Label Text="{i18n:Translate NewWordbookCommonTitleTitle}" Style="{StaticResource AddPage_Title}" />
                     <v:EntryListView BorderColor="{StaticResource AddPage_SeparatorColor}" BorderWidth="1" Style="{StaticResource AddPage_EntryListView}" x:Name="EntryListTitle" />
-                    <Label Text="タイトルは後からでも変更できます。&#10;空白の場合自動的に設定されます。&#10;URLから候補を表示できる場合もあります。" Style="{StaticResource AddPage_Normal}" />
-                    <Button Text="URLから候補を表示" Clicked="Button_Clicked"/>
+                    <Label Text="{i18n:Translate NewWordbookTabImpressTitleMessage}" Style="{StaticResource AddPage_Normal}" />
+                    <Button Text="{i18n:Translate NewWordbookTabImpressTitleFromUrl}" Clicked="Button_Clicked"/>
 
-                    <Label Text="自動入力" Style="{StaticResource AddPage_Title}"/>
+                    <Label Text="{i18n:Translate NewWordbookTabImpressAutoTitle}" Style="{StaticResource AddPage_Title}"/>
                     <Editor Completed="Editor_Completed"/>
-                    <Label Text="特典ページの内容を張り付ける事で一括入力ができます。" Style="{StaticResource AddPage_Normal}" />
+                    <Label Text="{i18n:Translate NewWordbookTabImpressAutoMessage}" Style="{StaticResource AddPage_Normal}" />
 
-                    <Label Text="入手" Style="{StaticResource AddPage_Title}" />
-                    <Button Text="入手元を表示" Clicked="Button_Clicked_1" />
-                    <Label Text="単語帳やその他の特典が入手できる書籍はストアからも探せます。" Style="{StaticResource AddPage_Normal}" />
+                    <Label Text="{i18n:Translate NewWordbookTabImpressGetTitle}" Style="{StaticResource AddPage_Title}" />
+                    <Button Text="{i18n:Translate NewWordbookTabImpressGetButton}" Clicked="Button_Clicked_1" />
+                    <Label Text="{i18n:Translate NewWordbookTabImpressGetMessage}" Style="{StaticResource AddPage_Normal}" />
 
-                    <Label Text="回復" Style="{StaticResource AddPage_Title}" />
-                    <Button Text="削除済み単語帳の表示" Clicked="Button_Clicked_2" />
-                    <Label Text="削除した単語帳を回復します。" Style="{StaticResource AddPage_Normal}" />
+                    <Label Text="{i18n:Translate NewWordbookTabImpressRecoverTitle}" Style="{StaticResource AddPage_Title}" />
+                    <Button Text="{i18n:Translate NewWordbookTabImpressRecoverButton}" Clicked="Button_Clicked_2" />
+                    <Label Text="{i18n:Translate NewWordbookTabImpressRecoverMessage}" Style="{StaticResource AddPage_Normal}" />
 
                 </StackLayout>
             </ScrollView>
         </ContentPage.Content>
     </ContentPage>
-    <ContentPage Title="CSV" x:Name="TabCsv">
+    <ContentPage Title="{i18n:Translate NewWordbookTabCsvTitle}" x:Name="TabCsv">
         <ContentPage.BindingContext >
             <vm:RegisterWordbookCsvViewModel />
         </ContentPage.BindingContext>
         <ContentPage.ToolbarItems>
-            <ToolbarItem Text="保存" Icon="icon_save" Clicked="ToolbarItem_Clicked"/>
-            <ToolbarItem Text="取り消し" Clicked="Cancel_Clicked" Icon="icon_cancel" />
+            <ToolbarItem Text="{i18n:Translate NewWordbookToolbarItemSave}" Icon="icon_save" Clicked="ToolbarItem_Clicked"/>
+            <ToolbarItem Text="{i18n:Translate NewWordbookToolbarItemCancel}" Clicked="Cancel_Clicked" Icon="icon_cancel" />
         </ContentPage.ToolbarItems>
         <ContentPage.Content>
             <Grid>
                 <ScrollView>
                     <StackLayout Style="{StaticResource AddPage_StackStyle}">
-                        <Label Text="認証情報" Style="{StaticResource AddPage_Title}" />
+                        <Label Text="{i18n:Translate NewWordbookCommonAuthTitle}" Style="{StaticResource AddPage_Title}" />
                         <v:EntryListView BorderColor="{StaticResource AddPage_SeparatorColor}" BorderWidth="1" Style="{StaticResource AddPage_EntryListView}" x:Name="EntryListLoginCsv" />
-                        <Label Text="HTTPやSMB/CIFS(ファイル共有)のアドレスを指定できます。&#10;必要ならIDとパスワードを入力してください。&#10;SMB/CIFSは&quot;smb://UserName:Password@ServerIP/ShareName/...&quot;や&quot;\\servername\ShareName\...&quot;のような形式です。" Style="{StaticResource AddPage_Normal}" />
+                        <Label Text="{i18n:Translate NewWordbookTabCsvAuthMessage}" Style="{StaticResource AddPage_Normal}" />
 
                         <v:EntryListView BorderColor="{StaticResource AddPage_SeparatorColor}" BorderWidth="1" Style="{StaticResource AddPage_EntryListView}" x:Name="EntryListEncodingCsv" />
-                        <Button Text="選択" Clicked="Button_Clicked_3" />
-                        <Label Text="ファイルの文字コードを設定してください。" Style="{StaticResource AddPage_Normal}" />
+                        <Button Text="{i18n:Translate NewWordbookTabCsvEncodeButton}" Clicked="Button_Clicked_3" />
+                        <Label Text="{i18n:Translate NewWordbookTabCsvEncodeMessage}" Style="{StaticResource AddPage_Normal}" />
 
+                        <Label Text="{i18n:Translate NewWordbookCommonTitleTitle}" Style="{StaticResource AddPage_Title}" />
                         <v:EntryListView BorderColor="{StaticResource AddPage_SeparatorColor}" BorderWidth="1" Style="{StaticResource AddPage_EntryListView}" x:Name="EntryListTitleCsv" />
-                        <Label Text="タイトルは後からでも変更できます。" Style="{StaticResource AddPage_Normal}" />
+                        <Label Text="{i18n:Translate NewWordbookTabCsvTitleMessage}" Style="{StaticResource AddPage_Normal}" />
 
-                        <Label Text="列選択" Style="{StaticResource AddPage_Title}" />
-                        <Button Text="プレビュー" Clicked="AddItem_Clicked_Csv_Preview" />
-                        <Picker Title="単語名" SelectedItem="{Binding CsvHeadKey}" ItemDisplayBinding="{Binding Title}" ItemsSource="{Binding CsvHeaders}" />
-                        <Picker Title="説明" SelectedItem="{Binding CsvDescriptionKey}" ItemDisplayBinding="{Binding Title}" ItemsSource="{Binding CsvHeaders}"/>
+                        <Label Text="{i18n:Translate NewWordbookTabCsvColumnTitle}" Style="{StaticResource AddPage_Title}" />
+                        <Button Text="{i18n:Translate NewWordbookTabCsvColumnButtonPreview}" Clicked="AddItem_Clicked_Csv_Preview" />
+                        <Picker Title="{i18n:Translate NewWordbookTabCsvColumnPickerHead}" SelectedItem="{Binding CsvHeadKey}" ItemDisplayBinding="{Binding Title}" ItemsSource="{Binding CsvHeaders}" />
+                        <Picker Title="{i18n:Translate NewWordbookTabCsvColumnPickerDetail}" SelectedItem="{Binding CsvDescriptionKey}" ItemDisplayBinding="{Binding Title}" ItemsSource="{Binding CsvHeaders}"/>
                     </StackLayout>
                 </ScrollView>
                 <ActivityIndicator x:Name="activity" IsVisible="False" IsRunning="False" InputTransparent="True" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>

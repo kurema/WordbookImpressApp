@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WordbookImpressApp.Views.DeveloperInfoPage"
-             Title="プロフィール"
+             xmlns:i18n="clr-namespace:WordbookImpressApp.Extensions"
+             Title="{i18n:Translate TitleDeveloperProfile}"
              x:Name="page"
              >
     <ContentPage.Resources>
@@ -36,29 +37,29 @@
                 <Grid x:Name="GithubGrid" />
                 <Frame Style="{StaticResource CardStyleDeveloperInfo}">
                     <StackLayout>
-                        <Label Style="{StaticResource GroupHeader}" Text="Bio" />
+                        <Label Style="{StaticResource GroupHeader}" Text="{i18n:Translate DeveloperProfileBio}" />
                         <Label Text="{Binding GithubUser.Bio}" />
-                        <Label Text="Available for hire!" IsVisible="{Binding GithubUser.Hireable}" />
+                        <Label Text="{i18n:Translate DeveloperProfileAvailableForHire}" IsVisible="{Binding GithubUser.Hireable}" />
                     </StackLayout>
                 </Frame>
                 <Frame Style="{StaticResource CardStyleDeveloperInfo}">
                     <StackLayout>
-                        <Label Style="{StaticResource GroupHeader}" Text="Contact" />
+                        <Label Style="{StaticResource GroupHeader}" Text="{i18n:Translate DeveloperProfileContact}" />
                         <StackLayout x:Name="Links" />
-                        <Label Style="{StaticResource GroupHeader}" Text="Support" />
+                        <Label Style="{StaticResource GroupHeader}" Text="{i18n:Translate DeveloperProfileSupport}" />
                         <Button HorizontalOptions="Start" Text="Donate" Command="{Binding AuthorInformation.OpenDonationCommand}"/>
 
                     </StackLayout>
                 </Frame>
                 <Frame Style="{StaticResource CardStyleDeveloperInfo}" xmlns:my="clr-namespace:WordbookImpressApp.Views" Padding="0,10">
                     <StackLayout>
-                        <Label Style="{StaticResource GroupHeader}" Text="Books" Margin="20" />
+                        <Label Style="{StaticResource GroupHeader}" Text="{i18n:Translate DeveloperProfileBooks}" Margin="20" />
                         <my:StoreItemsView x:Name="storeItems"/>
                     </StackLayout>
                 </Frame>
                 <Frame Style="{StaticResource CardStyleDeveloperInfo}">
                     <StackLayout>
-                        <Label Style="{StaticResource GroupHeader}" Text="Timeline" />
+                        <Label Style="{StaticResource GroupHeader}" Text="{i18n:Translate DeveloperProfileTimeline}" />
                         <ListView HeightRequest="500" ItemsSource="{Binding TwitterTimeline}" HasUnevenRows="True" ItemSelected="ListView_ItemSelected">
                             <ListView.ItemTemplate>
                                 <DataTemplate>

@@ -11,6 +11,8 @@ using WordbookImpressLibrary.Storage;
 using WordbookImpressLibrary.Models;
 using WordbookImpressLibrary.ViewModels;
 
+using WordbookImpressApp.Resx;
+
 namespace WordbookImpressApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -63,9 +65,9 @@ namespace WordbookImpressApp.Views
         {
             var dic = new Dictionary<string, WordbooksImpressViewModel.OrderKind>()
             {
-                { "標準",WordbooksImpressViewModel.OrderKind.Default },
-                { "タイトル",WordbooksImpressViewModel.OrderKind.Title },
-                { "URL",WordbooksImpressViewModel.OrderKind.Url },
+                { AppResources.OrderEnumOriginal,WordbooksImpressViewModel.OrderKind.Default },
+                { AppResources.OrderEnumTitle,WordbooksImpressViewModel.OrderKind.Title },
+                { AppResources.OrderEnumUrl,WordbooksImpressViewModel.OrderKind.Url },
             };
             var current = ConfigStorage.Content.SortKindWordbooks;
             var dic2 = new Dictionary<string, WordbooksImpressViewModel.OrderStatus>();
@@ -73,13 +75,13 @@ namespace WordbookImpressApp.Views
             {
                 if (current.Kind == item.Value)
                 {
-                    dic2.Add(item.Key + " * " + (current.Reversed ? "" : "(降順)"), new WordbooksImpressViewModel.OrderStatus() { Kind = item.Value, Reversed = !current.Reversed });
+                    dic2.Add(item.Key + " "+AppResources.OrderCurrentMark + " " + (current.Reversed ? AppResources.OrderAscending : AppResources.OrderDescending), new WordbooksImpressViewModel.OrderStatus() { Kind = item.Value, Reversed = !current.Reversed });
                 }
                 else {
                     dic2.Add(item.Key, new WordbooksImpressViewModel.OrderStatus() { Kind = item.Value, Reversed = false });
                 }
             }
-            var result = await DisplayActionSheet("並び替え順序を選択してください。", "キャンセル", null, dic2.Select(a => a.Key).ToArray());
+            var result = await DisplayActionSheet(AppResources.OrderActionMessage, AppResources.AlertCancel, null, dic2.Select(a => a.Key).ToArray());
             if (result == null || !dic2.ContainsKey(result)) return;
             var resultItem = ConfigStorage.Content.SortKindWordbooks = dic2[result];
             if(this.BindingContext is WordbooksImpressViewModel wvm)

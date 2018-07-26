@@ -5,7 +5,8 @@
              xmlns:my="clr-namespace:WordbookImpressApp.Views"
              xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
              x:Class="WordbookImpressApp.Views.QuizResultPage"
-             Title="成績"
+             xmlns:i18n="clr-namespace:WordbookImpressApp.Extensions"
+             Title="{i18n:Translate TitleStatistics}"
              >
     <ContentPage.BindingContext>
         <vm:QuizResultViewModel />
@@ -14,6 +15,8 @@
         <vc:QuizWordChoiceViewModelTestResultToStringValueConverter x:Key="trsVC" />
         <vc:TimeSpanFormatValueConverter x:Key="tsfVC" />
         <vc:StringReplaceValueConverter x:Key="srVC" />
+        <vc:QuizResultViewModelTextValueConverter x:Key="qrtVC"/>
+        <vc:TestResultItemViewModelTextValueConverter x:Key="trtVC" />
     </ContentPage.Resources>
     <ContentPage.Content>
         <ListView SeparatorVisibility="None" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand"
@@ -27,34 +30,35 @@
                     <Label Text="{Binding Path=Wordbook.WordbookTitle}" HorizontalOptions="Center" Style="{DynamicResource Key=MyTitleStyle}"  Margin="10"/>
                     <Frame Style="{StaticResource CardStyle}">
                         <StackLayout>
-                            <Label Text="成績" Style="{DynamicResource Key=MySubtitleStyle}"/>
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="0">
+                            <Label Text="{i18n:Translate StatisticsRecordTitle}" Style="{DynamicResource Key=MySubtitleStyle}"/>
+                            <Label Text="{Binding Converter={StaticResource qrtVC},ConverterParameter={i18n:Translate FormatWordbookRateInfo}}" FontSize="Large" HorizontalOptions="CenterAndExpand"/>
+                            <!--<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="0">
                                 <StackLayout.Resources>
                                     <Style TargetType="Label">
                                         <Setter Property="FontSize" Value="Large" />
                                     </Style>
                                 </StackLayout.Resources>
-                                <Label Text="{Binding AnswerCorrectPercentage,StringFormat='正答率{0:F0}% ('}"/>
+                                --><!--<Label Text="{Binding AnswerCorrectPercentage,StringFormat='正答率{0:F0}% ('}"/>
                                 <Label Text="{Binding AnswerCountTotal}"/>
                                 <Label Text="問中"/>
                                 <Label Text="{Binding AnswerCountCorrect}"/>
-                                <Label Text="問)"/>
-                            </StackLayout>
+                                <Label Text="問)"/>--><!--
+                            </StackLayout>-->
                             <my:PieGraphView x:Name="PieGraph" HorizontalOptions="FillAndExpand" HeightRequest="200" />
                             <!--<my:CalendarGraphView HeightRequest="90" HorizontalOptions="FillAndExpand"/>-->
-                            <Label Text="経過時間" Style="{DynamicResource Key=MySubtitleStyle}"/>
-                            <Label Text="{Binding Path=ElapsedTime,Converter={StaticResource tsfVC},ConverterParameter='合計 : [if:TotalMinutesFloor:[TotalMinutesFloor:\{0:00\}]分][Seconds:\{0:00\}]秒'}" />
-                            <Label Text="{Binding Path=ElapsedTimeAverage,Converter={StaticResource tsfVC},ConverterParameter='1問当たり : [if:TotalMinutesFloor:[TotalMinutesFloor:\{0:00\}]分][Seconds:\{0:00\}]秒'}" />
-                            <Label Text="その他" Style="{DynamicResource Key=MySubtitleStyle}"/>
-                            <Label Text="{Binding Path=DateTimeStartLocal,StringFormat='試験日時 : \{0:yyyy\年MM\月dd\日 tt h\時mm\分\開\始 \}'}" />
-                            <!--<Label Text="{Binding Path=DateTimeStart}" />--> 
-                            <Label Text="{Binding ChoiceKind,Converter={StaticResource srVC},ConverterParameter='Title:単語当てクイズ::Description:説明当てクイズ'}" />
-                            <Label Text="{Binding RetryStatus,Converter={StaticResource srVC},ConverterParameter='First:初回::Retry:リトライ::Continue:コンティニュー'}" />
+                            <Label Text="{i18n:Translate StatisticsPastTimeSpan}" Style="{DynamicResource Key=MySubtitleStyle}"/>
+                            <Label Text="{Binding Path=ElapsedTime,Converter={StaticResource tsfVC},ConverterParameter={i18n:Translate StatisticsTimeSpanTotalFormat}}" />
+                            <Label Text="{Binding Path=ElapsedTimeAverage,Converter={StaticResource tsfVC},ConverterParameter={i18n:Translate StatisticsTimeSpanSingleFormat}}" />
+                            <Label Text="{i18n:Translate StatisticsOther}" Style="{DynamicResource Key=MySubtitleStyle}"/>
+                            <Label Text="{Binding Path=DateTimeStartLocal,StringFormat={i18n:Translate StatisticsTestDateFormat}}" />
+                            <!--<Label Text="{Binding Path=DateTimeStart}" />-->
+                            <Label Text="{Binding ChoiceKind,Converter={StaticResource srVC},ConverterParameter={i18n:Translate StatisticsQuizChoiceTypeParameter}}" />
+                            <Label Text="{Binding RetryStatus,Converter={StaticResource srVC},ConverterParameter={i18n:Translate StatisticsQuizRetryStatusParameter}}" />
                         </StackLayout>
                     </Frame>
-                    <Button Text="Tweet" BackgroundColor="#03a9f4" TextColor="White" Clicked="Button_Clicked_Tweet"/>
-                    <Button Text="リトライ" Clicked="Button_Clicked_Retry" />
-                    <Button Text="コンティニュー" Clicked="Button_Clicked_Continue" />
+                    <Button Text="{i18n:Translate StatisticsButtonTweet}" BackgroundColor="#03a9f4" TextColor="White" Clicked="Button_Clicked_Tweet"/>
+                    <Button Text="{i18n:Translate StatisticsButtonRetry}" Clicked="Button_Clicked_Retry" />
+                    <Button Text="{i18n:Translate StatisticsButtonContinue}" Clicked="Button_Clicked_Continue" />
                 </StackLayout>
             </ListView.Header>
             <ListView.ItemTemplate>
@@ -73,14 +77,15 @@
                                             <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
                                         </Style>
                                     </StackLayout.Resources>
-                                    <Label Text="{Binding Result,Converter={StaticResource trsVC},ConverterParameter=正解:誤答:未回答:未出題:エラー}" FontAttributes="Bold" Margin="0,0,5,0"/>
-                                    <Label Text="正解率 " />
+                                    <Label Text="{Binding Result,Converter={StaticResource trsVC},ConverterParameter={i18n:Translate StatisticsQuizResultParameter}}" FontAttributes="Bold" Margin="0,0,5,0"/>
+                                    <Label Text="{Binding Converter={StaticResource trtVC},ConverterParameter={i18n:Translate FormatWordbookRateInfo}}"/>
+                                    <!--<Label Text="正解率 " />
                                     <Label Text="{Binding Word.AnswerCountCorrectPercentage,StringFormat='\{0:F0\}'}" />
                                     <Label Text="% (" />
                                     <Label Text="{Binding Word.AnswerCountCorrect}" />
                                     <Label Text=" / " />
                                     <Label Text="{Binding Word.AnswerCountTotal}" />
-                                    <Label Text=")" />
+                                    <Label Text=")" />-->
                                 </StackLayout>
                             </StackLayout>
                         </Frame>

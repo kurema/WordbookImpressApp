@@ -11,6 +11,8 @@ using System.Runtime.CompilerServices;
 using System.Collections.Generic;
 using System.Globalization;
 
+using WordbookImpressApp.Resx;
+
 namespace WordbookImpressApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -45,75 +47,81 @@ namespace WordbookImpressApp.Views
             var storage = WordbookImpressLibrary.Storage.ConfigStorage.Content;
             Items = new ObservableCollection<SettingItems>
             {
-                new SettingItems("クイズ設定")
+                new SettingItems(AppResources.SettingQuizTitle)
                 {
-                    new SettingItem("選択肢", (w)=> "選択肢の数は"+storage.ChoiceCount+"個です。"){
+                    new SettingItem(AppResources.SettingQuizChoiceTitle, (w)=> String.Format( AppResources.SettingQuizChoiceDetail,storage.ChoiceCount)){
                         Action=async (s)=>{
-                           storage.ChoiceCount=await GetByActionSheet<int>("選択肢の数を選択してください。"
-                               ,new Dictionary<string, int>{{ "2択",2}, { "3択", 3 }, { "4択", 4 }, { "5択", 5 }, { "6択", 6 }, { "7択", 7 }, { "8択", 8 }, }
+                           storage.ChoiceCount=await GetByActionSheet<int>(AppResources.SettingQuizChoiceMessage
+                               ,new int[]{ 2,3,4,5,6,7,8}.ToDictionary(a=>String.Format(AppResources.SettingQuizChoiceChoice,a))
                                ,storage.ChoiceCount,false,(a)=>(a is int)&&(int)a>=2);
                         }
                     },
                 },
-                new SettingItems("クイズ出題条件")
+                new SettingItems(AppResources.SettingQuizConditionTitle)
                 {
-                    new SettingItem("記憶済み", (w)=>storage.SkipChecked?"クイズで記憶済みにチェックした単語をスキップします。":"クイズで記憶済みにチェックした単語も出題します。", ! storage.SkipChecked)
+                    new SettingItem(AppResources.SettingQuizConditionRememberedTitle, (w)=>storage.SkipChecked?AppResources.SettingQuizConditionRememberedDetailTrue:AppResources.SettingQuizConditionRememberedDetailFalse, ! storage.SkipChecked)
                     {
                         Action=(s)=>{storage.SkipChecked=! s.BoolValue; return Task.CompletedTask; }
                     },
-                    new SettingItem("正解数",(w)=> storage.SkipMinCorrect==int.MaxValue?"正解数に関わらず出題します。": storage.SkipMinCorrect+ "回正解した単語をスキップします。"){
+                    new SettingItem(AppResources.SettingQuizConditionCorrectCountTitle,(w)=> storage.SkipMinCorrect==int.MaxValue?AppResources.SettingQuizConditionCorrectCountDetailTrue: String.Format(AppResources.SettingQuizConditionCorrectCountDetailFalse, storage.SkipMinCorrect)){
                         Action=async (s)=>{
-                           storage.SkipMinCorrect=await GetByActionSheet<int>("スキップする正解数を選択してください。"
-                               ,new Dictionary<string, int>{{ "スキップしない",int.MaxValue},{ "1回",1}, { "2回", 2 }, { "3回", 3 }, { "5回", 5 }, { "10回", 10 } }
+                           storage.SkipMinCorrect=await GetByActionSheet<int>(AppResources.SettingQuizConditionCorrectCountMessage
+                               ,new Dictionary<string, int>{{ AppResources.SettingQuizConditionWordNotSkip, int.MaxValue} }.Union(new int[]{ 1,2,3,5,10}.Select(a=>new KeyValuePair<string, int>(String.Format(AppResources.SettingQuizConditionCorrectCountChoice,a),a))).ToDictionary(a=>a.Key,b=>b.Value)
                                ,storage.SkipMinCorrect,true,(a)=>(a is int)&&(int)a>=1);
                         }
                     },
-                    new SettingItem("正解率", (w)=>storage.SkipMinRate==2 || storage.SkipMinRateMinTotal==int.MaxValue ? "正解率に関わらず出題します。": storage.SkipMinRateMinTotal+"問以上出題した結果"+ Math.Floor( storage.SkipMinRate*100)+ "%正解した単語をスキップします。"){
+                    new SettingItem(AppResources.SettingQuizConditionCorrectRateTitle, (w)=>storage.SkipMinRate==2 || storage.SkipMinRateMinTotal==int.MaxValue ? AppResources.SettingQuizConditionCorrectRateDetailTrue: 
+                    String.Format(AppResources.SettingQuizConditionCorrectRateDetailFalse,storage.SkipMinRateMinTotal,storage.SkipMinRate*100)
+                    ){
                         Children=new ObservableCollection<SettingItems>(){
-                            new SettingItems("解説"){
-                                new SettingItem("説明",(w)=>"この条件に関して説明します。"){
+                            new SettingItems(AppResources.WordCommentary){
+                                new SettingItem(AppResources.WordExplanation,(w)=>AppResources.SettingQuizConditionCorrectRatePageExplanationExplanationMessage){
                                     Action=async (s) =>
                                     {
-                                        await DisplayAlert("説明","出題問題数が少ない間はたまたま正解してしまい正解率が高くなってしまう事があります。\n適切な正解率を得るには一定回数の出題が必要です。\nまた基本もおろそかにしない事が大事です。\n以下の条件を片方でも満たさない場合には出題します。","了解");
+                                        await DisplayAlert(AppResources.WordExplanation,AppResources.SettingQuizConditionCorrectRatePageExplanationExplanationAlert,AppResources.AlertConfirmed);
                                     }
                                 }
                             },
-                            new SettingItems("正解率条件"){
-                                new SettingItem("正解率",(w)=>storage.SkipMinRate==2?"正解率に関わらず出題します。":"正解率が"+Math.Floor( storage.SkipMinRate*100)+"%未満の場合は出題します。"){
+                            new SettingItems(AppResources.SettingQuizConditionCorrectRatePageRequirementTitle){
+                                new SettingItem(AppResources.WordCorrectRate,(w)=>storage.SkipMinRate==2?AppResources.SettingQuizConditionCorrectRatePageRequirementCorrectRateDetailTrue:String.Format(AppResources.SettingQuizConditionCorrectRatePageRequirementCorrectRateDetailFalse,Math.Floor( storage.SkipMinRate*100))){
                                     Action =async (s)=>{
-                                        storage.SkipMinRate=await GetByActionSheet<double>("スキップする正解率を選択してください。"
-                                            ,new Dictionary<string, double>{{ "スキップしない",2},{ "50%",0.5}, { "60%", 0.6 }, { "75%", 0.75 }, { "90%", 0.9 }, { "100%", 1.0 } },storage.SkipMinRate,true,(a)=>(a is double)&&(((double)a>0 &&(double)a<=1)||(double)a==2),new PercentageValueConverter());
+                                        storage.SkipMinRate=await GetByActionSheet<double>(AppResources.SettingQuizConditionCorrectRatePageRequirementCorrectRateChoiceMessage
+                                            ,new Dictionary<string, double>{{ AppResources.SettingQuizConditionWordNotSkip, 2} }.Union(new double[]{ 0.5,0.6,0.75,0.9,1.0}.ToDictionary(a=>String.Format(AppResources.SettingQuizConditionCorrectRatePageRequirementCorrectRateChoice,Math.Floor(a*100)))).ToDictionary(a=>a.Key,a=>a.Value)
+                                            ,storage.SkipMinRate,true,(a)=>(a is double)&&(((double)a>0 &&(double)a<=1)||(double)a==2),new PercentageValueConverter());
                                     }
                                 }
-                                ,new SettingItem("出題数",(w)=>storage.SkipMinRateMinTotal==int.MaxValue?"出題数に関わらず出題します。":"出題数が"+storage.SkipMinRateMinTotal+"問未満の場合は出題します。"){
+                                ,new SettingItem(AppResources.WordCorrectCount,(w)=>storage.SkipMinRateMinTotal==int.MaxValue?AppResources.SettingQuizConditionCorrectRatePageRequirementCorrectCountDetailTrue:String.Format(AppResources.SettingQuizConditionCorrectRatePageRequirementCorrectCountDetailFalse,storage.SkipMinRateMinTotal)){
                                     Action =async (s)=>{
-                                        storage.SkipMinRateMinTotal=await GetByActionSheet<int>("スキップに必要な出題数を選択してください。"
-                                            ,new Dictionary<string, int>{{ "スキップしない",int.MaxValue},{ "3問",3}, { "5問", 5 }, { "10問", 10 }, { "20問", 20 }, { "50問", 50 } },storage.SkipMinRateMinTotal,true,(a)=>(a is int)&&(int)a>=1);
+                                        storage.SkipMinRateMinTotal=await GetByActionSheet<int>(AppResources.SettingQuizConditionCorrectRatePageRequirementCorrectCountChoiceMessage
+                                            ,new Dictionary<string, int>{{ AppResources.SettingQuizConditionWordNotSkip, int.MaxValue } }.Union(new int[]{ 3,5,10,20,50}.ToDictionary(a=>String.Format(AppResources.SettingQuizConditionCorrectRatePageRequirementCorrectCountChoice,a))).ToDictionary(a=>a.Key,a=>a.Value)
+                                            ,storage.SkipMinRateMinTotal,true,(a)=>(a is int)&&(int)a>=1);
                                     }
                                 }
                             }
                         }
                     },
-                    new SettingItem("条件無視期間",(w)=>storage.SkipVoidTicks==-1?"条件を満たさない場合は出題しません。":"最後に正解してから"+ ValueConverters.TimeSpanFormatValueConverter.FormatTimeSpan(new TimeSpan(storage.SkipVoidTicks),@"[if:Days:[Days]日][if:Hours:[Hours]時間][if:Minutes:[Minutes]分][if:Seconds:[Seconds]秒]") + "経過した場合には通常通り出題します。")
+                    new SettingItem(AppResources.SettingQuizConditionIgnoreTimeSpanTitle,(w)=>storage.SkipVoidTicks==-1?AppResources.SettingQuizConditionIgnoreTimeSpanDetailTrue: String.Format(AppResources.SettingQuizConditionIgnoreTimeSpanDetailFalse,ValueConverters.TimeSpanFormatValueConverter.FormatTimeSpan(new TimeSpan(storage.SkipVoidTicks),AppResources.SettingQuizConditionIgnoreTimeSpanTimeSpanFormat)))
                     {
                         Action=async (s) =>
                         {
-                            storage.SkipVoidTicks=await GetByActionSheet<long>("条件によらず出題されるようになるまでの期間を指定してください。",
-                                new Dictionary<string, long>{ { "出題しない",-1},{ "10分",TimeSpan.FromMinutes(10).Ticks},{ "1時間",TimeSpan.FromHours(1).Ticks},{ "1日",TimeSpan.FromDays(1).Ticks},{ "7日",TimeSpan.FromDays(7).Ticks} },storage.SkipVoidTicks,true,(a)=>(a is long)&&((long)a>=TimeSpan.FromSeconds(1).Ticks||(long)a==-1),new TimeSpanTicksValueConverter(),Keyboard.Plain);
+                            storage.SkipVoidTicks=await GetByActionSheet<long>(AppResources.SettingQuizConditionIgnoreTimeSpanChoiceMessage,
+                                new Dictionary<string, long>{ { AppResources.SettingQuizConditionIgnoreTimeSpanChoiceNever, -1} }.Union(new TimeSpan[]{TimeSpan.FromMinutes(10),TimeSpan.FromHours(1),TimeSpan.FromDays(1),TimeSpan.FromDays(7) }.ToDictionary(a=>ValueConverters.TimeSpanFormatValueConverter.FormatTimeSpan(a,AppResources.SettingQuizConditionIgnoreTimeSpanTimeSpanFormat),a=>a.Ticks)).ToDictionary(a=>a.Key,a=>a.Value)
+                                ,storage.SkipVoidTicks,true,(a)=>(a is long)&&((long)a>=TimeSpan.FromSeconds(1).Ticks||(long)a==-1),new TimeSpanTicksValueConverter(),Keyboard.Plain);
                         }
                     }
                 },
-                new SettingItems("成績一覧")
+                new SettingItems(AppResources.SettingStatisticsTitle)
                 {
-                    new SettingItem("一日当たりの回答数目安", (w) => "成績一覧ページのカレンダーグラフに反映されます。現在" + storage.MaxDailyTestCount+"問。")
+                    new SettingItem(AppResources.SettingStatisticsDailyQuestionTitle, (w) => String.Format( AppResources.SettingStatisticsDailyQuestionDetail, + storage.MaxDailyTestCount))
                     {
                         Action=async (s) =>
                         {
-                            storage.MaxDailyTestCount=await GetByActionSheet<int>("回答数目安を選択してください。",
-                                new Dictionary<string, int>{ { "10問",10},{ "50問",50},{ "100問",100},{ "500問",500} },storage.MaxDailyTestCount);
+                            storage.MaxDailyTestCount=await GetByActionSheet<int>(AppResources.SettingStatisticsDailyQuestionChoiceMessage,
+                                new int[]{10,50,100,500}.ToDictionary(a=>String.Format(AppResources.SettingStatisticsDailyQuestionChoice,a),a=>a)
+                                ,storage.MaxDailyTestCount);
                         }
                     },
-                    new SettingItem("無回答を表示", (w) => storage.ShowStatisticsZeroAnswer?"無回答でも成績一覧に表示します。":"無回答の場合成績一覧に表示しません。",storage.ShowStatisticsZeroAnswer)
+                    new SettingItem(AppResources.SettingStatisticsZeroAnswerTitle, (w) => storage.ShowStatisticsZeroAnswer?AppResources.SettingStatisticsZeroAnswerDetailTrue:AppResources.SettingStatisticsZeroAnswerDetailFalse,storage.ShowStatisticsZeroAnswer)
                     {
                         Action=(s) =>
                         {
@@ -121,19 +129,19 @@ namespace WordbookImpressApp.Views
                             return Task.CompletedTask;
                         }
                     },
-                    new SettingItem("Amazon アソシエイトID", "スコア共有時に使用されるAmazon アソシエイトIDを設定します。")
+                    new SettingItem(AppResources.SettingStatisticsAmazonAssociateIdTitle, AppResources.SettingStatisticsAmazonAssociateIdDetail)
                     {
                         Action =async (s)=>{
                             var dic=new Dictionary<string,string>();
-                            dic.Add("アプリ製作者のID",WordbookImpressLibrary.APIKeys.AmazonAssociateTag);
+                            dic.Add(AppResources.SettingStatisticsAmazonAssociateIdChoiceProgrammer,WordbookImpressLibrary.APIKeys.AmazonAssociateTag);
                             if(!string.IsNullOrWhiteSpace( storage.CustomAmazonAssociateTag) && storage.CustomAmazonAssociateTag!=WordbookImpressLibrary.APIKeys.AmazonAssociateTag) dic.Add(storage.CustomAmazonAssociateTag,storage.CustomAmazonAssociateTag);
-                            storage.CustomAmazonAssociateTag=await GetByActionSheet<string>("Amazon アソシエイトIDを選択してください。",dic,storage.CustomAmazonAssociateTag,false);
+                            storage.CustomAmazonAssociateTag=await GetByActionSheet<string>(AppResources.SettingStatisticsAmazonAssociateIdChoiceMessage,dic,storage.CustomAmazonAssociateTag,false);
                         }
                     },
                 },
-                new SettingItems("ストア")
+                new SettingItems(AppResources.SettingStoreTitle)
                 {
-                    new SettingItem("印刷版を優先", (w) => storage.StorePreferPrintedBook?"印刷版の本を優先して表示します。":"電子書籍を優先して表示します。",storage.StorePreferPrintedBook)
+                    new SettingItem(AppResources.SettingStorePreferPrintedTitle, (w) => storage.StorePreferPrintedBook?AppResources.SettingStorePreferPrintedDetailTrue:AppResources.SettingStorePreferPrintedDetailFalse,storage.StorePreferPrintedBook)
                     {
                         Action= (s) =>
                         {
@@ -141,19 +149,18 @@ namespace WordbookImpressApp.Views
                             return Task.CompletedTask;
                         }
                     },
-                    new SettingItem("リンクを開くストア", "リンクを開く際のストアを設定します。")
+                    new SettingItem(AppResources.SettingStoreStoreTitle, AppResources.SettingStoreStoreDetail)
                     {
                         Action=async (s) =>
                         {
-                            storage.StoreOpenBookLink=await GetByActionSheet<string>("リンクで開くストアを選択してください。",
-                                new Dictionary<string, string>{
-                                    { "Amazon", "[DetailPageURL]" } 
-                                    ,{ "yodobashi.com", "https://www.yodobashi.com/category/81001/?word=[ISBN,EAN,Title]" }
-                                    ,{ "楽天ブックス", "https://books.rakuten.co.jp/search/nm?sitem=[ISBN,EAN,Title]"}//アフィリエイト設定は相当めんどくさそうなのでパス。
-                                },storage.StoreOpenBookLink);
+                            storage.StoreOpenBookLink=await GetByActionSheet<string>(AppResources.SettingStoreStoreChoiceMessage,
+                                AppResources.SettingStoreStoreChoiceChoices
+                                .Split(new[]{ "\n\n" },StringSplitOptions.None)
+                                .ToDictionary(a=>a.Split(new[]{'\n' },2)[0],a=>a.Split(new[]{'\n' },2)[1])
+                                ,storage.StoreOpenBookLink);
                         }
                     },
-                    new SettingItem("インプレスブックス関連機能", (w) => storage.EnableImpressBookFeature?"ストア及びインプレスブックス単語帳機能をオンにします。":"ストア及びインプレスブックス単語帳機能をオフにします。",storage.EnableImpressBookFeature)
+                    new SettingItem(AppResources.SettingStoreEnableImpressTitle, (w) => storage.EnableImpressBookFeature?AppResources.SettingStoreEnableImpressDetailTrue:AppResources.SettingStoreEnableImpressDetailFalse,storage.EnableImpressBookFeature)
                     {
                         Action= (s) =>
                         {
@@ -163,21 +170,21 @@ namespace WordbookImpressApp.Views
                     },
                 },
 #if DEBUG
-                new SettingItems("デバッグ")
+                new SettingItems(AppResources.SettingDebugTitle)
                 {
-                    new SettingItem("チュートリアル初期設定", "チュートリアル完了ファイルを削除します。"){
+                    new SettingItem(AppResources.SettingDebugInitTutorialTitle, AppResources.SettingDebugInitTutorialDetail){
                         Action=async (s) =>
                         {
                             WordbookImpressLibrary.Storage.TutorialStorage.SetTutorialCompleted(false);
-                            await DisplayAlert("削除",WordbookImpressLibrary.Storage.TutorialStorage.Path+"を削除しました。","OK");
+                            await DisplayAlert(AppResources.SettingDebugInitTutorialAlertTitle,String.Format(AppResources.SettingDebugInitTutorialAlertMessage, WordbookImpressLibrary.Storage.TutorialStorage.Path),AppResources.AlertConfirmed);
                         }
                     },
 
                 },
 #endif
-                new SettingItems("サポート")
+                new SettingItems(AppResources.SettingSupportTitle)
                 {
-                    new SettingItem("チュートリアル", "初回チュートリアルを表示します。"){
+                    new SettingItem(AppResources.SettingSupportTutorialTitle, AppResources.SettingSupportTutorialDetail){
                         Action=async (s) =>
                         {
                             var page= new TutorialsPage();
@@ -185,37 +192,25 @@ namespace WordbookImpressApp.Views
                             await Navigation.PushAsync(page);
                         },
                     },
-                    //new SettingItem("不具合報告", "不具合報告の選択肢を表示します。"){
-                    //    Children=new ObservableCollection<SettingItems>(){
-                    //        new SettingItems("不具合報告"){
-                    //            new SettingItem("Github Issues","公式の不具合報告アドレス。"){
-                    //                Action=async (s) =>Device.OpenUri(new Uri("https://github.com/kurema/WordbookImpressApp/issues"))
-                    //            },
-                    //            new SettingItem("メール","作者に報告"){
-                    //                Action=async (s) =>Device.OpenUri(new Uri("kurema_makoto_software@yahoo.co.jp"]))
-                    //            },
-                    //        },
-                    //    }
-                    //},
-                    new SettingItem("Wiki","このアプリのWikiを開きます。"){
-                        Action = (s) =>{ try{ Device.OpenUri(new Uri("https://github.com/kurema/WordbookImpressApp/wiki")); }catch{ } return Task.CompletedTask; }
+                    new SettingItem(AppResources.SettingSupportWikiTitle,AppResources.SettingSupportWikiDetail){
+                        Action = (s) =>{ try{ Device.OpenUri(new Uri(AppResources.ProfileAppWikiUrl)); }catch{ } return Task.CompletedTask; }
                     },
                 },
-                new SettingItems("WordbookImpressについて")
+                new SettingItems(String.Format( AppResources.SettingAboutTitle,nameof(WordbookImpressApp)))
                 {
-                    new SettingItem("オープンソースライセンス", "オープンソースソフトウェアに関するライセンスの詳細"){ Children=licenseChildren},
-                    new SettingItem("ライセンス", "このアプリのライセンスを表示。"){
+                    new SettingItem(AppResources.SettingAboutLicenseOSSTitle, AppResources.SettingAboutLicenseOSSDetail){ Children=licenseChildren},
+                    new SettingItem(AppResources.SettingAboutLicenseAppTitle, AppResources.SettingAboutLicenseAppDetail){
                         Action = async (a) =>
                         {
                             await Navigation.PushAsync(new LicenseInfoPage(new WordbookImpressLibrary.Models.License.NormalLicense(){
-                                LicenseText =await Storage.LicenseStorage.LoadLicenseText("WordbookImpress")
-                                ,Name="WordbookImpress"
-                                ,ProjectName="WordbookImpress"
-                                ,LicenseUrl="https://github.com/kurema/WordbookImpressApp/blob/master/LICENSE"
+                                LicenseText =await Storage.LicenseStorage.LoadLicenseText(nameof(WordbookImpressApp))
+                                ,Name=nameof(WordbookImpressApp)
+                                ,ProjectName=nameof(WordbookImpressApp)
+                                ,LicenseUrl=AppResources.ProfileAppLicenseUrl
                             }));
                         }
                     },
-                    new SettingItem("プロジェクトページ", "https://github.com/kurema/wordbookImpressApp",null){ Action= (w)=>{try{ Device.OpenUri(new Uri("https://github.com/kurema/wordbookImpressApp/")); }catch{ } return Task.CompletedTask; } },
+                    new SettingItem(AppResources.SettingAboutProjectPage, AppResources.ProfileAppProjectUrl,null){ Action= (w)=>{try{ Device.OpenUri(new Uri(AppResources.ProfileAppProjectUrl)); }catch{ } return Task.CompletedTask; } },
                 },
             };
 			
@@ -240,7 +235,6 @@ namespace WordbookImpressApp.Views
                     {
                         Action = async (a) =>
                         {
-                            //await DisplayAlert("ライセンス", item.LicenseText, "ok");
                             await navigation.PushAsync(new LicenseInfoPage(item));
                         }
                     });
@@ -256,8 +250,8 @@ namespace WordbookImpressApp.Views
         public async Task<T> GetByActionSheet<T>(string Message, Dictionary<string, T> Options, T currentValue,bool isFirstSpecial=false, Func<object, bool> IsValid = null, WordbookImpressLibrary.ViewModels.EntryWithOptionViewModel.IValueConverter converter=null, Keyboard keyboard=null)
         {
             var w = new List<string>();
-            string Cancel = "キャンセル";
-            string Custom = "カスタム";
+            string Cancel = AppResources.AlertCancel;
+            string Custom = AppResources.AlertCustom;
             var options = new ObservableCollection<WordbookImpressLibrary.ViewModels.EntryWithOptionViewModel.EntryWithOptionViewModelEntry>();
             foreach (var item in Options) {
                 w.Add(item.Key);
@@ -305,7 +299,7 @@ namespace WordbookImpressApp.Views
             public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
             {
                 if(value is double) { return (((double)value) * 100).ToString(); }
-                return "0";
+                return 0.ToString();
             }
 
             public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -439,11 +433,6 @@ namespace WordbookImpressApp.Views
                 await Navigation.PushAsync(page, true); }
             item.SettingUpdate();
             Pushing = false;
-        }
-
-        private void Cancel_Clicked(object sender, EventArgs e)
-        {
-
         }
     }
 }

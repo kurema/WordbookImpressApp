@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 
-using System.Linq;
+using WordbookImpressApp.Resx;
 
 namespace WordbookImpressApp.Views
 {
@@ -52,18 +52,18 @@ namespace WordbookImpressApp.Views
             public MasterViewModel()
             {
                 menuItemsOriginal = new[] {
-                    new MasterMenuItem { TargetType=typeof(Views.WordbooksPage), Title = "単語帳",Description="登録済み単語帳",Icon="icon_wordbook.png" },
-                    new MasterMenuItem { Title = "総合単語帳",Description="全ての単語帳を総合",Icon="icon_wordbook.png"  ,Replace=false,Action=async (p)=>{
-                        await ((NavigationPage)p.Detail).PushAsync(new WordbookPage(new WordbookImpressLibrary.ViewModels.WordbookImpressViewModel(WordbookImpressLibrary.Storage.WordbooksImpressStorage.Content.ToArray(),WordbookImpressLibrary.Storage.RecordStorage.Content,"総合単語帳")));
+                    new MasterMenuItem { TargetType=typeof(Views.WordbooksPage), Title = AppResources.MasterWordbooksTitle,Description=AppResources.MasterWordbooksDetail,Icon="icon_wordbook.png" },
+                    new MasterMenuItem { Title = AppResources.MasterWordbooksCombinedTitle,Description=AppResources.MasterWordbooksCombinedDetail,Icon="icon_wordbook.png"  ,Replace=false,Action=async (p)=>{
+                        await ((NavigationPage)p.Detail).PushAsync(new WordbookPage(new WordbookImpressLibrary.ViewModels.WordbookImpressViewModel(WordbookImpressLibrary.Storage.WordbooksImpressStorage.Content.ToArray(),WordbookImpressLibrary.Storage.RecordStorage.Content,AppResources.WordbookCombinedTitle)));
                     }  },
-                    new MasterMenuItem { Title = "成績表",Icon="icon_statistics_circle.png",Description="テスト結果を表示" ,Replace=false,Action=async (p)=>{
+                    new MasterMenuItem { Title = AppResources.MasterStatisticsTitle,Icon="icon_statistics_circle.png",Description=AppResources.MasterStatisticsDetail ,Replace=false,Action=async (p)=>{
                         await ((NavigationPage)p.Detail).PushAsync(new TestStatusPage(){
                         BindingContext=new WordbookImpressLibrary.ViewModels.TestStatusesViewModel()
-                        {  Target=new WordbookImpressLibrary.ViewModels.WordbookImpressViewModel(WordbookImpressLibrary.Storage.WordbooksImpressStorage.Content.ToArray(),WordbookImpressLibrary.Storage.RecordStorage.Content,"全体成績")} });
+                        {  Target=new WordbookImpressLibrary.ViewModels.WordbookImpressViewModel(WordbookImpressLibrary.Storage.WordbooksImpressStorage.Content.ToArray(),WordbookImpressLibrary.Storage.RecordStorage.Content,AppResources.WordbookCombinedTitle)} });
                     }  },
-                    new MasterMenuItem { TargetType = typeof(StorePage), Title = "ストア", Description = "書籍を購入", Icon = "icon_store.png", Replace = false ,Id="Store"},
-                    new MasterMenuItem { TargetType=typeof(ConfigPage), Title = "設定",Description="単語帳の設定" ,Replace=false,Icon="icon_config.png" },
-                    new MasterMenuItem { TargetType=typeof(DeveloperInfoPage), Title = "kuremaについて",SimpleItem=true,Replace=false },
+                    new MasterMenuItem { TargetType = typeof(StorePage), Title = AppResources.MasterStoreTitle, Description = AppResources.MasterStoreDetail, Icon = "icon_store.png", Replace = false ,Id="Store"},
+                    new MasterMenuItem { TargetType=typeof(ConfigPage), Title = AppResources.MasterSettingTitle,Description=AppResources.MasterSettingDetail ,Replace=false,Icon="icon_config.png" },
+                    new MasterMenuItem { TargetType=typeof(DeveloperInfoPage), Title = String.Format(AppResources.MasterDeveloperProfileTitle,AppResources.ProfileDeveloperName),SimpleItem=true,Replace=false },
                 };
             }
         }

@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WordbookImpressApp.Views.NewWordbookCsvPreviewPage"
             xmlns:v="clr-namespace:WordbookImpressApp.Views"
+             xmlns:i18n="clr-namespace:WordbookImpressApp.Extensions"
             BackgroundColor="{StaticResource Key=AddPage_Background}"
-             Title="プレビュー"
+             Title="{i18n:Translate TitleNewWordbookCsvPreview}"
              >
     <ContentPage.Content>
         <Grid>
@@ -15,10 +16,10 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Text="項目選択" Style="{StaticResource AddPage_Title}" />
-            <Label Grid.Row="1" Text="列を選択してください。" Style="{StaticResource AddPage_Normal}" />
-            <Picker Grid.Row="2" Title="単語名" ItemDisplayBinding="{Binding Title}" SelectedItem="{Binding CsvHeadKey}" ItemsSource="{Binding CsvHeaders}" />
-            <Picker Grid.Row="3" Title="説明" ItemDisplayBinding="{Binding Title}" SelectedItem="{Binding CsvDescriptionKey}" ItemsSource="{Binding CsvHeaders}"/>
+            <Label Grid.Row="0" Text="{i18n:Translate NewWordbookCsvPreviewTitle}" Style="{StaticResource AddPage_Title}" />
+            <Label Grid.Row="1" Text="{i18n:Translate NewWordbookCsvPreviewMessage}" Style="{StaticResource AddPage_Normal}" />
+            <Picker Grid.Row="2" Title="{i18n:Translate NewWordbookCsvPreviewPickerTitleHead}" ItemDisplayBinding="{Binding Title}" SelectedItem="{Binding CsvHeadKey}" ItemsSource="{Binding CsvHeaders}" />
+            <Picker Grid.Row="3" Title="{i18n:Translate NewWordbookCsvPreviewPickerTitleDescription}" ItemDisplayBinding="{Binding Title}" SelectedItem="{Binding CsvDescriptionKey}" ItemsSource="{Binding CsvHeaders}"/>
             <v:SpreadSheetImageView Grid.Row="4" x:Name="sheetImgCsv" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
         </Grid>
     </ContentPage.Content>

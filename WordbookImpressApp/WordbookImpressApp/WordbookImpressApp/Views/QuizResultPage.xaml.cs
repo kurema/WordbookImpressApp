@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using WordbookImpressLibrary.ViewModels;
+using WordbookImpressApp.Resx;
 
 namespace WordbookImpressApp.Views
 {
@@ -28,7 +29,7 @@ namespace WordbookImpressApp.Views
 
             this.BindingContextChanged += (s, e) =>
             {
-                PieGraph.Title = "スコア";
+                PieGraph.Title = AppResources.StatisticsPieGraphScore;
                 PieGraph.Members = new List<PieGraphView.PieItem>()
                 {
                     new PieGraphView.PieItem(){Color=new SkiaSharp.SKColor(0x52,0xb2,0xff),Rate=(float)Model.AnswerCorrectPercentage/100.0f },
@@ -46,22 +47,22 @@ namespace WordbookImpressApp.Views
         private async void Button_Clicked_Tweet(object sender, EventArgs e)
         {
             string mon = "";
-            var time= ValueConverters.TimeSpanFormatValueConverter.FormatTimeSpan(Model.ElapsedTime, "[if:TotalMinutesFloor:[TotalMinutesFloor:{0:00}]分][Seconds:{0:00}]秒");
+            var time= ValueConverters.TimeSpanFormatValueConverter.FormatTimeSpan(Model.ElapsedTime, AppResources.StatisticsTwitterTimeFormat);
             if (Model.AnswerCountTotal == 0)
             {
-                mon = "1問も解答しませんでした！";
+                mon = AppResources.StatisticsTwitterMessageNoAnswer;
             }
             else if (Model.AnswerCountCorrect == 0)
             {
-                mon = Model.AnswerCountTotal.ToString() + "問全て間違えました！";
+                mon = String.Format(AppResources.StatisticsTwitterMessageAllWrong, Model.AnswerCountTotal);
             }
             else if (Model.AnswerCountTotal == Model.AnswerCountCorrect)
             {
-                mon = Model.AnswerCountTotal.ToString() + "問全て正解しました！";
+                mon =String.Format(AppResources.StatisticsTwitterMessageAllCorrect,  Model.AnswerCountTotal);
             }
             else
             {
-                mon = Model.AnswerCountTotal.ToString() + "問中" + Model.AnswerCountCorrect.ToString() + "問正解しました！";
+                mon = string.Format(AppResources.StatisticsTwitterMessageAnswerCount, Model.AnswerCountTotal, Model.AnswerCountCorrect, Model.AnswerCorrectPercentage);
             }
 
             var wb = WordbookImpressLibrary.Storage.RemoteStorage.GetBookWithWordbook(Model.Wordbook.Uri);
@@ -87,10 +88,12 @@ namespace WordbookImpressApp.Views
                     var url = Uri.EscapeUriString(itemResponse.Items.Item[0].DetailPageURL);
                     //I thought it's good idea to percent-encode Amazon Associate Tag which is Ascii for security, but RFC3986 says no. Maybe that's why the easy method is not provided.
                     //url = url.Replace(WordbookImpressLibrary.APIKeys.AmazonAssociateTagShare, System.Web.HttpUtility.UrlEncode(WordbookImpressLibrary.APIKeys.AmazonAssociateTagShare));
-                    adTextAmazon = "\n\nこの単語帳は「" + wb[0].title + "」を買えば付いてきます。\n" + url + "\n";
+                    adTextAmazon = "\n\n" + String.Format(AppResources.StatisticsTwitterMessageAd, wb[0].title,url);
                 }
             }
-            string message= System.Web.HttpUtility.UrlEncode(Model.Wordbook.WordbookTitle + "のクイズを" + time + "で" + mon + "\n#wordbook_impress " + adTextAmazon + "\n単語帳アプリは現在開発中\nhttps://github.com/kurema/WordbookImpressApp");
+            string message = System.Web.HttpUtility.UrlEncode(
+                String.Format(AppResources.StatisticsTwitterMessageTotal, Model.Wordbook.WordbookTitle, time, mon, adTextAmazon));
+
             try
             {
                 Device.OpenUri(new Uri("twitter://post?message=" + message));

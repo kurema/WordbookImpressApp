@@ -5,7 +5,8 @@
              xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
               SelectedItem="{Binding SelectedItem}"
               ItemsSource="{Binding Items}" 
-              Title="チュートリアル"
+             xmlns:i18n="clr-namespace:WordbookImpressApp.Extensions"
+              Title="{i18n:Translate TitleTutorial}"
               >
     <CarouselPage.Resources>
         <vc:BooleanNotValueConverter x:Key="notVC" />
@@ -31,9 +32,9 @@
                         <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Text="{Binding TitleText}" Style="{DynamicResource Key=TitleStyle}" />
                         <Label HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Text="{Binding DescriptionText}" />
                     </StackLayout>
-                    <Button Clicked="Button_Clicked_Finish"  IsVisible="{Binding Parent.IsLastPage,Converter={StaticResource notVC}}" Text="スキップ" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="0"/>
-                    <Button Command="{Binding Parent.NextPageCommand}" IsVisible="{Binding Parent.IsLastPage,Converter={StaticResource notVC}}" Text="次へ" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="1"/>
-                    <Button Clicked="Button_Clicked_Finish" IsVisible="{Binding Parent.IsLastPage}" Text="完了" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="1"/>
+                    <Button Clicked="Button_Clicked_Finish"  IsVisible="{Binding Parent.IsLastPage,Converter={StaticResource notVC}}" Text="{i18n:Translate TutorialButtonSkip}" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="0"/>
+                    <Button Command="{Binding Parent.NextPageCommand}" IsVisible="{Binding Parent.IsLastPage,Converter={StaticResource notVC}}" Text="{i18n:Translate TutorialButtonNext}" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="1"/>
+                    <Button Clicked="Button_Clicked_Finish" IsVisible="{Binding Parent.IsLastPage}" Text="{i18n:Translate TutorialButtonDone}" HorizontalOptions="EndAndExpand" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="1"/>
                     <!--<Button Clicked="Button_Clicked_Finish" IsVisible="{Binding Parent.IsSinglePage}" Text="戻る" HorizontalOptions="FillAndExpand" BackgroundColor="Transparent" Grid.Row="2" Grid.ColumnSpan="2"/>-->
                 </Grid>
             </ContentPage>

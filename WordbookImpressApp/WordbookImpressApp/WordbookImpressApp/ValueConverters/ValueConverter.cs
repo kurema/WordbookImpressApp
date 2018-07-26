@@ -302,7 +302,7 @@ namespace WordbookImpressApp.ValueConverters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             string text;
-            if (parameter == null || !(parameter is string)) text = "選択:正解:誤り:エラー";
+            if (parameter == null || !(parameter is string)) text = "Select:Correct:Wrong:Error";
             else text = (string)parameter;
             var texts = text.Split(':');
 
@@ -339,6 +339,73 @@ namespace WordbookImpressApp.ValueConverters
             if (t.voice?.Length > 0) result.Add(texts[3]);
             if (result.Count == 0) return texts[4];
             return texts[0] + " " + string.Join(" ", result);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class QuizResultViewModelTextValueConverter : Xamarin.Forms.IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var o = value as WordbookImpressLibrary.ViewModels.QuizResultViewModel;
+            if (o == null) return "";
+            var p = parameter?.ToString() ?? "";
+            return string.Format(p,o.AnswerCorrectPercentage,o.AnswerCountTotal,o.AnswerCountCorrect);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var o = value as WordbookImpressLibrary.ViewModels.QuizResultViewModel.TestResultItemViewModel;
+            if (o == null) return "";
+            var p = parameter?.ToString() ?? "";
+            return string.Format(p, o.Word?.AnswerCountCorrectPercentage,o.Word?.AnswerCountCorrect,o.Word?.AnswerCountTotal);
+        }
+    }
+
+    public class TestResultItemViewModelTextValueConverter : Xamarin.Forms.IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var o = value as WordbookImpressLibrary.ViewModels.QuizResultViewModel.TestResultItemViewModel;
+            if (o == null) return "";
+            var p = parameter?.ToString() ?? "";
+            return string.Format(p, o.Word.AnswerCountCorrectPercentage, o.Word.AnswerCountCorrect, o.Word.AnswerCountTotal);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class TestStatusViewModelTextValueConverter : Xamarin.Forms.IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var o = value as WordbookImpressLibrary.ViewModels.TestStatusViewModel;
+            if (o == null) return "";
+            var p = parameter?.ToString() ?? "";
+            return string.Format(p, o.AnswerCountCorrectPercentage, o.AnswerCountCorrect, o.AnswerCountTotal);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class IWordViewModelTextValueConverter : Xamarin.Forms.IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var o = value as WordbookImpressLibrary.ViewModels.IWordViewModel;
+            if (o == null) return "";
+            var p = parameter?.ToString() ?? "";
+            return string.Format(p, o.AnswerCountCorrectPercentage, o.AnswerCountCorrect, o.AnswerCountTotal);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

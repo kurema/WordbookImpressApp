@@ -13,6 +13,8 @@ using WordbookImpressLibrary.ViewModels;
 
 using System.Collections.ObjectModel;
 
+using WordbookImpressApp.Resx;
+
 namespace WordbookImpressApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -130,10 +132,10 @@ namespace WordbookImpressApp.Views
         {
             if (Model.HasMultipleWordbook)
             {
-                await DisplayAlert("警告", "総合単語帳は削除できません。", "はい");
+                await DisplayAlert(AppResources.WordWarning, AppResources.WordbookAlertCannotDelete, AppResources.AlertConfirmed);
                 return;
             }
-            var alertResult = await DisplayAlert("警告", "この単語帳を削除しますか。", "はい", "いいえ");
+            var alertResult = await DisplayAlert(AppResources.WordWarning, AppResources.WordbookAlertConfirmDelete, AppResources.AlertYes, AppResources.AlertNo);
             if (!alertResult) return;
             WordbooksImpressStorage.Content.Remove(Model.Wordbooks[0]);
             //認証情報を削除するか。迷うが削除しない事にする。
@@ -146,10 +148,10 @@ namespace WordbookImpressApp.Views
             var currentOrder = Model.SortKind;
             var labels = new Dictionary<string,WordbookImpressViewModel.SortKindType>()
             {
-                {"標準",WordbookImpressViewModel.SortKindType.original },
-                {"単語名順",WordbookImpressViewModel.SortKindType.headword },
-                {"成績順",WordbookImpressViewModel.SortKindType.score },
-                {"ランダム",WordbookImpressViewModel.SortKindType.random },
+                {AppResources.OrderEnumOriginal,WordbookImpressViewModel.SortKindType.original },
+                {AppResources.OrderEnumHeadword,WordbookImpressViewModel.SortKindType.headword },
+                {AppResources.OrderEnumScore,WordbookImpressViewModel.SortKindType.score },
+                {AppResources.OrderEnumRandom,WordbookImpressViewModel.SortKindType.random },
             };
 
             var options = new List<string>(labels.Count * 2);
@@ -158,7 +160,7 @@ namespace WordbookImpressApp.Views
             {
                 if (currentOrder.Kind == item.Value)
                 {
-                    var word = item.Key + " * " + (!currentOrder.Ascending ? "" : "(降順)");
+                    var word = item.Key + " "+AppResources.OrderCurrentMark + " " + (!currentOrder.Ascending ? AppResources.OrderAscending : AppResources.OrderDescending);
                     options.Add(word);
                     optionsDic.Add(word, new WordbookImpressViewModel.SortKindInfo(item.Value, !currentOrder.Ascending));
                 }
@@ -169,8 +171,8 @@ namespace WordbookImpressApp.Views
                 }
             }
 
-            string cancel = "キャンセル";
-            var alertResult = await DisplayActionSheet("並び替え", cancel, "", options.ToArray());
+            string cancel = AppResources.AlertCancel;
+            var alertResult = await DisplayActionSheet(AppResources.OrderActionMessage, cancel, "", options.ToArray());
             if (string.IsNullOrEmpty(alertResult) || alertResult == cancel) { return; }
             ConfigStorage.Content.SortKind = Model.SortKind = optionsDic[alertResult];
             ConfigStorage.SaveLocalData();
@@ -195,7 +197,7 @@ namespace WordbookImpressApp.Views
                     options.Add(new EntryWithOptionViewModel.EntryWithOptionViewModelEntry(item, item));
             }
             if (Model == null) return;
-            var vm = (new EntryWithOptionViewModel("タイトルを入力してください。", options, Model.WordbookTitle));
+            var vm = (new EntryWithOptionViewModel(AppResources.WordbookRenameMessage, options, Model.WordbookTitle));
             var page = new EntryWithOptionPage(vm);
             var waitHandle = new System.Threading.EventWaitHandle(false, System.Threading.EventResetMode.AutoReset);
             page.Disappearing += (s, e2) => waitHandle.Set();

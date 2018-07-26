@@ -16,6 +16,8 @@ using System.Runtime.CompilerServices;
 using WordbookImpressLibrary.Storage;
 using WordbookImpressLibrary.Helper;
 
+using WordbookImpressApp.Resx;
+
 namespace WordbookImpressApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -37,11 +39,9 @@ namespace WordbookImpressApp.Views
             {
                 GithubGrid.ColumnDefinitions = new ColumnDefinitionCollection();
                 GithubGrid.Children.Clear();
-                AddGithubInfo("GithubUser.Repos", "Projects", "OpenUriCommand", "GithubUser.HtmlUrl");
-                AddGithubInfo("GithubUser.Followers", "Followers", "OpenUriCommand", "GithubUser.HtmlUrl");
-                //AddGithubInfo("GithubUser.Following", "Following", "OpenUriCommand", "GithubUser.HtmlUrl");
-                AddGithubInfo("TwitterUser.FollowersCount", "Twitter\nFollowers", "OpenUriCommand", "TwitterUser.Url");
-                //AddGithubInfo("TwitterUser.FollowingsCount", "Following", "OpenUriCommand", "GithubUser.HtmlUrl");
+                AddGithubInfo("GithubUser.Repos", AppResources.DeveloperProfileHeaderProjects, "OpenUriCommand", "GithubUser.HtmlUrl");
+                AddGithubInfo("GithubUser.Followers", AppResources.DeveloperProfileHeaderFollowers, "OpenUriCommand", "GithubUser.HtmlUrl");
+                AddGithubInfo("TwitterUser.FollowersCount", AppResources.DeveloperProfileHeaderFollowersTwitter, "OpenUriCommand", "TwitterUser.Url");
             }
 
             UpdateGithubInfo();
@@ -52,7 +52,7 @@ namespace WordbookImpressApp.Views
         public async void UpdateAmazonInfo()
         {
             storeItems.Clear();
-            await storeItems.AddSearchResult("B077X71C4C", Nager.AmazonProductAdvertising.Model.AmazonSearchIndex.Books);
+            await storeItems.AddSearchResult(AppResources.ProfileDeveloperAccountsAmazonKindle, Nager.AmazonProductAdvertising.Model.AmazonSearchIndex.Books);
         }
 
         public async void UpdateGithubInfo()
@@ -60,7 +60,7 @@ namespace WordbookImpressApp.Views
             try
             {
                 var github = new Octokit.GitHubClient(new Octokit.ProductHeaderValue(nameof(WordbookImpressApp)));
-                var user = await github.User.Get("kurema");
+                var user = await github.User.Get(AppResources.ProfileDeveloperAccountsGithub);
                 Model.GithubUser = new GithubUserViewModel(user);
             }
             catch { }
@@ -71,7 +71,7 @@ namespace WordbookImpressApp.Views
             try
             {
                 var key = await Storage.TwitterStorage.GetAppOnlyToken();
-                var tws = await key.Statuses.UserTimelineAsync(count => 100, screen_name => "kurema_makoto", include_rts => false);
+                var tws = await key.Statuses.UserTimelineAsync(count => 100, screen_name => AppResources.ProfileDeveloperAccountsTwitter, include_rts => false);
                 Model.TwitterTimeline = new ObservableCollection<TweetViewModel>(tws.Select(s => new TweetViewModel(s)));
                 Model.TwitterUser = new TwitterUserInfoViewModel(tws.First()?.User);
             }
@@ -118,7 +118,7 @@ namespace WordbookImpressApp.Views
             if (!String.IsNullOrWhiteSpace(Model?.GithubUser?.Email))
             {
                 var command = new DelegateCommand((o) => true, (o) => { try { Device.OpenUri(new Uri(Model.GithubUser.Email)); } catch { } });
-                LinkUpdateAddLink("Email", Model.GithubUser.Email, command);
+                LinkUpdateAddLink(AppResources.DeveloperProfileLinksEmail, Model.GithubUser.Email, command);
             }
 
             if (Model?.AuthorInformation?.Links != null)
@@ -202,7 +202,7 @@ namespace WordbookImpressApp.Views
             public string ProfileBannerUrl => user.ProfileBannerUrl;
             public string ProfileUrl => user.Url;
             //Why CoreTweet do not have this!?
-            public string Url => "https://twitter.com/" + user?.ScreenName;
+            public string Url => string.Format("https://twitter.com/{0}", user?.ScreenName);
 
             public TwitterUserInfoViewModel(CoreTweet.User user) {
                 this.user = user;
@@ -235,7 +235,7 @@ namespace WordbookImpressApp.Views
             public DateTime DateTime => status?.CreatedAt.ToLocalTime().DateTime ?? new DateTime();
             public string DateTimeString => DateTime.ToString(System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat);
             //Why CoreTweet do not have this!?
-            public string Url => "https://twitter.com/" + status.User.Id + "/status/" + status.Id;
+            public string Url => String.Format("https://twitter.com/{0}/status/{1}", status.User.Id, status.Id);
 
             private CoreTweet.Status status;
             public TweetViewModel(CoreTweet.Status status)
@@ -313,7 +313,7 @@ namespace WordbookImpressApp.Views
                         }
                         result.Add(items);
                     }
-                    navigation.PushAsync(new ConfigPage(result) { Title = "寄付" });
+                    navigation.PushAsync(new ConfigPage(result) { Title = AppResources.DeveloperProfileDonationTitle });
                 }); }
 
 
@@ -348,8 +348,8 @@ namespace WordbookImpressApp.Views
                     this.Title = title;
                 }
 
-                private WordbookImpressLibrary.Helper.DelegateCommand openUriCommand;
-                public WordbookImpressLibrary.Helper.DelegateCommand OpenUriCommand => openUriCommand = openUriCommand ?? new WordbookImpressLibrary.Helper.DelegateCommand((o) => true,
+                private DelegateCommand openUriCommand;
+                public DelegateCommand OpenUriCommand => openUriCommand = openUriCommand ?? new DelegateCommand((o) => true,
                     (o) =>
                     {
                         try
@@ -387,7 +387,6 @@ namespace WordbookImpressApp.Views
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             ((ListView)sender).SelectedItem = null;
-            //((TweetViewModel)e.SelectedItem)
             try
             {
                 Device.OpenUri(new Uri(((TweetViewModel)e.SelectedItem).Url));

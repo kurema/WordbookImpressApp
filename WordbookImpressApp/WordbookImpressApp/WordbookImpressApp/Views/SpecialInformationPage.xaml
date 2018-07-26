@@ -3,14 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
              x:Class="WordbookImpressApp.Views.SpecialInformationPage"
-             Title="書籍一覧"
+             xmlns:i18n="clr-namespace:WordbookImpressApp.Extensions"
+             Title="{i18n:Translate TitleSpecialInformation}"
              >
     <ContentPage.Resources>
         <vc:SpecialToTextValueConverter x:Key="spvc" />
         <vc:BooleanToStringValueConverter x:Key="bsvc" />
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Order="Secondary" Text="{Binding ShowObsolete,Converter={StaticResource bsvc},ConverterParameter='最新版のみ表示:以前のバージョンを表示:エラー'}" Clicked="ToolbarItem_Clicked" />
+        <ToolbarItem Order="Secondary" Text="{Binding ShowObsolete,Converter={StaticResource bsvc},ConverterParameter={i18n:Translate SpecialInformationVersionChoice}}" Clicked="ToolbarItem_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ListView ItemsSource="{Binding}" IsGroupingEnabled="True" SeparatorVisibility="None" HasUnevenRows="True" CachingStrategy="RecycleElement" ItemSelected="ListView_ItemSelected">
@@ -27,7 +28,7 @@
                         <Frame Style="{StaticResource CardStyle}">
                             <StackLayout Margin="0">
                                 <Label Text="{Binding title}" FontSize="Medium" />
-                                <Label Text="{Binding special,Converter={StaticResource spvc},ConverterParameter='特典:/本文PDF/単語帳/音声/特典なし'}"/>
+                                <Label Text="{Binding special,Converter={StaticResource spvc},ConverterParameter={i18n:Translate SpecialInformationSpecialInfo}}"/>
                             </StackLayout>
                         </Frame>
                     </ViewCell>

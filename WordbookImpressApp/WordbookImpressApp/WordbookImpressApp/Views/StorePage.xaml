@@ -2,10 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WordbookImpressApp.Views.StorePage"
-             Title="ストア"
+             xmlns:i18n="clr-namespace:WordbookImpressApp.Extensions"
+             Title="{i18n:Translate TitleStore}"
              >
     <ContentPage.ToolbarItems>
-        <ToolbarItem Order="Secondary" Text="利用時の注意" Clicked="ToolbarItem_Clicked_Attention" />
+        <ToolbarItem Order="Secondary" Text="{i18n:Translate StoreNotice}" Clicked="ToolbarItem_Clicked_Attention" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>

@@ -4,8 +4,9 @@
              x:Class="WordbookImpressApp.Views.WordsPage"
              xmlns:my="clr-namespace:WordbookImpressApp.Views"
              xmlns:vm="clr-namespace:WordbookImpressLibrary.ViewModels;assembly=WordbookImpressLibrary"
+             xmlns:i18n="clr-namespace:WordbookImpressApp.Extensions"
              ItemsSource="{Binding}"
-             Title="単語"
+             Title="{i18n:Translate TitleWordsPage}"
               >
     <CarouselPage.ItemTemplate>
         <DataTemplate>

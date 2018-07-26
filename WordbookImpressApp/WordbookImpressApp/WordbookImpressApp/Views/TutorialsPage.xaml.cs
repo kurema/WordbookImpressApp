@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using WordbookImpressApp.Resx;
+
 namespace WordbookImpressApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -46,9 +48,9 @@ namespace WordbookImpressApp.Views
             return new WordbookImpressLibrary.ViewModels.TutorialPagesViewModel(
                 new System.Collections.ObjectModel.ObservableCollection<WordbookImpressLibrary.ViewModels.TutorialPageViewModel>()
                 {
-                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel("本を買う","店頭やネットで\nインプレスブックスの対象書籍を購入","Tutorial_buy.jpg","#FFFFFF"),
-                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel("特典を得る","公式サイトから特典を取得","Tutorial_privilege.png","#FFFFFF"),
-                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel("登録する","このアプリで単語帳を登録","Tutorial_add.png","#FFFFFF"),
+                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel(AppResources.TutorialPage1Title,AppResources.TutorialPage1Detail,"Tutorial_buy.jpg","#FFFFFF"),
+                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel(AppResources.TutorialPage2Title,AppResources.TutorialPage2Detail,"Tutorial_privilege.png","#FFFFFF"),
+                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel(AppResources.TutorialPage3Title,AppResources.TutorialPage3Detail,"Tutorial_add.png","#FFFFFF"),
                 }
                 );
         }

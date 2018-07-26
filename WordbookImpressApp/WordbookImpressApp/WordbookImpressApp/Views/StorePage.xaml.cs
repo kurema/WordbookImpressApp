@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using WordbookImpressApp.Resx;
+
 namespace WordbookImpressApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -34,10 +36,10 @@ namespace WordbookImpressApp.Views
         public async void PrepareStore()
         {
             List<Task> tasks = new List<Task>();
-            tasks.Add(AddSearchResult("インプレスブックスの本", "インプレス"));
-            tasks.Add(AddBooksWithSpecialNew("最近追加された特典本", action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupsByGenre()))));
-            tasks.Add(AddBooksWithSpecialWordbook("単語帳が手に入る本", action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupsByWordbooks()))));
-            tasks.Add(AddBooksWithSpecialEbook("本文PDFが手に入る本", action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupByGenreSpecialEbook()))));
+            tasks.Add(AddSearchResult(AppResources.StoreItemsImpressTitle, AppResources.StoreItemsImpressSearchWord));
+            tasks.Add(AddBooksWithSpecialNew(AppResources.StoreItemsSpecialLatest, action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupsByGenre()))));
+            tasks.Add(AddBooksWithSpecialWordbook(AppResources.StoreItemsSpecialWordbook, action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupsByWordbooks()))));
+            tasks.Add(AddBooksWithSpecialEbook(AppResources.StoreItemsSpecialEbook, action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupByGenreSpecialEbook()))));
 
             var history = await WordbookImpressLibrary.Storage.PurchaseHistoryStorage.GetPurchaseHistory();
             if (history.ClickedASIN.Count() > 0)
@@ -45,14 +47,14 @@ namespace WordbookImpressApp.Views
                 var asin = history.ClickedASIN[(new Random().Next(history.ClickedASIN.Count()))];
                 tasks.Add(AddRelated((w) =>
                 {
-                    var basic = "以前クリックした本に関連";
+                    var basic = AppResources.StoreItemsRelatedClicked;
                     var item = w?.Items?.Item;
                     if (item == null || item.Length == 0) return basic;
-                    return item[0]?.ItemAttributes?.Title + "に関連" ?? basic;
+                    return item[0]?.ItemAttributes?.Title != null ? String.Format(AppResources.StoreItemsRelatedClickedTitle, item[0]?.ItemAttributes?.Title) : basic;
                 }, asin));
             }
 
-            tasks.Add(AddSearchResult("kuremaの本", "B077X71C4C"));
+            tasks.Add(AddSearchResult(String.Format(AppResources.StoreItemsBookOfDeveloper,AppResources.ProfileDeveloperName), AppResources.ProfileDeveloperAccountsAmazonKindle));
 
             foreach(var task in tasks)
             {
@@ -170,11 +172,7 @@ namespace WordbookImpressApp.Views
 
         private async void ToolbarItem_Clicked_Attention(object sender, EventArgs e)
         {
-            await DisplayAlert("注意", "本アプリケーション内で表示されるコンテンツの一部は、アマゾンジャパン合同会社またはその関連会社により提供されたものです。これらのコンテンツは「現状有姿」で提供されており、随時変更または削除される場合があります。\n"+
-                "価格および発送可能時期は表示された日付/時刻の時点のものであり、変更される場合があります。本商品の購入においては、購入の時点でAmazon.co.jpに表示されている価格および発送可能時期の情報が適用されます。\n"+
-                "Amazon.co.jpアソシエイト。\n"+
-                "特典情報などの一部は独自作成したデータベースを利用しています。これらは最新の情報でない可能性があります。ご自身でご確認の上ご利用ください。\n"
-                , "OK");
+            await DisplayAlert(AppResources.WordCaution, AppResources.StoreNoticeMessage, AppResources.AlertConfirmed);
         }
 
     }

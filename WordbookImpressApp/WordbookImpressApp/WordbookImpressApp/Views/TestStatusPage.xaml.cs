@@ -11,6 +11,8 @@ using WordbookImpressLibrary.Models;
 using WordbookImpressLibrary.ViewModels;
 using WordbookImpressLibrary.Storage;
 
+using WordbookImpressApp.Resx;
+
 namespace WordbookImpressApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -36,7 +38,7 @@ namespace WordbookImpressApp.Views
 
             UpdateCalendarGraph();
 
-            PieGraph.Title = "スコア";
+            PieGraph.Title = AppResources.TestStatusPieGraphScore;
             PieGraph.Members = new List<PieGraphView.PieItem>()
                 {
                     new PieGraphView.PieItem(){Color=new SkiaSharp.SKColor(0x52,0xb2,0xff),Rate=(float)Model.Total.AnswerCountCorrectRate },

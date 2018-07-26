@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WordbookImpressApp.Views.EntryWithOptionPage"
-             Title="選択">
+             xmlns:i18n="clr-namespace:WordbookImpressApp.Extensions"
+             Title="{i18n:Translate TitleEntryWithOption}">
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Padding="20" Spacing="20">

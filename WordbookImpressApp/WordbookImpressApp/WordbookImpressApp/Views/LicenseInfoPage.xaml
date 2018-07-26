@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
              x:Class="WordbookImpressApp.Views.LicenseInfoPage"
-             Title="ライセンス">
+             xmlns:i18n="clr-namespace:WordbookImpressApp.Extensions"
+             Title="{i18n:Translate TitleLicense}">
     <ContentPage.Resources>
         <vc:NullOrEmptyStringToTextValueConverter x:Key="neVC" />
     </ContentPage.Resources>
@@ -14,10 +15,10 @@
                 <Frame Style="{StaticResource CardStyle}">
                     <StackLayout>
                         <Label Text="{Binding LicenseText}"/>
-                        <Button Text="開く" Clicked="Button_Clicked_1" IsVisible="{Binding LicenseUrl,Converter={StaticResource neVC},ConverterParameter='False:True'}"/>
+                        <Button Text="{i18n:Translate LicenseOpen}" Clicked="Button_Clicked_1" IsVisible="{Binding LicenseUrl,Converter={StaticResource neVC},ConverterParameter='False:True'}"/>
                     </StackLayout>
                 </Frame>
-                <Button Text="詳細ページ" IsVisible="{Binding ProjectUrl,Converter={StaticResource neVC},ConverterParameter='False:True'}" Clicked="Button_Clicked" />
+                <Button Text="{i18n:Translate LicenseDetailPage}" IsVisible="{Binding ProjectUrl,Converter={StaticResource neVC},ConverterParameter='False:True'}" Clicked="Button_Clicked" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -13,6 +13,7 @@ using WordbookImpressLibrary.ViewModels;
 
 using System.Collections.ObjectModel;
 
+using WordbookImpressApp.Resx;
 
 namespace WordbookImpressApp.Views
 {
@@ -54,17 +55,17 @@ namespace WordbookImpressApp.Views
 
         private void Button_Clicked_SearchWeblio(object sender, EventArgs e)
         {
-            Device.OpenUri(new Uri("https://www.weblio.jp/content/" + System.Web.HttpUtility.UrlEncode(Model.Head)));
+            Device.OpenUri(new Uri(String.Format(AppResources.WordPageSearchDictionaryUrl, System.Web.HttpUtility.UrlEncode(Model.Head))));
         }
 
         private void Button_Clicked_SearchWikipedia(object sender, EventArgs e)
         {
-            Device.OpenUri(new Uri("https://ja.wikipedia.org/wiki/" + System.Web.HttpUtility.UrlEncode(Model.Head)));
+            Device.OpenUri(new Uri(String.Format(AppResources.WordPageSearchWikipediaUrl, System.Web.HttpUtility.UrlEncode(Model.Head))));
         }
 
         private void Button_Clicked_SearchGoogle(object sender, EventArgs e)
         {
-            Device.OpenUri(new Uri("https://www.google.co.jp/search?q=" + System.Web.HttpUtility.UrlEncode(Model.Head)));
+            Device.OpenUri(new Uri(String.Format(AppResources.WordPageSearchGoogleUrl, System.Web.HttpUtility.UrlEncode(Model.Head))));
         }
 
         public class ProceedViewModel : BaseViewModel
@@ -93,7 +94,7 @@ namespace WordbookImpressApp.Views
                 }
             }
 
-            public string Message { get => CanFlip ? "表示" : (CanGoNextPage?"次へ":"最後のページです"); }
+            public string Message { get => CanFlip ? AppResources.WordPageBottomShow : (CanGoNextPage?AppResources.WordPageBottomNext : AppResources.WordPageBottomLast); }
             public bool IsVisible { get => items!=null; }
 
             public bool CanGoNextPage => (currentCount + 1 < items?.Count() && currentCount != -1);

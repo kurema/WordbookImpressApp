@@ -16,7 +16,7 @@
     <None Remove="Licenses\nuget.csv" />
     <None Remove="Licenses\Octokit.txt" />
     <None Remove="Licenses\SkiaSharp.Views.Forms.txt" />
-    <None Remove="Licenses\WordbookImpress.txt" />
+    <None Remove="Licenses\WordbookImpressApp.txt" />
     <None Remove="Licenses\Xamarin.Android.Support.Design.txt" />
     <None Remove="Licenses\Xamarin.Android.Support.v4.txt" />
     <None Remove="Licenses\Xamarin.Android.Support.v7.AppCompat.txt" />
@@ -38,7 +38,7 @@
     <EmbeddedResource Include="Licenses\nuget.csv" />
     <EmbeddedResource Include="Licenses\Octokit.txt" />
     <EmbeddedResource Include="Licenses\SkiaSharp.Views.Forms.txt" />
-    <EmbeddedResource Include="Licenses\WordbookImpress.txt" />
+    <EmbeddedResource Include="Licenses\WordbookImpressApp.txt" />
     <EmbeddedResource Include="Licenses\Xamarin.Android.Support.Design.txt" />
     <EmbeddedResource Include="Licenses\Xamarin.Android.Support.v4.txt" />
     <EmbeddedResource Include="Licenses\Xamarin.Android.Support.v7.AppCompat.txt" />
@@ -64,6 +64,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Resx\AppResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
     <Compile Update="Views\ConfigPage.xaml.cs">
       <DependentUpon>ConfigPage.xaml</DependentUpon>
     </Compile>
@@ -73,6 +78,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Resx\AppResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\DeveloperInfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

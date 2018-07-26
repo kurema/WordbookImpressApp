@@ -1,0 +1,852 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlertCancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="AlertConfirmed" xml:space="preserve">
+    <value>了解</value>
+  </data>
+  <data name="AlertCustom" xml:space="preserve">
+    <value>カスタム</value>
+  </data>
+  <data name="AlertNo" xml:space="preserve">
+    <value>いいえ</value>
+  </data>
+  <data name="AlertWarning" xml:space="preserve">
+    <value>注意</value>
+  </data>
+  <data name="AlertYes" xml:space="preserve">
+    <value>はい</value>
+  </data>
+  <data name="CalendarMonthFormat" xml:space="preserve">
+    <value>MMMM</value>
+    <comment>MMM for En.</comment>
+  </data>
+  <data name="DeveloperProfileAvailableForHire" xml:space="preserve">
+    <value>Available for hire!</value>
+  </data>
+  <data name="DeveloperProfileBio" xml:space="preserve">
+    <value>Bio</value>
+  </data>
+  <data name="DeveloperProfileBooks" xml:space="preserve">
+    <value>Books</value>
+  </data>
+  <data name="DeveloperProfileContact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="DeveloperProfileDonationTitle" xml:space="preserve">
+    <value>寄付</value>
+  </data>
+  <data name="DeveloperProfileHeaderFollowers" xml:space="preserve">
+    <value>Followers</value>
+  </data>
+  <data name="DeveloperProfileHeaderFollowersTwitter" xml:space="preserve">
+    <value>Twitter
+Followers</value>
+  </data>
+  <data name="DeveloperProfileHeaderProjects" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="DeveloperProfileLinksEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="DeveloperProfileSupport" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="DeveloperProfileTimeline" xml:space="preserve">
+    <value>Timeline</value>
+  </data>
+  <data name="FormatWordbookRateInfo" xml:space="preserve">
+    <value>正答率{0:F0}% ({1}問中{2}問)</value>
+  </data>
+  <data name="FormatWordRateInfo" xml:space="preserve">
+    <value>正答率 {0:F0}% ({1}/{2})</value>
+  </data>
+  <data name="LicenseDetailPage" xml:space="preserve">
+    <value>詳細ページ</value>
+  </data>
+  <data name="LicenseOpen" xml:space="preserve">
+    <value>開く</value>
+  </data>
+  <data name="MasterDeveloperProfileTitle" xml:space="preserve">
+    <value>{0}について</value>
+  </data>
+  <data name="MasterSettingDetail" xml:space="preserve">
+    <value>単語帳の設定</value>
+  </data>
+  <data name="MasterSettingTitle" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="MasterStatisticsDetail" xml:space="preserve">
+    <value>テスト結果を表示</value>
+  </data>
+  <data name="MasterStatisticsTitle" xml:space="preserve">
+    <value>成績表</value>
+  </data>
+  <data name="MasterStoreDetail" xml:space="preserve">
+    <value>書籍を購入</value>
+  </data>
+  <data name="MasterStoreTitle" xml:space="preserve">
+    <value>ストア</value>
+  </data>
+  <data name="MasterWordbooksCombinedDetail" xml:space="preserve">
+    <value>全ての単語帳を総合</value>
+  </data>
+  <data name="MasterWordbooksCombinedTitle" xml:space="preserve">
+    <value>総合単語帳</value>
+  </data>
+  <data name="MasterWordbooksDetail" xml:space="preserve">
+    <value>登録済み単語帳</value>
+  </data>
+  <data name="MasterWordbooksTitle" xml:space="preserve">
+    <value>単語帳</value>
+  </data>
+  <data name="NewWordbookCsvPreviewMessage" xml:space="preserve">
+    <value>列を選択してください。</value>
+  </data>
+  <data name="NewWordbookCsvPreviewPickerTitleDescription" xml:space="preserve">
+    <value>説明</value>
+  </data>
+  <data name="NewWordbookCsvPreviewPickerTitleHead" xml:space="preserve">
+    <value>単語名</value>
+  </data>
+  <data name="NewWordbookCsvPreviewTitle" xml:space="preserve">
+    <value>項目選択</value>
+  </data>
+  <data name="OrderActionMessage" xml:space="preserve">
+    <value>並び替え</value>
+  </data>
+  <data name="OrderAscending" xml:space="preserve">
+    <value />
+    <comment>This is basicaly empty.</comment>
+  </data>
+  <data name="OrderCurrentMark" xml:space="preserve">
+    <value>*</value>
+  </data>
+  <data name="OrderDescending" xml:space="preserve">
+    <value>(降順)</value>
+  </data>
+  <data name="OrderEnumHeadword" xml:space="preserve">
+    <value>単語名順</value>
+  </data>
+  <data name="OrderEnumOriginal" xml:space="preserve">
+    <value>標準</value>
+  </data>
+  <data name="OrderEnumRandom" xml:space="preserve">
+    <value>ランダム</value>
+  </data>
+  <data name="OrderEnumScore" xml:space="preserve">
+    <value>成績順</value>
+  </data>
+  <data name="OrderEnumTitle" xml:space="preserve">
+    <value>タイトル</value>
+  </data>
+  <data name="OrderEnumUrl" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="ProfileAppLicenseUrl" xml:space="preserve">
+    <value>https://github.com/kurema/WordbookImpressApp/blob/master/LICENSE</value>
+  </data>
+  <data name="ProfileAppProjectUrl" xml:space="preserve">
+    <value>https://github.com/kurema/WordbookImpressApp</value>
+  </data>
+  <data name="ProfileAppWikiUrl" xml:space="preserve">
+    <value>https://github.com/kurema/WordbookImpressApp/wiki</value>
+  </data>
+  <data name="ProfileDeveloperAccountsAmazonKindle" xml:space="preserve">
+    <value>B077X71C4C</value>
+  </data>
+  <data name="ProfileDeveloperAccountsGithub" xml:space="preserve">
+    <value>kurema</value>
+  </data>
+  <data name="ProfileDeveloperAccountsTwitter" xml:space="preserve">
+    <value>kurema_makoto</value>
+  </data>
+  <data name="ProfileDeveloperName" xml:space="preserve">
+    <value>kurema</value>
+  </data>
+  <data name="QuizWordChoiceBottomMessage" xml:space="preserve">
+    <value>選択してください:正解:不正解:エラー</value>
+  </data>
+  <data name="SettingAboutLicenseAppDetail" xml:space="preserve">
+    <value>このアプリのライセンスを表示。</value>
+  </data>
+  <data name="SettingAboutLicenseAppTitle" xml:space="preserve">
+    <value>ライセンス</value>
+  </data>
+  <data name="SettingAboutLicenseOSSDetail" xml:space="preserve">
+    <value>オープンソースソフトウェアに関するライセンスの詳細</value>
+  </data>
+  <data name="SettingAboutLicenseOSSTitle" xml:space="preserve">
+    <value>オープンソースライセンス</value>
+  </data>
+  <data name="SettingAboutProjectPage" xml:space="preserve">
+    <value>プロジェクトページ</value>
+  </data>
+  <data name="SettingAboutTitle" xml:space="preserve">
+    <value>{0}について</value>
+  </data>
+  <data name="SettingDebugInitTutorialAlertMessage" xml:space="preserve">
+    <value>{0}を削除しました。</value>
+  </data>
+  <data name="SettingDebugInitTutorialAlertTitle" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="SettingDebugInitTutorialDetail" xml:space="preserve">
+    <value>チュートリアル完了ファイルを削除します。</value>
+  </data>
+  <data name="SettingDebugInitTutorialTitle" xml:space="preserve">
+    <value>チュートリアル初期設定</value>
+  </data>
+  <data name="SettingDebugTitle" xml:space="preserve">
+    <value>デバッグ</value>
+  </data>
+  <data name="SettingQuizChoiceChoice" xml:space="preserve">
+    <value>{0}択</value>
+  </data>
+  <data name="SettingQuizChoiceDetail" xml:space="preserve">
+    <value>選択肢の数は{0}個です。</value>
+  </data>
+  <data name="SettingQuizChoiceMessage" xml:space="preserve">
+    <value>選択肢の数を選択してください。</value>
+  </data>
+  <data name="SettingQuizChoiceTitle" xml:space="preserve">
+    <value>選択肢</value>
+  </data>
+  <data name="SettingQuizConditionCorrectCountChoice" xml:space="preserve">
+    <value>{0}回</value>
+  </data>
+  <data name="SettingQuizConditionCorrectCountDetailFalse" xml:space="preserve">
+    <value>{0}回正解した単語をスキップします。</value>
+  </data>
+  <data name="SettingQuizConditionCorrectCountDetailTrue" xml:space="preserve">
+    <value>正解数に関わらず出題します。</value>
+  </data>
+  <data name="SettingQuizConditionCorrectCountMessage" xml:space="preserve">
+    <value>スキップする正解数を選択してください。</value>
+  </data>
+  <data name="SettingQuizConditionCorrectCountTitle" xml:space="preserve">
+    <value>正解数</value>
+  </data>
+  <data name="SettingQuizConditionCorrectRateDetailFalse" xml:space="preserve">
+    <value>{0}問以上出題した結果{1}%正解した単語をスキップします。</value>
+  </data>
+  <data name="SettingQuizConditionCorrectRateDetailTrue" xml:space="preserve">
+    <value>正解率に関わらず出題します。</value>
+  </data>
+  <data name="SettingQuizConditionCorrectRatePageExplanationExplanationAlert" xml:space="preserve">
+    <value>出題問題数が少ない間はたまたま正解してしまい正解率が高くなってしまう事があります。
+適切な正解率を得るには一定回数の出題が必要です。
+また基本もおろそかにしない事が大事です。
+以下の条件を片方でも満たさない場合には出題します。</value>
+  </data>
+  <data name="SettingQuizConditionCorrectRatePageExplanationExplanationDetail" xml:space="preserve">
+    <value>この条件に関して説明します。</value>
+  </data>
+  <data name="SettingQuizConditionCorrectRatePageExplanationExplanationMessage" xml:space="preserve">
+    <value>この条件に関して説明します。</value>
+  </data>
+  <data name="SettingQuizConditionCorrectRatePageRequirementCorrectCountChoice" xml:space="preserve">
+    <value>{0}問</value>
+  </data>
+  <data name="SettingQuizConditionCorrectRatePageRequirementCorrectCountChoiceMessage" xml:space="preserve">
+    <value>スキップに必要な出題数を選択してください。</value>
+  </data>
+  <data name="SettingQuizConditionCorrectRatePageRequirementCorrectCountDetailFalse" xml:space="preserve">
+    <value>出題数が{0}問未満の場合は出題します。</value>
+  </data>
+  <data name="SettingQuizConditionCorrectRatePageRequirementCorrectCountDetailTrue" xml:space="preserve">
+    <value>出題数に関わらず出題します。</value>
+  </data>
+  <data name="SettingQuizConditionCorrectRatePageRequirementCorrectRateChoice" xml:space="preserve">
+    <value>{0}%</value>
+  </data>
+  <data name="SettingQuizConditionCorrectRatePageRequirementCorrectRateChoiceMessage" xml:space="preserve">
+    <value>スキップする正解率を選択してください。</value>
+  </data>
+  <data name="SettingQuizConditionCorrectRatePageRequirementCorrectRateDetailFalse" xml:space="preserve">
+    <value>正解率が{0}%未満の場合は出題します。</value>
+  </data>
+  <data name="SettingQuizConditionCorrectRatePageRequirementCorrectRateDetailTrue" xml:space="preserve">
+    <value>正解率に関わらず出題します。</value>
+  </data>
+  <data name="SettingQuizConditionCorrectRatePageRequirementTitle" xml:space="preserve">
+    <value>正解率条件</value>
+  </data>
+  <data name="SettingQuizConditionCorrectRateTitle" xml:space="preserve">
+    <value>正解率</value>
+  </data>
+  <data name="SettingQuizConditionIgnoreTimeSpanChoiceMessage" xml:space="preserve">
+    <value>条件によらず出題されるようになるまでの期間を指定してください。</value>
+  </data>
+  <data name="SettingQuizConditionIgnoreTimeSpanChoiceNever" xml:space="preserve">
+    <value>出題しない</value>
+  </data>
+  <data name="SettingQuizConditionIgnoreTimeSpanDetailFalse" xml:space="preserve">
+    <value>最後に正解してから{0}経過した場合には通常通り出題します。</value>
+  </data>
+  <data name="SettingQuizConditionIgnoreTimeSpanDetailTrue" xml:space="preserve">
+    <value>条件を満たさない場合は出題しません。</value>
+  </data>
+  <data name="SettingQuizConditionIgnoreTimeSpanTimeSpanFormat" xml:space="preserve">
+    <value>[if:Days:[Days]日][if:Hours:[Hours]時間][if:Minutes:[Minutes]分][if:Seconds:[Seconds]秒]</value>
+  </data>
+  <data name="SettingQuizConditionIgnoreTimeSpanTitle" xml:space="preserve">
+    <value>条件無視期間</value>
+  </data>
+  <data name="SettingQuizConditionRememberedDetailFalse" xml:space="preserve">
+    <value>クイズで記憶済みにチェックした単語も出題します。</value>
+  </data>
+  <data name="SettingQuizConditionRememberedDetailTrue" xml:space="preserve">
+    <value>クイズで記憶済みにチェックした単語をスキップします。</value>
+  </data>
+  <data name="SettingQuizConditionRememberedTitle" xml:space="preserve">
+    <value>記憶済み</value>
+  </data>
+  <data name="SettingQuizConditionTitle" xml:space="preserve">
+    <value>クイズ出題条件</value>
+  </data>
+  <data name="SettingQuizConditionWordNotSkip" xml:space="preserve">
+    <value>スキップしない</value>
+  </data>
+  <data name="SettingQuizTitle" xml:space="preserve">
+    <value>クイズ設定</value>
+  </data>
+  <data name="SettingStatisticsAmazonAssociateIdChoiceMessage" xml:space="preserve">
+    <value>Amazon アソシエイトIDを選択してください。</value>
+  </data>
+  <data name="SettingStatisticsAmazonAssociateIdChoiceProgrammer" xml:space="preserve">
+    <value>アプリ製作者のID</value>
+  </data>
+  <data name="SettingStatisticsAmazonAssociateIdDetail" xml:space="preserve">
+    <value>スコア共有時に使用されるAmazon アソシエイトIDを設定します。</value>
+  </data>
+  <data name="SettingStatisticsAmazonAssociateIdTitle" xml:space="preserve">
+    <value>Amazon アソシエイトID</value>
+  </data>
+  <data name="SettingStatisticsDailyQuestionChoice" xml:space="preserve">
+    <value>{0}問</value>
+  </data>
+  <data name="SettingStatisticsDailyQuestionChoiceMessage" xml:space="preserve">
+    <value>回答数目安を選択してください。</value>
+  </data>
+  <data name="SettingStatisticsDailyQuestionDetail" xml:space="preserve">
+    <value>成績一覧ページのカレンダーグラフに反映されます。現在{0}問。</value>
+  </data>
+  <data name="SettingStatisticsDailyQuestionTitle" xml:space="preserve">
+    <value>一日当たりの回答数目安</value>
+  </data>
+  <data name="SettingStatisticsTitle" xml:space="preserve">
+    <value>成績一覧</value>
+  </data>
+  <data name="SettingStatisticsZeroAnswerDetailFalse" xml:space="preserve">
+    <value>無回答の場合成績一覧に表示しません。</value>
+  </data>
+  <data name="SettingStatisticsZeroAnswerDetailTrue" xml:space="preserve">
+    <value>無回答でも成績一覧に表示します。</value>
+  </data>
+  <data name="SettingStatisticsZeroAnswerTitle" xml:space="preserve">
+    <value>無回答を表示</value>
+  </data>
+  <data name="SettingStoreEnableImpressDetailFalse" xml:space="preserve">
+    <value>ストア及びインプレスブックス単語帳機能をオフにします。</value>
+  </data>
+  <data name="SettingStoreEnableImpressDetailTrue" xml:space="preserve">
+    <value>ストア及びインプレスブックス単語帳機能をオンにします。</value>
+  </data>
+  <data name="SettingStoreEnableImpressTitle" xml:space="preserve">
+    <value>インプレスブックス関連機能</value>
+  </data>
+  <data name="SettingStorePreferPrintedDetailFalse" xml:space="preserve">
+    <value>電子書籍を優先して表示します。</value>
+  </data>
+  <data name="SettingStorePreferPrintedDetailTrue" xml:space="preserve">
+    <value>印刷版の本を優先して表示します。</value>
+  </data>
+  <data name="SettingStorePreferPrintedTitle" xml:space="preserve">
+    <value>印刷版を優先</value>
+  </data>
+  <data name="SettingStoreStoreChoiceChoices" xml:space="preserve">
+    <value>Amazon
+[DetailPageURL]
+
+yodobashi.com
+https://www.yodobashi.com/category/81001/?word=[ISBN,EAN,Title]
+
+楽天ブックス
+https://books.rakuten.co.jp/search/nm?sitem=[ISBN,EAN,Title]</value>
+  </data>
+  <data name="SettingStoreStoreChoiceMessage" xml:space="preserve">
+    <value>リンクで開くストアを選択してください。</value>
+  </data>
+  <data name="SettingStoreStoreDetail" xml:space="preserve">
+    <value>リンクを開く際のストアを設定します。</value>
+  </data>
+  <data name="SettingStoreStoreTitle" xml:space="preserve">
+    <value>リンクを開くストア</value>
+  </data>
+  <data name="SettingStoreTitle" xml:space="preserve">
+    <value>ストア</value>
+  </data>
+  <data name="SettingSupportTitle" xml:space="preserve">
+    <value>サポート</value>
+  </data>
+  <data name="SettingSupportTutorialDetail" xml:space="preserve">
+    <value>初回チュートリアルを表示します。</value>
+  </data>
+  <data name="SettingSupportTutorialTitle" xml:space="preserve">
+    <value>チュートリアル</value>
+  </data>
+  <data name="SettingSupportWikiDetail" xml:space="preserve">
+    <value>このアプリのWikiを開きます。</value>
+  </data>
+  <data name="SettingSupportWikiTitle" xml:space="preserve">
+    <value>Wiki</value>
+  </data>
+  <data name="SpecialInformationItemPrice" xml:space="preserve">
+    <value>価格:</value>
+  </data>
+  <data name="SpecialInformationItemQRCode" xml:space="preserve">
+    <value>QRコード</value>
+  </data>
+  <data name="SpecialInformationSpecialInfo" xml:space="preserve">
+    <value>特典:/本文PDF/単語帳/音声/特典なし</value>
+  </data>
+  <data name="SpecialInformationVersionChoice" xml:space="preserve">
+    <value>最新版のみ表示:以前のバージョンを表示:エラー</value>
+  </data>
+  <data name="StatisticsButtonContinue" xml:space="preserve">
+    <value>コンティニュー</value>
+  </data>
+  <data name="StatisticsButtonRetry" xml:space="preserve">
+    <value>リトライ</value>
+  </data>
+  <data name="StatisticsButtonTweet" xml:space="preserve">
+    <value>Tweet</value>
+  </data>
+  <data name="StatisticsOther" xml:space="preserve">
+    <value>その他</value>
+  </data>
+  <data name="StatisticsPastTimeSpan" xml:space="preserve">
+    <value>経過時間</value>
+  </data>
+  <data name="StatisticsPieGraphScore" xml:space="preserve">
+    <value>スコア</value>
+  </data>
+  <data name="StatisticsQuizChoiceTypeParameter" xml:space="preserve">
+    <value>Title:単語当てクイズ::Description:説明当てクイズ</value>
+  </data>
+  <data name="StatisticsQuizResultParameter" xml:space="preserve">
+    <value>正解:誤答:未回答:未出題:エラー</value>
+  </data>
+  <data name="StatisticsQuizRetryStatusParameter" xml:space="preserve">
+    <value>First:初回::Retry:リトライ::Continue:コンティニュー</value>
+  </data>
+  <data name="StatisticsRecordTitle" xml:space="preserve">
+    <value>成績</value>
+  </data>
+  <data name="StatisticsTestDateFormat" xml:space="preserve">
+    <value>試験日時 : {0:yyyy\年MM\月dd\日 tt h\時mm\分\開\始 }</value>
+  </data>
+  <data name="StatisticsTimeSpanSingleFormat" xml:space="preserve">
+    <value>1問当たり : [if:TotalMinutesFloor:[TotalMinutesFloor:\{0:00\}]分][Seconds:\{0:00\}]秒</value>
+  </data>
+  <data name="StatisticsTimeSpanTotalFormat" xml:space="preserve">
+    <value>合計 : [if:TotalMinutesFloor:[TotalMinutesFloor:\{0:00\}]分][Seconds:\{0:00\}]秒</value>
+  </data>
+  <data name="StatisticsTwitterMessageAd" xml:space="preserve">
+    <value>この単語帳は「{0}」を買えば付いてきます。
+{1}
+</value>
+  </data>
+  <data name="StatisticsTwitterMessageAllCorrect" xml:space="preserve">
+    <value>{0}問全て正解しました！</value>
+  </data>
+  <data name="StatisticsTwitterMessageAllWrong" xml:space="preserve">
+    <value>{0}問全て間違えました！</value>
+  </data>
+  <data name="StatisticsTwitterMessageAnswerCount" xml:space="preserve">
+    <value>{0}問中{1}問({2}%)正解しました！</value>
+  </data>
+  <data name="StatisticsTwitterMessageNoAnswer" xml:space="preserve">
+    <value>1問も解答しませんでした！</value>
+  </data>
+  <data name="StatisticsTwitterMessageTotal" xml:space="preserve">
+    <value>{0}のクイズを{1}で{2}
+#wordbook_impress
+{3}
+単語帳アプリは現在開発中
+https://github.com/kurema/WordbookImpressApp</value>
+  </data>
+  <data name="StatisticsTwitterTimeFormat" xml:space="preserve">
+    <value>[if:TotalMinutesFloor:[TotalMinutesFloor:{0:00}]分][Seconds:{0:00}]秒</value>
+  </data>
+  <data name="StoreItemsBookOfDeveloper" xml:space="preserve">
+    <value>{0}の本</value>
+  </data>
+  <data name="StoreItemsImpressSearchWord" xml:space="preserve">
+    <value>インプレス</value>
+  </data>
+  <data name="StoreItemsImpressTitle" xml:space="preserve">
+    <value>インプレスブックスの本</value>
+  </data>
+  <data name="StoreItemsRelatedClicked" xml:space="preserve">
+    <value>以前クリックした本に関連</value>
+  </data>
+  <data name="StoreItemsRelatedClickedTitle" xml:space="preserve">
+    <value>{0}に関連</value>
+  </data>
+  <data name="StoreItemsSpecialEbook" xml:space="preserve">
+    <value>本文PDFが手に入る本</value>
+  </data>
+  <data name="StoreItemsSpecialLatest" xml:space="preserve">
+    <value>最近追加された特典本</value>
+  </data>
+  <data name="StoreItemsSpecialWordbook" xml:space="preserve">
+    <value>単語帳が手に入る本</value>
+  </data>
+  <data name="StoreNotice" xml:space="preserve">
+    <value>利用時の注意</value>
+  </data>
+  <data name="StoreNoticeMessage" xml:space="preserve">
+    <value>本アプリケーション内で表示されるコンテンツの一部は、アマゾンジャパン合同会社またはその関連会社により提供されたものです。これらのコンテンツは「現状有姿」で提供されており、随時変更または削除される場合があります。
+価格および発送可能時期は表示された日付/時刻の時点のものであり、変更される場合があります。本商品の購入においては、購入の時点でAmazon.co.jpに表示されている価格および発送可能時期の情報が適用されます。
+Amazon.co.jpアソシエイト。
+特典情報などの一部は独自作成したデータベースを利用しています。これらは最新の情報でない可能性があります。ご自身でご確認の上ご利用ください。</value>
+    <comment>Leave this message in Japanese.
+https://affiliate.amazon.co.jp/help/operating/agreement
+https://affiliate.amazon.co.jp/help/operating/paapilicenseagreement</comment>
+  </data>
+  <data name="TestStatusDateTimeStartFormat" xml:space="preserve">
+    <value>試験日時 : {0:yyyy\年MM\月dd\日 tt h\時mm\分\開\始 }</value>
+  </data>
+  <data name="TestStatusPieGraphScore" xml:space="preserve">
+    <value>スコア</value>
+  </data>
+  <data name="TestStatusTargetWordbookFormat" xml:space="preserve">
+    <value>対象単語帳 : {0}</value>
+  </data>
+  <data name="TestStatusTimeSpanFormatEach" xml:space="preserve">
+    <value>1問当たり : [if:TotalMinutesFloor:[TotalMinutesFloor:{0:00}]分][Seconds:{0:00}]秒</value>
+  </data>
+  <data name="TestStatusTimeSpanFormatTotal" xml:space="preserve">
+    <value>合計 : [if:TotalMinutesFloor:[TotalMinutesFloor:{0:00}]分][Seconds:{0:00}]秒</value>
+  </data>
+  <data name="TestStatusTimeSpanTitle" xml:space="preserve">
+    <value>経過時間</value>
+  </data>
+  <data name="TestStatusTotalStatus" xml:space="preserve">
+    <value>全体成績</value>
+  </data>
+  <data name="TitleDeveloperProfile" xml:space="preserve">
+    <value>プロフィール</value>
+  </data>
+  <data name="TitleEntryWithOption" xml:space="preserve">
+    <value>選択</value>
+  </data>
+  <data name="TitleLicense" xml:space="preserve">
+    <value>ライセンス</value>
+  </data>
+  <data name="TitleMaster" xml:space="preserve">
+    <value>メニュー</value>
+  </data>
+  <data name="TitleNewWordbookCsvPreview" xml:space="preserve">
+    <value>プレビュー</value>
+  </data>
+  <data name="TitleQuizWordChoice" xml:space="preserve">
+    <value>クイズ</value>
+  </data>
+  <data name="TitleSetting" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="TitleSpecialInformation" xml:space="preserve">
+    <value>書籍一覧</value>
+  </data>
+  <data name="TitleSpecialInformationItem" xml:space="preserve">
+    <value>書籍詳細</value>
+  </data>
+  <data name="TitleStatistics" xml:space="preserve">
+    <value>成績</value>
+  </data>
+  <data name="TitleStore" xml:space="preserve">
+    <value>ストア</value>
+  </data>
+  <data name="TitleTestStatus" xml:space="preserve">
+    <value>成績</value>
+  </data>
+  <data name="TitleTutorial" xml:space="preserve">
+    <value>チュートリアル</value>
+  </data>
+  <data name="TitleWordbook" xml:space="preserve">
+    <value>単語帳</value>
+  </data>
+  <data name="TitleWordbooks" xml:space="preserve">
+    <value>単語帳一覧</value>
+  </data>
+  <data name="TitleWordPage" xml:space="preserve">
+    <value>単語</value>
+  </data>
+  <data name="TitleWordsPage" xml:space="preserve">
+    <value>単語</value>
+  </data>
+  <data name="TutorialButtonDone" xml:space="preserve">
+    <value>完了</value>
+  </data>
+  <data name="TutorialButtonNext" xml:space="preserve">
+    <value>次へ</value>
+  </data>
+  <data name="TutorialButtonSkip" xml:space="preserve">
+    <value>スキップ</value>
+  </data>
+  <data name="TutorialPage1Detail" xml:space="preserve">
+    <value>店頭やネットで
+インプレスブックスの対象書籍を購入</value>
+  </data>
+  <data name="TutorialPage1Title" xml:space="preserve">
+    <value>本を買う</value>
+  </data>
+  <data name="TutorialPage2Detail" xml:space="preserve">
+    <value>公式サイトから特典を取得</value>
+  </data>
+  <data name="TutorialPage2Title" xml:space="preserve">
+    <value>特典を得る</value>
+  </data>
+  <data name="TutorialPage3Detail" xml:space="preserve">
+    <value>このアプリで単語帳を登録</value>
+  </data>
+  <data name="TutorialPage3Title" xml:space="preserve">
+    <value>登録する</value>
+  </data>
+  <data name="WeekOfDaysFormat" xml:space="preserve">
+    <value>ddd</value>
+    <comment>Used for CalendarGraphView</comment>
+  </data>
+  <data name="WordbookAlertCannotDelete" xml:space="preserve">
+    <value>総合単語帳は削除できません。</value>
+  </data>
+  <data name="WordbookAlertConfirmDelete" xml:space="preserve">
+    <value>この単語帳を削除しますか。</value>
+  </data>
+  <data name="WordbookCombinedTitle" xml:space="preserve">
+    <value>全体成績</value>
+  </data>
+  <data name="WordbookQuizDescription" xml:space="preserve">
+    <value>説明クイズ</value>
+  </data>
+  <data name="WordbookQuizHead" xml:space="preserve">
+    <value>単語クイズ</value>
+  </data>
+  <data name="WordbookRenameMessage" xml:space="preserve">
+    <value>タイトルを入力してください。</value>
+  </data>
+  <data name="WordbookShowDescription" xml:space="preserve">
+    <value>説明表示:説明非表示:エラー</value>
+  </data>
+  <data name="WordbookShowHead" xml:space="preserve">
+    <value>単語表示:単語非表示:エラー</value>
+  </data>
+  <data name="WordbooksToolbarInfoWord" xml:space="preserve">
+    <value>{0}単語</value>
+  </data>
+  <data name="WordbooksToolbarItemAdd" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="WordbooksToolbarItemOrder" xml:space="preserve">
+    <value>並び替え</value>
+  </data>
+  <data name="WordbookToolbarItemDelete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="WordbookToolbarItemRename" xml:space="preserve">
+    <value>タイトル変更</value>
+  </data>
+  <data name="WordbookToolbarItemScore" xml:space="preserve">
+    <value>成績を表示</value>
+  </data>
+  <data name="WordbookToolbarItemSort" xml:space="preserve">
+    <value>並び替え</value>
+  </data>
+  <data name="WordCaution" xml:space="preserve">
+    <value>注意</value>
+  </data>
+  <data name="WordCommentary" xml:space="preserve">
+    <value>解説</value>
+  </data>
+  <data name="WordCorrectCount" xml:space="preserve">
+    <value>正解数</value>
+  </data>
+  <data name="WordCorrectRate" xml:space="preserve">
+    <value>正解率</value>
+  </data>
+  <data name="WordDelete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="WordExplanation" xml:space="preserve">
+    <value>説明</value>
+  </data>
+  <data name="WordPageBottomLast" xml:space="preserve">
+    <value>最後のページです</value>
+  </data>
+  <data name="WordPageBottomNext" xml:space="preserve">
+    <value>次へ</value>
+  </data>
+  <data name="WordPageBottomShow" xml:space="preserve">
+    <value>表示</value>
+  </data>
+  <data name="WordPageRememberCheck" xml:space="preserve">
+    <value>記憶完了</value>
+  </data>
+  <data name="WordPageSearchDictionary" xml:space="preserve">
+    <value>weblio検索</value>
+  </data>
+  <data name="WordPageSearchDictionaryUrl" xml:space="preserve">
+    <value>https://www.weblio.jp/content/{0}</value>
+  </data>
+  <data name="WordPageSearchGoogle" xml:space="preserve">
+    <value>Google検索</value>
+  </data>
+  <data name="WordPageSearchGoogleUrl" xml:space="preserve">
+    <value>https://www.google.co.jp/search?q={0}</value>
+  </data>
+  <data name="WordPageSearchWikipedia" xml:space="preserve">
+    <value>Wikipedia検索</value>
+  </data>
+  <data name="WordPageSearchWikipediaUrl" xml:space="preserve">
+    <value>https://ja.wikipedia.org/wiki/{0}</value>
+  </data>
+  <data name="WordPrice" xml:space="preserve">
+    <value>価格</value>
+  </data>
+  <data name="WordQRCode" xml:space="preserve">
+    <value>QRコード</value>
+  </data>
+  <data name="WordQuiz" xml:space="preserve">
+    <value>クイズ</value>
+  </data>
+  <data name="WordSort" xml:space="preserve">
+    <value>並び替え</value>
+  </data>
+  <data name="WordStore" xml:space="preserve">
+    <value>ストア</value>
+  </data>
+  <data name="WordWarning" xml:space="preserve">
+    <value>警告</value>
+  </data>
+</root>

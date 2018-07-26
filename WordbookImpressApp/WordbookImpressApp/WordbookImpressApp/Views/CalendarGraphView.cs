@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using SkiaSharp.Views.Forms;
 
+using WordbookImpressApp.Resx;
+
 namespace WordbookImpressApp.Views
 {
     public class CalendarGraphView:SKCanvasView
@@ -12,9 +14,6 @@ namespace WordbookImpressApp.Views
 
         private SkiaSharp.SKPaint paint;
         public SkiaSharp.SKPaint Paint => paint ?? (paint = new SkiaSharp.SKPaint());
-
-        private string[] dayOfWeekTexts = new[] { "日", "月", "火", "水", "木", "金", "土", };
-        public string[] DayOfWeekTexts { get => dayOfWeekTexts; set { if (value.Length < 7) dayOfWeekTexts = value; } }
 
         public Dictionary<DateTime, SkiaSharp.SKColor> ColorTable { get; set; } = new Dictionary<DateTime, SkiaSharp.SKColor>();
         public SkiaSharp.SKColor DefaultColor { get; set; } = new SkiaSharp.SKColor(250, 250, 250, 255);
@@ -55,13 +54,14 @@ namespace WordbookImpressApp.Views
             Paint.TextAlign = SkiaSharp.SKTextAlign.Right;
             for (int i = 0; i < 7; i++)
             {
-                maxw = Math.Max(maxw, Paint.MeasureText(DayOfWeekTexts[i]));
+                //Note: 2018/07/22 is Sunday.
+                maxw = Math.Max(maxw, Paint.MeasureText(new DateTime(2018,07,22).AddDays(i).ToString("ddd")));
             }
             for (int i = 0; i < 7; i++)
             {
                 float x = (h - maxw) % cellSize + maxw - textMargin;
                 float y = h - (7 - i) * cellSize + spacing / 2.0f;
-                e.Surface.Canvas.DrawText(DayOfWeekTexts[i], x, y + cellSize / 2.0f + fh / 2.0f, Paint);
+                e.Surface.Canvas.DrawText(new DateTime(2018, 07, 22).AddDays(i).ToString(AppResources.WeekOfDaysFormat), x, y + cellSize / 2.0f + fh / 2.0f, Paint);
             }
 
             while (true)
@@ -86,7 +86,7 @@ namespace WordbookImpressApp.Views
                     Paint.Color = new SkiaSharp.SKColor(0, 0, 0, 255);
                     Paint.TextSize = fh;
                     Paint.TextAlign = SkiaSharp.SKTextAlign.Left;
-                    e.Surface.Canvas.DrawText(current.Month + "月", x, fh, Paint);
+                    e.Surface.Canvas.DrawText(current.ToString(AppResources.CalendarMonthFormat), x, fh, Paint);
                 }
 
                 current = current.AddDays(-1);

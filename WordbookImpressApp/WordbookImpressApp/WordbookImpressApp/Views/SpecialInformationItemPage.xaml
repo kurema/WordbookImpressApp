@@ -4,8 +4,9 @@
              xmlns:v="clr-namespace:WordbookImpressApp.Views"
              xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
              x:Class="WordbookImpressApp.Views.SpecialInformationItemPage"
+             xmlns:i18n="clr-namespace:WordbookImpressApp.Extensions"
              BackgroundColor="White"
-             Title="書籍詳細">
+             Title="{i18n:Translate TitleSpecialInformationItem}">
     <ContentPage.Resources>
         <vc:NullOrEmptyStringToTextValueConverter x:Key="snvc"/>
     </ContentPage.Resources>
@@ -21,7 +22,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Text="価格:" HorizontalOptions="End" TextColor="#888888" />
+                        <Label Grid.Column="0" Text="{i18n:Translate SpecialInformationItemPrice}" HorizontalOptions="End" TextColor="#888888" />
                         <Label Grid.Column="1" Text="{Binding Price}" TextColor="Red" />
                     </Grid>
                 </StackLayout>
@@ -40,11 +41,12 @@
                             </Grid.ColumnDefinitions>
                             <Label Grid.Row="0" FontSize="Medium" Text="{Binding Title}"/>
                             <Label Grid.Row="1" FontSize="Small" Text="{Binding Url}" TextColor="#888888" LineBreakMode="TailTruncation" />
-                            <Button Text="QRコード" Grid.Column="1" Grid.RowSpan="2" Clicked="Button_Clicked" CommandParameter="{Binding Url}" Margin="0"/>
+                            <Button Text="{i18n:Translate SpecialInformationItemQRCode}" Grid.Column="1" Grid.RowSpan="2" Clicked="Button_Clicked" CommandParameter="{Binding Url}" Margin="0"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            <!-- Leave this comment. May work in future version. -->
             <!--<ListView.Footer>
                 <StackLayout Margin="10" HorizontalOptions="FillAndExpand">
                     <v:StoreItemsView x:Name="storeItems" HorizontalOptions="FillAndExpand" />

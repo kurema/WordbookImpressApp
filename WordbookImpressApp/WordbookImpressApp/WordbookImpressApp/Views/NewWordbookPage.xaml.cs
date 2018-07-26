@@ -35,6 +35,11 @@ namespace WordbookImpressApp.Views
         {
             InitializeComponent();
 
+            if (!ConfigStorage.Content.EnableImpressBookFeature)
+            {
+                this.Children.Remove(TabImpress);
+            }
+
             ModelImpress = new RegisterWordbookViewModel() { Format = WordbookImpressInfo.Formats.QuizGenerator, Url = WordbookImpressInfo.DefaultUrl };
             ModelCsv = new RegisterWordbookCsvViewModel() { Format = WordbookImpressInfo.Formats.Csv };
 

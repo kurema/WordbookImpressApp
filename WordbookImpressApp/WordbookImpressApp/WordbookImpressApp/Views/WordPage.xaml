@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vc="clr-namespace:WordbookImpressApp.ValueConverters"
              xmlns:vm="clr-namespace:WordbookImpressLibrary.ViewModels;assembly=WordbookImpressLibrary"
+             xmlns:i18n="clr-namespace:WordbookImpressApp.Extensions"
              x:Class="WordbookImpressApp.Views.WordPage"
-             Title="単語">
+             Title="{i18n:Translate TitleWord}">
     <ContentPage.BindingContext>
         <vm:WordViewModel />
     </ContentPage.BindingContext>
@@ -12,6 +13,7 @@
         <ResourceDictionary>
             <vc:BooleanToColorValueConverter x:Key="BoolColorVC"/>
             <vc:BooleanToStringValueConverter x:Key="BoolStringVC" />
+            <vc:IWordViewModelTextValueConverter x:Key="iwtVC" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -39,7 +41,8 @@
                     </Frame>
                     <Frame  Padding="20,10,20,10" BackgroundColor="#FFFFFF" CornerRadius="10" Margin="10" HorizontalOptions="FillAndExpand">
                         <StackLayout>
-                            <StackLayout Orientation="Horizontal" Spacing="0">
+                            <Label Text="{Binding Converter={StaticResource iwtVC},ConverterParameter={i18n:Translate FormatWordbookRateInfo}}"/>
+                            <!--<StackLayout Orientation="Horizontal" Spacing="0">
                                 <Label Text="正解率 " />
                                 <Label Text="{Binding AnswerCountCorrectPercentage,StringFormat='\{0:F0\}'}" />
                                 <Label Text="% (" />
@@ -47,16 +50,16 @@
                                 <Label Text=" / " />
                                 <Label Text="{Binding AnswerCountTotal}" />
                                 <Label Text=")" />
-                            </StackLayout>
+                            </StackLayout>-->
                             <StackLayout Orientation="Horizontal">
                                 <Switch IsToggled="{Binding ExcludeRemembered,Mode=TwoWay}"/>
-                                <Label VerticalOptions="CenterAndExpand" Text="記憶完了" />
+                                <Label VerticalOptions="CenterAndExpand" Text="{i18n:Translate WordPageRememberCheck}" />
                             </StackLayout>
                         </StackLayout>
                     </Frame>
-                    <Button Text="Google検索" Clicked="Button_Clicked_SearchGoogle"/>
-                    <Button Text="Wikipedia検索" Clicked="Button_Clicked_SearchWikipedia"/>
-                    <Button Text="weblio検索" Clicked="Button_Clicked_SearchWeblio"/>
+                    <Button Text="{i18n:Translate WordPageSearchGoogle}" Clicked="Button_Clicked_SearchGoogle"/>
+                    <Button Text="{i18n:Translate WordPageSearchWikipedia}" Clicked="Button_Clicked_SearchWikipedia"/>
+                    <Button Text="{i18n:Translate WordPageSearchDictionary}" Clicked="Button_Clicked_SearchWeblio"/>
                 </StackLayout>
             </ScrollView>
             <Button Text="{Binding Message}" Command="{Binding ProceedCommand}" IsVisible="{Binding IsVisible}" x:Name="Proceed" Grid.Row="1"/>

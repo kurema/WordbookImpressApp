@@ -3,13 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:WordbookImpressLibrary.ViewModels;assembly=WordbookImpressLibrary"
              x:Class="WordbookImpressApp.Views.WordbooksPage"
-             Title="単語帳一覧">
+             xmlns:i18n="clr-namespace:WordbookImpressApp.Extensions"
+             Title="{i18n:Translate TitleWordbooks}">
     <ContentPage.BindingContext>
         <vm:WordbooksImpressViewModel />
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="追加" Clicked="AddItem_Clicked" Icon="icon_add.png" />
-        <ToolbarItem Text="並び替え" Clicked="ToolbarItem_Clicked" Order="Secondary" />
+        <ToolbarItem Text="{i18n:Translate WordbooksToolbarItemAdd}" Clicked="AddItem_Clicked" Icon="icon_add.png" />
+        <ToolbarItem Text="{i18n:Translate WordbooksToolbarItemOrder}" Clicked="ToolbarItem_Clicked" Order="Secondary" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ListView x:Name="ItemsListView" 
@@ -29,7 +30,7 @@
                             <Image Source="{Binding UriLogo}" HeightRequest="75" WidthRequest="75" Aspect="AspectFill" />
                             <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
                                 <Label Text="{Binding WordbookTitle}" LineBreakMode="NoWrap"  Style="{DynamicResource ListItemTextStyle}" FontSize="Medium" />
-                                <Label Text="{Binding Words.Count,StringFormat='\{0\}単語'}" LineBreakMode="NoWrap"  Style="{DynamicResource ListItemTextStyle}" />
+                                <Label Text="{Binding Words.Count,StringFormat={i18n:Translate WordbooksToolbarInfoWord}}" LineBreakMode="NoWrap"  Style="{DynamicResource ListItemTextStyle}" />
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>

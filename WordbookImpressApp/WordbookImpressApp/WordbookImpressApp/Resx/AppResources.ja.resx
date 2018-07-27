@@ -118,22 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AlertCancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>キャンセル</value>
   </data>
   <data name="AlertConfirmed" xml:space="preserve">
-    <value>OK</value>
+    <value>了解</value>
   </data>
   <data name="AlertCustom" xml:space="preserve">
-    <value>Custom</value>
+    <value>カスタム</value>
   </data>
   <data name="AlertNo" xml:space="preserve">
-    <value>No</value>
+    <value>いいえ</value>
   </data>
   <data name="AlertYes" xml:space="preserve">
-    <value>Yes</value>
+    <value>はい</value>
   </data>
   <data name="CalendarMonthFormat" xml:space="preserve">
-    <value>MMM</value>
+    <value>MMMM</value>
     <comment>MMM for En.</comment>
   </data>
   <data name="DeveloperProfileAvailableForHire" xml:space="preserve">
@@ -149,7 +149,7 @@
     <value>Contact</value>
   </data>
   <data name="DeveloperProfileDonationTitle" xml:space="preserve">
-    <value>Donation</value>
+    <value>寄付</value>
   </data>
   <data name="DeveloperProfileHeaderFollowers" xml:space="preserve">
     <value>Followers</value>
@@ -171,64 +171,64 @@ Followers</value>
     <value>Timeline</value>
   </data>
   <data name="FormatWordbookRateInfo" xml:space="preserve">
-    <value>Score {0:F0}% ({1}/{2})</value>
+    <value>正答率{0:F0}% ({1}問中{2}問)</value>
   </data>
   <data name="FormatWordRateInfo" xml:space="preserve">
-    <value>Score {0:F0}% ({1}/{2})</value>
+    <value>正答率 {0:F0}% ({1}/{2})</value>
   </data>
   <data name="LicenseDetailPage" xml:space="preserve">
-    <value>Detail</value>
+    <value>詳細ページ</value>
   </data>
   <data name="LicenseOpen" xml:space="preserve">
-    <value>Open</value>
+    <value>開く</value>
   </data>
   <data name="MasterDeveloperProfileTitle" xml:space="preserve">
-    <value>About {0}</value>
+    <value>{0}について</value>
   </data>
   <data name="MasterSettingDetail" xml:space="preserve">
-    <value>Setting of this app.</value>
+    <value>単語帳の設定</value>
   </data>
   <data name="MasterSettingTitle" xml:space="preserve">
-    <value>Settings</value>
+    <value>設定</value>
   </data>
   <data name="MasterStatisticsDetail" xml:space="preserve">
-    <value>Show result of the tests.</value>
+    <value>テスト結果を表示</value>
   </data>
   <data name="MasterStatisticsTitle" xml:space="preserve">
-    <value>Statistics</value>
+    <value>成績表</value>
   </data>
   <data name="MasterStoreDetail" xml:space="preserve">
-    <value>Buy books.</value>
+    <value>書籍を購入</value>
   </data>
   <data name="MasterStoreTitle" xml:space="preserve">
-    <value>Store</value>
+    <value>ストア</value>
   </data>
   <data name="MasterWordbooksCombinedDetail" xml:space="preserve">
-    <value>Show all registered words.</value>
+    <value>全ての単語帳を総合</value>
   </data>
   <data name="MasterWordbooksCombinedTitle" xml:space="preserve">
-    <value>Integrated Wordbook</value>
+    <value>総合単語帳</value>
   </data>
   <data name="MasterWordbooksDetail" xml:space="preserve">
-    <value>Show registered wordbooks.</value>
+    <value>登録済み単語帳</value>
   </data>
   <data name="MasterWordbooksTitle" xml:space="preserve">
-    <value>Wordbooks</value>
+    <value>単語帳</value>
   </data>
   <data name="NewWordbookCsvPreviewMessage" xml:space="preserve">
-    <value>Please select columns.</value>
+    <value>列を選択してください。</value>
   </data>
   <data name="NewWordbookCsvPreviewPickerTitleDescription" xml:space="preserve">
-    <value>Description</value>
+    <value>説明</value>
   </data>
   <data name="NewWordbookCsvPreviewPickerTitleHead" xml:space="preserve">
-    <value>Term</value>
+    <value>単語名</value>
   </data>
   <data name="NewWordbookCsvPreviewTitle" xml:space="preserve">
-    <value>Columns</value>
+    <value>項目選択</value>
   </data>
   <data name="OrderActionMessage" xml:space="preserve">
-    <value>Sort</value>
+    <value>並び替え</value>
   </data>
   <data name="OrderAscending" xml:space="preserve">
     <value />
@@ -238,22 +238,22 @@ Followers</value>
     <value>*</value>
   </data>
   <data name="OrderDescending" xml:space="preserve">
-    <value>(Descending)</value>
+    <value>(降順)</value>
   </data>
   <data name="OrderEnumHeadword" xml:space="preserve">
-    <value>Term</value>
+    <value>単語名順</value>
   </data>
   <data name="OrderEnumOriginal" xml:space="preserve">
-    <value>Default</value>
+    <value>標準</value>
   </data>
   <data name="OrderEnumRandom" xml:space="preserve">
-    <value>Random</value>
+    <value>ランダム</value>
   </data>
   <data name="OrderEnumScore" xml:space="preserve">
-    <value>Score</value>
+    <value>成績順</value>
   </data>
   <data name="OrderEnumTitle" xml:space="preserve">
-    <value>Title</value>
+    <value>タイトル</value>
   </data>
   <data name="OrderEnumUrl" xml:space="preserve">
     <value>URL</value>
@@ -280,205 +280,205 @@ Followers</value>
     <value>kurema</value>
   </data>
   <data name="QuizWordChoiceBottomMessage" xml:space="preserve">
-    <value>Select:Correct:Wrong:Error</value>
+    <value>選択してください:正解:不正解:エラー</value>
   </data>
   <data name="SettingAboutLicenseAppDetail" xml:space="preserve">
-    <value>Display license of this application.</value>
+    <value>このアプリのライセンスを表示。</value>
   </data>
   <data name="SettingAboutLicenseAppTitle" xml:space="preserve">
-    <value>License</value>
+    <value>ライセンス</value>
   </data>
   <data name="SettingAboutLicenseOSSDetail" xml:space="preserve">
-    <value>License details for open-source software.</value>
+    <value>オープンソースソフトウェアに関するライセンスの詳細</value>
   </data>
   <data name="SettingAboutLicenseOSSTitle" xml:space="preserve">
-    <value>Open-source licenses</value>
+    <value>オープンソースライセンス</value>
   </data>
   <data name="SettingAboutProjectPage" xml:space="preserve">
-    <value>Project page</value>
+    <value>プロジェクトページ</value>
   </data>
   <data name="SettingAboutTitle" xml:space="preserve">
-    <value>About {0}</value>
+    <value>{0}について</value>
   </data>
   <data name="SettingDebugInitTutorialAlertMessage" xml:space="preserve">
-    <value>{0} is deleted.</value>
+    <value>{0}を削除しました。</value>
   </data>
   <data name="SettingDebugInitTutorialAlertTitle" xml:space="preserve">
-    <value>Deletion</value>
+    <value>削除</value>
   </data>
   <data name="SettingDebugInitTutorialDetail" xml:space="preserve">
-    <value>Delete the tutorial completion file.</value>
+    <value>チュートリアル完了ファイルを削除します。</value>
   </data>
   <data name="SettingDebugInitTutorialTitle" xml:space="preserve">
-    <value>Initialize tutorial</value>
+    <value>チュートリアル初期設定</value>
   </data>
   <data name="SettingDebugTitle" xml:space="preserve">
-    <value>Debug</value>
+    <value>デバッグ</value>
   </data>
   <data name="SettingQuizChoiceChoice" xml:space="preserve">
-    <value>{0} choices</value>
+    <value>{0}択</value>
   </data>
   <data name="SettingQuizChoiceDetail" xml:space="preserve">
-    <value>Number of choices is {0}.</value>
+    <value>選択肢の数は{0}個です。</value>
   </data>
   <data name="SettingQuizChoiceMessage" xml:space="preserve">
-    <value>Select the number of choices.</value>
+    <value>選択肢の数を選択してください。</value>
   </data>
   <data name="SettingQuizChoiceTitle" xml:space="preserve">
-    <value>Number of choices</value>
+    <value>選択肢</value>
   </data>
   <data name="SettingQuizConditionCorrectCountChoice" xml:space="preserve">
-    <value>{0} time(s).</value>
+    <value>{0}回</value>
   </data>
   <data name="SettingQuizConditionCorrectCountDetailFalse" xml:space="preserve">
-    <value>Skip after you answer {0} time(s) correctly.</value>
+    <value>{0}回正解した単語をスキップします。</value>
   </data>
   <data name="SettingQuizConditionCorrectCountDetailTrue" xml:space="preserve">
-    <value>Do not skip.</value>
+    <value>正解数に関わらず出題します。</value>
   </data>
   <data name="SettingQuizConditionCorrectCountMessage" xml:space="preserve">
-    <value>Skip after you pick correct answer ...</value>
+    <value>スキップする正解数を選択してください。</value>
   </data>
   <data name="SettingQuizConditionCorrectCountTitle" xml:space="preserve">
-    <value>Number of choice answered correctly</value>
+    <value>正解数</value>
   </data>
   <data name="SettingQuizConditionCorrectRateDetailFalse" xml:space="preserve">
-    <value>Skip if you get score more than {1}% in {0} trial.</value>
+    <value>{0}問以上出題した結果{1}%正解した単語をスキップします。</value>
   </data>
   <data name="SettingQuizConditionCorrectRateDetailTrue" xml:space="preserve">
-    <value>Do not skip.</value>
+    <value>正解率に関わらず出題します。</value>
   </data>
   <data name="SettingQuizConditionCorrectRatePageExplanationExplanationAlert" xml:space="preserve">
-    <value>To answer correctly does not always mean you know the correct answer.
-You can prove it by good number of trial.
-Basics are important.
-That's why both the rate and the count is required.</value>
+    <value>出題問題数が少ない間はたまたま正解してしまい正解率が高くなってしまう事があります。
+適切な正解率を得るには一定回数の出題が必要です。
+また基本もおろそかにしない事が大事です。
+以下の条件を片方でも満たさない場合には出題します。</value>
   </data>
   <data name="SettingQuizConditionCorrectRatePageExplanationExplanationDetail" xml:space="preserve">
-    <value>Get hint.</value>
+    <value>この条件に関して説明します。</value>
   </data>
   <data name="SettingQuizConditionCorrectRatePageExplanationExplanationMessage" xml:space="preserve">
-    <value>Get hint.</value>
+    <value>この条件に関して説明します。</value>
   </data>
   <data name="SettingQuizConditionCorrectRatePageRequirementCorrectCountChoice" xml:space="preserve">
-    <value>{0} time(s).</value>
+    <value>{0}問</value>
   </data>
   <data name="SettingQuizConditionCorrectRatePageRequirementCorrectCountChoiceMessage" xml:space="preserve">
-    <value>Select the required number of correct answers.</value>
+    <value>スキップに必要な出題数を選択してください。</value>
   </data>
   <data name="SettingQuizConditionCorrectRatePageRequirementCorrectCountDetailFalse" xml:space="preserve">
-    <value>Skip after you answer {0} time(s) with enough correct answer rate.</value>
+    <value>出題数が{0}問未満の場合は出題します。</value>
   </data>
   <data name="SettingQuizConditionCorrectRatePageRequirementCorrectCountDetailTrue" xml:space="preserve">
-    <value>Do not skip.</value>
+    <value>出題数に関わらず出題します。</value>
   </data>
   <data name="SettingQuizConditionCorrectRatePageRequirementCorrectRateChoice" xml:space="preserve">
     <value>{0}%</value>
   </data>
   <data name="SettingQuizConditionCorrectRatePageRequirementCorrectRateChoiceMessage" xml:space="preserve">
-    <value>Select the required rate of correct answers.</value>
+    <value>スキップする正解率を選択してください。</value>
   </data>
   <data name="SettingQuizConditionCorrectRatePageRequirementCorrectRateDetailFalse" xml:space="preserve">
-    <value>Skip if you get score of {0}% after required trials.</value>
+    <value>正解率が{0}%未満の場合は出題します。</value>
   </data>
   <data name="SettingQuizConditionCorrectRatePageRequirementCorrectRateDetailTrue" xml:space="preserve">
-    <value>Do not skip.</value>
+    <value>正解率に関わらず出題します。</value>
   </data>
   <data name="SettingQuizConditionCorrectRatePageRequirementTitle" xml:space="preserve">
-    <value>Requirement</value>
+    <value>正解率条件</value>
   </data>
   <data name="SettingQuizConditionCorrectRateTitle" xml:space="preserve">
-    <value>Rate of correct answers</value>
+    <value>正解率</value>
   </data>
   <data name="SettingQuizConditionIgnoreTimeSpanChoiceMessage" xml:space="preserve">
-    <value>Skip setting is ignored once after...</value>
+    <value>条件によらず出題されるようになるまでの期間を指定してください。</value>
   </data>
   <data name="SettingQuizConditionIgnoreTimeSpanChoiceNever" xml:space="preserve">
-    <value>Do not ignore skip setting.</value>
+    <value>出題しない</value>
   </data>
   <data name="SettingQuizConditionIgnoreTimeSpanDetailFalse" xml:space="preserve">
-    <value>Skip setting is ignored once after {0}.</value>
+    <value>最後に正解してから{0}経過した場合には通常通り出題します。</value>
   </data>
   <data name="SettingQuizConditionIgnoreTimeSpanDetailTrue" xml:space="preserve">
-    <value>Do not ignore skip setting.</value>
+    <value>条件を満たさない場合は出題しません。</value>
   </data>
   <data name="SettingQuizConditionIgnoreTimeSpanTimeSpanFormat" xml:space="preserve">
-    <value>[:g:]</value>
+    <value>[if:Days:[Days]日][if:Hours:[Hours]時間][if:Minutes:[Minutes]分][if:Seconds:[Seconds]秒]</value>
   </data>
   <data name="SettingQuizConditionIgnoreTimeSpanTitle" xml:space="preserve">
-    <value>Grace period</value>
+    <value>条件無視期間</value>
   </data>
   <data name="SettingQuizConditionRememberedDetailFalse" xml:space="preserve">
-    <value>Do not skip marked word.</value>
+    <value>クイズで記憶済みにチェックした単語も出題します。</value>
   </data>
   <data name="SettingQuizConditionRememberedDetailTrue" xml:space="preserve">
-    <value>Skip marked word.</value>
+    <value>クイズで記憶済みにチェックした単語をスキップします。</value>
   </data>
   <data name="SettingQuizConditionRememberedTitle" xml:space="preserve">
-    <value>Checked word</value>
+    <value>記憶済み</value>
   </data>
   <data name="SettingQuizConditionTitle" xml:space="preserve">
-    <value>Requirement to skip</value>
+    <value>クイズ出題条件</value>
   </data>
   <data name="SettingQuizConditionWordNotSkip" xml:space="preserve">
-    <value>Do not skip.</value>
+    <value>スキップしない</value>
   </data>
   <data name="SettingQuizTitle" xml:space="preserve">
-    <value>Quiz</value>
+    <value>クイズ設定</value>
   </data>
   <data name="SettingStatisticsAmazonAssociateIdChoiceMessage" xml:space="preserve">
-    <value>Please select Amazon Associate ID (For amazon.co.jp).</value>
+    <value>Amazon アソシエイトIDを選択してください。</value>
   </data>
   <data name="SettingStatisticsAmazonAssociateIdChoiceProgrammer" xml:space="preserve">
-    <value>ID of developer.</value>
+    <value>アプリ製作者のID</value>
   </data>
   <data name="SettingStatisticsAmazonAssociateIdDetail" xml:space="preserve">
-    <value>Set up Amazon Associate ID.</value>
+    <value>スコア共有時に使用されるAmazon アソシエイトIDを設定します。</value>
   </data>
   <data name="SettingStatisticsAmazonAssociateIdTitle" xml:space="preserve">
-    <value>Amazon Associate ID</value>
+    <value>Amazon アソシエイトID</value>
   </data>
   <data name="SettingStatisticsDailyQuestionChoice" xml:space="preserve">
-    <value>{0} times.</value>
+    <value>{0}問</value>
   </data>
   <data name="SettingStatisticsDailyQuestionChoiceMessage" xml:space="preserve">
-    <value>Select standard number of quiz per day.</value>
+    <value>回答数目安を選択してください。</value>
   </data>
   <data name="SettingStatisticsDailyQuestionDetail" xml:space="preserve">
-    <value>The less the number, The deeper the color of the calendar. Current {0}.</value>
+    <value>成績一覧ページのカレンダーグラフに反映されます。現在{0}問。</value>
   </data>
   <data name="SettingStatisticsDailyQuestionTitle" xml:space="preserve">
-    <value>Standard # of quiz per day</value>
+    <value>一日当たりの回答数目安</value>
   </data>
   <data name="SettingStatisticsTitle" xml:space="preserve">
-    <value>Statistics</value>
+    <value>成績一覧</value>
   </data>
   <data name="SettingStatisticsZeroAnswerDetailFalse" xml:space="preserve">
-    <value>The test with no answer is not listed.</value>
+    <value>無回答の場合成績一覧に表示しません。</value>
   </data>
   <data name="SettingStatisticsZeroAnswerDetailTrue" xml:space="preserve">
-    <value>The test with no answer is listed.</value>
+    <value>無回答でも成績一覧に表示します。</value>
   </data>
   <data name="SettingStatisticsZeroAnswerTitle" xml:space="preserve">
-    <value>Show empty result</value>
+    <value>無回答を表示</value>
   </data>
   <data name="SettingStoreEnableImpressDetailFalse" xml:space="preserve">
-    <value>Function around impress books is disabled.</value>
+    <value>ストア及びインプレスブックス単語帳機能をオフにします。</value>
   </data>
   <data name="SettingStoreEnableImpressDetailTrue" xml:space="preserve">
-    <value>Function around impress books is enabled.</value>
+    <value>ストア及びインプレスブックス単語帳機能をオンにします。</value>
   </data>
   <data name="SettingStoreEnableImpressTitle" xml:space="preserve">
-    <value>Impress books functions</value>
+    <value>インプレスブックス関連機能</value>
   </data>
   <data name="SettingStorePreferPrintedDetailFalse" xml:space="preserve">
-    <value>Prefer ebooks.</value>
+    <value>電子書籍を優先して表示します。</value>
   </data>
   <data name="SettingStorePreferPrintedDetailTrue" xml:space="preserve">
-    <value>Prefer printed books</value>
+    <value>印刷版の本を優先して表示します。</value>
   </data>
   <data name="SettingStorePreferPrintedTitle" xml:space="preserve">
-    <value>Book A/D preference</value>
+    <value>印刷版を優先</value>
   </data>
   <data name="SettingStoreStoreChoiceChoices" xml:space="preserve">
     <value>Amazon
@@ -491,141 +491,139 @@ https://www.yodobashi.com/category/81001/?word=[ISBN,EAN,Title]
 https://books.rakuten.co.jp/search/nm?sitem=[ISBN,EAN,Title]</value>
   </data>
   <data name="SettingStoreStoreChoiceMessage" xml:space="preserve">
-    <value>Select your favorite Store.</value>
+    <value>リンクで開くストアを選択してください。</value>
   </data>
   <data name="SettingStoreStoreDetail" xml:space="preserve">
-    <value>Change setting of Store you buy books.</value>
+    <value>リンクを開く際のストアを設定します。</value>
   </data>
   <data name="SettingStoreStoreTitle" xml:space="preserve">
-    <value>Favorite Store</value>
+    <value>リンクを開くストア</value>
   </data>
   <data name="SettingStoreTitle" xml:space="preserve">
-    <value>Store</value>
+    <value>ストア</value>
   </data>
   <data name="SettingSupportTitle" xml:space="preserve">
-    <value>Support</value>
+    <value>サポート</value>
   </data>
   <data name="SettingSupportTutorialDetail" xml:space="preserve">
-    <value>Show tutorial.</value>
+    <value>初回チュートリアルを表示します。</value>
   </data>
   <data name="SettingSupportTutorialTitle" xml:space="preserve">
-    <value>Tutorial</value>
+    <value>チュートリアル</value>
   </data>
   <data name="SettingSupportWikiDetail" xml:space="preserve">
-    <value>Open wiki of this app.</value>
+    <value>このアプリのWikiを開きます。</value>
   </data>
   <data name="SettingSupportWikiTitle" xml:space="preserve">
     <value>Wiki</value>
   </data>
   <data name="SpecialInformationItemPrice" xml:space="preserve">
-    <value>Price:</value>
+    <value>価格:</value>
   </data>
   <data name="SpecialInformationItemQRCode" xml:space="preserve">
-    <value>QR code</value>
+    <value>QRコード</value>
   </data>
   <data name="SpecialInformationSpecialInfo" xml:space="preserve">
-    <value>Special gift:/PDF/Wordbook/Voice/None.</value>
+    <value>特典:/本文PDF/単語帳/音声/特典なし</value>
   </data>
   <data name="SpecialInformationVersionChoice" xml:space="preserve">
-    <value>Only show latest version.:Show all versions.:Error</value>
+    <value>最新版のみ表示:以前のバージョンを表示:エラー</value>
   </data>
   <data name="StatisticsButtonContinue" xml:space="preserve">
-    <value>Continue</value>
+    <value>コンティニュー</value>
   </data>
   <data name="StatisticsButtonRetry" xml:space="preserve">
-    <value>Retry</value>
+    <value>リトライ</value>
   </data>
   <data name="StatisticsButtonTweet" xml:space="preserve">
     <value>Tweet</value>
   </data>
   <data name="StatisticsOther" xml:space="preserve">
-    <value>Other</value>
+    <value>その他</value>
   </data>
   <data name="StatisticsPastTimeSpan" xml:space="preserve">
-    <value>Elapsed time</value>
+    <value>経過時間</value>
   </data>
   <data name="StatisticsPieGraphScore" xml:space="preserve">
-    <value>Score</value>
+    <value>スコア</value>
   </data>
   <data name="StatisticsQuizChoiceTypeParameter" xml:space="preserve">
-    <value>Title:Term quiz::Description:Description quiz</value>
+    <value>Title:単語当てクイズ::Description:説明当てクイズ</value>
   </data>
   <data name="StatisticsQuizResultParameter" xml:space="preserve">
-    <value>Correct:Wrong:Pass:Not yet:Error</value>
+    <value>正解:誤答:未回答:未出題:エラー</value>
   </data>
   <data name="StatisticsQuizRetryStatusParameter" xml:space="preserve">
-    <value>First:First time.::Retry:Retry.::Continue:Continue</value>
+    <value>First:初回::Retry:リトライ::Continue:コンティニュー</value>
   </data>
   <data name="StatisticsRecordTitle" xml:space="preserve">
-    <value>Score</value>
+    <value>成績</value>
   </data>
   <data name="StatisticsTestDateFormat" xml:space="preserve">
-    <value>Date : {0:G}</value>
+    <value>試験日時 : {0:yyyy\年MM\月dd\日 tt h\時mm\分\開\始 }</value>
   </data>
   <data name="StatisticsTimeSpanSingleFormat" xml:space="preserve">
-    <value>Each : [:g:]</value>
+    <value>1問当たり : [if:TotalMinutesFloor:[TotalMinutesFloor:{0:00}]分][Seconds:{0:00}]秒</value>
   </data>
   <data name="StatisticsTimeSpanTotalFormat" xml:space="preserve">
-    <value>Total : [:g:]</value>
+    <value>合計 : [if:TotalMinutesFloor:[TotalMinutesFloor:{0:00}]分][Seconds:{0:00}]秒</value>
   </data>
   <data name="StatisticsTwitterMessageAd" xml:space="preserve">
-    <value>Buy "{0}" and get this wordbook!
+    <value>この単語帳は「{0}」を買えば付いてきます。
 {1}
 </value>
   </data>
   <data name="StatisticsTwitterMessageAllCorrect" xml:space="preserve">
-    <value>I answered all {0} questions correctly</value>
+    <value>{0}問全て正解しました！</value>
   </data>
   <data name="StatisticsTwitterMessageAllWrong" xml:space="preserve">
-    <value>I answered all {0} questions in error</value>
+    <value>{0}問全て間違えました！</value>
   </data>
   <data name="StatisticsTwitterMessageAnswerCount" xml:space="preserve">
-    <value>My score was {0} / {1}({2}%)</value>
+    <value>{0}問中{1}問({2}%)正解しました！</value>
   </data>
   <data name="StatisticsTwitterMessageNoAnswer" xml:space="preserve">
     <value>1問も解答しませんでした！</value>
   </data>
   <data name="StatisticsTwitterMessageTotal" xml:space="preserve">
-    <value>I got a test of {0}!
-{2} in {1}!
+    <value>{0}のクイズを{1}で{2}
 #wordbook_impress
 {3}
-See more at
+単語帳アプリは現在開発中
 https://github.com/kurema/WordbookImpressApp</value>
   </data>
   <data name="StatisticsTwitterTimeFormat" xml:space="preserve">
-    <value>[:g:]</value>
+    <value>[if:TotalMinutesFloor:[TotalMinutesFloor:{0:00}]分][Seconds:{0:00}]秒</value>
   </data>
   <data name="StoreItemsBookOfDeveloper" xml:space="preserve">
-    <value>Books of {0}</value>
+    <value>{0}の本</value>
   </data>
   <data name="StoreItemsImpressSearchWord" xml:space="preserve">
     <value>インプレス</value>
   </data>
   <data name="StoreItemsImpressTitle" xml:space="preserve">
-    <value>Books of "impress book (Japan)".</value>
+    <value>インプレスブックスの本</value>
   </data>
   <data name="StoreItemsRelatedClicked" xml:space="preserve">
-    <value>Similar books.</value>
+    <value>以前クリックした本に関連</value>
   </data>
   <data name="StoreItemsRelatedClickedTitle" xml:space="preserve">
-    <value>Similar to {0}</value>
+    <value>{0}に関連</value>
   </data>
   <data name="StoreItemsSpecialEbook" xml:space="preserve">
-    <value>Books with PDF</value>
+    <value>本文PDFが手に入る本</value>
   </data>
   <data name="StoreItemsSpecialLatest" xml:space="preserve">
-    <value>Books with gift</value>
+    <value>最近追加された特典本</value>
   </data>
   <data name="StoreItemsSpecialWordbook" xml:space="preserve">
-    <value>Books with wordbook</value>
+    <value>単語帳が手に入る本</value>
   </data>
   <data name="StoreNotice" xml:space="preserve">
-    <value>Notice</value>
+    <value>利用時の注意</value>
   </data>
   <data name="StoreNoticeMessage" xml:space="preserve">
-    <value>Following message is requested to display in Japanese.
-本アプリケーション内で表示されるコンテンツの一部は、アマゾンジャパン合同会社またはその関連会社により提供されたものです。これらのコンテンツは「現状有姿」で提供されており、随時変更または削除される場合があります。
+    <value>本アプリケーション内で表示されるコンテンツの一部は、アマゾンジャパン合同会社またはその関連会社により提供されたものです。これらのコンテンツは「現状有姿」で提供されており、随時変更または削除される場合があります。
 価格および発送可能時期は表示された日付/時刻の時点のものであり、変更される場合があります。本商品の購入においては、購入の時点でAmazon.co.jpに表示されている価格および発送可能時期の情報が適用されます。
 Amazon.co.jpアソシエイト。
 特典情報などの一部は独自作成したデータベースを利用しています。これらは最新の情報でない可能性があります。ご自身でご確認の上ご利用ください。</value>
@@ -634,361 +632,360 @@ https://affiliate.amazon.co.jp/help/operating/agreement
 https://affiliate.amazon.co.jp/help/operating/paapilicenseagreement</comment>
   </data>
   <data name="TestStatusDateTimeStartFormat" xml:space="preserve">
-    <value>Date : {0:G}</value>
+    <value>試験日時 : {0:yyyy\年MM\月dd\日 tt h\時mm\分\開\始 }</value>
   </data>
   <data name="TestStatusPieGraphScore" xml:space="preserve">
-    <value>Score</value>
+    <value>スコア</value>
   </data>
   <data name="TestStatusTargetWordbookFormat" xml:space="preserve">
-    <value>Wordbook : {0}</value>
+    <value>対象単語帳 : {0}</value>
   </data>
   <data name="TestStatusTimeSpanFormatEach" xml:space="preserve">
-    <value>Each: [:g:]</value>
+    <value>1問当たり : [if:TotalMinutesFloor:[TotalMinutesFloor:{0:00}]分][Seconds:{0:00}]秒</value>
   </data>
   <data name="TestStatusTimeSpanFormatTotal" xml:space="preserve">
-    <value>Total: [:g:]</value>
+    <value>合計 : [if:TotalMinutesFloor:[TotalMinutesFloor:{0:00}]分][Seconds:{0:00}]秒</value>
   </data>
   <data name="TestStatusTimeSpanTitle" xml:space="preserve">
-    <value>Elapsed time</value>
+    <value>経過時間</value>
   </data>
   <data name="TestStatusTotalStatus" xml:space="preserve">
-    <value>Total score</value>
+    <value>全体成績</value>
   </data>
   <data name="TitleDeveloperProfile" xml:space="preserve">
-    <value>Profile</value>
+    <value>プロフィール</value>
   </data>
   <data name="TitleEntryWithOption" xml:space="preserve">
-    <value>Selection</value>
+    <value>選択</value>
   </data>
   <data name="TitleLicense" xml:space="preserve">
-    <value>License</value>
+    <value>ライセンス</value>
   </data>
   <data name="TitleMaster" xml:space="preserve">
-    <value>Menu</value>
+    <value>メニュー</value>
   </data>
   <data name="TitleNewWordbookCsvPreview" xml:space="preserve">
-    <value>Preview</value>
+    <value>プレビュー</value>
   </data>
   <data name="TitleQuizWordChoice" xml:space="preserve">
-    <value>Quiz</value>
+    <value>クイズ</value>
   </data>
   <data name="TitleSetting" xml:space="preserve">
-    <value>Settings</value>
+    <value>設定</value>
   </data>
   <data name="TitleSpecialInformation" xml:space="preserve">
-    <value>Books</value>
+    <value>書籍一覧</value>
   </data>
   <data name="TitleSpecialInformationItem" xml:space="preserve">
-    <value>Book</value>
+    <value>書籍詳細</value>
   </data>
   <data name="TitleStatistics" xml:space="preserve">
-    <value>Statistics</value>
+    <value>成績</value>
   </data>
   <data name="TitleStore" xml:space="preserve">
-    <value>Store</value>
+    <value>ストア</value>
   </data>
   <data name="TitleTestStatus" xml:space="preserve">
-    <value>Score</value>
+    <value>成績</value>
   </data>
   <data name="TitleTutorial" xml:space="preserve">
-    <value>Tutorial</value>
+    <value>チュートリアル</value>
   </data>
   <data name="TitleWordbook" xml:space="preserve">
-    <value>Wordbook</value>
+    <value>単語帳</value>
   </data>
   <data name="TitleWordbooks" xml:space="preserve">
-    <value>Wordbooks</value>
+    <value>単語帳一覧</value>
   </data>
   <data name="TitleWordPage" xml:space="preserve">
-    <value>Word</value>
+    <value>単語</value>
   </data>
   <data name="TitleWordsPage" xml:space="preserve">
-    <value>Word</value>
+    <value>単語</value>
   </data>
   <data name="TutorialButtonDone" xml:space="preserve">
-    <value>Done</value>
+    <value>完了</value>
   </data>
   <data name="TutorialButtonNext" xml:space="preserve">
-    <value>Next</value>
+    <value>次へ</value>
   </data>
   <data name="TutorialButtonSkip" xml:space="preserve">
-    <value>Skip</value>
+    <value>スキップ</value>
   </data>
   <data name="TutorialPage1Detail" xml:space="preserve">
-    <value>Create wordbooks
-in CSV or XLSX.</value>
+    <value>店頭やネットで
+インプレスブックスの対象書籍を購入</value>
   </data>
   <data name="TutorialPage1Title" xml:space="preserve">
-    <value>Create</value>
+    <value>本を買う</value>
   </data>
   <data name="TutorialPage2Detail" xml:space="preserve">
-    <value>Share the file
-in SMB/HTTP.</value>
+    <value>公式サイトから特典を取得</value>
   </data>
   <data name="TutorialPage2Title" xml:space="preserve">
-    <value>Share</value>
+    <value>特典を得る</value>
   </data>
   <data name="TutorialPage3Detail" xml:space="preserve">
-    <value>Transfer the file here.</value>
+    <value>このアプリで単語帳を登録</value>
   </data>
   <data name="TutorialPage3Title" xml:space="preserve">
-    <value>Transfer</value>
+    <value>登録する</value>
   </data>
   <data name="WeekOfDaysFormat" xml:space="preserve">
     <value>ddd</value>
     <comment>Used for CalendarGraphView</comment>
   </data>
   <data name="WordbookAlertCannotDelete" xml:space="preserve">
-    <value>You can not this virtual wordbook.</value>
+    <value>総合単語帳は削除できません。</value>
   </data>
   <data name="WordbookAlertConfirmDelete" xml:space="preserve">
-    <value>Are you sure you want to delete this wordbook?</value>
+    <value>この単語帳を削除しますか。</value>
   </data>
   <data name="WordbookCombinedTitle" xml:space="preserve">
-    <value>Total score</value>
+    <value>全体成績</value>
   </data>
   <data name="WordbookQuizDescription" xml:space="preserve">
-    <value>Description quiz</value>
+    <value>説明クイズ</value>
   </data>
   <data name="WordbookQuizHead" xml:space="preserve">
-    <value>Term quiz</value>
+    <value>単語クイズ</value>
   </data>
   <data name="WordbookRenameMessage" xml:space="preserve">
-    <value>Enter the title.</value>
+    <value>タイトルを入力してください。</value>
   </data>
   <data name="WordbookShowDescription" xml:space="preserve">
-    <value>Show description:Hide description:Error</value>
+    <value>説明表示:説明非表示:エラー</value>
   </data>
   <data name="WordbookShowHead" xml:space="preserve">
-    <value>Show term:Hide term:Error</value>
+    <value>単語表示:単語非表示:エラー</value>
   </data>
   <data name="WordbooksToolbarInfoWord" xml:space="preserve">
-    <value>{0} words</value>
+    <value>{0}単語</value>
   </data>
   <data name="WordbooksToolbarItemAdd" xml:space="preserve">
-    <value>Add</value>
+    <value>追加</value>
   </data>
   <data name="WordbooksToolbarItemOrder" xml:space="preserve">
-    <value>Sort</value>
+    <value>並び替え</value>
   </data>
   <data name="WordbookToolbarItemDelete" xml:space="preserve">
-    <value>Delete</value>
+    <value>削除</value>
   </data>
   <data name="WordbookToolbarItemRename" xml:space="preserve">
-    <value>Rename</value>
+    <value>タイトル変更</value>
   </data>
   <data name="WordbookToolbarItemScore" xml:space="preserve">
-    <value>Score</value>
+    <value>成績を表示</value>
   </data>
   <data name="WordbookToolbarItemSort" xml:space="preserve">
-    <value>Sort</value>
+    <value>並び替え</value>
   </data>
   <data name="WordCaution" xml:space="preserve">
-    <value>Attention</value>
+    <value>注意</value>
   </data>
   <data name="WordCommentary" xml:space="preserve">
-    <value>Commentary</value>
+    <value>解説</value>
   </data>
   <data name="WordCorrectCount" xml:space="preserve">
-    <value>Number of correct answers</value>
+    <value>正解数</value>
   </data>
   <data name="WordCorrectRate" xml:space="preserve">
-    <value>Rate of correct answers</value>
+    <value>正解率</value>
   </data>
   <data name="WordDelete" xml:space="preserve">
-    <value>Delete</value>
+    <value>削除</value>
   </data>
   <data name="WordExplanation" xml:space="preserve">
-    <value>Description</value>
+    <value>説明</value>
   </data>
   <data name="WordPageBottomLast" xml:space="preserve">
-    <value>LAST PAGE</value>
+    <value>最後のページです</value>
   </data>
   <data name="WordPageBottomNext" xml:space="preserve">
-    <value>Next</value>
+    <value>次へ</value>
   </data>
   <data name="WordPageBottomShow" xml:space="preserve">
-    <value>Show</value>
+    <value>表示</value>
   </data>
   <data name="WordPageRememberCheck" xml:space="preserve">
-    <value>Checked</value>
+    <value>記憶完了</value>
   </data>
   <data name="WordPageSearchDictionary" xml:space="preserve">
-    <value>Dictionary.com</value>
+    <value>weblio検索</value>
   </data>
   <data name="WordPageSearchDictionaryUrl" xml:space="preserve">
-    <value>https://www.dictionary.com/browse/{0}</value>
+    <value>https://www.weblio.jp/content/{0}</value>
   </data>
   <data name="WordPageSearchGoogle" xml:space="preserve">
-    <value>Google</value>
+    <value>Google検索</value>
   </data>
   <data name="WordPageSearchGoogleUrl" xml:space="preserve">
-    <value>https://www.google.com/search?q={0}</value>
+    <value>https://www.google.co.jp/search?q={0}</value>
   </data>
   <data name="WordPageSearchWikipedia" xml:space="preserve">
-    <value>Wikipedia</value>
+    <value>Wikipedia検索</value>
   </data>
   <data name="WordPageSearchWikipediaUrl" xml:space="preserve">
-    <value>https://en.wikipedia.org/wiki/{0}</value>
+    <value>https://ja.wikipedia.org/wiki/{0}</value>
   </data>
   <data name="WordPrice" xml:space="preserve">
-    <value>Price</value>
+    <value>価格</value>
   </data>
   <data name="WordQRCode" xml:space="preserve">
-    <value>QR code</value>
+    <value>QRコード</value>
   </data>
   <data name="WordQuiz" xml:space="preserve">
-    <value>Quiz</value>
+    <value>クイズ</value>
   </data>
   <data name="WordSort" xml:space="preserve">
-    <value>Sort</value>
+    <value>並び替え</value>
   </data>
   <data name="WordStore" xml:space="preserve">
-    <value>Store</value>
+    <value>ストア</value>
   </data>
   <data name="WordWarning" xml:space="preserve">
-    <value>Warning</value>
+    <value>警告</value>
   </data>
   <data name="NewWordbookAlertFailedToAuth" xml:space="preserve">
-    <value>Authentication failed.</value>
+    <value>認証に失敗しました。</value>
   </data>
   <data name="NewWordbookAlertFailedToLoad" xml:space="preserve">
-    <value>Failed to read the file.</value>
+    <value>ファイルの読み取りに失敗しました。</value>
   </data>
   <data name="NewWordbookAlertRecoverNotFound" xml:space="preserve">
-    <value>There is no deleted wordbook.</value>
+    <value>削除された単語帳がありません。</value>
   </data>
   <data name="NewWordbookAlertWrongAddress" xml:space="preserve">
-    <value>The address is inappropriate.</value>
+    <value>アドレスが不適切です。</value>
   </data>
   <data name="NewWordbookCommonAuthTitle" xml:space="preserve">
-    <value>Authentication information</value>
+    <value>認証情報</value>
   </data>
   <data name="NewWordbookCommonTitleTitle" xml:space="preserve">
-    <value>Title</value>
+    <value>タイトル</value>
   </data>
   <data name="NewWordbookDefaultEncoding" xml:space="preserve">
-    <value>utf8</value>
+    <value>shift_jis</value>
     <comment>All character is lower case.</comment>
   </data>
   <data name="NewWordbookEncodingMessage" xml:space="preserve">
-    <value>Please select character code for CSV file.</value>
+    <value>エンコードを設定してください</value>
   </data>
   <data name="NewWordbookEntryListEncoding" xml:space="preserve">
-    <value>Character code</value>
+    <value>文字コード</value>
   </data>
   <data name="NewWordbookEntryListId" xml:space="preserve">
     <value>ID</value>
   </data>
   <data name="NewWordbookEntryListOptional" xml:space="preserve">
-    <value> (Optional)</value>
+    <value> (任意)</value>
   </data>
   <data name="NewWordbookEntryListPassword" xml:space="preserve">
     <value>Password</value>
   </data>
   <data name="NewWordbookEntryListTitle" xml:space="preserve">
-    <value>Title</value>
+    <value>タイトル</value>
   </data>
   <data name="NewWordbookEntryListUrl" xml:space="preserve">
     <value>URL</value>
   </data>
   <data name="NewWordbookRecoverMessage" xml:space="preserve">
-    <value>Please select the word book to restore.</value>
+    <value>復活する単語帳を選択してください。</value>
   </data>
   <data name="NewWordbookRecoverTitle" xml:space="preserve">
-    <value>Wordbook</value>
+    <value>単語帳</value>
   </data>
   <data name="NewWordbookRequestTitleMessage" xml:space="preserve">
-    <value>Please input the title.</value>
+    <value>タイトルを入力してください。</value>
   </data>
   <data name="NewWordbookTabCsvAuthMessage" xml:space="preserve">
-    <value>You can specify the address of HTTP or SMB / CIFS (Windows Share).
-Please enter ID and password if necessary.
-An example of the SMB / CIFS address is shown below.
+    <value>HTTPやSMB/CIFS(ファイル共有)のアドレスを指定できます。
+必要ならIDとパスワードを入力してください。
+SMB/CIFSのアドレスは以下ような形式です。
 "smb://UserName:Password@ServerIP/ShareName/..."
 "\\servername\ShareName\..."</value>
   </data>
   <data name="NewWordbookTabCsvColumnButtonPreview" xml:space="preserve">
-    <value>Preview</value>
+    <value>プレビュー</value>
   </data>
   <data name="NewWordbookTabCsvColumnPickerDetail" xml:space="preserve">
-    <value>Explanation</value>
+    <value>説明</value>
   </data>
   <data name="NewWordbookTabCsvColumnPickerHead" xml:space="preserve">
-    <value>Term</value>
+    <value>単語名</value>
   </data>
   <data name="NewWordbookTabCsvColumnTitle" xml:space="preserve">
-    <value>Select columns</value>
+    <value>列選択</value>
   </data>
   <data name="NewWordbookTabCsvEncodeButton" xml:space="preserve">
-    <value>Selection</value>
+    <value>選択</value>
   </data>
   <data name="NewWordbookTabCsvEncodeMessage" xml:space="preserve">
-    <value>Please select character code for CSV file.</value>
+    <value>ファイルの文字コードを設定してください。</value>
   </data>
   <data name="NewWordbookTabCsvTitle" xml:space="preserve">
     <value>CSV/XLSX</value>
   </data>
   <data name="NewWordbookTabCsvTitleMessage" xml:space="preserve">
-    <value>You can change the title later.</value>
+    <value>タイトルは後からでも変更できます。</value>
   </data>
   <data name="NewWordbookTabImpressAutoMessage" xml:space="preserve">
-    <value>Copy and paste the content of special-gift-page.</value>
+    <value>特典ページの内容を張り付ける事で一括入力ができます。</value>
   </data>
   <data name="NewWordbookTabImpressAutoTitle" xml:space="preserve">
-    <value>Smart entry</value>
+    <value>自動入力</value>
   </data>
   <data name="NewWordbookTabImpressGetButton" xml:space="preserve">
-    <value>Gifts available</value>
+    <value>入手元を表示</value>
   </data>
   <data name="NewWordbookTabImpressGetMessage" xml:space="preserve">
-    <value>You can also browse books with gifts from Store page.</value>
+    <value>単語帳やその他の特典が入手できる書籍はストアからも探せます。</value>
   </data>
   <data name="NewWordbookTabImpressGetTitle" xml:space="preserve">
-    <value>Obtain</value>
+    <value>入手</value>
   </data>
   <data name="NewWordbookTabImpressRecoverButton" xml:space="preserve">
-    <value>Recover</value>
+    <value>削除済み単語帳の表示</value>
   </data>
   <data name="NewWordbookTabImpressRecoverMessage" xml:space="preserve">
-    <value>Recover deleted wordbooks.</value>
+    <value>削除した単語帳を回復します。</value>
   </data>
   <data name="NewWordbookTabImpressRecoverTitle" xml:space="preserve">
-    <value>Recovery</value>
+    <value>回復</value>
   </data>
   <data name="NewWordbookTabImpressTitle" xml:space="preserve">
-    <value>impress books</value>
+    <value>インプレスブックス</value>
   </data>
   <data name="NewWordbookTabImpressTitleFromUrl" xml:space="preserve">
-    <value>Suggest from URL</value>
+    <value>URLから候補を表示</value>
   </data>
   <data name="NewWordbookTabImpressTitleMessage" xml:space="preserve">
-    <value>You can change the title later.
-If you don't enter now, it is automatically set.
-You may use suggested title.</value>
+    <value>タイトルは後からでも変更できます。
+空白の場合自動的に設定されます。
+URLから候補を表示できる場合もあります。</value>
   </data>
   <data name="NewWordbookToolbarItemCancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>取り消し</value>
   </data>
   <data name="NewWordbookToolbarItemSave" xml:space="preserve">
-    <value>Save</value>
+    <value>保存</value>
   </data>
   <data name="TitleNewWordbook" xml:space="preserve">
-    <value>Add</value>
+    <value>追加</value>
   </data>
   <data name="WordReport" xml:space="preserve">
-    <value>Report</value>
+    <value>報告</value>
   </data>
   <data name="StoreItemsCardContentMore" xml:space="preserve">
-    <value>MORE</value>
+    <value>もっと見る</value>
   </data>
   <data name="SpecialInformationObtainedSpecialChoice" xml:space="preserve">
-    <value>Show books you obtained its gift.:Only show you can get new gift.:Error.</value>
+    <value>特典を取得済みの本を表示しない:特典を取得済みの本を表示:エラー</value>
   </data>
   <data name="SpecialInformationObtainedWordbookChoice" xml:space="preserve">
-    <value>Show books you alredy have its wordbook.:Only show you can get new wordbook.:Error.</value>
+    <value>単語帳を取得済みの本を表示しない:単語帳を取得済みの本を表示:エラー</value>
   </data>
   <data name="SpecialInformationSpecialInfoObtained" xml:space="preserve">
-    <value>Obtained gift.</value>
+    <value>特典取得済</value>
   </data>
 </root>

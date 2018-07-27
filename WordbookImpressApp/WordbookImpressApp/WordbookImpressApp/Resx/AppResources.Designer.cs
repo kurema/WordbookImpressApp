@@ -61,7 +61,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   キャンセル に類似しているローカライズされた文字列を検索します。
+        ///   Cancel に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AlertCancel {
             get {
@@ -70,7 +70,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   了解 に類似しているローカライズされた文字列を検索します。
+        ///   OK に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AlertConfirmed {
             get {
@@ -79,7 +79,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   カスタム に類似しているローカライズされた文字列を検索します。
+        ///   Custom に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AlertCustom {
             get {
@@ -88,7 +88,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   いいえ に類似しているローカライズされた文字列を検索します。
+        ///   No に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AlertNo {
             get {
@@ -97,7 +97,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   はい に類似しているローカライズされた文字列を検索します。
+        ///   Yes に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string AlertYes {
             get {
@@ -106,7 +106,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   MMMM に類似しているローカライズされた文字列を検索します。
+        ///   MMM に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string CalendarMonthFormat {
             get {
@@ -151,7 +151,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   寄付 に類似しているローカライズされた文字列を検索します。
+        ///   Donation に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string DeveloperProfileDonationTitle {
             get {
@@ -215,7 +215,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   正答率{0:F0}% ({1}問中{2}問) に類似しているローカライズされた文字列を検索します。
+        ///   Score {0:F0}% ({1}/{2}) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string FormatWordbookRateInfo {
             get {
@@ -224,7 +224,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   正答率 {0:F0}% ({1}/{2}) に類似しているローカライズされた文字列を検索します。
+        ///   Score {0:F0}% ({1}/{2}) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string FormatWordRateInfo {
             get {
@@ -233,7 +233,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   詳細ページ に類似しているローカライズされた文字列を検索します。
+        ///   Detail に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string LicenseDetailPage {
             get {
@@ -242,7 +242,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   開く に類似しているローカライズされた文字列を検索します。
+        ///   Open に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string LicenseOpen {
             get {
@@ -251,7 +251,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   {0}について に類似しているローカライズされた文字列を検索します。
+        ///   About {0} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string MasterDeveloperProfileTitle {
             get {
@@ -260,7 +260,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   単語帳の設定 に類似しているローカライズされた文字列を検索します。
+        ///   Setting of this app. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string MasterSettingDetail {
             get {
@@ -269,7 +269,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   設定 に類似しているローカライズされた文字列を検索します。
+        ///   Settings に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string MasterSettingTitle {
             get {
@@ -278,7 +278,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   テスト結果を表示 に類似しているローカライズされた文字列を検索します。
+        ///   Show result of the tests. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string MasterStatisticsDetail {
             get {
@@ -287,7 +287,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   成績表 に類似しているローカライズされた文字列を検索します。
+        ///   Statistics に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string MasterStatisticsTitle {
             get {
@@ -296,7 +296,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   書籍を購入 に類似しているローカライズされた文字列を検索します。
+        ///   Buy books. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string MasterStoreDetail {
             get {
@@ -305,7 +305,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   ストア に類似しているローカライズされた文字列を検索します。
+        ///   Store に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string MasterStoreTitle {
             get {
@@ -314,7 +314,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   全ての単語帳を総合 に類似しているローカライズされた文字列を検索します。
+        ///   Show all registered words. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string MasterWordbooksCombinedDetail {
             get {
@@ -323,7 +323,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   総合単語帳 に類似しているローカライズされた文字列を検索します。
+        ///   Integrated Wordbook に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string MasterWordbooksCombinedTitle {
             get {
@@ -332,7 +332,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   登録済み単語帳 に類似しているローカライズされた文字列を検索します。
+        ///   Show registered wordbooks. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string MasterWordbooksDetail {
             get {
@@ -341,7 +341,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   単語帳 に類似しているローカライズされた文字列を検索します。
+        ///   Wordbooks に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string MasterWordbooksTitle {
             get {
@@ -350,7 +350,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   認証に失敗しました。 に類似しているローカライズされた文字列を検索します。
+        ///   Authentication failed. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookAlertFailedToAuth {
             get {
@@ -359,7 +359,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   ファイルの読み取りに失敗しました。 に類似しているローカライズされた文字列を検索します。
+        ///   Failed to read the file. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookAlertFailedToLoad {
             get {
@@ -368,7 +368,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   削除された単語帳がありません。 に類似しているローカライズされた文字列を検索します。
+        ///   There is no deleted wordbook. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookAlertRecoverNotFound {
             get {
@@ -377,7 +377,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   アドレスが不適切です。 に類似しているローカライズされた文字列を検索します。
+        ///   The address is inappropriate. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookAlertWrongAddress {
             get {
@@ -386,7 +386,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   認証情報 に類似しているローカライズされた文字列を検索します。
+        ///   Authentication information に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookCommonAuthTitle {
             get {
@@ -395,7 +395,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   タイトル に類似しているローカライズされた文字列を検索します。
+        ///   Title に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookCommonTitleTitle {
             get {
@@ -404,7 +404,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   列を選択してください。 に類似しているローカライズされた文字列を検索します。
+        ///   Please select columns. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookCsvPreviewMessage {
             get {
@@ -413,7 +413,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   説明 に類似しているローカライズされた文字列を検索します。
+        ///   Description に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookCsvPreviewPickerTitleDescription {
             get {
@@ -422,7 +422,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   単語名 に類似しているローカライズされた文字列を検索します。
+        ///   Term に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookCsvPreviewPickerTitleHead {
             get {
@@ -431,7 +431,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   項目選択 に類似しているローカライズされた文字列を検索します。
+        ///   Columns に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookCsvPreviewTitle {
             get {
@@ -440,7 +440,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   shift_jis に類似しているローカライズされた文字列を検索します。
+        ///   utf8 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookDefaultEncoding {
             get {
@@ -449,7 +449,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   エンコードを設定してください に類似しているローカライズされた文字列を検索します。
+        ///   Please select character code for CSV file. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookEncodingMessage {
             get {
@@ -458,7 +458,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   文字コード に類似しているローカライズされた文字列を検索します。
+        ///   Character code に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookEntryListEncoding {
             get {
@@ -476,7 +476,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///    (任意) に類似しているローカライズされた文字列を検索します。
+        ///    (Optional) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookEntryListOptional {
             get {
@@ -494,7 +494,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   タイトル に類似しているローカライズされた文字列を検索します。
+        ///   Title に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookEntryListTitle {
             get {
@@ -512,7 +512,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   復活する単語帳を選択してください。 に類似しているローカライズされた文字列を検索します。
+        ///   Please select the word book to restore. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookRecoverMessage {
             get {
@@ -521,7 +521,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   単語帳 に類似しているローカライズされた文字列を検索します。
+        ///   Wordbook に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookRecoverTitle {
             get {
@@ -530,7 +530,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   タイトルを入力してください。 に類似しているローカライズされた文字列を検索します。
+        ///   Please input the title. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookRequestTitleMessage {
             get {
@@ -539,9 +539,9 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   HTTPやSMB/CIFS(ファイル共有)のアドレスを指定できます。
-        ///必要ならIDとパスワードを入力してください。
-        ///SMB/CIFSのアドレスは以下ような形式です。
+        ///   You can specify the address of HTTP or SMB / CIFS (Windows Share).
+        ///Please enter ID and password if necessary.
+        ///An example of the SMB / CIFS address is shown below.
         ///&quot;smb://UserName:Password@ServerIP/ShareName/...&quot;
         ///&quot;\\servername\ShareName\...&quot; に類似しているローカライズされた文字列を検索します。
         /// </summary>
@@ -552,7 +552,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   プレビュー に類似しているローカライズされた文字列を検索します。
+        ///   Preview に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabCsvColumnButtonPreview {
             get {
@@ -561,7 +561,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   説明 に類似しているローカライズされた文字列を検索します。
+        ///   Explanation に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabCsvColumnPickerDetail {
             get {
@@ -570,7 +570,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   単語名 に類似しているローカライズされた文字列を検索します。
+        ///   Term に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabCsvColumnPickerHead {
             get {
@@ -579,7 +579,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   列選択 に類似しているローカライズされた文字列を検索します。
+        ///   Select columns に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabCsvColumnTitle {
             get {
@@ -588,7 +588,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   選択 に類似しているローカライズされた文字列を検索します。
+        ///   Selection に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabCsvEncodeButton {
             get {
@@ -597,7 +597,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   ファイルの文字コードを設定してください。 に類似しているローカライズされた文字列を検索します。
+        ///   Please select character code for CSV file. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabCsvEncodeMessage {
             get {
@@ -615,7 +615,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   タイトルは後からでも変更できます。 に類似しているローカライズされた文字列を検索します。
+        ///   You can change the title later. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabCsvTitleMessage {
             get {
@@ -624,7 +624,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   特典ページの内容を張り付ける事で一括入力ができます。 に類似しているローカライズされた文字列を検索します。
+        ///   Copy and paste the content of special-gift-page. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabImpressAutoMessage {
             get {
@@ -633,7 +633,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   自動入力 に類似しているローカライズされた文字列を検索します。
+        ///   Smart entry に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabImpressAutoTitle {
             get {
@@ -642,7 +642,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   入手元を表示 に類似しているローカライズされた文字列を検索します。
+        ///   Gifts available に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabImpressGetButton {
             get {
@@ -651,7 +651,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   単語帳やその他の特典が入手できる書籍はストアからも探せます。 に類似しているローカライズされた文字列を検索します。
+        ///   You can also browse books with gifts from Store page. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabImpressGetMessage {
             get {
@@ -660,7 +660,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   入手 に類似しているローカライズされた文字列を検索します。
+        ///   Obtain に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabImpressGetTitle {
             get {
@@ -669,7 +669,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   削除済み単語帳の表示 に類似しているローカライズされた文字列を検索します。
+        ///   Recover に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabImpressRecoverButton {
             get {
@@ -678,7 +678,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   削除した単語帳を回復します。 に類似しているローカライズされた文字列を検索します。
+        ///   Recover deleted wordbooks. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabImpressRecoverMessage {
             get {
@@ -687,7 +687,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   回復 に類似しているローカライズされた文字列を検索します。
+        ///   Recovery に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabImpressRecoverTitle {
             get {
@@ -696,7 +696,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   インプレスブックス に類似しているローカライズされた文字列を検索します。
+        ///   impress books に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabImpressTitle {
             get {
@@ -705,7 +705,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   URLから候補を表示 に類似しているローカライズされた文字列を検索します。
+        ///   Suggest from URL に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabImpressTitleFromUrl {
             get {
@@ -714,9 +714,9 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   タイトルは後からでも変更できます。
-        ///空白の場合自動的に設定されます。
-        ///URLから候補を表示できる場合もあります。 に類似しているローカライズされた文字列を検索します。
+        ///   You can change the title later.
+        ///If you don&apos;t enter now, it is automatically set.
+        ///You may use suggested title. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookTabImpressTitleMessage {
             get {
@@ -725,7 +725,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   取り消し に類似しているローカライズされた文字列を検索します。
+        ///   Cancel に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookToolbarItemCancel {
             get {
@@ -734,7 +734,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   保存 に類似しているローカライズされた文字列を検索します。
+        ///   Save に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookToolbarItemSave {
             get {
@@ -743,7 +743,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   並び替え に類似しているローカライズされた文字列を検索します。
+        ///   Sort に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string OrderActionMessage {
             get {
@@ -770,7 +770,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   (降順) に類似しているローカライズされた文字列を検索します。
+        ///   (Descending) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string OrderDescending {
             get {
@@ -779,7 +779,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   単語名順 に類似しているローカライズされた文字列を検索します。
+        ///   Term に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string OrderEnumHeadword {
             get {
@@ -788,7 +788,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   標準 に類似しているローカライズされた文字列を検索します。
+        ///   Default に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string OrderEnumOriginal {
             get {
@@ -797,7 +797,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   ランダム に類似しているローカライズされた文字列を検索します。
+        ///   Random に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string OrderEnumRandom {
             get {
@@ -806,7 +806,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   成績順 に類似しているローカライズされた文字列を検索します。
+        ///   Score に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string OrderEnumScore {
             get {
@@ -815,7 +815,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   タイトル に類似しているローカライズされた文字列を検索します。
+        ///   Title に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string OrderEnumTitle {
             get {
@@ -896,7 +896,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   選択してください:正解:不正解:エラー に類似しているローカライズされた文字列を検索します。
+        ///   Select:Correct:Wrong:Error に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string QuizWordChoiceBottomMessage {
             get {
@@ -905,7 +905,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   このアプリのライセンスを表示。 に類似しているローカライズされた文字列を検索します。
+        ///   Display license of this application. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingAboutLicenseAppDetail {
             get {
@@ -914,7 +914,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   ライセンス に類似しているローカライズされた文字列を検索します。
+        ///   License に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingAboutLicenseAppTitle {
             get {
@@ -923,7 +923,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   オープンソースソフトウェアに関するライセンスの詳細 に類似しているローカライズされた文字列を検索します。
+        ///   License details for open-source software. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingAboutLicenseOSSDetail {
             get {
@@ -932,7 +932,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   オープンソースライセンス に類似しているローカライズされた文字列を検索します。
+        ///   Open-source licenses に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingAboutLicenseOSSTitle {
             get {
@@ -941,7 +941,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   プロジェクトページ に類似しているローカライズされた文字列を検索します。
+        ///   Project page に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingAboutProjectPage {
             get {
@@ -950,7 +950,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   {0}について に類似しているローカライズされた文字列を検索します。
+        ///   About {0} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingAboutTitle {
             get {
@@ -959,7 +959,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   {0}を削除しました。 に類似しているローカライズされた文字列を検索します。
+        ///   {0} is deleted. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingDebugInitTutorialAlertMessage {
             get {
@@ -968,7 +968,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   削除 に類似しているローカライズされた文字列を検索します。
+        ///   Deletion に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingDebugInitTutorialAlertTitle {
             get {
@@ -977,7 +977,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   チュートリアル完了ファイルを削除します。 に類似しているローカライズされた文字列を検索します。
+        ///   Delete the tutorial completion file. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingDebugInitTutorialDetail {
             get {
@@ -986,7 +986,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   チュートリアル初期設定 に類似しているローカライズされた文字列を検索します。
+        ///   Initialize tutorial に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingDebugInitTutorialTitle {
             get {
@@ -995,7 +995,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   デバッグ に類似しているローカライズされた文字列を検索します。
+        ///   Debug に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingDebugTitle {
             get {
@@ -1004,7 +1004,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   {0}択 に類似しているローカライズされた文字列を検索します。
+        ///   {0} choices に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizChoiceChoice {
             get {
@@ -1013,7 +1013,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   選択肢の数は{0}個です。 に類似しているローカライズされた文字列を検索します。
+        ///   Number of choices is {0}. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizChoiceDetail {
             get {
@@ -1022,7 +1022,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   選択肢の数を選択してください。 に類似しているローカライズされた文字列を検索します。
+        ///   Select the number of choices. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizChoiceMessage {
             get {
@@ -1031,7 +1031,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   選択肢 に類似しているローカライズされた文字列を検索します。
+        ///   Number of choices に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizChoiceTitle {
             get {
@@ -1040,7 +1040,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   {0}回 に類似しているローカライズされた文字列を検索します。
+        ///   {0} time(s). に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectCountChoice {
             get {
@@ -1049,7 +1049,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   {0}回正解した単語をスキップします。 に類似しているローカライズされた文字列を検索します。
+        ///   Skip after you answer {0} time(s) correctly. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectCountDetailFalse {
             get {
@@ -1058,7 +1058,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   正解数に関わらず出題します。 に類似しているローカライズされた文字列を検索します。
+        ///   Do not skip. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectCountDetailTrue {
             get {
@@ -1067,7 +1067,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   スキップする正解数を選択してください。 に類似しているローカライズされた文字列を検索します。
+        ///   Skip after you pick correct answer ... に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectCountMessage {
             get {
@@ -1076,7 +1076,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   正解数 に類似しているローカライズされた文字列を検索します。
+        ///   Number of choice answered correctly に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectCountTitle {
             get {
@@ -1085,7 +1085,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   {0}問以上出題した結果{1}%正解した単語をスキップします。 に類似しているローカライズされた文字列を検索します。
+        ///   Skip if you get score more than {1}% in {0} trial. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectRateDetailFalse {
             get {
@@ -1094,7 +1094,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   正解率に関わらず出題します。 に類似しているローカライズされた文字列を検索します。
+        ///   Do not skip. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectRateDetailTrue {
             get {
@@ -1103,10 +1103,10 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   出題問題数が少ない間はたまたま正解してしまい正解率が高くなってしまう事があります。
-        ///適切な正解率を得るには一定回数の出題が必要です。
-        ///また基本もおろそかにしない事が大事です。
-        ///以下の条件を片方でも満たさない場合には出題します。 に類似しているローカライズされた文字列を検索します。
+        ///   To answer correctly does not always mean you know the correct answer.
+        ///You can prove it by good number of trial.
+        ///Basics are important.
+        ///That&apos;s why both the rate and the count is required. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectRatePageExplanationExplanationAlert {
             get {
@@ -1115,7 +1115,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   この条件に関して説明します。 に類似しているローカライズされた文字列を検索します。
+        ///   Get hint. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectRatePageExplanationExplanationDetail {
             get {
@@ -1124,7 +1124,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   この条件に関して説明します。 に類似しているローカライズされた文字列を検索します。
+        ///   Get hint. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectRatePageExplanationExplanationMessage {
             get {
@@ -1133,7 +1133,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   {0}問 に類似しているローカライズされた文字列を検索します。
+        ///   {0} time(s). に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectRatePageRequirementCorrectCountChoice {
             get {
@@ -1142,7 +1142,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   スキップに必要な出題数を選択してください。 に類似しているローカライズされた文字列を検索します。
+        ///   Select the required number of correct answers. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectRatePageRequirementCorrectCountChoiceMessage {
             get {
@@ -1151,7 +1151,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   出題数が{0}問未満の場合は出題します。 に類似しているローカライズされた文字列を検索します。
+        ///   Skip after you answer {0} time(s) with enough correct answer rate. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectRatePageRequirementCorrectCountDetailFalse {
             get {
@@ -1160,7 +1160,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   出題数に関わらず出題します。 に類似しているローカライズされた文字列を検索します。
+        ///   Do not skip. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectRatePageRequirementCorrectCountDetailTrue {
             get {
@@ -1178,7 +1178,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   スキップする正解率を選択してください。 に類似しているローカライズされた文字列を検索します。
+        ///   Select the required rate of correct answers. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectRatePageRequirementCorrectRateChoiceMessage {
             get {
@@ -1187,7 +1187,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   正解率が{0}%未満の場合は出題します。 に類似しているローカライズされた文字列を検索します。
+        ///   Skip if you get score of {0}% after required trials. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectRatePageRequirementCorrectRateDetailFalse {
             get {
@@ -1196,7 +1196,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   正解率に関わらず出題します。 に類似しているローカライズされた文字列を検索します。
+        ///   Do not skip. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectRatePageRequirementCorrectRateDetailTrue {
             get {
@@ -1205,7 +1205,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   正解率条件 に類似しているローカライズされた文字列を検索します。
+        ///   Requirement に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectRatePageRequirementTitle {
             get {
@@ -1214,7 +1214,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   正解率 に類似しているローカライズされた文字列を検索します。
+        ///   Rate of correct answers に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionCorrectRateTitle {
             get {
@@ -1223,7 +1223,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   条件によらず出題されるようになるまでの期間を指定してください。 に類似しているローカライズされた文字列を検索します。
+        ///   Skip setting is ignored once after... に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionIgnoreTimeSpanChoiceMessage {
             get {
@@ -1232,7 +1232,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   出題しない に類似しているローカライズされた文字列を検索します。
+        ///   Do not ignore skip setting. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionIgnoreTimeSpanChoiceNever {
             get {
@@ -1241,7 +1241,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   最後に正解してから{0}経過した場合には通常通り出題します。 に類似しているローカライズされた文字列を検索します。
+        ///   Skip setting is ignored once after {0}. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionIgnoreTimeSpanDetailFalse {
             get {
@@ -1250,7 +1250,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   条件を満たさない場合は出題しません。 に類似しているローカライズされた文字列を検索します。
+        ///   Do not ignore skip setting. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionIgnoreTimeSpanDetailTrue {
             get {
@@ -1259,7 +1259,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   [if:Days:[Days]日][if:Hours:[Hours]時間][if:Minutes:[Minutes]分][if:Seconds:[Seconds]秒] に類似しているローカライズされた文字列を検索します。
+        ///   [:g:] に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionIgnoreTimeSpanTimeSpanFormat {
             get {
@@ -1268,7 +1268,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   条件無視期間 に類似しているローカライズされた文字列を検索します。
+        ///   Grace period に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionIgnoreTimeSpanTitle {
             get {
@@ -1277,7 +1277,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   クイズで記憶済みにチェックした単語も出題します。 に類似しているローカライズされた文字列を検索します。
+        ///   Do not skip marked word. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionRememberedDetailFalse {
             get {
@@ -1286,7 +1286,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   クイズで記憶済みにチェックした単語をスキップします。 に類似しているローカライズされた文字列を検索します。
+        ///   Skip marked word. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionRememberedDetailTrue {
             get {
@@ -1295,7 +1295,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   記憶済み に類似しているローカライズされた文字列を検索します。
+        ///   Checked word に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionRememberedTitle {
             get {
@@ -1304,7 +1304,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   クイズ出題条件 に類似しているローカライズされた文字列を検索します。
+        ///   Requirement to skip に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionTitle {
             get {
@@ -1313,7 +1313,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   スキップしない に類似しているローカライズされた文字列を検索します。
+        ///   Do not skip. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizConditionWordNotSkip {
             get {
@@ -1322,7 +1322,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   クイズ設定 に類似しているローカライズされた文字列を検索します。
+        ///   Quiz に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingQuizTitle {
             get {
@@ -1331,7 +1331,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   Amazon アソシエイトIDを選択してください。 に類似しているローカライズされた文字列を検索します。
+        ///   Please select Amazon Associate ID (For amazon.co.jp). に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStatisticsAmazonAssociateIdChoiceMessage {
             get {
@@ -1340,7 +1340,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   アプリ製作者のID に類似しているローカライズされた文字列を検索します。
+        ///   ID of developer. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStatisticsAmazonAssociateIdChoiceProgrammer {
             get {
@@ -1349,7 +1349,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   スコア共有時に使用されるAmazon アソシエイトIDを設定します。 に類似しているローカライズされた文字列を検索します。
+        ///   Set up Amazon Associate ID. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStatisticsAmazonAssociateIdDetail {
             get {
@@ -1358,7 +1358,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   Amazon アソシエイトID に類似しているローカライズされた文字列を検索します。
+        ///   Amazon Associate ID に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStatisticsAmazonAssociateIdTitle {
             get {
@@ -1367,7 +1367,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   {0}問 に類似しているローカライズされた文字列を検索します。
+        ///   {0} times. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStatisticsDailyQuestionChoice {
             get {
@@ -1376,7 +1376,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   回答数目安を選択してください。 に類似しているローカライズされた文字列を検索します。
+        ///   Select standard number of quiz per day. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStatisticsDailyQuestionChoiceMessage {
             get {
@@ -1385,7 +1385,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   成績一覧ページのカレンダーグラフに反映されます。現在{0}問。 に類似しているローカライズされた文字列を検索します。
+        ///   The less the number, The deeper the color of the calendar. Current {0}. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStatisticsDailyQuestionDetail {
             get {
@@ -1394,7 +1394,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   一日当たりの回答数目安 に類似しているローカライズされた文字列を検索します。
+        ///   Standard # of quiz per day に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStatisticsDailyQuestionTitle {
             get {
@@ -1403,7 +1403,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   成績一覧 に類似しているローカライズされた文字列を検索します。
+        ///   Statistics に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStatisticsTitle {
             get {
@@ -1412,7 +1412,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   無回答の場合成績一覧に表示しません。 に類似しているローカライズされた文字列を検索します。
+        ///   The test with no answer is not listed. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStatisticsZeroAnswerDetailFalse {
             get {
@@ -1421,7 +1421,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   無回答でも成績一覧に表示します。 に類似しているローカライズされた文字列を検索します。
+        ///   The test with no answer is listed. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStatisticsZeroAnswerDetailTrue {
             get {
@@ -1430,7 +1430,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   無回答を表示 に類似しているローカライズされた文字列を検索します。
+        ///   Show empty result に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStatisticsZeroAnswerTitle {
             get {
@@ -1439,7 +1439,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   ストア及びインプレスブックス単語帳機能をオフにします。 に類似しているローカライズされた文字列を検索します。
+        ///   Function around impress books is disabled. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStoreEnableImpressDetailFalse {
             get {
@@ -1448,7 +1448,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   ストア及びインプレスブックス単語帳機能をオンにします。 に類似しているローカライズされた文字列を検索します。
+        ///   Function around impress books is enabled. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStoreEnableImpressDetailTrue {
             get {
@@ -1457,7 +1457,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   インプレスブックス関連機能 に類似しているローカライズされた文字列を検索します。
+        ///   Impress books functions に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStoreEnableImpressTitle {
             get {
@@ -1466,7 +1466,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   電子書籍を優先して表示します。 に類似しているローカライズされた文字列を検索します。
+        ///   Prefer ebooks. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStorePreferPrintedDetailFalse {
             get {
@@ -1475,7 +1475,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   印刷版の本を優先して表示します。 に類似しているローカライズされた文字列を検索します。
+        ///   Prefer printed books に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStorePreferPrintedDetailTrue {
             get {
@@ -1484,7 +1484,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   印刷版を優先 に類似しているローカライズされた文字列を検索します。
+        ///   Book A/D preference に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStorePreferPrintedTitle {
             get {
@@ -1509,7 +1509,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   リンクで開くストアを選択してください。 に類似しているローカライズされた文字列を検索します。
+        ///   Select your favorite Store. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStoreStoreChoiceMessage {
             get {
@@ -1518,7 +1518,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   リンクを開く際のストアを設定します。 に類似しているローカライズされた文字列を検索します。
+        ///   Change setting of Store you buy books. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStoreStoreDetail {
             get {
@@ -1527,7 +1527,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   リンクを開くストア に類似しているローカライズされた文字列を検索します。
+        ///   Favorite Store に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStoreStoreTitle {
             get {
@@ -1536,7 +1536,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   ストア に類似しているローカライズされた文字列を検索します。
+        ///   Store に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingStoreTitle {
             get {
@@ -1545,7 +1545,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   サポート に類似しているローカライズされた文字列を検索します。
+        ///   Support に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingSupportTitle {
             get {
@@ -1554,7 +1554,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   初回チュートリアルを表示します。 に類似しているローカライズされた文字列を検索します。
+        ///   Show tutorial. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingSupportTutorialDetail {
             get {
@@ -1563,7 +1563,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   チュートリアル に類似しているローカライズされた文字列を検索します。
+        ///   Tutorial に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingSupportTutorialTitle {
             get {
@@ -1572,7 +1572,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   このアプリのWikiを開きます。 に類似しているローカライズされた文字列を検索します。
+        ///   Open wiki of this app. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingSupportWikiDetail {
             get {
@@ -1590,7 +1590,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   価格: に類似しているローカライズされた文字列を検索します。
+        ///   Price: に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SpecialInformationItemPrice {
             get {
@@ -1599,7 +1599,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   QRコード に類似しているローカライズされた文字列を検索します。
+        ///   QR code に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SpecialInformationItemQRCode {
             get {
@@ -1608,7 +1608,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   特典を取得済みの本を表示しない:特典を取得済みの本を表示:エラー に類似しているローカライズされた文字列を検索します。
+        ///   Show books you obtained its gift.:Only show you can get new gift.:Error. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SpecialInformationObtainedSpecialChoice {
             get {
@@ -1617,7 +1617,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   単語帳を取得済みの本を表示しない:単語帳を取得済みの本を表示:エラー に類似しているローカライズされた文字列を検索します。
+        ///   Show books you alredy have its wordbook.:Only show you can get new wordbook.:Error. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SpecialInformationObtainedWordbookChoice {
             get {
@@ -1626,7 +1626,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   特典:/本文PDF/単語帳/音声/特典なし に類似しているローカライズされた文字列を検索します。
+        ///   Special gift:/PDF/Wordbook/Voice/None. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SpecialInformationSpecialInfo {
             get {
@@ -1635,7 +1635,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   特典取得 に類似しているローカライズされた文字列を検索します。
+        ///   Obtained gift. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SpecialInformationSpecialInfoObtained {
             get {
@@ -1644,7 +1644,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   最新版のみ表示:以前のバージョンを表示:エラー に類似しているローカライズされた文字列を検索します。
+        ///   Only show latest version.:Show all versions.:Error に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SpecialInformationVersionChoice {
             get {
@@ -1653,7 +1653,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   コンティニュー に類似しているローカライズされた文字列を検索します。
+        ///   Continue に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsButtonContinue {
             get {
@@ -1662,7 +1662,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   リトライ に類似しているローカライズされた文字列を検索します。
+        ///   Retry に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsButtonRetry {
             get {
@@ -1680,7 +1680,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   その他 に類似しているローカライズされた文字列を検索します。
+        ///   Other に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsOther {
             get {
@@ -1689,7 +1689,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   経過時間 に類似しているローカライズされた文字列を検索します。
+        ///   Elapsed time に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsPastTimeSpan {
             get {
@@ -1698,7 +1698,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   スコア に類似しているローカライズされた文字列を検索します。
+        ///   Score に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsPieGraphScore {
             get {
@@ -1707,7 +1707,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   Title:単語当てクイズ::Description:説明当てクイズ に類似しているローカライズされた文字列を検索します。
+        ///   Title:Term quiz::Description:Description quiz に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsQuizChoiceTypeParameter {
             get {
@@ -1716,7 +1716,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   正解:誤答:未回答:未出題:エラー に類似しているローカライズされた文字列を検索します。
+        ///   Correct:Wrong:Pass:Not yet:Error に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsQuizResultParameter {
             get {
@@ -1725,7 +1725,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   First:初回::Retry:リトライ::Continue:コンティニュー に類似しているローカライズされた文字列を検索します。
+        ///   First:First time.::Retry:Retry.::Continue:Continue に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsQuizRetryStatusParameter {
             get {
@@ -1734,7 +1734,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   成績 に類似しているローカライズされた文字列を検索します。
+        ///   Score に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsRecordTitle {
             get {
@@ -1743,7 +1743,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   試験日時 : {0:yyyy\年MM\月dd\日 tt h\時mm\分\開\始 } に類似しているローカライズされた文字列を検索します。
+        ///   Date : {0:G} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsTestDateFormat {
             get {
@@ -1752,7 +1752,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   1問当たり : [if:TotalMinutesFloor:[TotalMinutesFloor:\{0:00\}]分][Seconds:\{0:00\}]秒 に類似しているローカライズされた文字列を検索します。
+        ///   Each : [:g:] に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsTimeSpanSingleFormat {
             get {
@@ -1761,7 +1761,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   合計 : [if:TotalMinutesFloor:[TotalMinutesFloor:\{0:00\}]分][Seconds:\{0:00\}]秒 に類似しているローカライズされた文字列を検索します。
+        ///   Total : [:g:] に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsTimeSpanTotalFormat {
             get {
@@ -1770,7 +1770,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   この単語帳は「{0}」を買えば付いてきます。
+        ///   Buy &quot;{0}&quot; and get this wordbook!
         ///{1}
         /// に類似しているローカライズされた文字列を検索します。
         /// </summary>
@@ -1781,7 +1781,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   {0}問全て正解しました！ に類似しているローカライズされた文字列を検索します。
+        ///   I answered all {0} questions correctly に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsTwitterMessageAllCorrect {
             get {
@@ -1790,7 +1790,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   {0}問全て間違えました！ に類似しているローカライズされた文字列を検索します。
+        ///   I answered all {0} questions in error に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsTwitterMessageAllWrong {
             get {
@@ -1799,7 +1799,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   {0}問中{1}問({2}%)正解しました！ に類似しているローカライズされた文字列を検索します。
+        ///   My score was {0} / {1}({2}%) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsTwitterMessageAnswerCount {
             get {
@@ -1817,10 +1817,11 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   {0}のクイズを{1}で{2}
+        ///   I got a test of {0}!
+        ///{2} in {1}!
         ///#wordbook_impress
         ///{3}
-        ///単語帳アプリは現在開発中
+        ///See more at
         ///https://github.com/kurema/WordbookImpressApp に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsTwitterMessageTotal {
@@ -1830,7 +1831,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   [if:TotalMinutesFloor:[TotalMinutesFloor:{0:00}]分][Seconds:{0:00}]秒 に類似しているローカライズされた文字列を検索します。
+        ///   [:g:] に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsTwitterTimeFormat {
             get {
@@ -1839,7 +1840,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   {0}の本 に類似しているローカライズされた文字列を検索します。
+        ///   Books of {0} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StoreItemsBookOfDeveloper {
             get {
@@ -1848,7 +1849,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   もっと見る に類似しているローカライズされた文字列を検索します。
+        ///   MORE に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StoreItemsCardContentMore {
             get {
@@ -1866,7 +1867,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   インプレスブックスの本 に類似しているローカライズされた文字列を検索します。
+        ///   Books of &quot;impress book (Japan)&quot;. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StoreItemsImpressTitle {
             get {
@@ -1875,7 +1876,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   以前クリックした本に関連 に類似しているローカライズされた文字列を検索します。
+        ///   Similar books. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StoreItemsRelatedClicked {
             get {
@@ -1884,7 +1885,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   {0}に関連 に類似しているローカライズされた文字列を検索します。
+        ///   Similar to {0} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StoreItemsRelatedClickedTitle {
             get {
@@ -1893,7 +1894,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   本文PDFが手に入る本 に類似しているローカライズされた文字列を検索します。
+        ///   Books with PDF に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StoreItemsSpecialEbook {
             get {
@@ -1902,7 +1903,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   最近追加された特典本 に類似しているローカライズされた文字列を検索します。
+        ///   Books with gift に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StoreItemsSpecialLatest {
             get {
@@ -1911,7 +1912,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   単語帳が手に入る本 に類似しているローカライズされた文字列を検索します。
+        ///   Books with wordbook に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StoreItemsSpecialWordbook {
             get {
@@ -1920,7 +1921,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   利用時の注意 に類似しているローカライズされた文字列を検索します。
+        ///   Notice に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StoreNotice {
             get {
@@ -1929,7 +1930,8 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   本アプリケーション内で表示されるコンテンツの一部は、アマゾンジャパン合同会社またはその関連会社により提供されたものです。これらのコンテンツは「現状有姿」で提供されており、随時変更または削除される場合があります。
+        ///   Following message is requested to display in Japanese.
+        ///本アプリケーション内で表示されるコンテンツの一部は、アマゾンジャパン合同会社またはその関連会社により提供されたものです。これらのコンテンツは「現状有姿」で提供されており、随時変更または削除される場合があります。
         ///価格および発送可能時期は表示された日付/時刻の時点のものであり、変更される場合があります。本商品の購入においては、購入の時点でAmazon.co.jpに表示されている価格および発送可能時期の情報が適用されます。
         ///Amazon.co.jpアソシエイト。
         ///特典情報などの一部は独自作成したデータベースを利用しています。これらは最新の情報でない可能性があります。ご自身でご確認の上ご利用ください。 に類似しているローカライズされた文字列を検索します。
@@ -1941,7 +1943,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   試験日時 : {0:yyyy\年MM\月dd\日 tt h\時mm\分\開\始 } に類似しているローカライズされた文字列を検索します。
+        ///   Date : {0:G} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TestStatusDateTimeStartFormat {
             get {
@@ -1950,7 +1952,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   スコア に類似しているローカライズされた文字列を検索します。
+        ///   Score に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TestStatusPieGraphScore {
             get {
@@ -1959,7 +1961,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   対象単語帳 : {0} に類似しているローカライズされた文字列を検索します。
+        ///   Wordbook : {0} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TestStatusTargetWordbookFormat {
             get {
@@ -1968,7 +1970,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   1問当たり : [if:TotalMinutesFloor:[TotalMinutesFloor:{0:00}]分][Seconds:{0:00}]秒 に類似しているローカライズされた文字列を検索します。
+        ///   Each: [:g:] に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TestStatusTimeSpanFormatEach {
             get {
@@ -1977,7 +1979,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   合計 : [if:TotalMinutesFloor:[TotalMinutesFloor:{0:00}]分][Seconds:{0:00}]秒 に類似しているローカライズされた文字列を検索します。
+        ///   Total: [:g:] に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TestStatusTimeSpanFormatTotal {
             get {
@@ -1986,7 +1988,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   経過時間 に類似しているローカライズされた文字列を検索します。
+        ///   Elapsed time に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TestStatusTimeSpanTitle {
             get {
@@ -1995,7 +1997,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   全体成績 に類似しているローカライズされた文字列を検索します。
+        ///   Total score に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TestStatusTotalStatus {
             get {
@@ -2004,7 +2006,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   プロフィール に類似しているローカライズされた文字列を検索します。
+        ///   Profile に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleDeveloperProfile {
             get {
@@ -2013,7 +2015,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   選択 に類似しているローカライズされた文字列を検索します。
+        ///   Selection に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleEntryWithOption {
             get {
@@ -2022,7 +2024,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   ライセンス に類似しているローカライズされた文字列を検索します。
+        ///   License に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleLicense {
             get {
@@ -2031,7 +2033,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   メニュー に類似しているローカライズされた文字列を検索します。
+        ///   Menu に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleMaster {
             get {
@@ -2040,7 +2042,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   追加 に類似しているローカライズされた文字列を検索します。
+        ///   Add に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleNewWordbook {
             get {
@@ -2049,7 +2051,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   プレビュー に類似しているローカライズされた文字列を検索します。
+        ///   Preview に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleNewWordbookCsvPreview {
             get {
@@ -2058,7 +2060,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   クイズ に類似しているローカライズされた文字列を検索します。
+        ///   Quiz に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleQuizWordChoice {
             get {
@@ -2067,7 +2069,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   設定 に類似しているローカライズされた文字列を検索します。
+        ///   Settings に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleSetting {
             get {
@@ -2076,7 +2078,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   書籍一覧 に類似しているローカライズされた文字列を検索します。
+        ///   Books に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleSpecialInformation {
             get {
@@ -2085,7 +2087,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   書籍詳細 に類似しているローカライズされた文字列を検索します。
+        ///   Book に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleSpecialInformationItem {
             get {
@@ -2094,7 +2096,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   成績 に類似しているローカライズされた文字列を検索します。
+        ///   Statistics に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleStatistics {
             get {
@@ -2103,7 +2105,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   ストア に類似しているローカライズされた文字列を検索します。
+        ///   Store に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleStore {
             get {
@@ -2112,7 +2114,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   成績 に類似しているローカライズされた文字列を検索します。
+        ///   Score に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleTestStatus {
             get {
@@ -2121,7 +2123,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   チュートリアル に類似しているローカライズされた文字列を検索します。
+        ///   Tutorial に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleTutorial {
             get {
@@ -2130,7 +2132,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   単語帳 に類似しているローカライズされた文字列を検索します。
+        ///   Wordbook に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleWordbook {
             get {
@@ -2139,7 +2141,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   単語帳一覧 に類似しているローカライズされた文字列を検索します。
+        ///   Wordbooks に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleWordbooks {
             get {
@@ -2148,7 +2150,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   単語 に類似しているローカライズされた文字列を検索します。
+        ///   Word に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleWordPage {
             get {
@@ -2157,7 +2159,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   単語 に類似しているローカライズされた文字列を検索します。
+        ///   Word に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TitleWordsPage {
             get {
@@ -2166,7 +2168,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   完了 に類似しているローカライズされた文字列を検索します。
+        ///   Done に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TutorialButtonDone {
             get {
@@ -2175,7 +2177,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   次へ に類似しているローカライズされた文字列を検索します。
+        ///   Next に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TutorialButtonNext {
             get {
@@ -2184,7 +2186,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   スキップ に類似しているローカライズされた文字列を検索します。
+        ///   Skip に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TutorialButtonSkip {
             get {
@@ -2193,8 +2195,8 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   店頭やネットで
-        ///インプレスブックスの対象書籍を購入 に類似しているローカライズされた文字列を検索します。
+        ///   Create wordbooks
+        ///in CSV or XLSX. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TutorialPage1Detail {
             get {
@@ -2203,7 +2205,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   本を買う に類似しているローカライズされた文字列を検索します。
+        ///   Create に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TutorialPage1Title {
             get {
@@ -2212,7 +2214,8 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   公式サイトから特典を取得 に類似しているローカライズされた文字列を検索します。
+        ///   Share the file
+        ///in SMB/HTTP. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TutorialPage2Detail {
             get {
@@ -2221,7 +2224,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   特典を得る に類似しているローカライズされた文字列を検索します。
+        ///   Share に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TutorialPage2Title {
             get {
@@ -2230,7 +2233,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   このアプリで単語帳を登録 に類似しているローカライズされた文字列を検索します。
+        ///   Transfer the file here. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TutorialPage3Detail {
             get {
@@ -2239,7 +2242,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   登録する に類似しているローカライズされた文字列を検索します。
+        ///   Transfer に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TutorialPage3Title {
             get {
@@ -2257,7 +2260,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   総合単語帳は削除できません。 に類似しているローカライズされた文字列を検索します。
+        ///   You can not this virtual wordbook. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordbookAlertCannotDelete {
             get {
@@ -2266,7 +2269,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   この単語帳を削除しますか。 に類似しているローカライズされた文字列を検索します。
+        ///   Are you sure you want to delete this wordbook? に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordbookAlertConfirmDelete {
             get {
@@ -2275,7 +2278,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   全体成績 に類似しているローカライズされた文字列を検索します。
+        ///   Total score に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordbookCombinedTitle {
             get {
@@ -2284,7 +2287,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   説明クイズ に類似しているローカライズされた文字列を検索します。
+        ///   Description quiz に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordbookQuizDescription {
             get {
@@ -2293,7 +2296,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   単語クイズ に類似しているローカライズされた文字列を検索します。
+        ///   Term quiz に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordbookQuizHead {
             get {
@@ -2302,7 +2305,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   タイトルを入力してください。 に類似しているローカライズされた文字列を検索します。
+        ///   Enter the title. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordbookRenameMessage {
             get {
@@ -2311,7 +2314,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   説明表示:説明非表示:エラー に類似しているローカライズされた文字列を検索します。
+        ///   Show description:Hide description:Error に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordbookShowDescription {
             get {
@@ -2320,7 +2323,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   単語表示:単語非表示:エラー に類似しているローカライズされた文字列を検索します。
+        ///   Show term:Hide term:Error に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordbookShowHead {
             get {
@@ -2329,7 +2332,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   {0}単語 に類似しているローカライズされた文字列を検索します。
+        ///   {0} words に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordbooksToolbarInfoWord {
             get {
@@ -2338,7 +2341,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   追加 に類似しているローカライズされた文字列を検索します。
+        ///   Add に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordbooksToolbarItemAdd {
             get {
@@ -2347,7 +2350,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   並び替え に類似しているローカライズされた文字列を検索します。
+        ///   Sort に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordbooksToolbarItemOrder {
             get {
@@ -2356,7 +2359,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   削除 に類似しているローカライズされた文字列を検索します。
+        ///   Delete に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordbookToolbarItemDelete {
             get {
@@ -2365,7 +2368,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   タイトル変更 に類似しているローカライズされた文字列を検索します。
+        ///   Rename に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordbookToolbarItemRename {
             get {
@@ -2374,7 +2377,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   成績を表示 に類似しているローカライズされた文字列を検索します。
+        ///   Score に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordbookToolbarItemScore {
             get {
@@ -2383,7 +2386,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   並び替え に類似しているローカライズされた文字列を検索します。
+        ///   Sort に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordbookToolbarItemSort {
             get {
@@ -2392,7 +2395,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   注意 に類似しているローカライズされた文字列を検索します。
+        ///   Attention に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordCaution {
             get {
@@ -2401,7 +2404,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   解説 に類似しているローカライズされた文字列を検索します。
+        ///   Commentary に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordCommentary {
             get {
@@ -2410,7 +2413,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   正解数 に類似しているローカライズされた文字列を検索します。
+        ///   Number of correct answers に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordCorrectCount {
             get {
@@ -2419,7 +2422,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   正解率 に類似しているローカライズされた文字列を検索します。
+        ///   Rate of correct answers に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordCorrectRate {
             get {
@@ -2428,7 +2431,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   削除 に類似しているローカライズされた文字列を検索します。
+        ///   Delete に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordDelete {
             get {
@@ -2437,7 +2440,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   説明 に類似しているローカライズされた文字列を検索します。
+        ///   Description に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordExplanation {
             get {
@@ -2446,7 +2449,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   最後のページです に類似しているローカライズされた文字列を検索します。
+        ///   LAST PAGE に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordPageBottomLast {
             get {
@@ -2455,7 +2458,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   次へ に類似しているローカライズされた文字列を検索します。
+        ///   Next に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordPageBottomNext {
             get {
@@ -2464,7 +2467,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   表示 に類似しているローカライズされた文字列を検索します。
+        ///   Show に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordPageBottomShow {
             get {
@@ -2473,7 +2476,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   記憶完了 に類似しているローカライズされた文字列を検索します。
+        ///   Checked に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordPageRememberCheck {
             get {
@@ -2482,7 +2485,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   weblio検索 に類似しているローカライズされた文字列を検索します。
+        ///   Dictionary.com に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordPageSearchDictionary {
             get {
@@ -2491,7 +2494,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   https://www.weblio.jp/content/{0} に類似しているローカライズされた文字列を検索します。
+        ///   https://www.dictionary.com/browse/{0} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordPageSearchDictionaryUrl {
             get {
@@ -2500,7 +2503,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   Google検索 に類似しているローカライズされた文字列を検索します。
+        ///   Google に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordPageSearchGoogle {
             get {
@@ -2509,7 +2512,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   https://www.google.co.jp/search?q={0} に類似しているローカライズされた文字列を検索します。
+        ///   https://www.google.com/search?q={0} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordPageSearchGoogleUrl {
             get {
@@ -2518,7 +2521,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   Wikipedia検索 に類似しているローカライズされた文字列を検索します。
+        ///   Wikipedia に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordPageSearchWikipedia {
             get {
@@ -2527,7 +2530,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   https://ja.wikipedia.org/wiki/{0} に類似しているローカライズされた文字列を検索します。
+        ///   https://en.wikipedia.org/wiki/{0} に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordPageSearchWikipediaUrl {
             get {
@@ -2536,7 +2539,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   価格 に類似しているローカライズされた文字列を検索します。
+        ///   Price に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordPrice {
             get {
@@ -2545,7 +2548,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   QRコード に類似しているローカライズされた文字列を検索します。
+        ///   QR code に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordQRCode {
             get {
@@ -2554,7 +2557,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   クイズ に類似しているローカライズされた文字列を検索します。
+        ///   Quiz に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordQuiz {
             get {
@@ -2563,7 +2566,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   報告 に類似しているローカライズされた文字列を検索します。
+        ///   Report に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordReport {
             get {
@@ -2572,7 +2575,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   並び替え に類似しているローカライズされた文字列を検索します。
+        ///   Sort に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordSort {
             get {
@@ -2581,7 +2584,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   ストア に類似しているローカライズされた文字列を検索します。
+        ///   Store に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordStore {
             get {
@@ -2590,7 +2593,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   警告 に類似しているローカライズされた文字列を検索します。
+        ///   Warning に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordWarning {
             get {

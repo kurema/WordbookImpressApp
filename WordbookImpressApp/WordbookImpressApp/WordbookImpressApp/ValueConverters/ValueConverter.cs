@@ -153,6 +153,10 @@ namespace WordbookImpressApp.ValueConverters
                 tx = reg.Replace(tx, new System.Text.RegularExpressions.MatchEvaluator((m) => { if (dic.ContainsKey(m.Groups[1].Value)) return dic[m.Groups[1].Value].ToString(); else return m.Value; }));
             }
             {
+                var reg = new System.Text.RegularExpressions.Regex(@"\[:(\w+):\]");
+                tx = reg.Replace(tx, new System.Text.RegularExpressions.MatchEvaluator((m) => { return ts.ToString(m.Groups[1].Value); }));
+            }
+            {
                 var reg = new System.Text.RegularExpressions.Regex(@"\[(\w+):([^\[\]]+)\]");
                 tx = reg.Replace(tx, new System.Text.RegularExpressions.MatchEvaluator((m) => { if (dic.ContainsKey(m.Groups[1].Value)) return String.Format(m.Groups[2].Value, dic[m.Groups[1].Value]); else return m.Value; }));
             }
@@ -354,7 +358,7 @@ namespace WordbookImpressApp.ValueConverters
             var o = value as WordbookImpressLibrary.ViewModels.QuizResultViewModel;
             if (o == null) return "";
             var p = parameter?.ToString() ?? "";
-            return string.Format(p,o.AnswerCorrectPercentage,o.AnswerCountTotal,o.AnswerCountCorrect);
+            return string.Format(p,o.AnswerCorrectPercentage,o.AnswerCountCorrect,o.AnswerCountTotal);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -1,11 +1,20 @@
 # WordbookImpressApp
 Impress Books用の単語帳アプリ
 
+## Better translation?
+Fork and fix [English](https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/WordbookImpressApp/WordbookImpressApp/Resx/AppResources.resx), or add another language.
+
+How to add another language.
+1. Fork.
+2. See [WordbookImpressApp/WordbookImpressApp/Resx](https://github.com/kurema/WordbookImpressApp/tree/master/WordbookImpressApp/WordbookImpressApp/WordbookImpressApp/Resx) and copy AppResources.resx and rename it to AppResources.(language).resx like AppResources.ja.resx.
+3. Translate.
+4. Pull request.
+
 ## プラットフォーム
-- [ ] Android (Xamarin Forms。ほぼ完成)
+- [x] Android (Xamarin Forms。ほぼ完成)
 - [ ] ~~iOS (Macとライセンスがあれば比較的容易に移植可能)~~
-- [ ] Windows UWP (Xamarin Formsではなくネイティブ開発予定)
-- [ ] Windows Desktop (普通のデスクトップアプリ。wpf。)
+- [ ] Windows UWP (Xamarin Formsではなくネイティブ開発~~予定~~ )(予定なし)
+- [ ] Windows Desktop (普通のデスクトップアプリ。wpf。)(予定なし)
 
 ## ToDo
 - [x] テスト成績一覧
@@ -44,8 +53,11 @@ Impress Books用の単語帳アプリ
 - [x] 再試験
 - [x] ダミー単語帳アイコン
 - [x] ICND1模擬問等に対応
-- [ ] 国際化 (めんどくさすぎ)
+- [x] 国際化 (日英。面倒だが単なる作業。自然な訳か気になる。)
 - [x] 正解数でスキップに試験数も条件に加える
 - [x] サジェスト付きエントリーUI (エラー表示も欲しい)
 - [x] 最終出題日時
 - [x] ~~ペンアイコン~~
+- [ ] ストア用アセットなど様々
+- [ ] 画像読み込み制限があるっぽいので確認
+- [ ] 海外用チュートリアル画像

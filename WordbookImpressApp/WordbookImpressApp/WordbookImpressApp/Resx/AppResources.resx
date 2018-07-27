@@ -979,4 +979,13 @@ URLから候補を表示できる場合もあります。</value>
   <data name="StoreItemsCardContentMore" xml:space="preserve">
     <value>もっと見る</value>
   </data>
+  <data name="SpecialInformationObtainedSpecialChoice" xml:space="preserve">
+    <value>特典を取得済みの本を表示しない:特典を取得済みの本を表示:エラー</value>
+  </data>
+  <data name="SpecialInformationObtainedWordbookChoice" xml:space="preserve">
+    <value>単語帳を取得済みの本を表示しない:単語帳を取得済みの本を表示:エラー</value>
+  </data>
+  <data name="SpecialInformationSpecialInfoObtained" xml:space="preserve">
+    <value>特典取得</value>
+  </data>
 </root>

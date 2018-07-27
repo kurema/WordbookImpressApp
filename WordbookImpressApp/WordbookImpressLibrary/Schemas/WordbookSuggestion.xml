@@ -2,6 +2,19 @@
 <info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/WordbookImpressLibrary/Schemas/WordbookSuggestion.xsd">
   <books>
     <book>
+      <title>DOS/V POWER REPORT 2018年09月号</title>
+      <ids />
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118110107" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-27</date_push>
+    </book>
+    <book>
       <title>いちばんやさしい為替の教本 人気講師が教える実務で使える通貨と経済のしくみ</title>
       <ids>
         <id type="ASIN" binding="printed_book">4295004073</id>
@@ -787,7 +800,7 @@
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
-    <book>
+    <book obsolete="true">
       <title>DOS/V POWER REPORT 2018年08月号</title>
       <ids />
       <images />

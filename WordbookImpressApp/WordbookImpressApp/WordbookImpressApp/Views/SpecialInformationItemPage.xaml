@@ -9,6 +9,7 @@
              Title="{i18n:Translate TitleSpecialInformationItem}">
     <ContentPage.Resources>
         <vc:NullOrEmptyStringToTextValueConverter x:Key="snvc"/>
+        <vc:BooleanToStringValueConverter x:Key="bsvc" />
     </ContentPage.Resources>
     <ContentPage.Content>
         <ListView ItemsSource="{Binding Links}" HasUnevenRows="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ItemSelected="ListView_ItemSelected">
@@ -46,12 +47,16 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            <!-- Leave this comment. May work in future version. -->
-            <!--<ListView.Footer>
+            <ListView.Footer>
                 <StackLayout Margin="10" HorizontalOptions="FillAndExpand">
-                    <v:StoreItemsView x:Name="storeItems" HorizontalOptions="FillAndExpand" />
+                    <StackLayout Orientation="Horizontal">
+                        <Switch IsToggled="{Binding SpecialObtained}" VerticalOptions="CenterAndExpand"/>
+                        <Label Text="{i18n:Translate SpecialInformationSpecialInfoObtained}" VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                    <!-- Leave this comment. May work in future version. -->
+                    <!--<v:StoreItemsView x:Name="storeItems" HorizontalOptions="FillAndExpand" />-->
                 </StackLayout>
-            </ListView.Footer>-->
+            </ListView.Footer>
         </ListView>
     </ContentPage.Content>
 </ContentPage>

@@ -38,11 +38,11 @@ namespace WordbookImpressApp.Views
             List<Task> tasks = new List<Task>();
             tasks.Add(AddSearchResult(AppResources.StoreItemsImpressTitle, AppResources.StoreItemsImpressSearchWord));
             tasks.Add(AddBooksWithSpecialNew(AppResources.StoreItemsSpecialLatest, action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupsByGenre()))));
-            tasks.Add(AddBooksWithSpecialWordbook(AppResources.StoreItemsSpecialWordbook, action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupsByWordbooks()))));
-            tasks.Add(AddBooksWithSpecialEbook(AppResources.StoreItemsSpecialEbook, action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupByGenreSpecialEbook()))));
+            tasks.Add(AddBooksWithSpecialWordbook(AppResources.StoreItemsSpecialWordbook, action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupsByWordbooks())),showSpecialObtained:false));
+            tasks.Add(AddBooksWithSpecialEbook(AppResources.StoreItemsSpecialEbook, action: async () => await Navigation.PushAsync(new SpecialInformationPage(SpecialInformationPage.GetGroupByGenreSpecialEbook())),showSpecialObtained:false ));
 
             var history = await WordbookImpressLibrary.Storage.PurchaseHistoryStorage.GetPurchaseHistory();
-            if (history.ClickedASIN.Count() > 0)
+            if (history?.ClickedASIN?.Count() > 0)
             {
                 var asin = history.ClickedASIN[(new Random().Next(history.ClickedASIN.Count()))];
                 tasks.Add(AddRelated((w) =>
@@ -78,25 +78,30 @@ namespace WordbookImpressApp.Views
             catch { return null; }
         }
 
-        public async Task<StackLayout> AddBooksWithSpecialEbook(string title, StackLayout stack = null, Action action = null)
+        public async Task<StackLayout> AddBooksWithSpecialEbook(string title, StackLayout stack = null, Action action = null, bool showWordbookObtained = true, bool showSpecialObtained = true)
         {
-            return await AddBooksWithSpecialRandomOrder(title, (b) => b?.special?.ebook?.Count() > 0 == true && b?.obsolete != true, stack, action);
+            return await AddBooksWithSpecialRandomOrder(title, (b) => b?.special?.ebook?.Count() > 0 == true && b?.obsolete != true, stack, action,showWordbookObtained,showSpecialObtained);
         }
 
-        public async Task<StackLayout> AddBooksWithSpecialWordbook(string title, StackLayout stack = null, Action action = null)
+        public async Task<StackLayout> AddBooksWithSpecialWordbook(string title, StackLayout stack = null, Action action = null, bool showWordbookObtained = true, bool showSpecialObtained = true)
         {
-            return await AddBooksWithSpecialRandomOrder(title, (b) => b?.special?.wordbook?.Count() > 0 == true && b?.obsolete != true, stack, action);
+            return await AddBooksWithSpecialRandomOrder(title, (b) => b?.special?.wordbook?.Count() > 0 == true && b?.obsolete != true, stack, action, showWordbookObtained, showSpecialObtained);
         }
 
-        public async Task<StackLayout> AddBooksWithSpecialRandomOrder(string title, Func<WordbookImpressLibrary.Schemas.WordbookSuggestion.infoBooksBook,bool> func,StackLayout stack=null,Action action=null)
+        public async Task<StackLayout> AddBooksWithSpecialRandomOrder(string title, Func<WordbookImpressLibrary.Schemas.WordbookSuggestion.infoBooksBook,bool> func,StackLayout stack=null,Action action=null
+            ,bool showWordbookObtained= true, bool showSpecialObtained= true)
         {
             try
             {
                 var rand = new Random();
                 //読みづらいが、指定条件で検索したWordbookSuggestionの本の中をランダムで並び替え、できれば実本、ないならKindle本のASINを取得しています。
-                var w = WordbookImpressLibrary.Storage.RemoteStorage.WordbookSuggestion?.books?.book
-                    ?.Where(func)
-                    ?.OrderBy((t) => rand.Next());
+                var w2 = WordbookImpressLibrary.Storage.RemoteStorage.WordbookSuggestion?.books?.book?.Where(func);
+                if (!showWordbookObtained) w2 = SpecialInformationPage.Group.ObtainedWordbookFilter(w2, false);
+                if (!showSpecialObtained) w2 = SpecialInformationPage.Group.ObtainedSpecialFilter(w2,
+                    await WordbookImpressLibrary.Storage.PurchaseHistoryStorage.GetPurchaseHistory()
+                    , false);
+
+                var w = w2?.OrderBy((t) => rand.Next());
                 return await AddBooksWithSpecial(title, w, stack, action);
             }
             catch { return null; }

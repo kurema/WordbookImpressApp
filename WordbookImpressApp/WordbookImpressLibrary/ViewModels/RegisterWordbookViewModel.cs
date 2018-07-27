@@ -67,7 +67,8 @@ namespace WordbookImpressLibrary.ViewModels
             var indexDesc = CsvDescriptionKey.Index;
             var size = SpreadSheet.GetSize();
             var words = SpreadSheet.GetCells()
-                .Where(a => a.RowColumn.Column == indexHead || a.RowColumn.Column == indexDesc)
+                .Where(a => (a.RowColumn.Column == indexHead || a.RowColumn.Column == indexDesc) && a.RowColumn.Row != 0)
+                .OrderBy(a => a.RowColumn.Row)
                 .GroupBy(a => a.RowColumn.Row)
                 .Select(a =>
                 {

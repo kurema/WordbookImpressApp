@@ -28,6 +28,30 @@ namespace WordbookImpressLibrary.ViewModels
         private ObservableCollection<BookInformationLinkViewModel> _Links=new ObservableCollection<BookInformationLinkViewModel>();
         public ObservableCollection<BookInformationLinkViewModel> Links { get => _Links; set => SetProperty(ref _Links, value); }
 
+        private bool? _SpecialObtained = null;
+        public bool SpecialObtained { get => _SpecialObtained ?? false; set { if (_SpecialObtained == null) return; SetProperty(ref _SpecialObtained, value); SetSpecialObtained(); } }
+
+        private async void SetSpecialObtained()
+        {
+            var history= await Storage.PurchaseHistoryStorage.GetPurchaseHistory();
+            if (history.SpecialObtainedUrl == null) history.SpecialObtainedUrl = new List<string>();
+            if (ImpressOfficialPage == null || ImpressOfficialPage.Count == 0) return;
+            if (SpecialObtained && !history.SpecialObtainedUrl.Any(a => ImpressOfficialPage.Any(b => a.ToLower() == b.ToLower()))) history.SpecialObtainedUrl.AddRange(ImpressOfficialPage);
+            else if(!SpecialObtained) history.SpecialObtainedUrl.RemoveAll(a => ImpressOfficialPage.Contains(a));
+            Storage.PurchaseHistoryStorage.SaveLocalData();
+        }
+
+
+        private async void GetSpecialObtained()
+        {
+            if (_SpecialObtained == true) return;
+            var history = await Storage.PurchaseHistoryStorage.GetPurchaseHistory();
+            if (history.SpecialObtainedUrl == null) return;
+            if (ImpressOfficialPage == null || ImpressOfficialPage.Count == 0) return;
+            if (true == ImpressOfficialPage.All(a => true == history?.SpecialObtainedUrl?.Any(b => a.ToLower() == b.ToLower()))) _SpecialObtained = true; else _SpecialObtained = false;
+            OnPropertyChanged(nameof(SpecialObtained));
+        }
+
         public BookInformationViewModel(Item item = null, Schemas.WordbookSuggestion.infoBooksBook book = null)
         {
             SetValue(book, item);
@@ -49,8 +73,11 @@ namespace WordbookImpressLibrary.ViewModels
             });
         }
 
+        private List<string> ImpressOfficialPage;
+
         public void SetValue(Schemas.WordbookSuggestion.infoBooksBook book = null, params Item[] items)
         {
+            ImpressOfficialPage = new List<string>();
             var item = items?.FirstOrDefault();
             this.Title = book?.title ?? item?.ItemAttributes?.Title;
             this.Author = string.Join(" ", item?.ItemAttributes?.Author ?? new string[0]);
@@ -65,10 +92,14 @@ namespace WordbookImpressLibrary.ViewModels
                     if (string.IsNullOrEmpty(link?.type)) continue;
                     switch (link.type)
                     {
-                        case "impress": Links.Add(new BookInformationLinkViewModel("インプレスブックス公式ページ", link?.@ref)); break;
+                        case "impress":
+                            Links.Add(new BookInformationLinkViewModel("インプレスブックス公式ページ", link?.@ref));
+                            if (link?.@ref != null) ImpressOfficialPage.Add(link?.@ref);
+                            break;
                     }
                 }
             }
+            GetSpecialObtained();
             if (items != null)
             {
                 string price = null;

@@ -118,5 +118,12 @@ namespace WordbookImpressLibrary.Storage
             var w = entry.Where((e) => e.language == culture.Name || e.language == culture.Parent.Name);
             if (w.Count() > 0) { return w.First().Value; } else { return null; }
         }
+
+        public static IEnumerable<infoWordbook> GetWordbookByRef(string id)
+        {
+            if (id == null) return null;
+            if (WordbookSuggestion == null) return null;
+            return WordbookSuggestion.wordbooks?.Where(a => a.id == id);
+        }
     }
 }

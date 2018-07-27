@@ -1608,11 +1608,38 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
+        ///   特典を取得済みの本を表示しない:特典を取得済みの本を表示:エラー に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SpecialInformationObtainedSpecialChoice {
+            get {
+                return ResourceManager.GetString("SpecialInformationObtainedSpecialChoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   単語帳を取得済みの本を表示しない:単語帳を取得済みの本を表示:エラー に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SpecialInformationObtainedWordbookChoice {
+            get {
+                return ResourceManager.GetString("SpecialInformationObtainedWordbookChoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   特典:/本文PDF/単語帳/音声/特典なし に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SpecialInformationSpecialInfo {
             get {
                 return ResourceManager.GetString("SpecialInformationSpecialInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   特典取得 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SpecialInformationSpecialInfoObtained {
+            get {
+                return ResourceManager.GetString("SpecialInformationSpecialInfoObtained", resourceCulture);
             }
         }
         

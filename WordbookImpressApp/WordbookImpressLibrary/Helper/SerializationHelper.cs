@@ -52,7 +52,7 @@ namespace WordbookImpressLibrary.Helper
                 var xs = new XmlSerializer(typeof(T));
                 using (var xr = XmlReader.Create(sr, new XmlReaderSettings() { CheckCharacters = false }))
                 {
-                    return await Task.Run<T>(() => { try { return (T)xs.Deserialize(xr); } catch { return default(T); } });
+                    return await Task.Run<T>(() => { try { return (T)xs.Deserialize(xr); } catch { return default; } });
                 }
             }
             finally

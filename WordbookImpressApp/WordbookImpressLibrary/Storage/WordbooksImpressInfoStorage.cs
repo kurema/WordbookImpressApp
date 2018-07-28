@@ -12,12 +12,15 @@ namespace WordbookImpressLibrary.Storage
 {
     public static class WordbooksImpressInfoStorage
     {
-        private static ObservableCollection<WordbookImpressInfo> content;
-        public static ObservableCollection<WordbookImpressInfo> Content { get => content = content ?? new ObservableCollection<WordbookImpressInfo>(); private set { content = value; content.CollectionChanged += (s, e) => OnUpdated(); } }
-        public static string Path { get; set; } = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "impress_info.xml");
-        public static string PathBup { get; set; } = Path + ".bup";
+        public static StorageContent<ObservableCollection<WordbookImpressInfo>> Storage = new StorageContent<ObservableCollection<WordbookImpressInfo>>("impress_info.xml");
 
-        static System.Threading.SemaphoreSlim semaphore = new System.Threading.SemaphoreSlim(1, 1);
+        public static ObservableCollection<WordbookImpressInfo> Content
+        {
+            get => Storage.Content;
+            private set { Storage.Content = value; Storage.Content.CollectionChanged += (s, e) => Storage.OnUpdated(); }
+        }
+        public static string Path => Storage.Path;
+        public static string PathBup => Storage.PathBackup;
 
         public static void Add(WordbookImpressInfo item)
         {
@@ -27,80 +30,23 @@ namespace WordbookImpressLibrary.Storage
 
         public static void Init()
         {
-            if (System.IO.File.Exists(PathBup)) { System.IO.File.Delete(PathBup); }
-            if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
-            Content = new ObservableCollection<WordbookImpressInfo>();
-            OnUpdated();
+            Storage.Init();
         }
 
         public static async Task<WordbookImpressInfo[]> LoadLocalData()
         {
-            if (!System.IO.File.Exists(Path))
-            {
-                Content = new ObservableCollection<WordbookImpressInfo>();
-                return new WordbookImpressInfo[0];
-            }
-            WordbookImpressInfo[] result;
-            try
-            {
-                await semaphore.WaitAsync();
-
-                try
-                {
-                    result = await Helper.SerializationHelper.DeserializeAsync<WordbookImpressInfo[]>(Path);
-                    if (result != null)
-                    {
-                        Content = new ObservableCollection<WordbookImpressInfo>(result);
-                        OnUpdated();
-                        return result;
-                    }
-                }
-                catch
-                {
-                }
-                try
-                {
-                    result = await Helper.SerializationHelper.DeserializeAsync<WordbookImpressInfo[]>(PathBup);
-                    if (result == null) return new WordbookImpressInfo[0];
-                    if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
-                    if (System.IO.File.Exists(PathBup)) { System.IO.File.Move(PathBup, Path); }
-                }
-                catch
-                {
-                    return new WordbookImpressInfo[0];
-                }
-
-                Content = new ObservableCollection<WordbookImpressInfo>(result);
-                OnUpdated();
-                return result;
-            }
-            finally
-            {
-                semaphore.Release();
-            }
+            return (await Storage.LoadLocalData()).ToArray();
         }
 
         public static async Task SaveLocalData()
         {
-            if (Content == null) return;
-            try
-            {
-                await semaphore.WaitAsync();
-                if (System.IO.File.Exists(PathBup)) { System.IO.File.Delete(PathBup); }
-                if (System.IO.File.Exists(Path)) { System.IO.File.Move(Path, PathBup); }
-                OnUpdated();
-                await Helper.SerializationHelper.SerializeAsync(Content, Path);
-            }
-            finally
-            {
-                semaphore.Release();
-            }
+            await Storage.SaveLocalData();
         }
 
-        public static event EventHandler Updated;
-        public static void OnUpdated()
+        public static event EventHandler Updated
         {
-            Updated?.Invoke(null, new EventArgs());
+            add => Storage.Updated += value;
+            remove => Storage.Updated -= value;
         }
     }
 }

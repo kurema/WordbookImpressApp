@@ -12,13 +12,6 @@ namespace WordbookImpressLibrary.Storage
 {
     public static class WordbooksImpressStorage
     {
-        private static ObservableCollection<IWordbook> content;
-        public static ObservableCollection<IWordbook> Content { get => content= content ?? new ObservableCollection<IWordbook>(); private set { content = value; content.CollectionChanged += (s, e) => OnUpdated(); } }
-        public static string Path { get; set; } = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "wordbooks_impress.xml");
-        public static string PathBup { get; set; } = Path + ".bup";
-
-        static System.Threading.SemaphoreSlim semaphore = new System.Threading.SemaphoreSlim(1, 1);
-
         public class Serialization
         {
             public class WordbookItem
@@ -34,10 +27,11 @@ namespace WordbookImpressLibrary.Storage
                     {
                         return ContentImpress;
                     }
-                    else if(ContentGeneral!=null)
+                    else if (ContentGeneral != null)
                     {
                         return ContentGeneral;
-                    }else if(ContentCsv!=null)
+                    }
+                    else if (ContentCsv != null)
                     {
                         return ContentCsv;
                     }
@@ -51,7 +45,7 @@ namespace WordbookImpressLibrary.Storage
                     switch (item)
                     {
                         case WordbookImpress m: this.ContentImpress = m; break;
-                        case WordbookCsv c:this.ContentCsv = c;break;
+                        case WordbookCsv c: this.ContentCsv = c; break;
                         case WordbookGeneral l: this.ContentGeneral = l; break;
                     }
                 }
@@ -68,12 +62,23 @@ namespace WordbookImpressLibrary.Storage
             }
         }
 
+        public static StorageContentConvert<List<Serialization.WordbookItem>, ObservableCollection<IWordbook>> Storage
+            = new StorageContentConvert<List<Serialization.WordbookItem>, ObservableCollection<IWordbook>>("wordbooks_impress.xml"
+                , a => new ObservableCollection<IWordbook>(Serialization.WordbookItem.Convert(a.ToArray()))
+                , a => Serialization.WordbookItem.ConvertBack(a.ToArray()).ToList()
+                );
+        public static ObservableCollection<IWordbook> Content
+        {
+            get => Storage.Converted;
+            private set { Storage.Converted = value; Storage.Converted.CollectionChanged += (s, e) => Storage.OnUpdated(); }
+        }
+        public static string Path => Storage.Path;
+        public static string PathBup => Storage.PathBackup;
+
+
         public static void Init()
         {
-            if (System.IO.File.Exists(PathBup)) { System.IO.File.Delete(PathBup); }
-            if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
-            Content = new ObservableCollection<IWordbook>();
-            OnUpdated();
+            Storage.Init();
         }
 
         public static void Add(IWordbook item)
@@ -87,79 +92,19 @@ namespace WordbookImpressLibrary.Storage
 
         public static async Task<IWordbook[]> LoadLocalData()
         {
-            if (!System.IO.File.Exists(Path))
-            {
-                Content = new ObservableCollection<IWordbook>();
-                return new WordbookImpress[0];
-            }
-            IWordbook[] result;
-            try
-            {
-                await semaphore.WaitAsync();
-
-                try
-                {
-                    result = Serialization.WordbookItem.Convert(await Helper.SerializationHelper.DeserializeAsync<Serialization.WordbookItem[]>(Path));
-                    if (result != null)
-                    {
-                        Content = new ObservableCollection<IWordbook>(result);
-                        OnUpdated();
-                        return result;
-                    }
-                }
-                catch
-                {
-                }
-                try
-                {
-                    result = Serialization.WordbookItem.Convert(await Helper.SerializationHelper.DeserializeAsync<Serialization.WordbookItem[]>(PathBup));
-                    if (result == null) return new IWordbook[0];
-                    if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
-                    if (System.IO.File.Exists(PathBup)) { System.IO.File.Move(PathBup, Path); }
-                }
-                catch
-                {
-                    return new IWordbook[0];
-                }
-
-                Content = new ObservableCollection<IWordbook>(result);
-                OnUpdated();
-                return result;
-            }
-            finally
-            {
-                semaphore.Release();
-            }
+            await Storage.LoadLocalData();
+            return Storage.Converted.ToArray();
         }
 
         public static async Task SaveLocalData()
         {
-            if (Content == null) return;
-            try
-            {
-                await semaphore.WaitAsync();
-
-                if (System.IO.File.Exists(PathBup)) { System.IO.File.Delete(PathBup); }
-                if (System.IO.File.Exists(Path)) { System.IO.File.Move(Path, PathBup); }
-                OnUpdated();
-                try
-                {
-                    await Helper.SerializationHelper.SerializeAsync(Serialization.WordbookItem.ConvertBack(Content.ToArray()), Path);
-                }
-                catch
-                {
-                }
-            }
-            finally
-            {
-                semaphore.Release();
-            }
+            await Storage.SaveLocalData();
         }
 
-        public static event EventHandler Updated;
-        public static void OnUpdated()
+        public static event EventHandler Updated
         {
-            Updated?.Invoke(null, new EventArgs());
+            add => Storage.Updated += value;
+            remove => Storage.Updated -= value;
         }
     }
 }

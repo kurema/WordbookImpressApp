@@ -17,7 +17,7 @@ namespace WordbookImpressLibrary.Storage
 
         public static async Task<Config> LoadLocalData()
         {
-             return await Storage.LoadLocalValue();
+             return await Storage.LoadLocalData();
         }
 
         public static async void SaveLocalData()

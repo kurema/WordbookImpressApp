@@ -36,7 +36,7 @@ namespace WordbookImpressLibrary.Storage
             OnUpdated();
         }
 
-        public async Task<T> LoadLocalValue()
+        public async Task<T> LoadLocalData()
         {
             try
             {
@@ -114,30 +114,59 @@ namespace WordbookImpressLibrary.Storage
 
     }
 
-    public class StorageContentArray<T>
+    public class StorageContentConvert<T1,T2> where T1 : class, new() where T2:class
     {
-        private ObservableCollection<T> _Content;
-        public ObservableCollection<T> Content
+        private StorageContent<T1> Storage;
+        public Func<T1, T2> Convert;
+        public Func<T2, T1> ConvertBack;
+
+        private T2 _Converted = null;
+
+        public string Path => Storage.Path;
+        public string PathBackup => Storage.PathBackup;
+
+        public void Init()
         {
-            get => _Content = _Content ?? new ObservableCollection<T>(Storage.Content);
+            Storage.Init();
+        }
+
+        public T2 Converted {
+            get => _Converted = _Converted ?? Convert(Storage.Content);
             set
             {
-                if (_Content == null) { _Content = value; return; }
-                _Content.Clear();
-                foreach (var item in value) _Content.Add(item);
-                //You have to access via Content. Not ObservableCollection<T> you substituted.
+                _Converted = value;
+                Storage.Content = ConvertBack(value);
             }
         }
 
-        public StorageContent<List<T>> Storage;
-
-        public StorageContentArray(string filename)
+        public StorageContentConvert(string filename, Func<T1, T2> convert, Func<T2, T1> convertBack)
         {
-            Storage = new StorageContent<List<T>>(filename);
-            Storage.Updated += (s, e) =>
-            {
-                Content = new ObservableCollection<T>(Storage.Content);
-            };
+            Convert = convert ?? throw new ArgumentNullException(nameof(convert));
+            ConvertBack = convertBack ?? throw new ArgumentNullException(nameof(convertBack));
+            Storage = new StorageContent<T1>(filename);
+            Storage.Updated += (s, e) => _Converted = null;
+        }
+
+        public async Task<T1> LoadLocalData()
+        {
+            return await Storage.LoadLocalData();
+        }
+
+        public async Task SaveLocalData()
+        {
+            Storage.Content = ConvertBack(Converted);
+            await Storage.SaveLocalData();
+        }
+
+        public event EventHandler Updated
+        {
+            add => Storage.Updated += value;
+            remove => Storage.Updated -= value;
+        }
+
+        public void OnUpdated()
+        {
+            Storage.OnUpdated();
         }
     }
 }

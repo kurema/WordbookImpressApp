@@ -24,6 +24,14 @@ namespace WordbookImpressLibrary.Storage
 
         static System.Threading.SemaphoreSlim semaphore = new System.Threading.SemaphoreSlim(1, 1);
 
+        public static void Init()
+        {
+            if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
+            if (System.IO.File.Exists(PathBup)) { System.IO.File.Delete(PathBup); }
+            Content = new PurchaseHistory();
+            OnUpdated();
+        }
+
         public static async Task<PurchaseHistory> GetPurchaseHistory()
         {
             try

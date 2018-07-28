@@ -179,9 +179,49 @@ namespace WordbookImpressApp.Views
                             await DisplayAlert(AppResources.SettingDebugInitTutorialAlertTitle,String.Format(AppResources.SettingDebugInitTutorialAlertMessage, WordbookImpressLibrary.Storage.TutorialStorage.Path),AppResources.AlertConfirmed);
                         }
                     },
-
+                    new SettingItem(AppResources.SettingDebugDemoCalendarTitle, AppResources.SettingDebugDemoCalendarDetail,storage.DemoModeCalendar){
+                        Action=(s) =>
+                        {
+                            storage.DemoModeCalendar=s.BoolValue;return Task.CompletedTask;
+                        }
+                    },
                 },
 #endif
+                new SettingItems(AppResources.SettingInitTitle)
+                {
+                    new SettingItem(AppResources.SettingInitWordbookName, AppResources.SettingInitWordbookDetail)
+                    {
+                        Action=async (s) =>
+                        {
+                            if( await DisplayAlert(AppResources.WordWarning, String.Format(AppResources.SettingInitConfirmation, AppResources.SettingInitWordbookName.ToLower()), AppResources.AlertYes, AppResources.AlertNo))
+                                WordbookImpressLibrary.Storage.WordbooksImpressStorage.Init();
+                        }
+                    },
+                    new SettingItem(AppResources.SettingInitAuthName, AppResources.SettingInitAuthDetail)
+                    {
+                        Action=async (s) =>
+                        {
+                            if( await DisplayAlert(AppResources.WordWarning, String.Format(AppResources.SettingInitConfirmation, AppResources.SettingInitAuthName.ToLower()), AppResources.AlertYes, AppResources.AlertNo))
+                                WordbookImpressLibrary.Storage.WordbooksImpressInfoStorage.Init();
+                        }
+                    },
+                    new SettingItem(AppResources.SettingInitStoreStatisticsName, AppResources.SettingInitStoreStatisticsDetail)
+                    {
+                        Action=async (s) =>
+                        {
+                            if( await DisplayAlert(AppResources.WordWarning, String.Format(AppResources.SettingInitConfirmation, AppResources.SettingInitStoreStatisticsName.ToLower()), AppResources.AlertYes, AppResources.AlertNo))
+                                WordbookImpressLibrary.Storage.PurchaseHistoryStorage.Init();
+                        }
+                    },
+                    new SettingItem(AppResources.SettingInitStatisticsName, AppResources.SettingInitStatisticsDetail)
+                    {
+                        Action=async (s) =>
+                        {
+                            if( await DisplayAlert(AppResources.WordWarning, String.Format(AppResources.SettingInitConfirmation, AppResources.SettingInitStatisticsName.ToLower()), AppResources.AlertYes, AppResources.AlertNo))
+                                WordbookImpressLibrary.Storage.WordbooksImpressInfoStorage.Init();
+                        }
+                    },
+                },
                 new SettingItems(AppResources.SettingSupportTitle)
                 {
                     new SettingItem(AppResources.SettingSupportTutorialTitle, AppResources.SettingSupportTutorialDetail){

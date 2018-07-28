@@ -174,7 +174,7 @@ Followers</value>
     <value>正答率{0:F0}% ({1}問中{2}問)</value>
   </data>
   <data name="FormatWordRateInfo" xml:space="preserve">
-    <value>正答率 {0:F0}% ({1}/{2})</value>
+    <value>正答率: {0:F0}% ({1}/{2})</value>
   </data>
   <data name="LicenseDetailPage" xml:space="preserve">
     <value>詳細ページ</value>
@@ -560,7 +560,7 @@ https://books.rakuten.co.jp/search/nm?sitem=[ISBN,EAN,Title]</value>
     <value>成績</value>
   </data>
   <data name="StatisticsTestDateFormat" xml:space="preserve">
-    <value>試験日時 : {0:yyyy\年MM\月dd\日 tt h\時mm\分\開\始 }</value>
+    <value>試験日時 : {0:yyyy\年MM\月dd\日 tt h\時mm\分\開\始}</value>
   </data>
   <data name="StatisticsTimeSpanSingleFormat" xml:space="preserve">
     <value>1問当たり : [if:TotalMinutesFloor:[TotalMinutesFloor:{0:00}]分][Seconds:{0:00}]秒</value>
@@ -987,5 +987,41 @@ URLから候補を表示できる場合もあります。</value>
   </data>
   <data name="SpecialInformationSpecialInfoObtained" xml:space="preserve">
     <value>特典取得済</value>
+  </data>
+  <data name="SettingDebugDemoCalendarDetail" xml:space="preserve">
+    <value>カレンダーをランダム表示します。</value>
+  </data>
+  <data name="SettingDebugDemoCalendarTitle" xml:space="preserve">
+    <value>カレンダーデモ</value>
+  </data>
+  <data name="SettingInitAuthDetail" xml:space="preserve">
+    <value>インプレスブックスの認証情報を削除します。</value>
+  </data>
+  <data name="SettingInitAuthName" xml:space="preserve">
+    <value>認証情報</value>
+  </data>
+  <data name="SettingInitConfirmation" xml:space="preserve">
+    <value>{0}を削除しますか？</value>
+  </data>
+  <data name="SettingInitStatisticsDetail" xml:space="preserve">
+    <value>クイズ統計を削除します。</value>
+  </data>
+  <data name="SettingInitStatisticsName" xml:space="preserve">
+    <value>クイズ統計</value>
+  </data>
+  <data name="SettingInitStoreStatisticsDetail" xml:space="preserve">
+    <value>以前クリックした商品と特典取得記録を削除します。</value>
+  </data>
+  <data name="SettingInitStoreStatisticsName" xml:space="preserve">
+    <value>ストア統計</value>
+  </data>
+  <data name="SettingInitTitle" xml:space="preserve">
+    <value>データ削除</value>
+  </data>
+  <data name="SettingInitWordbookDetail" xml:space="preserve">
+    <value>単語帳データを削除します。</value>
+  </data>
+  <data name="SettingInitWordbookName" xml:space="preserve">
+    <value>単語帳データ</value>
   </data>
 </root>

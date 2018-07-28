@@ -72,8 +72,7 @@ namespace WordbookImpressApp.Views
         {
             var enabled = WordbookImpressLibrary.Storage.ConfigStorage.Content?.EnableImpressBookFeature;
             if (enabled == null) return;
-            var model = this.BindingContext as MasterViewModel;
-            if (model == null) return;
+            if (!(this.BindingContext is MasterViewModel model)) return;
             model.ExcludedIds = enabled.Value ? new string[0] : new string[] { "Store" };
         }
 
@@ -87,7 +86,6 @@ namespace WordbookImpressApp.Views
             public Type TargetType { get; set; }
             public Action<MasterDetailPage> Action { get; set; }
             public bool Replace { get; set; } = true;
-            private bool visible = true;
             public string Id { get; set; } = null;
 
         }

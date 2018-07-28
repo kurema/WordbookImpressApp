@@ -29,5 +29,7 @@ namespace WordbookImpressLibrary.Models
         public string StoreOpenBookLink = "[DetailPageURL]";
 
         public bool EnableImpressBookFeature = true;
+
+        public bool DemoModeCalendar = false;
     }
 }

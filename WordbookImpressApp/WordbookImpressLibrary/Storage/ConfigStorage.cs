@@ -19,19 +19,21 @@ namespace WordbookImpressLibrary.Storage
             try
             {
                 Content = await Helper.SerializationHelper.DeserializeAsync<Config>(Path);
+                if (Content != null) { OnUpdated(); return Content; }
             }
             catch
             {
-                try
-                {
-                    Content = await Helper.SerializationHelper.DeserializeAsync<Config>(PathBup);
-                    if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
-                    if (System.IO.File.Exists(PathBup)) { System.IO.File.Move(PathBup, Path); }
-                }
-                catch
-                {
-                    Content = new Config();
-                }
+            }
+            try
+            {
+                Content = await Helper.SerializationHelper.DeserializeAsync<Config>(PathBup);
+                if (Content == null) return new Config();
+                if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
+                if (System.IO.File.Exists(PathBup)) { System.IO.File.Move(PathBup, Path); }
+            }
+            catch
+            {
+                return new Config();
             }
             OnUpdated();
             return Content;

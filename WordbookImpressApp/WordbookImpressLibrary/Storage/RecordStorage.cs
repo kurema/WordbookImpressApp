@@ -19,22 +19,36 @@ namespace WordbookImpressLibrary.Storage
             try
             {
                 Content = await Helper.SerializationHelper.DeserializeAsync<Record>(Path);
+                if (Content != null)
+                {
+                    OnUpdated();
+                    return Content;
+                }
             }
             catch
             {
-                try
-                {
-                    Content = await Helper.SerializationHelper.DeserializeAsync<Record>(PathBup);
-                    if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
-                    if (System.IO.File.Exists(PathBup)) { System.IO.File.Move(PathBup, Path); }
-                }
-                catch
-                {
-                    Content = new Record();
-                }
+            }
+            try
+            {
+                Content = await Helper.SerializationHelper.DeserializeAsync<Record>(PathBup);
+                if (Content == null) return new Record();
+                if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
+                if (System.IO.File.Exists(PathBup)) { System.IO.File.Move(PathBup, Path); }
+            }
+            catch
+            {
+                return new Record();
             }
             OnUpdated();
             return Content;
+        }
+
+        public static void Init()
+        {
+            if (System.IO.File.Exists(PathBup)) { System.IO.File.Delete(PathBup); }
+            if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
+            Content = new Record();
+            OnUpdated();
         }
 
         public static async void SaveLocalData()

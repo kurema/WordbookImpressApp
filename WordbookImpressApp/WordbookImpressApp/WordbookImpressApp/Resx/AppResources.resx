@@ -174,7 +174,7 @@ Followers</value>
     <value>Score {0:F0}% ({1}/{2})</value>
   </data>
   <data name="FormatWordRateInfo" xml:space="preserve">
-    <value>Score {0:F0}% ({1}/{2})</value>
+    <value>Score: {0:F0}% ({1}/{2})</value>
   </data>
   <data name="LicenseDetailPage" xml:space="preserve">
     <value>Detail</value>
@@ -583,7 +583,7 @@ https://books.rakuten.co.jp/search/nm?sitem=[ISBN,EAN,Title]</value>
     <value>My score was {0} / {1}({2}%)</value>
   </data>
   <data name="StatisticsTwitterMessageNoAnswer" xml:space="preserve">
-    <value>1問も解答しませんでした！</value>
+    <value>I didn't answer any</value>
   </data>
   <data name="StatisticsTwitterMessageTotal" xml:space="preserve">
     <value>I got a test of {0}!
@@ -990,5 +990,41 @@ You may use suggested title.</value>
   </data>
   <data name="SpecialInformationSpecialInfoObtained" xml:space="preserve">
     <value>Obtained gift.</value>
+  </data>
+  <data name="SettingDebugDemoCalendarDetail" xml:space="preserve">
+    <value>Set up calendar demo.</value>
+  </data>
+  <data name="SettingDebugDemoCalendarTitle" xml:space="preserve">
+    <value>Calendar Demo</value>
+  </data>
+  <data name="SettingInitAuthDetail" xml:space="preserve">
+    <value>Initialize authentification data for impress books.</value>
+  </data>
+  <data name="SettingInitAuthName" xml:space="preserve">
+    <value>Authentification data</value>
+  </data>
+  <data name="SettingInitConfirmation" xml:space="preserve">
+    <value>Are you sure you want to delete {0}?</value>
+  </data>
+  <data name="SettingInitStatisticsDetail" xml:space="preserve">
+    <value>Initialize score of the quiz.</value>
+  </data>
+  <data name="SettingInitStatisticsName" xml:space="preserve">
+    <value>Score data</value>
+  </data>
+  <data name="SettingInitStoreStatisticsDetail" xml:space="preserve">
+    <value>Initialize data of clicked link and obtained gifts.</value>
+  </data>
+  <data name="SettingInitStoreStatisticsName" xml:space="preserve">
+    <value>Store data</value>
+  </data>
+  <data name="SettingInitTitle" xml:space="preserve">
+    <value>Initialize</value>
+  </data>
+  <data name="SettingInitWordbookDetail" xml:space="preserve">
+    <value>Initialize all wordbooks data.</value>
+  </data>
+  <data name="SettingInitWordbookName" xml:space="preserve">
+    <value>Wordbooks data</value>
   </data>
 </root>

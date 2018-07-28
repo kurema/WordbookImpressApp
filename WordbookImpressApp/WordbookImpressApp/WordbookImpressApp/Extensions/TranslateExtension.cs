@@ -27,7 +27,7 @@ namespace WordbookImpressApp.Extensions
 #if DEBUG
                 translation = string.Format("Key '{0}' for '{1}'", Key, CurrentCulture.Name);
 #else
-				translation = Text;
+				translation = Key;
 #endif
             }
             return translation;

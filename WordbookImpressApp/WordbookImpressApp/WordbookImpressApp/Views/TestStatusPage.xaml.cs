@@ -61,6 +61,19 @@ namespace WordbookImpressApp.Views
                         , (byte)(255 * Math.Min((float)ConfigStorage.Content.MaxDailyTestCount, b.Value.AnswerCountTotal) / Math.Max(ConfigStorage.Content.MaxDailyTestCount, 1)));
                 }
                 );
+#if DEBUG
+            if (ConfigStorage.Content.DemoModeCalendar)
+            {
+                var rand = new Random();
+                CalendarGraph.ColorTable = Enumerable.Range(0, 365).Select(a => DateTime.Now.AddDays(-a).Date).ToDictionary(a => a, a =>
+                {
+                    var rate = 0.5+ rand.NextDouble()/2.0;
+                    var rates = rand.NextDouble();
+                    return new SkiaSharp.SKColor((byte)(255 * (1 - rate)), (byte)(255 * rate), 0
+                        , (byte)(255 * rates));
+                });
+            }
+#endif
             CalendarGraph.InvalidateSurface();
         }
 

@@ -66,6 +66,14 @@ namespace WordbookImpressLibrary.Storage
             }
         }
 
+        public static void Init()
+        {
+            if (System.IO.File.Exists(PathBup)) { System.IO.File.Delete(PathBup); }
+            if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
+            Content = new ObservableCollection<IWordbook>();
+            OnUpdated();
+        }
+
         public static void Add(IWordbook item)
         {
             foreach(var wb in Content)
@@ -86,20 +94,28 @@ namespace WordbookImpressLibrary.Storage
             try
             {
                 result = Serialization.WordbookItem.Convert(await Helper.SerializationHelper.DeserializeAsync<Serialization.WordbookItem[]>(Path));
+                if (result != null)
+                {
+                    Content = new ObservableCollection<IWordbook>(result);
+                    OnUpdated();
+                    return result;
+                }
             }
             catch
             {
-                try
-                {
-                    result = Serialization.WordbookItem.Convert(await Helper.SerializationHelper.DeserializeAsync<Serialization.WordbookItem[]>(PathBup));
-                    if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
-                    if (System.IO.File.Exists(PathBup)) { System.IO.File.Move(PathBup, Path); }
-                }
-                catch
-                {
-                    result = new IWordbook[0];
-                }
             }
+            try
+            {
+                result = Serialization.WordbookItem.Convert(await Helper.SerializationHelper.DeserializeAsync<Serialization.WordbookItem[]>(PathBup));
+                if (result == null) return new IWordbook[0];
+                if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
+                if (System.IO.File.Exists(PathBup)) { System.IO.File.Move(PathBup, Path); }
+            }
+            catch
+            {
+                return new IWordbook[0];
+            }
+
             Content = new ObservableCollection<IWordbook>(result);
             OnUpdated();
             return result;

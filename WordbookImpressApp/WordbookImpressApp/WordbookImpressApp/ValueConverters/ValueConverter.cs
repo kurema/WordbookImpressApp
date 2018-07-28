@@ -355,16 +355,14 @@ namespace WordbookImpressApp.ValueConverters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var o = value as WordbookImpressLibrary.ViewModels.QuizResultViewModel;
-            if (o == null) return "";
+            if (!(value is WordbookImpressLibrary.ViewModels.QuizResultViewModel o)) return "";
             var p = parameter?.ToString() ?? "";
             return string.Format(p,o.AnswerCorrectPercentage,o.AnswerCountCorrect,o.AnswerCountTotal);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var o = value as WordbookImpressLibrary.ViewModels.QuizResultViewModel.TestResultItemViewModel;
-            if (o == null) return "";
+            if (!(value is WordbookImpressLibrary.ViewModels.QuizResultViewModel.TestResultItemViewModel o)) return "";
             var p = parameter?.ToString() ?? "";
             return string.Format(p, o.Word?.AnswerCountCorrectPercentage,o.Word?.AnswerCountCorrect,o.Word?.AnswerCountTotal);
         }
@@ -374,8 +372,7 @@ namespace WordbookImpressApp.ValueConverters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var o = value as WordbookImpressLibrary.ViewModels.QuizResultViewModel.TestResultItemViewModel;
-            if (o == null) return "";
+            if (!(value is WordbookImpressLibrary.ViewModels.QuizResultViewModel.TestResultItemViewModel o)) return "";
             var p = parameter?.ToString() ?? "";
             return string.Format(p, o.Word.AnswerCountCorrectPercentage, o.Word.AnswerCountCorrect, o.Word.AnswerCountTotal);
         }
@@ -390,8 +387,7 @@ namespace WordbookImpressApp.ValueConverters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var o = value as WordbookImpressLibrary.ViewModels.TestStatusViewModel;
-            if (o == null) return "";
+            if (!(value is WordbookImpressLibrary.ViewModels.TestStatusViewModel o)) return "";
             var p = parameter?.ToString() ?? "";
             return string.Format(p, o.AnswerCountCorrectPercentage, o.AnswerCountCorrect, o.AnswerCountTotal);
         }
@@ -406,8 +402,7 @@ namespace WordbookImpressApp.ValueConverters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var o = value as WordbookImpressLibrary.ViewModels.IWordViewModel;
-            if (o == null) return "";
+            if (!(value is WordbookImpressLibrary.ViewModels.IWordViewModel o)) return "";
             var p = parameter?.ToString() ?? "";
             return string.Format(p, o.AnswerCountCorrectPercentage, o.AnswerCountCorrect, o.AnswerCountTotal);
         }

@@ -224,7 +224,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   Score {0:F0}% ({1}/{2}) に類似しているローカライズされた文字列を検索します。
+        ///   Score: {0:F0}% ({1}/{2}) に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string FormatWordRateInfo {
             get {
@@ -959,6 +959,24 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
+        ///   Set up calendar demo. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SettingDebugDemoCalendarDetail {
+            get {
+                return ResourceManager.GetString("SettingDebugDemoCalendarDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Calendar Demo に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SettingDebugDemoCalendarTitle {
+            get {
+                return ResourceManager.GetString("SettingDebugDemoCalendarTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   {0} is deleted. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string SettingDebugInitTutorialAlertMessage {
@@ -1000,6 +1018,96 @@ namespace WordbookImpressApp.Resx {
         internal static string SettingDebugTitle {
             get {
                 return ResourceManager.GetString("SettingDebugTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Initialize authentification data for impress books. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SettingInitAuthDetail {
+            get {
+                return ResourceManager.GetString("SettingInitAuthDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Authentification data に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SettingInitAuthName {
+            get {
+                return ResourceManager.GetString("SettingInitAuthName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Are you sure you want to delete {0}? に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SettingInitConfirmation {
+            get {
+                return ResourceManager.GetString("SettingInitConfirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Initialize score of the quiz. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SettingInitStatisticsDetail {
+            get {
+                return ResourceManager.GetString("SettingInitStatisticsDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Score data に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SettingInitStatisticsName {
+            get {
+                return ResourceManager.GetString("SettingInitStatisticsName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Initialize data of clicked link and obtained gifts. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SettingInitStoreStatisticsDetail {
+            get {
+                return ResourceManager.GetString("SettingInitStoreStatisticsDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Store data に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SettingInitStoreStatisticsName {
+            get {
+                return ResourceManager.GetString("SettingInitStoreStatisticsName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Initialize に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SettingInitTitle {
+            get {
+                return ResourceManager.GetString("SettingInitTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Initialize all wordbooks data. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SettingInitWordbookDetail {
+            get {
+                return ResourceManager.GetString("SettingInitWordbookDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Wordbooks data に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SettingInitWordbookName {
+            get {
+                return ResourceManager.GetString("SettingInitWordbookName", resourceCulture);
             }
         }
         
@@ -1808,7 +1916,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   1問も解答しませんでした！ に類似しているローカライズされた文字列を検索します。
+        ///   I didn&apos;t answer any に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsTwitterMessageNoAnswer {
             get {

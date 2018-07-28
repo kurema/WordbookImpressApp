@@ -228,4 +228,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\icon_g_encoding.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Tutorial_sheet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Tutorial_share.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Tutorial_add_en.png" />
+  </ItemGroup>
 </Project>

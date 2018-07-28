@@ -48,9 +48,9 @@ namespace WordbookImpressApp.Views
             return new WordbookImpressLibrary.ViewModels.TutorialPagesViewModel(
                 new System.Collections.ObjectModel.ObservableCollection<WordbookImpressLibrary.ViewModels.TutorialPageViewModel>()
                 {
-                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel(AppResources.TutorialPage1Title,AppResources.TutorialPage1Detail,"Tutorial_buy.jpg","#FFFFFF"),
-                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel(AppResources.TutorialPage2Title,AppResources.TutorialPage2Detail,"Tutorial_privilege.png","#FFFFFF"),
-                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel(AppResources.TutorialPage3Title,AppResources.TutorialPage3Detail,"Tutorial_add.png","#FFFFFF"),
+                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel(AppResources.TutorialPage1Title,AppResources.TutorialPage1Detail,AppResources.TutorialPage1Image,"#FFFFFF"),
+                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel(AppResources.TutorialPage2Title,AppResources.TutorialPage2Detail,AppResources.TutorialPage2Image,"#FFFFFF"),
+                    new WordbookImpressLibrary.ViewModels.TutorialPageViewModel(AppResources.TutorialPage3Title,AppResources.TutorialPage3Detail,AppResources.TutorialPage3Image,"#FFFFFF"),
                 }
                 );
         }

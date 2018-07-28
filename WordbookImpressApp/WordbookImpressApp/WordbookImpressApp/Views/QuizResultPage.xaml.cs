@@ -113,13 +113,20 @@ namespace WordbookImpressApp.Views
             if (e.SelectedItem == null || !(e.SelectedItem is QuizResultViewModel.TestResultItemViewModel)) return;
             if (Pushing) return;
             Pushing = true;
-            await WordsPageSemaphore.WaitAsync();
-            var page = WordsPage;
-            var selectTarget = ((QuizResultViewModel.TestResultItemViewModel)e.SelectedItem).Word;
-            page.SelectedItem = selectTarget;
-            NavigationPage.SetHasNavigationBar(page, false);
-            await Navigation.PushAsync(page);
-            WordsPageSemaphore.Release();
+            try
+            {
+                await WordsPageSemaphore.WaitAsync();
+                var page = WordsPage;
+                var selectTarget = ((QuizResultViewModel.TestResultItemViewModel)e.SelectedItem).Word;
+                page.SelectedItem = selectTarget;
+                NavigationPage.SetHasNavigationBar(page, false);
+                await Navigation.PushAsync(page);
+            }
+            catch { }
+            finally
+            {
+                WordsPageSemaphore.Release();
+            }
             (sender as ListView).SelectedItem = null;
             Pushing = false;
         }
@@ -130,9 +137,16 @@ namespace WordbookImpressApp.Views
 
             Task.Run(async () =>
             {
-                await WordsPageSemaphore.WaitAsync();
-                var temp = WordsPage;
-                WordsPageSemaphore.Release();
+                try
+                {
+                    await WordsPageSemaphore.WaitAsync();
+                    //var temp = WordsPage;
+                }
+                catch { }
+                finally
+                {
+                    WordsPageSemaphore.Release();
+                }
             });
         }
 

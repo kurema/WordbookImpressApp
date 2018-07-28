@@ -110,8 +110,8 @@ namespace WordbookImpressApp.Views
             {
                 try
                 {
-                    await Task.Run(() =>
-                    {
+                    //await Task.Run(() =>
+                    //{
                         var file = new SharpCifs.Smb.SmbFile(url);
                         if (file.IsFile())
                         {
@@ -121,7 +121,7 @@ namespace WordbookImpressApp.Views
                                 ModelCsv.CurrentlyLoaded = ModelCsv.Url;
                             }
                         }
-                    });
+                    //});
                 }
                 catch
                 {

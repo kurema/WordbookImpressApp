@@ -1027,4 +1027,13 @@ You may use suggested title.</value>
   <data name="SettingInitWordbookName" xml:space="preserve">
     <value>Wordbooks data</value>
   </data>
+  <data name="TutorialPage1Image" xml:space="preserve">
+    <value>Tutorial_sheet.png</value>
+  </data>
+  <data name="TutorialPage2Image" xml:space="preserve">
+    <value>Tutorial_share.jpg</value>
+  </data>
+  <data name="TutorialPage3Image" xml:space="preserve">
+    <value>Tutorial_add_en.png</value>
+  </data>
 </root>

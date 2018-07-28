@@ -146,11 +146,14 @@
     <Content Include="Assets\StoreLogo.scale-400.png" />
     <Content Include="Title.png" />
     <Content Include="Tutorial_add.png" />
+    <Content Include="Tutorial_add_en.png" />
     <Content Include="Tutorial_buy.jpg" />
     <Content Include="Tutorial_privilege.png" />
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Tutorial_share.jpg" />
+    <Content Include="Tutorial_sheet.png" />
     <Content Include="Wrong.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>

@@ -28,103 +28,107 @@ namespace WordbookImpressApp.Views
         {
             base.OnPaintSurface(e);
 
-            e.Surface.Canvas.Clear(SkiaSharp.SKColors.White);
-            if (Cells == null) return;
-
-            var currentColumn = DisplayedColumn;
-            var currentRow = DisplayedRow;
-            Paint.Typeface = Font;
-            Paint.TextSize = FontSize;
-
-            var wc = currentColumn;
-            float x = -DisplayedOffsetX;
-
-            float mx = 0;
-            float my = 0;
-
-            if (RowsContent == null || ColumnsContent == null) return;
-            if (currentRow >= RowsContent.Count || currentColumn >= ColumnsContent.Count) return;
-
-            var ylist = new List<float>();
-            bool ylistFirst = true;
-
-            while (true)
+            try
             {
-                x += MarginText;
-                float y = -DisplayedOffsetY;
-                var wr = currentRow;
-                Paint.IsAntialias = true;
+                e.Surface.Canvas.Clear(SkiaSharp.SKColors.White);
+                if (Cells == null) return;
+
+                var currentColumn = DisplayedColumn;
+                var currentRow = DisplayedRow;
+                Paint.Typeface = Font;
+                Paint.TextSize = FontSize;
+
+                var wc = currentColumn;
+                float x = -DisplayedOffsetX;
+
+                float mx = 0;
+                float my = 0;
+
+                if (RowsContent == null || ColumnsContent == null) return;
+                if (currentRow >= RowsContent.Count || currentColumn >= ColumnsContent.Count) return;
+
+                var ylist = new List<float>();
+                bool ylistFirst = true;
+
                 while (true)
                 {
-                    var cell = Cells[wc, wr];
-                    if (!cell.SizeSpecified)
+                    x += MarginText;
+                    float y = -DisplayedOffsetY;
+                    var wr = currentRow;
+                    Paint.IsAntialias = true;
+                    while (true)
                     {
-                        cell.Width = Paint.MeasureText(cell.Content ?? "");
-                        //cell.Height = (cell.Content.Count(a => a == '\n') + 1) * FontSize;
-                        cell.Height = FontSize;
-                        Cells[wc, wr] = cell;
+                        var cell = Cells[wc, wr];
+                        if (!cell.SizeSpecified)
+                        {
+                            cell.Width = Paint.MeasureText(cell.Content ?? "");
+                            //cell.Height = (cell.Content.Count(a => a == '\n') + 1) * FontSize;
+                            cell.Height = FontSize;
+                            Cells[wc, wr] = cell;
 
-                        var c = ColumnsContent[wc];
-                        c.Width = Math.Max(c.Width, cell.Width);
-                        c.WidthMargin = MarginText * 2 + SpacingColumn;
-                        if (wr == 0) c.Header = cell.Content ?? "";
-                        ColumnsContent[wc] = c;
+                            var c = ColumnsContent[wc];
+                            c.Width = Math.Max(c.Width, cell.Width);
+                            c.WidthMargin = MarginText * 2 + SpacingColumn;
+                            if (wr == 0) c.Header = cell.Content ?? "";
+                            ColumnsContent[wc] = c;
 
-                        var r = RowsContent[wr];
-                        r.Height = Math.Max(r.Height, cell.Height);
-                        r.HeightMargin = MarginText * 2 + SpacingRow;
-                        RowsContent[wr] = r;
+                            var r = RowsContent[wr];
+                            r.Height = Math.Max(r.Height, cell.Height);
+                            r.HeightMargin = MarginText * 2 + SpacingRow;
+                            RowsContent[wr] = r;
+                        }
+
+                        Paint.Color = FontColor;
+
+                        y += SpacingRow / 2.0f;
+                        y += MarginText;
+                        e.Surface.Canvas.DrawText(cell.Content?.Split('\n')[0] ?? "", x, y + FontSize, Paint);
+                        y += RowsContent[wr].Height;
+                        y += MarginText;
+                        y += SpacingRow / 2.0f;
+                        if (ylistFirst) ylist.Add(y);
+                        my = Math.Max(my, y);
+
+
+                        wr++;
+
+                        if (y > e.Info.Height) break;
+                        if (RowsContent.Count <= wr) break;
                     }
 
-                    Paint.Color = FontColor;
+                    ylistFirst = false;
 
-                    y += SpacingRow / 2.0f;
-                    y += MarginText;
-                    e.Surface.Canvas.DrawText(cell.Content?.Split('\n')[0]??"", x, y + FontSize, Paint);
-                    y += RowsContent[wr].Height;
-                    y += MarginText;
-                    y += SpacingRow / 2.0f;
-                    if (ylistFirst) ylist.Add(y);
-                    my = Math.Max(my, y);
+                    x += ColumnsContent[wc].Width;
+                    x += MarginText;
+                    x += SpacingColumn / 2.0f;
 
+                    Paint.Color = SeparatorColor;
 
-                    wr++;
+                    e.Surface.Canvas.DrawLine(x, -DisplayedOffsetY, x, y, Paint);
 
-                    if (y > e.Info.Height) break;
-                    if (RowsContent.Count <= wr) break;
+                    mx = x;
+
+                    x += MarginText;
+                    x += SpacingColumn / 2.0f;
+
+                    wc++;
+
+                    if (x > e.Info.Width) break;
+                    if (ColumnsContent.Count <= wc) break;
                 }
-
-                ylistFirst = false;
-
-                x += ColumnsContent[wc].Width;
-                x += MarginText;
-                x += SpacingColumn / 2.0f;
-
-                Paint.Color = SeparatorColor;
-
-                e.Surface.Canvas.DrawLine(x, -DisplayedOffsetY, x, y, Paint);
-
-                mx = x;
-
-                x += MarginText;
-                x += SpacingColumn / 2.0f;
-
-                wc++;
-
-                if (x > e.Info.Width) break;
-                if (ColumnsContent.Count <= wc) break;
+                foreach (var y in ylist)
+                {
+                    Paint.Color = SeparatorColor;
+                    e.Surface.Canvas.DrawLine(-DisplayedOffsetX, y, mx, y, Paint);
+                }
+                {
+                    Paint.Color = SeparatorColor;
+                    e.Surface.Canvas.DrawLine(-DisplayedOffsetX, -DisplayedOffsetY, mx, -DisplayedOffsetY, Paint);
+                    e.Surface.Canvas.DrawLine(-DisplayedOffsetX, -DisplayedOffsetY, -DisplayedOffsetX, my, Paint);
+                }
+                ShiftColumnRow(e.Info.Width, e.Info.Height, mx, my);
             }
-            foreach (var y in ylist)
-            {
-                Paint.Color = SeparatorColor;
-                e.Surface.Canvas.DrawLine(-DisplayedOffsetX, y, mx, y, Paint);
-            }
-            {
-                Paint.Color = SeparatorColor;
-                e.Surface.Canvas.DrawLine(-DisplayedOffsetX, -DisplayedOffsetY, mx, -DisplayedOffsetY, Paint);
-                e.Surface.Canvas.DrawLine(-DisplayedOffsetX, -DisplayedOffsetY, -DisplayedOffsetX, my, Paint);
-            }
-            ShiftColumnRow(e.Info.Width, e.Info.Height, mx, my);
+            catch { }
         }
 
         public Rows RowsContent=new Rows();

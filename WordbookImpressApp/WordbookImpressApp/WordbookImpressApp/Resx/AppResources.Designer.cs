@@ -2313,6 +2313,15 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
+        ///   Tutorial_sheet.png に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TutorialPage1Image {
+            get {
+                return ResourceManager.GetString("TutorialPage1Image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Create に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TutorialPage1Title {
@@ -2332,6 +2341,15 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
+        ///   Tutorial_share.jpg に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TutorialPage2Image {
+            get {
+                return ResourceManager.GetString("TutorialPage2Image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Share に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TutorialPage2Title {
@@ -2346,6 +2364,15 @@ namespace WordbookImpressApp.Resx {
         internal static string TutorialPage3Detail {
             get {
                 return ResourceManager.GetString("TutorialPage3Detail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Tutorial_add_en.png に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string TutorialPage3Image {
+            get {
+                return ResourceManager.GetString("TutorialPage3Image", resourceCulture);
             }
         }
         

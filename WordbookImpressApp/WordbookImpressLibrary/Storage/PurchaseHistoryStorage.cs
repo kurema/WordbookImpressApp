@@ -54,14 +54,14 @@ namespace WordbookImpressLibrary.Storage
                     Content = await SerializationHelper.DeserializeAsync<PurchaseHistory>(PathBup);
                     if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
                     if (System.IO.File.Exists(PathBup)) { System.IO.File.Move(PathBup, Path); }
-                    return Content ?? new PurchaseHistory();
+                    return Content = Content ?? new PurchaseHistory();
                 }
                 catch (Exception e)
                 {
                     System.Diagnostics.Debug.WriteLine(String.Format("Failed to load'{0}'", PathBup));
                     System.Diagnostics.Debug.WriteLine(e.Message);
                 }
-                return new PurchaseHistory();
+                return Content = new PurchaseHistory();
             }
             finally
             {
@@ -69,13 +69,22 @@ namespace WordbookImpressLibrary.Storage
             }
         }
 
+
         public static async void SaveLocalData()
         {
-            if (Content == null) return;
-            if (System.IO.File.Exists(PathBup)) { System.IO.File.Delete(PathBup); }
-            if (System.IO.File.Exists(Path)) { System.IO.File.Move(Path, PathBup); }
-            await SerializationHelper.SerializeAsync(Content, Path);
-            OnUpdated();
+            try
+            {
+                await semaphore.WaitAsync();
+                if (Content == null) return;
+                if (System.IO.File.Exists(PathBup)) { System.IO.File.Delete(PathBup); }
+                if (System.IO.File.Exists(Path)) { System.IO.File.Move(Path, PathBup); }
+                await SerializationHelper.SerializeAsync(Content, Path);
+                OnUpdated();
+            }
+            finally
+            {
+                semaphore.Release();
+            }
         }
 
         public static event EventHandler Updated;

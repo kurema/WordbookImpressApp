@@ -99,9 +99,15 @@ namespace WordbookImpressApp.Views
 
             Task.Run(async () =>
             {
-                await WordsPageSemaphore.WaitAsync();
-                var temp = WordsPage;
-                WordsPageSemaphore.Release();
+                try
+                {
+                    await WordsPageSemaphore.WaitAsync();
+                    //var temp = WordsPage;
+                }
+                finally
+                {
+                    WordsPageSemaphore.Release();
+                }
             });
         }
 
@@ -116,13 +122,20 @@ namespace WordbookImpressApp.Views
             if (e.SelectedItem == null || !(e.SelectedItem is IWordViewModel)) return;
             if (Pushing) return;
             Pushing = true;
-            await WordsPageSemaphore.WaitAsync();
-            var page = WordsPage;
-            await page.CanPushSemaphore.WaitAsync();
-            page.SelectedItem = (IWordViewModel)e.SelectedItem;
-            if (page.Parent == null) await Navigation.PushAsync(page);
-            page.CanPushSemaphore.Release();
-            WordsPageSemaphore.Release();
+            try
+            {
+                await WordsPageSemaphore.WaitAsync();
+                var page = WordsPage;
+                await page.CanPushSemaphore.WaitAsync();
+                page.SelectedItem = (IWordViewModel)e.SelectedItem;
+                if (page.Parent == null) await Navigation.PushAsync(page);
+                page.CanPushSemaphore.Release();
+            }
+            catch { }
+            finally
+            {
+                WordsPageSemaphore.Release();
+            }
 
             (sender as ListView).SelectedItem = null;
             Pushing = false;
@@ -138,8 +151,10 @@ namespace WordbookImpressApp.Views
             var alertResult = await DisplayAlert(AppResources.WordWarning, AppResources.WordbookAlertConfirmDelete, AppResources.AlertYes, AppResources.AlertNo);
             if (!alertResult) return;
             WordbooksImpressStorage.Content.Remove(Model.Wordbooks[0]);
+            await WordbooksImpressStorage.SaveLocalData();
             //認証情報を削除するか。迷うが削除しない事にする。
             //WordbooksImpressInfoStorage.Content.RemoveAll((w) => w.Url == Model.Wordbook.Uri);
+            //WordsPageSemaphore.Dispose();
             await Navigation.PopAsync();
         }
 

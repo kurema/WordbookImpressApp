@@ -13,9 +13,11 @@ namespace WordbookImpressLibrary.Storage
     public static class WordbooksImpressStorage
     {
         private static ObservableCollection<IWordbook> content;
-        public static ObservableCollection<IWordbook> Content { get => content; private set { content = value; content.CollectionChanged += (s, e) => OnUpdated(); } }
+        public static ObservableCollection<IWordbook> Content { get => content= content ?? new ObservableCollection<IWordbook>(); private set { content = value; content.CollectionChanged += (s, e) => OnUpdated(); } }
         public static string Path { get; set; } = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "wordbooks_impress.xml");
         public static string PathBup { get; set; } = Path + ".bup";
+
+        static System.Threading.SemaphoreSlim semaphore = new System.Threading.SemaphoreSlim(1, 1);
 
         public class Serialization
         {
@@ -93,46 +95,64 @@ namespace WordbookImpressLibrary.Storage
             IWordbook[] result;
             try
             {
-                result = Serialization.WordbookItem.Convert(await Helper.SerializationHelper.DeserializeAsync<Serialization.WordbookItem[]>(Path));
-                if (result != null)
-                {
-                    Content = new ObservableCollection<IWordbook>(result);
-                    OnUpdated();
-                    return result;
-                }
-            }
-            catch
-            {
-            }
-            try
-            {
-                result = Serialization.WordbookItem.Convert(await Helper.SerializationHelper.DeserializeAsync<Serialization.WordbookItem[]>(PathBup));
-                if (result == null) return new IWordbook[0];
-                if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
-                if (System.IO.File.Exists(PathBup)) { System.IO.File.Move(PathBup, Path); }
-            }
-            catch
-            {
-                return new IWordbook[0];
-            }
+                await semaphore.WaitAsync();
 
-            Content = new ObservableCollection<IWordbook>(result);
-            OnUpdated();
-            return result;
+                try
+                {
+                    result = Serialization.WordbookItem.Convert(await Helper.SerializationHelper.DeserializeAsync<Serialization.WordbookItem[]>(Path));
+                    if (result != null)
+                    {
+                        Content = new ObservableCollection<IWordbook>(result);
+                        OnUpdated();
+                        return result;
+                    }
+                }
+                catch
+                {
+                }
+                try
+                {
+                    result = Serialization.WordbookItem.Convert(await Helper.SerializationHelper.DeserializeAsync<Serialization.WordbookItem[]>(PathBup));
+                    if (result == null) return new IWordbook[0];
+                    if (System.IO.File.Exists(Path)) { System.IO.File.Delete(Path); }
+                    if (System.IO.File.Exists(PathBup)) { System.IO.File.Move(PathBup, Path); }
+                }
+                catch
+                {
+                    return new IWordbook[0];
+                }
+
+                Content = new ObservableCollection<IWordbook>(result);
+                OnUpdated();
+                return result;
+            }
+            finally
+            {
+                semaphore.Release();
+            }
         }
 
         public static async Task SaveLocalData()
         {
             if (Content == null) return;
-            if (System.IO.File.Exists(PathBup)) { System.IO.File.Delete(PathBup); }
-            if (System.IO.File.Exists(Path)) { System.IO.File.Move(Path, PathBup); }
-            OnUpdated();
             try
             {
-                await Helper.SerializationHelper.SerializeAsync(Serialization.WordbookItem.ConvertBack(Content.ToArray()), Path);
+                await semaphore.WaitAsync();
+
+                if (System.IO.File.Exists(PathBup)) { System.IO.File.Delete(PathBup); }
+                if (System.IO.File.Exists(Path)) { System.IO.File.Move(Path, PathBup); }
+                OnUpdated();
+                try
+                {
+                    await Helper.SerializationHelper.SerializeAsync(Serialization.WordbookItem.ConvertBack(Content.ToArray()), Path);
+                }
+                catch
+                {
+                }
             }
-            catch
+            finally
             {
+                semaphore.Release();
             }
         }
 

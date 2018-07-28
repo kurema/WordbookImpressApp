@@ -1024,4 +1024,13 @@ URLから候補を表示できる場合もあります。</value>
   <data name="SettingInitWordbookName" xml:space="preserve">
     <value>単語帳データ</value>
   </data>
+  <data name="TutorialPage1Image" xml:space="preserve">
+    <value>Tutorial_buy.jpg</value>
+  </data>
+  <data name="TutorialPage2Image" xml:space="preserve">
+    <value>Tutorial_privilege.png</value>
+  </data>
+  <data name="TutorialPage3Image" xml:space="preserve">
+    <value>Tutorial_add.png</value>
+  </data>
 </root>

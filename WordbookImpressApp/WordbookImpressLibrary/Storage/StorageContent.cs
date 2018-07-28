@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Collections.ObjectModel;
+
 namespace WordbookImpressLibrary.Storage
 {
     public class StorageContent<T> where T : class , new()
@@ -13,6 +15,8 @@ namespace WordbookImpressLibrary.Storage
             get => _Content = _Content ?? new T();
             set => _Content = value;
         }
+
+        public bool IsLoaded { get; private set; } = false;
 
         public string Path { get; set; }
         public string PathBackup { get; set; }
@@ -67,13 +71,20 @@ namespace WordbookImpressLibrary.Storage
 
         private T LoadLocalValueUpdatedReturn()
         {
+            IsLoaded = true;
             OnUpdated();
             return Content;
         }
 
+
+        public StorageContent(string filename)
+        {
+            SetPath(filename);
+        }
+
         private volatile bool DoubleSaveCheck = false;
 
-        public async void SaveLocalData()
+        public async Task SaveLocalData()
         {
             if (_Content == null) return;
             try
@@ -95,11 +106,38 @@ namespace WordbookImpressLibrary.Storage
             }
         }
 
-        public static event EventHandler Updated;
-        public static void OnUpdated()
+        public event EventHandler Updated;
+        public void OnUpdated()
         {
             Updated?.Invoke(null, new EventArgs());
         }
 
+    }
+
+    public class StorageContentArray<T>
+    {
+        private ObservableCollection<T> _Content;
+        public ObservableCollection<T> Content
+        {
+            get => _Content = _Content ?? new ObservableCollection<T>(Storage.Content);
+            set
+            {
+                if (_Content == null) { _Content = value; return; }
+                _Content.Clear();
+                foreach (var item in value) _Content.Add(item);
+                //You have to access via Content. Not ObservableCollection<T> you substituted.
+            }
+        }
+
+        public StorageContent<List<T>> Storage;
+
+        public StorageContentArray(string filename)
+        {
+            Storage = new StorageContent<List<T>>(filename);
+            Storage.Updated += (s, e) =>
+            {
+                Content = new ObservableCollection<T>(Storage.Content);
+            };
+        }
     }
 }

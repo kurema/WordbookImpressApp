@@ -9,12 +9,18 @@ namespace WordbookImpressLibrary.Models
     public class WordbookImpress:IWordbook
     {
         private Uri uri;
-        public string Uri { get => uri?.ToString()??""; set { if (value != null && value != "")
+        public string Uri
+        {
+            get => uri?.ToString() ?? ""; set
+            {
+                if (value != null && value != "")
                 {
                     value = value.ToLower();
                     if (!value.EndsWith("/")) value += "/";
                     uri = new Uri(value);
-                } } }
+                }
+            }
+        }
 
         public string Id => Uri;
 
@@ -63,6 +69,7 @@ namespace WordbookImpressLibrary.Models
 
             {
                 var req = System.Net.WebRequest.Create(uri);
+               
                 if (authentication != null && !authentication.IsEmpty)
                     req.Credentials = new System.Net.NetworkCredential(authentication.UserName, authentication.Password);
                 var webres = await req.GetResponseAsync();
@@ -90,7 +97,7 @@ namespace WordbookImpressLibrary.Models
                     using (var sr = new System.IO.StreamReader(stream))
                     {
                         dataJs = await sr.ReadToEndAsync();
-                        result.Words = GetWords(dataJs);
+                        result.Words = Helper.Loader.GetWords(dataJs);
                     }
                 }
             }
@@ -107,45 +114,14 @@ namespace WordbookImpressLibrary.Models
                     using (var sr = new System.IO.StreamReader(stream))
                     {
                         dataJs = await sr.ReadToEndAsync();
-                        result.QuizChoices = GetWordsConfig(dataJs);
+                        result.QuizChoices = Helper.Loader.GetWordsConfig(dataJs);
                     }
                 }
             }
             return (result, html, dataJs,format);
         }
 
-        public static QuizChoice[] GetWordsConfig(string text)
-        {
-            //JSONのライブラリを使った方が手っ取り早いだろう。
-            //"\[\s*\"([^\"]*)\"\s*,\s*\"([^\"]*)\"\s*\]"
-            var reg = new Regex("\\{\\s*\\\"question\\\"\\s*:\\s*\\\"([^\\\"]*)\\\"\\s*,\\s*\\\"choice\\\":\\[([^\\[\\]]*)\\]\\s*,\\s*\\\"feedback\\\"\\s*:\\s*\\[\\\"([^\\\"]*)\\\"\\]\\s*,\\s*\\\"answer\\\":\\\"([^\\\"]*)\\\"\\}");
-            var matches = reg.Matches(text);
-            var words = new List<QuizChoice>();
-            foreach (Match match in matches)
-            {
-                var choices = new Regex("\\\"([^\\\"]*)\\\"").Matches(match.Groups[2].Value);
-                var choiceList = new List<string>();
-                foreach (Match choice in choices)
-                {
-                    choiceList.Add(choice.Groups[1].Value);
-                }
-                words.Add(QuizChoice.GetQuizChoiceUnescape(match.Groups[1].Value, match.Groups[3].Value, choiceList.ToArray(), match.Groups[4].Value));
-            }
-            return words.ToArray();
-        }
 
-        public static Word[] GetWords(string text)
-        {
-            //"\[\s*\"([^\"]*)\"\s*,\s*\"([^\"]*)\"\s*\]"
-            var reg = new Regex("\\[\\s*\\\"([^\\\"]*)\\\"\\s*,\\s*\\\"([^\\\"]*)\\\"\\s*\\]");
-            var matches = reg.Matches(text);
-            var words = new List<Word>();
-            foreach (Match match in matches)
-            {
-                words.Add(Word.GetWordUnescape(match.Groups[1].Value, match.Groups[2].Value));
-            }
-            return words.ToArray();
-        }
 
         public static string GetTitle(string text)
         {

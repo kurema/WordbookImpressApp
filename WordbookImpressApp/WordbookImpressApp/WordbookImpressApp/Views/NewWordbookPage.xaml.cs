@@ -173,30 +173,38 @@ namespace WordbookImpressApp.Views
         private async void AddItem_Clicked(object sender, EventArgs e)
         {
             if (Adding) return;
-            Adding = true;
-            WordbookImpress result;
-            var wbi = ModelImpress.GetWordbookInfo();
             try
             {
-                var (wordbook, html, data, format) = await WordbookImpress.Load(wbi);
-                wbi.Format = format;
-                result = wordbook;
+                Adding = true;
+                WordbookImpress result;
+                var wbi = ModelImpress.GetWordbookInfo();
+                try
+                {
+                    var (wordbook, html, data, format) = await WordbookImpress.Load(wbi);
+                    wbi.Format = format;
+                    result = wordbook;
+                }
+                catch
+                {
+                    await DisplayAlert(AppResources.WordReport, AppResources.NewWordbookAlertFailedToAuth, AppResources.AlertConfirmed);
+                    return;
+                }
+                result.TitleUser = ModelImpress.Title;
+                if (! WordbooksImpressInfoStorage.Add(wbi))
+                {
+                    await DisplayAlert(AppResources.WordReport, AppResources.NewWordbookAlertAlreadyExist, AppResources.AlertConfirmed);
+                    return;
+                }
+                await WordbooksImpressInfoStorage.SaveLocalData();
+                WordbooksImpressStorage.Add(result);
+                await WordbooksImpressStorage.SaveLocalData();
+
+                await Navigation.PopAsync();
             }
-            catch
+            finally
             {
-                await DisplayAlert(AppResources.WordReport, AppResources.NewWordbookAlertFailedToAuth, AppResources.AlertConfirmed);
                 Adding = false;
-                return;
             }
-            result.TitleUser = ModelImpress.Title;
-            WordbooksImpressInfoStorage.Add(wbi);
-            await WordbooksImpressInfoStorage.SaveLocalData();
-            WordbooksImpressStorage.Add(result);
-            await WordbooksImpressStorage.SaveLocalData();
-
-            await Navigation.PopAsync();
-
-            Adding = false;
         }
 
         private async void Cancel_Clicked(object sender, EventArgs e)
@@ -248,14 +256,14 @@ namespace WordbookImpressApp.Views
                 }
             }
             {
-                var match = new Regex(@"[IＩiｉ][DDdｄ][：\:\s\t]+([a-zA-Z\d]+)").Match(text);
+                var match = new Regex(@"[IＩiｉ][DDdｄ][：\:\s\t]+([a-zA-Z\d-\+\*\/]+)").Match(text);
                 if (match.Success && ModelImpress.ID == "")
                 {
                     ModelImpress.ID = match.Groups[1].Value;
                 }
             }
             {
-                var match = new Regex(@"(パスワード|Password|[Ｐｐ]ａｓｓｗｏｒｄ)[：\:\s\t]+([a-zA-Z\d]+)",RegexOptions.IgnoreCase).Match(text);
+                var match = new Regex(@"(パスワード|Password|[Ｐｐ]ａｓｓｗｏｒｄ)[：\:\s\t-]+([a-zA-Z\d-\+\*\/]+)", RegexOptions.IgnoreCase).Match(text);
                 if (match.Success && ModelImpress.Password == "")
                 {
                     ModelImpress.Password = match.Groups[2].Value;

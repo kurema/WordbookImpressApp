@@ -31,5 +31,10 @@ namespace WordbookImpressLibrary.Models
         public bool EnableImpressBookFeature = true;
 
         public bool DemoModeCalendar = false;
+
+        public Config()
+        {
+            this.EnableImpressBookFeature = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName.ToLower() == "ja" ? true : false;
+        }
     }
 }

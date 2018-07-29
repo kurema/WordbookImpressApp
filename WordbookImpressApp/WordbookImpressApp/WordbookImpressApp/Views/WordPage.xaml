@@ -5,7 +5,7 @@
              xmlns:vm="clr-namespace:WordbookImpressLibrary.ViewModels;assembly=WordbookImpressLibrary"
              xmlns:i18n="clr-namespace:WordbookImpressApp.Extensions"
              x:Class="WordbookImpressApp.Views.WordPage"
-             Title="{i18n:Translate TitleWord}">
+             Title="{i18n:Translate TitleWordPage}">
     <ContentPage.BindingContext>
         <vm:WordViewModel />
     </ContentPage.BindingContext>

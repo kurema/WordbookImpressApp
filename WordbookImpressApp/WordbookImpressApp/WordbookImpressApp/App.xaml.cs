@@ -13,6 +13,13 @@ namespace WordbookImpressApp
 
             Load();
 
+            WordbookImpressLibrary.Storage.TranslateStorage.TrueFalseTranslation
+                = new System.Collections.Generic.Dictionary<string, string>()
+                {
+                    {"true",Resx.AppResources.WordTrue },
+                    {"false",Resx.AppResources.WordFalse },
+                };
+
             {
                 var page = new MasterDetailPage()
                 {

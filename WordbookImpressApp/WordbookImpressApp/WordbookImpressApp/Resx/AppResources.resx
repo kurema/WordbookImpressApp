@@ -723,7 +723,7 @@ in CSV or XLSX.</value>
   </data>
   <data name="TutorialPage2Detail" xml:space="preserve">
     <value>Share the file
-in SMB/HTTP.</value>
+via SMB/HTTP.</value>
   </data>
   <data name="TutorialPage2Title" xml:space="preserve">
     <value>Share</value>
@@ -1035,5 +1035,17 @@ You may use suggested title.</value>
   </data>
   <data name="TutorialPage3Image" xml:space="preserve">
     <value>Tutorial_add_en.png</value>
+  </data>
+  <data name="NewWordbookAlertAlreadyExist" xml:space="preserve">
+    <value>It is already registered.</value>
+  </data>
+  <data name="QuizWordChoiceWordMatch" xml:space="preserve">
+    <value>true:True::false:False</value>
+  </data>
+  <data name="WordFalse" xml:space="preserve">
+    <value>False</value>
+  </data>
+  <data name="WordTrue" xml:space="preserve">
+    <value>True</value>
   </data>
 </root>

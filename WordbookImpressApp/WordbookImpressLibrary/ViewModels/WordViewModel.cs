@@ -37,7 +37,14 @@ namespace WordbookImpressLibrary.ViewModels
 
         public string Head => QuizChoice.Title;
 
-        public string Description => QuizChoice.Answer+"\n\n"+ QuizChoice.Description;
+        public string Description => (BoolTranslate(QuizChoice.Answer)+"\n\n"+ QuizChoice.Description).Trim();
+
+        public string BoolTranslate(string arg)
+        {
+            var Translate = Storage.TranslateStorage.TrueFalseTranslation;
+            if (Translate == null || !Translate.ContainsKey(arg.ToLower())) return arg;
+            return Translate[arg.ToLower()];
+        }
 
         public int AnswerCountTotal
         {

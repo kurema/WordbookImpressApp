@@ -1033,4 +1033,16 @@ URLから候補を表示できる場合もあります。</value>
   <data name="TutorialPage3Image" xml:space="preserve">
     <value>Tutorial_add.png</value>
   </data>
+  <data name="NewWordbookAlertAlreadyExist" xml:space="preserve">
+    <value>既に登録されています。</value>
+  </data>
+  <data name="QuizWordChoiceWordMatch" xml:space="preserve">
+    <value>true:〇::false:×</value>
+  </data>
+  <data name="WordFalse" xml:space="preserve">
+    <value>×</value>
+  </data>
+  <data name="WordTrue" xml:space="preserve">
+    <value>〇</value>
+  </data>
 </root>

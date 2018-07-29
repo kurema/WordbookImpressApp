@@ -61,4 +61,14 @@ How to add another language.
 - [ ] ストア用アセットなど様々
 - [ ] 画像読み込み制限があるっぽいので確認
 - [x] 海外用チュートリアル画像
-- [ ] Storage周りのマルチスレッド対応が不十分。
+- [x] Storage周りのマルチスレッド対応が不十分。
+- [x] 謎のObjectDisposed Exception. (Storage周りをマシにしてから見てない。原因はやはり不明。)
+
+```
+Cannot access a disposed object.
+Object name: 'Android.Graphics.Bitmap'.
+```
+つまりAndroidが画像を勝手にDisposeしてるらしい。
+例外出さずに再読み込みしてくれればいいのに。
+CacheStrategy="RecycleElement"で治るらしい。
+[参照](https://forums.xamarin.com/discussion/79315/xamarin-forms-bug-system-objectdisposedexception-cannot-access-a-disposed-object)

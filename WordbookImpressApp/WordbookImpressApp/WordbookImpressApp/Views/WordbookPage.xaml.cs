@@ -121,24 +121,40 @@ namespace WordbookImpressApp.Views
         {
             if (e.SelectedItem == null || !(e.SelectedItem is IWordViewModel)) return;
             if (Pushing) return;
-            Pushing = true;
             try
             {
+                Pushing = true;
                 await WordsPageSemaphore.WaitAsync();
-                var page = WordsPage;
-                await page.CanPushSemaphore.WaitAsync();
-                page.SelectedItem = (IWordViewModel)e.SelectedItem;
-                if (page.Parent == null) await Navigation.PushAsync(page);
-                page.CanPushSemaphore.Release();
+                if (!Pushing) return;
+
+                if (this.Model.Words.Count > 300)
+                {
+                    var page = new WordPage((IWordViewModel)e.SelectedItem);
+                    await Navigation.PushAsync(page);
+                }
+                else
+                {
+                    var page = WordsPage;
+                    try
+                    {
+                        await page.CanPushSemaphore.WaitAsync();
+                        page.SelectedItem = (IWordViewModel)e.SelectedItem;
+                        if (page.Parent == null) await Navigation.PushAsync(page);
+                    }
+                    finally
+                    {
+                        page.CanPushSemaphore.Release();
+                    }
+                }
             }
             catch { }
             finally
             {
                 WordsPageSemaphore.Release();
+                Pushing = false;
             }
 
             (sender as ListView).SelectedItem = null;
-            Pushing = false;
         }
 
         private async void ToolbarItem_Clicked_Delete(object sender, EventArgs e)

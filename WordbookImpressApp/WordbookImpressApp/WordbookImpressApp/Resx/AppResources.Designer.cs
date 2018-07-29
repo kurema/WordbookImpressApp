@@ -350,6 +350,15 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
+        ///   It is already registered. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string NewWordbookAlertAlreadyExist {
+            get {
+                return ResourceManager.GetString("NewWordbookAlertAlreadyExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Authentication failed. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string NewWordbookAlertFailedToAuth {
@@ -901,6 +910,15 @@ namespace WordbookImpressApp.Resx {
         internal static string QuizWordChoiceBottomMessage {
             get {
                 return ResourceManager.GetString("QuizWordChoiceBottomMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   true:True::false:False に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string QuizWordChoiceWordMatch {
+            get {
+                return ResourceManager.GetString("QuizWordChoiceWordMatch", resourceCulture);
             }
         }
         
@@ -2332,7 +2350,7 @@ namespace WordbookImpressApp.Resx {
         
         /// <summary>
         ///   Share the file
-        ///in SMB/HTTP. に類似しているローカライズされた文字列を検索します。
+        ///via SMB/HTTP. に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string TutorialPage2Detail {
             get {
@@ -2584,6 +2602,15 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
+        ///   False に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string WordFalse {
+            get {
+                return ResourceManager.GetString("WordFalse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   LAST PAGE に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string WordPageBottomLast {
@@ -2724,6 +2751,15 @@ namespace WordbookImpressApp.Resx {
         internal static string WordStore {
             get {
                 return ResourceManager.GetString("WordStore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   True に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string WordTrue {
+            get {
+                return ResourceManager.GetString("WordTrue", resourceCulture);
             }
         }
         

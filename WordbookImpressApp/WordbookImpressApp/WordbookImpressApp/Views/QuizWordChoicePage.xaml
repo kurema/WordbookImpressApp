@@ -19,6 +19,7 @@
             <vc:QuizWordChoiceViewModelQuizStatusToTextValueConverter x:Key="ResultTextVC"/>
             <vc:BooleanToColorValueConverter x:Key="BoolColorVC"/>
             <vc:ToStringSwitchValueConverter x:Key="StringSwitchVC" />
+            <vc:StringReplaceMatchValueConverter x:Key="StringMatchVC"/>
             <vc:BooleanNotValueConverter x:Key="NotVC" />
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -43,7 +44,7 @@
                         <DataTemplate>
                             <ViewCell>
                                 <Frame  Padding="10" BackgroundColor="{Binding Highlight,Converter={StaticResource BoolColorVC},ConverterParameter=#EEEEEE00:#AAFFFFFF:#AAFFFFFF}" CornerRadius="10" Margin="10">
-                                    <Label Text="{Binding Text}" Style="{DynamicResource ListItemTextStyle}" FontSize="Medium" />
+                                    <Label Text="{Binding Text,Converter={StaticResource StringMatchVC},ConverterParameter={i18n:Translate QuizWordChoiceWordMatch}}" Style="{DynamicResource ListItemTextStyle}" FontSize="Medium" />
                                 </Frame>
                             </ViewCell>
                         </DataTemplate>

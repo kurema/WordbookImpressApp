@@ -22,10 +22,11 @@ namespace WordbookImpressLibrary.Storage
         public static string Path => Storage.Path;
         public static string PathBup => Storage.PathBackup;
 
-        public static void Add(WordbookImpressInfo item)
+        public static bool Add(WordbookImpressInfo item)
         {
-            if (Content?.Count(a => a.Url == item.Url && a.ID == item.ID && a.Password == item.Password && a.Format == item.Format) > 0) return;
+            if (Content?.Count(a => a.Url == item.Url && a.ID == item.ID && a.Password == item.Password && a.Format == item.Format) > 0) return false;
             Content.Add(item);
+            return true;
         }
 
         public static void Init()

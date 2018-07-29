@@ -29,7 +29,7 @@
                 VerticalOptions="FillAndExpand"
                  HasUnevenRows="true"
                  IsPullToRefreshEnabled="True"
-                 CachingStrategy="RecycleElement"
+                 
                     ItemSelected="ListView_ItemSelected"
                   IsRefreshing="{Binding IsBusy}"
                   RefreshCommand="{Binding Path=ReloadCommand}"

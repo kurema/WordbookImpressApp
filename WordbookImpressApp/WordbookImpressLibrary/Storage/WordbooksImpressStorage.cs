@@ -65,7 +65,7 @@ namespace WordbookImpressLibrary.Storage
         public static StorageContentConvert<List<Serialization.WordbookItem>, ObservableCollection<IWordbook>> Storage
             = new StorageContentConvert<List<Serialization.WordbookItem>, ObservableCollection<IWordbook>>("wordbooks_impress.xml"
                 , a => new ObservableCollection<IWordbook>(Serialization.WordbookItem.Convert(a.ToArray()))
-                , a => Serialization.WordbookItem.ConvertBack(a.ToArray()).ToList()
+                , a => Serialization.WordbookItem.ConvertBack(a.ToArray())?.ToList()
                 );
         public static ObservableCollection<IWordbook> Content
         {
@@ -92,13 +92,13 @@ namespace WordbookImpressLibrary.Storage
 
         public static async Task<IWordbook[]> LoadLocalData()
         {
-            await Storage.LoadLocalData();
-            return Storage.Converted.ToArray();
+            await Storage?.LoadLocalData();
+            return Storage?.Converted?.ToArray();
         }
 
         public static async Task SaveLocalData()
         {
-            await Storage.SaveLocalData();
+            await Storage?.SaveLocalData();
         }
 
         public static event EventHandler Updated

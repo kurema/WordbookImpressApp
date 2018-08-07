@@ -38,6 +38,7 @@
     </AndroidTlsProvider>
     <AndroidHttpClientHandlerType>
     </AndroidHttpClientHandlerType>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,9 +56,9 @@
     <EnableProguard>false</EnableProguard>
     <LangVersion>7.2</LangVersion>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
-    <BundleAssemblies>True</BundleAssemblies>
+    <BundleAssemblies>false</BundleAssemblies>
     <AotAssemblies>True</AotAssemblies>
-    <EnableLLVM>True</EnableLLVM>
+    <EnableLLVM>false</EnableLLVM>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />

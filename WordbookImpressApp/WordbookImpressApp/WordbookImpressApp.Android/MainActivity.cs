@@ -25,6 +25,11 @@ namespace WordbookImpressApp.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+
+            AndroidEnvironment.UnhandledExceptionRaiser += (s, e) => {
+                Toast.MakeText(this, $"エラーが発生しました。\n{ e.Exception.Message } ", ToastLength.Long).Show();
+                e.Handled = true;
+            };
         }
     }
 }

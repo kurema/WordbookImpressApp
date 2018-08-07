@@ -22,6 +22,7 @@
     <None Remove="Licenses\Nager.AmazonProductAdvertising.txt" />
     <None Remove="Licenses\Nager.ArticleNumber.txt" />
     <None Remove="Licenses\NETStandard.Library.txt" />
+    <None Remove="Licenses\Newtonsoft.Json.txt" />
     <None Remove="Licenses\nuget.csv" />
     <None Remove="Licenses\Octokit.txt" />
     <None Remove="Licenses\SkiaSharp.Views.Forms.txt" />
@@ -46,6 +47,7 @@
     <EmbeddedResource Include="Licenses\Nager.AmazonProductAdvertising.txt" />
     <EmbeddedResource Include="Licenses\Nager.ArticleNumber.txt" />
     <EmbeddedResource Include="Licenses\NETStandard.Library.txt" />
+    <EmbeddedResource Include="Licenses\Newtonsoft.Json.txt" />
     <EmbeddedResource Include="Licenses\nuget.csv" />
     <EmbeddedResource Include="Licenses\Octokit.txt" />
     <EmbeddedResource Include="Licenses\SkiaSharp.Views.Forms.txt" />
@@ -64,7 +66,7 @@
     <PackageReference Include="CoreTweet" Version="0.9.0.415" />
     <PackageReference Include="DocumentFormat.OpenXml" Version="2.8.1" />
     <PackageReference Include="Nager.AmazonProductAdvertising" Version="1.2.1" />
-    <PackageReference Include="Octokit" Version="0.30.0" />
+    <PackageReference Include="Octokit" Version="0.31.0" />
     <PackageReference Include="SharpCifs.Std" Version="0.2.12" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.2" />
     <PackageReference Include="Xamarin.Forms" Version="3.1.0.637273" />

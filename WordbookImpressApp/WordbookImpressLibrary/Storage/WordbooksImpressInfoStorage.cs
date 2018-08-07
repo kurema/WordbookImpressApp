@@ -36,7 +36,7 @@ namespace WordbookImpressLibrary.Storage
 
         public static async Task<WordbookImpressInfo[]> LoadLocalData()
         {
-            return (await Storage.LoadLocalData()).ToArray();
+            return (await Storage.LoadLocalData())?.ToArray();
         }
 
         public static async Task SaveLocalData()

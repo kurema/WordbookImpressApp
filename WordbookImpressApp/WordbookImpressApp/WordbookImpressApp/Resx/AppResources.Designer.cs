@@ -1947,8 +1947,8 @@ namespace WordbookImpressApp.Resx {
         ///{2} in {1}!
         ///#wordbook_impress
         ///{3}
-        ///See more at
-        ///https://github.com/kurema/WordbookImpressApp に類似しているローカライズされた文字列を検索します。
+        ///Get the app here!
+        ///https://play.google.com/store/apps/details?id=com.github.kurema.WordbookImpressApp に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string StatisticsTwitterMessageTotal {
             get {

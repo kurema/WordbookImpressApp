@@ -589,8 +589,9 @@ https://books.rakuten.co.jp/search/nm?sitem=[ISBN,EAN,Title]</value>
     <value>{0}のクイズを{1}で{2}
 #wordbook_impress
 {3}
-単語帳アプリは現在開発中
-https://github.com/kurema/WordbookImpressApp</value>
+
+モバイル単語帳でクイズに挑戦！
+https://play.google.com/store/apps/details?id=com.github.kurema.WordbookImpressApp</value>
   </data>
   <data name="StatisticsTwitterTimeFormat" xml:space="preserve">
     <value>[if:TotalMinutesFloor:[TotalMinutesFloor:{0:00}]分][Seconds:{0:00}]秒</value>

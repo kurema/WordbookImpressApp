@@ -2,6 +2,472 @@
 <info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="https://github.com/kurema/WordbookImpressApp/blob/master/WordbookImpressApp/WordbookImpressLibrary/Schemas/WordbookSuggestion.xsd">
   <books>
     <book>
+      <title>DOS/V POWER REPORT 2019年02月号</title>
+      <ids />
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118110112" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-12-30</date_push>
+    </book>
+    <book>
+      <title>かんたん合格 ITパスポート過去問題集 2019年度 春期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295005142</id>
+        <id type="ASIN" binding="ebook">B07L8XC6WB</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101089" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>かんたん合格</genre>
+      <date_push>2018-12-30</date_push>
+    </book>
+    <book>
+      <title>できるPhotoshop Elements 2019 Windows&amp;macOS対応</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295005347</id>
+        <id type="ASIN" binding="ebook">B07LF7KDG6</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101109" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>できるシリーズ</genre>
+      <date_push>2018-12-30</date_push>
+    </book>
+    <book>
+      <title>できるWindows 10 パーフェクトブック 困った！＆便利ワザ大全 改訂4版</title>
+      <ids>
+        <id type="ASIN" binding="ebook">B07LG47FVC</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101114" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>できるシリーズ</genre>
+      <date_push>2018-12-30</date_push>
+    </book>
+    <book>
+      <title>できるWindows 10 改訂4版</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295005290</id>
+        <id type="ASIN" binding="ebook">B07MKFVXC5</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101113" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>できるシリーズ</genre>
+      <date_push>2018-12-30</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 情報セキュリティマネジメント教科書 2019年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295005339</id>
+        <id type="ASIN" binding="ebook">B07MD7TJ3B</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101111" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>徹底攻略</genre>
+      <date_push>2018-12-30</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 情報セキュリティマネジメント過去問題集 2019年度春期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295005274</id>
+        <id type="ASIN" binding="ebook">B07LF7HBG3</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101110" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>徹底攻略</genre>
+      <date_push>2018-12-30</date_push>
+    </book>
+    <book>
+      <title>DOS/V POWER REPORT 2019年01月号</title>
+      <ids />
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118110111" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-12-18</date_push>
+    </book>
+    <book>
+      <title>かんたん合格 ITパスポート教科書 2019年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295005061</id>
+        <id type="ASIN" binding="ebook">B07KQ44Z98</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101026" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>かんたん合格</genre>
+      <date_push>2018-12-18</date_push>
+    </book>
+    <book>
+      <title>かんたん合格 基本情報技術者教科書 2019年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">429500507X</id>
+        <id type="ASIN" binding="ebook">B07KQ4H4S7</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101027" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>かんたん合格</genre>
+      <date_push>2018-12-18</date_push>
+    </book>
+    <book>
+      <title>かんたん合格 基本情報技術者過去問題集 2019年度春期</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">429500510X</id>
+        <id type="ASIN" binding="ebook">B07KXF2ZYQ</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101082" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>かんたん合格</genre>
+      <date_push>2018-12-18</date_push>
+    </book>
+    <book>
+      <title>PC自作・チューンナップ虎の巻 2019</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295005401</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118102062" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>その他</genre>
+      <date_push>2018-12-18</date_push>
+    </book>
+    <book>
+      <title>合格しようぜ！宅建士2019 基本テキスト音声30時間付き</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295005045</id>
+        <id type="ASIN" binding="ebook">B07KQ4JMQC</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101096" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>その他試験</genre>
+      <date_push>2018-12-18</date_push>
+    </book>
+    <book>
+      <title>合格しようぜ！宅建士2019 音声付きテーマ別ベストセレクト問題集</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295005118</id>
+        <id type="ASIN" binding="ebook">B07L3PKPW2</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101097" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>その他試験</genre>
+      <date_push>2018-12-18</date_push>
+    </book>
+    <book>
+      <title>合格しようぜ！宅建士2019 音声付き過去15年問題集</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295005266</id>
+        <id type="ASIN" binding="ebook">B07LF6JY2Q</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101098" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>その他試験</genre>
+      <date_push>2018-12-18</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 応用情報技術者教科書 2019年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295005037</id>
+        <id type="ASIN" binding="ebook">B07LBR4GPM</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101095" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>徹底攻略</genre>
+      <date_push>2018-12-18</date_push>
+    </book>
+    <book>
+      <title>できるfit iPhone XS／XS Max／XR 基本+活用ワザ (au)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295004995</id>
+        <id type="ASIN" binding="ebook">B07K7GL5Z2</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101091" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-11-25</date_push>
+    </book>
+    <book>
+      <title>できるfit iPhone XS／XS Max／XR 基本+活用ワザ (ソフトバンク)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295005002</id>
+        <id type="ASIN" binding="ebook">B07K7HJM9Q</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101092" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-11-25</date_push>
+    </book>
+    <book>
+      <title>できるfit iPhone XS／XS Max／XR 基本+活用ワザ (ドコモ)</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295004987</id>
+        <id type="ASIN" binding="ebook">B07K7HXHMG</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101090" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>できるポケット iPhone</genre>
+      <date_push>2018-11-25</date_push>
+    </book>
+    <book>
+      <title>いちばんやさしい会計の教本 人気講師が教える財務3表の読み解き方が全部わかる本</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295005029</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101028" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>その他</genre>
+      <date_push>2018-11-25</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 基本情報技術者教科書 2019年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295005010</id>
+        <id type="ASIN" binding="ebook">B07KBXV5B9</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101057" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>徹底攻略</genre>
+      <date_push>2018-11-25</date_push>
+    </book>
+    <book>
+      <title>DOS/V POWER REPORT 2018年12月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B07J34K4CH</id>
+        <id type="ASIN" binding="ebook">B07BW3XK6L</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118110110" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-10-29</date_push>
+    </book>
+    <book>
+      <title>いちばんやさしいRPAの教本 人気講師が教える現場のための業務自動化ノウハウ</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295004936</id>
+        <id type="ASIN" binding="ebook">B07JWFNP8Z</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101023" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>その他</genre>
+      <date_push>2018-10-29</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 データベーススペシャリスト教科書 平成31年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295004820</id>
+        <id type="ASIN" binding="ebook">B07J2G2CF6</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101070" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>徹底攻略</genre>
+      <date_push>2018-10-29</date_push>
+    </book>
+    <book>
+      <title>徹底攻略 情報処理安全確保支援士教科書 2019年度</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295003883</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101025" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>徹底攻略</genre>
+      <date_push>2018-10-29</date_push>
+    </book>
+    <book>
+      <title>DOS/V POWER REPORT 2018年11月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B07H657XF1</id>
+        <id type="ASIN" binding="ebook">B07BW896K1</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118110109" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-10-05</date_push>
+    </book>
+    <book>
+      <title>できるExcel VBAプログラミング入門 仕事がサクサク進む自動化プログラミングが作れる本</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295004758</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101038" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>できるシリーズ</genre>
+      <date_push>2018-10-05</date_push>
+    </book>
+    <book>
+      <title>DOS/V POWER REPORT 2018年10月号</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">B07G1XZ6DB</id>
+        <id type="ASIN" binding="ebook">B07BWJXHGK</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118110108" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-09-02</date_push>
+    </book>
+    <book>
+      <title>できるポケット docomo HUAWEI P20 Pro基本＆活用ワザ 完全ガイド</title>
+      <ids>
+        <id type="ASIN" binding="printed_book">4295004545</id>
+        <id type="ASIN" binding="ebook">B07G9FCSTK</id>
+      </ids>
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118101046" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>できるポケット</genre>
+      <date_push>2018-08-10</date_push>
+    </book>
+    <book>
+      <title>DOS/V POWER REPORT 2018年09月号</title>
+      <ids />
+      <images />
+      <links>
+        <link ref="https://book.impress.co.jp/books/1118110107" type="impress" />
+      </links>
+      <special>
+        <ebook />
+      </special>
+      <genre>DOSV POWER REPORT</genre>
+      <date_push>2018-07-27</date_push>
+    </book>
+    <book>
       <title>いちばんやさしい為替の教本 人気講師が教える実務で使える通貨と経済のしくみ</title>
       <ids>
         <id type="ASIN" binding="printed_book">4295004073</id>
@@ -787,7 +1253,7 @@
       <genre>DOSV POWER REPORT</genre>
       <date_push>2018-07-09</date_push>
     </book>
-    <book>
+    <book obsolete="true">
       <title>DOS/V POWER REPORT 2018年08月号</title>
       <ids />
       <images />

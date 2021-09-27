@@ -28,7 +28,7 @@ namespace WordbookImpressLibrary.Models
         public bool StorePreferPrintedBook = true;
         public string StoreOpenBookLink = "[DetailPageURL]";
 
-        public bool EnableImpressBookFeature = true;
+        public bool EnableImpressBookFeature = false;
 
         public bool DemoModeCalendar = false;
 

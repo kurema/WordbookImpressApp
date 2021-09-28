@@ -18,12 +18,12 @@ jobs:
       run: |
         echo $APIKEYS > WordbookImpressApp/WordbookImpressApp/WordbookImpressApp/APIKeys.cs
       env:
-        KEYSTORE_BASE64: ${{ secrets.APIKEYS_TWITTER }}
+        APIKEYS: ${{ secrets.APIKEYS_TWITTER }}
     - name: write APIKeys.Amazon.cs
       run: |
         echo $APIKEYS > WordbookImpressApp/WordbookImpressLibrary/APIKeys.cs
       env:
-        KEYSTORE_BASE64: ${{ secrets.APIKEYS_AMAZON }}
+        APIKEYS: ${{ secrets.APIKEYS_AMAZON }}
     - name: Get tag
       id: tag
       if: contains(github.ref, 'tags/v')

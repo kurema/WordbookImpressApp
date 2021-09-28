@@ -51,12 +51,12 @@
 
                     </StackLayout>
                 </Frame>
-                <Frame Style="{StaticResource CardStyleDeveloperInfo}" xmlns:my="clr-namespace:WordbookImpressApp.Views" Padding="0,10">
+                <!--<Frame Style="{StaticResource CardStyleDeveloperInfo}" xmlns:my="clr-namespace:WordbookImpressApp.Views" Padding="0,10">
                     <StackLayout>
                         <Label Style="{StaticResource GroupHeader}" Text="{i18n:Translate DeveloperProfileBooks}" Margin="20" />
                         <my:StoreItemsView x:Name="storeItems"/>
                     </StackLayout>
-                </Frame>
+                </Frame>-->
                 <Frame Style="{StaticResource CardStyleDeveloperInfo}">
                     <StackLayout>
                         <Label Style="{StaticResource GroupHeader}" Text="{i18n:Translate DeveloperProfileTimeline}" />

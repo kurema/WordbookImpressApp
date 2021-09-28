@@ -61,7 +61,7 @@ namespace WordbookImpressApp.Views
                         BindingContext=new WordbookImpressLibrary.ViewModels.TestStatusesViewModel()
                         {  Target=new WordbookImpressLibrary.ViewModels.WordbookImpressViewModel(WordbookImpressLibrary.Storage.WordbooksImpressStorage.Content.ToArray(),WordbookImpressLibrary.Storage.RecordStorage.Content,AppResources.WordbookCombinedTitle)} });
                     }  },
-                    new MasterMenuItem { TargetType = typeof(StorePage), Title = AppResources.MasterStoreTitle, Description = AppResources.MasterStoreDetail, Icon = "icon_store.png", Replace = false ,Id="Store"},
+                    //new MasterMenuItem { TargetType = typeof(StorePage), Title = AppResources.MasterStoreTitle, Description = AppResources.MasterStoreDetail, Icon = "icon_store.png", Replace = false ,Id="Store"},
                     new MasterMenuItem { TargetType=typeof(ConfigPage), Title = AppResources.MasterSettingTitle,Description=AppResources.MasterSettingDetail ,Replace=false,Icon="icon_config.png" },
                     new MasterMenuItem { TargetType=typeof(DeveloperInfoPage), Title = String.Format(AppResources.MasterDeveloperProfileTitle,AppResources.ProfileDeveloperName),SimpleItem=true,Replace=false },
                 };

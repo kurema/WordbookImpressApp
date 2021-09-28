@@ -46,14 +46,14 @@ namespace WordbookImpressApp.Views
 
             UpdateGithubInfo();
             UpdateTwitterInfo();
-            UpdateAmazonInfo();
+            //UpdateAmazonInfo();
         }
 
-        public async void UpdateAmazonInfo()
-        {
-            storeItems.Clear();
-            await storeItems.AddSearchResult(AppResources.ProfileDeveloperAccountsAmazonKindle, Nager.AmazonProductAdvertising.Model.AmazonSearchIndex.Books);
-        }
+        //public async void UpdateAmazonInfo()
+        //{
+        //    storeItems.Clear();
+        //    await storeItems.AddSearchResult(AppResources.ProfileDeveloperAccountsAmazonKindle, Nager.AmazonProductAdvertising.Model.AmazonSearchIndex.Books);
+        //}
 
         public async void UpdateGithubInfo()
         {

@@ -12,7 +12,6 @@ jobs:
     - name: write keystore
       run: |
         echo $KEYSTORE_BASE64 | base64 --decode > WordbookImpressApp/WordbookImpressApp/WordbookImpressApp.Android/github.keystore
-        shasum -a 256 WordbookImpressApp/WordbookImpressApp/WordbookImpressApp.Android/github.keystore
       env:
         KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64_ENCODED }}
     - name: write APIKeys.Twitter.cs

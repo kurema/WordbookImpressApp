@@ -23,7 +23,7 @@ jobs:
       run: |
         echo $APIKEYS > WordbookImpressApp\WordbookImpressLibrary\APIKeys.cs
       env:
-        KEYSTORE_BASE64: ${{ secrets.APIKEYS_TWITTER }}
+        KEYSTORE_BASE64: ${{ secrets.APIKEYS_AMAZON }}
     - name: Get tag
       id: tag
       if: contains(github.ref, 'tags/v')

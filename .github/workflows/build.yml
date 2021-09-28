@@ -1,0 +1,93 @@
+name: CI on Push and Pull Request
+on:
+  push:
+    tags: 'v*'
+  workflow_dispatch:
+  pull_request:
+jobs:
+  Android:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: write keystore
+      run: |
+        echo $KEYSTORE_BASE64 | base64 --decode > WordbookImpressApp/WordbookImpressApp/WordbookImpressApp.Android/github.keystore
+      env:
+        KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64_ENCODED }}
+    - name: write APIKeys.Twitter.cs
+      run: |
+        echo $APIKEYS > WordbookImpressApp\WordbookImpressApp\WordbookImpressApp\APIKeys.cs
+      env:
+        KEYSTORE_BASE64: ${{ secrets.APIKEYS_TWITTER }}
+    - name: write APIKeys.Amazon.cs
+      run: |
+        echo $APIKEYS > WordbookImpressApp\WordbookImpressLibrary\APIKeys.cs
+      env:
+        KEYSTORE_BASE64: ${{ secrets.APIKEYS_TWITTER }}
+    - name: Get tag
+      id: tag
+      if: contains(github.ref, 'tags/v')
+      uses: dawidd6/action-get-tag@v1
+    - name: Is tagged version
+      id: tagged
+      run: echo '::set-output name=tagged::yes'
+      #https://pione30.hatenablog.com/entry/2021/02/05/015545
+      if: contains(github.ref, 'tags/v')
+    - name: android package format
+      id: apf
+      run: |
+        if [ "${{steps.tagged.outputs.tagged}}" = "yes" ]; then
+          echo '::set-output name=format::aab'
+        else
+          echo '::set-output name=format::apk'
+        fi
+    - name: Android
+      run: |
+        cd WordbookImpressApp
+        nuget restore
+        msbuild WordbookImpressApp/WordbookImpressApp.Android/WordbookImpressApp.Android.csproj /verbosity:normal /t:Rebuild /t:PackageForAndroid /t:SignAndroidPackage /p:Configuration=Release /p:AndroidKeyStore=True /p:AndroidSigningKeyStore=github.keystore /p:AndroidSigningStorePass=${{ secrets.KEYSTORE_PASSWORD }} /p:AndroidSigningKeyAlias=github /p:AndroidSigningKeyPass=${{ secrets.KEYSTORE_PASSWORD }} /p:AndroidPackageFormat=${{ steps.apf.outputs.format }}
+    - name: Build Apk version
+      run: |
+        cd WordbookImpressApp
+        msbuild WordbookImpressApp/WordbookImpressApp.Android/WordbookImpressApp.Android.csproj /verbosity:quiet /t:Build /t:PackageForAndroid /t:SignAndroidPackage /p:Configuration=Release /p:AndroidKeyStore=True /p:AndroidSigningKeyStore=github.keystore /p:AndroidSigningStorePass=${{ secrets.KEYSTORE_PASSWORD }} /p:AndroidSigningKeyAlias=github /p:AndroidSigningKeyPass=${{ secrets.KEYSTORE_PASSWORD }} /p:AndroidPackageFormat=apk
+      if: contains(github.ref, 'tags/v')
+    - name: delete keystore
+      run: |
+        rm WordbookImpressApp/WordbookImpressApp/WordbookImpressApp.Android/github.keystore
+      if: always()
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Android App
+        path: WordbookImpressApp/WordbookImpressApp/WordbookImpressApp.Android/bin/Release/com.github.kurema.WordbookImpressApp-Signed.*
+      if: ${{ !contains(github.ref, 'tags/v') }}
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      if: contains(github.ref, 'tags/v')
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: ${{steps.tag.outputs.tag}}
+        draft: false
+        prerelease: false
+    - name: Update release asset
+      uses: actions/upload-release-asset@v1
+      if: contains(github.ref, 'tags/v')
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: WordbookImpressApp/WordbookImpressApp/WordbookImpressApp.Android/bin/Release/com.github.kurema.WordbookImpressApp-Signed.aab
+        asset_name: com.github.kurema.WordbookImpressApp-Signed.aab
+        asset_content_type: application/zip
+    - name: Update release asset Apk
+      uses: actions/upload-release-asset@v1
+      if: contains(github.ref, 'tags/v')
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: WordbookImpressApp/WordbookImpressApp/WordbookImpressApp.Android/bin/Release/com.github.kurema.WordbookImpressApp-Signed.apk
+        asset_name: com.github.kurema.WordbookImpressApp-Signed.apk
+        asset_content_type: application/zip

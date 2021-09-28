@@ -19,6 +19,6 @@ namespace WordbookImpressLibrary.Models
             public static string Csv => "csv";
         }
 
-        public static string DefaultUrl=> @"https://impress.quizgenerator.net/impress/00impress/";
+        public static string DefaultUrl=> @"https://impress2.quizgenerator.net/";
     }
 }

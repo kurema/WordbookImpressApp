@@ -1,3 +1,7 @@
+[![CI on Push and Pull Request](https://github.com/kurema/WordbookImpressApp/actions/workflows/build.yml/badge.svg)](https://github.com/kurema/WordbookImpressApp/actions/workflows/build.yml)
+[![Releases](https://img.shields.io/github/release/kurema/WordbookImpressApp.svg)](https://github.com/kurema/WordbookImpressApp/releases/latest)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/kurema/WordbookImpressApp/blob/master/LICENSE)
+
 # WordbookImpressApp
 A wordbook app.
 

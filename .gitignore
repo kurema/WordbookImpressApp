@@ -333,3 +333,5 @@ ASALocalRun/
 *.3dm
 APIKeys.cs
 copy.bat
+
+GitHub Actions/

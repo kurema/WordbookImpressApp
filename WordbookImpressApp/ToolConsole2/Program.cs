@@ -8,8 +8,6 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-using Nager.AmazonProductAdvertising;
-
 using WordbookImpressLibrary.Schemas.WordbookSuggestion;
 using WordbookImpressLibrary.Schemas.AuthorInformation;
 
@@ -108,7 +106,7 @@ namespace WordbookImpressApp.ToolsConsole
                     info.wordbooks = wb.ToArray();
                     SerializationHelper.SerializeAsync(info, pathXml).Wait();
                 }
-                else if (args[1] == "amazon")
+                /*else if (args[1] == "amazon")
                 {
                     if (!CheckArgsCount(args, 3)) { return; }
                     string pathXml = args[2];
@@ -165,7 +163,7 @@ namespace WordbookImpressApp.ToolsConsole
                     }
                     info.books.book = book.ToArray();
                     SerializationHelper.SerializeAsync(info, pathXml).Wait();
-                }
+                }*/
                 else if (args[1] == "link")
                 {
                     if (!CheckArgsCount(args, 3)) { return; }

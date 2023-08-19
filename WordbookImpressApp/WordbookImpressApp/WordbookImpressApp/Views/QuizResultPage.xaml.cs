@@ -66,7 +66,7 @@ namespace WordbookImpressApp.Views
             }
 
             var wb = WordbookImpressLibrary.Storage.RemoteStorage.GetBookWithWordbook(Model.Wordbook.Uri);
-            string adTextAmazon = "";
+            /*string adTextAmazon = "";
             if (wb.Count() > 0) {
                 Random rd = new Random();
                 var id1 = wb[rd.Next(wb.Count())]?.ids?.Where((t) => t.type == "ASIN" && t.binding== "printed_book");
@@ -90,9 +90,9 @@ namespace WordbookImpressApp.Views
                     //url = url.Replace(WordbookImpressLibrary.APIKeys.AmazonAssociateTagShare, System.Web.HttpUtility.UrlEncode(WordbookImpressLibrary.APIKeys.AmazonAssociateTagShare));
                     adTextAmazon = "\n\n" + String.Format(AppResources.StatisticsTwitterMessageAd, wb[0].title,url);
                 }
-            }
+            }*/
             string message = System.Web.HttpUtility.UrlEncode(
-                String.Format(AppResources.StatisticsTwitterMessageTotal, Model.Wordbook.WordbookTitle, time, mon, adTextAmazon));
+                String.Format(AppResources.StatisticsTwitterMessageTotal, Model.Wordbook.WordbookTitle, time, mon, string.Empty));
 
             try
             {

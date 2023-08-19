@@ -127,7 +127,7 @@ namespace WordbookImpressLibrary.Helper
 
         public static List<KeyValuePair<string, List<string>>> GetCsvDictionary(System.IO.TextReader tr)
         {
-            using (var reader = new CsvHelper.CsvReader(tr))
+            using (var reader = new CsvHelper.CsvReader(new CsvHelper.CsvParser(tr, System.Globalization.CultureInfo.InvariantCulture)))
             {
                 reader.Read();
                 reader.ReadHeader();

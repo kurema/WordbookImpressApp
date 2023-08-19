@@ -333,7 +333,7 @@ namespace WordbookImpressApp.Views
             ((ListView)sender).SelectedItem = null;
             var item = e.SelectedItem as infoBooksBook;
             if (item == null) return;
-            await Navigation.PushAsync(new SpecialInformationItemPage(new WordbookImpressLibrary.ViewModels.BookInformationViewModel(item)));
+            //await Navigation.PushAsync(new SpecialInformationItemPage(new WordbookImpressLibrary.ViewModels.BookInformationViewModel(item)));
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)

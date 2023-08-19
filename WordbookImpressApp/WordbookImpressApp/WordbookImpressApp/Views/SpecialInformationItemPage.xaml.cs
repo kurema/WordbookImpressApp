@@ -12,17 +12,10 @@ namespace WordbookImpressApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class SpecialInformationItemPage : ContentPage
 	{
-        private WordbookImpressLibrary.ViewModels.BookInformationViewModel Model => this.BindingContext as WordbookImpressLibrary.ViewModels.BookInformationViewModel;
-
         public SpecialInformationItemPage ()
 		{
 			InitializeComponent ();
 		}
-
-        public SpecialInformationItemPage(WordbookImpressLibrary.ViewModels.BookInformationViewModel model):this()
-        {
-            this.BindingContext = model;
-        }
 
         protected override void OnBindingContextChanged()
         {
@@ -43,10 +36,7 @@ namespace WordbookImpressApp.Views
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             ((ListView)sender).SelectedItem = null;
-            if (e.SelectedItem is WordbookImpressLibrary.ViewModels.BookInformationViewModel.BookInformationLinkViewModel item)
-            {
-                try { Device.OpenUri(new Uri(item.Url)); } catch { }
-            }
+
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

@@ -11,7 +11,7 @@ namespace WordbookImpressLibrary.Models
         public static ObservableCollection<NugetData> GetNugetData(System.IO.StreamReader sr)
         {
             sr.ReadLine();
-            var csv = new CsvHelper.CsvReader(sr);
+            var csv = new CsvHelper.CsvReader(new CsvHelper.CsvParser(sr, System.Globalization.CultureInfo.InvariantCulture));
             csv.Configuration.RegisterClassMap<AccountMap>();
             var records = csv.GetRecords<NugetData>();
             var result = new ObservableCollection<NugetData>();

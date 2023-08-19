@@ -45,7 +45,6 @@ namespace WordbookImpressApp.Views
             }
 
             UpdateGithubInfo();
-            UpdateTwitterInfo();
             //UpdateAmazonInfo();
         }
 
@@ -64,19 +63,6 @@ namespace WordbookImpressApp.Views
                 Model.GithubUser = new GithubUserViewModel(user);
             }
             catch { }
-        }
-
-        public async void UpdateTwitterInfo()
-        {
-            try
-            {
-                var key = await Storage.TwitterStorage.GetAppOnlyToken();
-                var tws = await key.Statuses.UserTimelineAsync(count => 100, screen_name => AppResources.ProfileDeveloperAccountsTwitter, include_rts => false);
-                Model.TwitterTimeline = new ObservableCollection<TweetViewModel>(tws.Select(s => new TweetViewModel(s)));
-                Model.TwitterUser = new TwitterUserInfoViewModel(tws.First()?.User);
-            }
-            catch {
-            }
         }
 
         public void AddGithubInfo(string source, string Header, string command=null,string commandParameter=null)
@@ -165,12 +151,6 @@ namespace WordbookImpressApp.Views
 
             public void AuthorInformationUpdated() => OnPropertyChanged(nameof(AuthorInformation));
 
-            private ObservableCollection<TweetViewModel> twitterTimeline = new ObservableCollection<TweetViewModel>();
-            public ObservableCollection<TweetViewModel> TwitterTimeline { get => twitterTimeline; set => SetProperty(ref twitterTimeline, value); }
-
-            private TwitterUserInfoViewModel twitterUser;
-            public TwitterUserInfoViewModel TwitterUser { get => twitterUser; set => SetProperty(ref twitterUser, value); }
-
             private DelegateCommand openUriCommand;
             public DelegateCommand OpenUriCommand => openUriCommand = openUriCommand ?? new WordbookImpressLibrary.Helper.DelegateCommand((o) => true,
                 (o) =>
@@ -193,22 +173,6 @@ namespace WordbookImpressApp.Views
             }
         }
 
-        public class TwitterUserInfoViewModel
-        {
-            private CoreTweet.User user;
-            public int FollowersCount => user.FollowersCount;
-            public int FollowingsCount => user.FriendsCount;
-            public string ProfileBackgroundImageUrl => user.ProfileBackgroundImageUrlHttps;
-            public string ProfileBannerUrl => user.ProfileBannerUrl;
-            public string ProfileUrl => user.Url;
-            //Why CoreTweet do not have this!?
-            public string Url => string.Format("https://twitter.com/{0}", user?.ScreenName);
-
-            public TwitterUserInfoViewModel(CoreTweet.User user) {
-                this.user = user;
-            }
-        }
-
         public class GithubUserViewModel
         {
             private Octokit.User user;
@@ -226,22 +190,6 @@ namespace WordbookImpressApp.Views
             public string HtmlUrl => user.HtmlUrl;
 
             public GithubUserViewModel(Octokit.User user) { this.user = user; }
-        }
-
-        public class TweetViewModel
-        {
-            //public string FullText => status?.FullText;
-            public string Text => status?.Text;
-            public DateTime DateTime => status?.CreatedAt.ToLocalTime().DateTime ?? new DateTime();
-            public string DateTimeString => DateTime.ToString(System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat);
-            //Why CoreTweet do not have this!?
-            public string Url => String.Format("https://twitter.com/{0}/status/{1}", status.User.Id, status.Id);
-
-            private CoreTweet.Status status;
-            public TweetViewModel(CoreTweet.Status status)
-            {
-                this.status = status;
-            }
         }
 
         public class AuthorInformationViewModel
@@ -386,12 +334,8 @@ namespace WordbookImpressApp.Views
 
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            ((ListView)sender).SelectedItem = null;
-            try
-            {
-                Device.OpenUri(new Uri(((TweetViewModel)e.SelectedItem).Url));
-            }
-            catch { }
+            //This will not be called.
+
         }
     }
 }

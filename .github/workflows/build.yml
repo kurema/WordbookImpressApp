@@ -44,7 +44,7 @@ jobs:
     - name: Android
       run: |
         cd WordbookImpressApp
-        nuget restore -MSBuildVersion 16.11
+        nuget restore
         msbuild WordbookImpressApp/WordbookImpressApp.Android/WordbookImpressApp.Android.csproj /verbosity:normal /t:Rebuild /t:PackageForAndroid /t:SignAndroidPackage /p:Configuration=Release /p:AndroidKeyStore=True /p:AndroidSigningKeyStore=github.keystore /p:AndroidSigningStorePass=${{ secrets.KEYSTORE_PASSWORD }} /p:AndroidSigningKeyAlias=key_wordbook /p:AndroidSigningKeyPass=${{ secrets.KEYSTORE_PASSWORD }} /p:AndroidPackageFormat=${{ steps.apf.outputs.format }}
     - name: Build Apk version
       run: |

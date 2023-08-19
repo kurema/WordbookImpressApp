@@ -7,6 +7,9 @@ A wordbook app.
 
 Impress Books用の単語帳アプリ.
 
+このブランチはバージョン更新作業でミスをしてビルドが通らなくなり継続を諦めた分を保存しておく目的のものです。
+アーカイブ以上の意義はありません。
+
 <a href='https://play.google.com/store/apps/details?id=com.github.kurema.WordbookImpressApp&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Google Play で手に入れよう' src='https://play.google.com/intl/ja/badges/static/images/badges/ja_badge_web_generic.png' height='52px'/></a>
 
 ## Note

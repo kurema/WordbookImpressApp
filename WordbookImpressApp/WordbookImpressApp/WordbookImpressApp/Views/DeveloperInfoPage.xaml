@@ -57,23 +57,6 @@
                         <my:StoreItemsView x:Name="storeItems"/>
                     </StackLayout>
                 </Frame>-->
-                <Frame Style="{StaticResource CardStyleDeveloperInfo}">
-                    <StackLayout>
-                        <Label Style="{StaticResource GroupHeader}" Text="{i18n:Translate DeveloperProfileTimeline}" />
-                        <ListView HeightRequest="500" ItemsSource="{Binding TwitterTimeline}" HasUnevenRows="True" ItemSelected="ListView_ItemSelected">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <ViewCell>
-                                        <StackLayout Padding="10">
-                                            <Label Text="{Binding Text}" />
-                                            <Label Text="{Binding DateTimeString}" TextColor="#88000000" HorizontalTextAlignment="End" HorizontalOptions="EndAndExpand"/>
-                                        </StackLayout>
-                                    </ViewCell>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </StackLayout>
-                </Frame>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

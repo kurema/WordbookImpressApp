@@ -72,7 +72,7 @@
     <PackageReference Include="SkiaSharp.Views.Forms">
       <Version>2.88.3</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2545" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2612" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.3" />
@@ -83,6 +83,11 @@
     </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.MediaRouter" Version="1.2.4.1" />
     <PackageReference Include="Xamarin.AndroidX.Palette" Version="1.0.0.10" />
+    <!-- Could not find 10 Android X assemblies, make sure to install the following NuGet packages -->
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.2.0.3" />
+    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.1.0.5-rc3" />
+    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.5" />
+
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />

@@ -11,7 +11,7 @@ Impress Books用の単語帳アプリ.
 
 ## Note
 あまりに利用者が少ないので(9ユーザー)現在ほぼメンテナンスされていません。私も使ってません。  
-またAPIの関係でストア昨日は削除されています。  
+最新の単語帳では機能しない可能性があります。またAPIの関係でストア機能は削除されています。  
 
 ## ScreenShots
 ![screenshot](/res/readme/en.combined.png)  

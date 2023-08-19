@@ -19,7 +19,7 @@ namespace WordbookImpressApp.Resx {
     // または Visual Studio のようなツールを使用して自動生成されました。
     // メンバーを追加または削除するには、.ResX ファイルを編集して、/str オプションと共に
     // ResGen を実行し直すか、または VS プロジェクトをビルドし直します。
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class AppResources {
@@ -47,7 +47,7 @@ namespace WordbookImpressApp.Resx {
         }
         
         /// <summary>
-        ///   厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+        ///   すべてについて、現在のスレッドの CurrentUICulture プロパティをオーバーライドします
         ///   現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1126,6 +1126,33 @@ namespace WordbookImpressApp.Resx {
         internal static string SettingInitWordbookName {
             get {
                 return ResourceManager.GetString("SettingInitWordbookName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Open Privacy Policy. に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SettingOpenPrivacyPolicyDetail {
+            get {
+                return ResourceManager.GetString("SettingOpenPrivacyPolicyDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Privacy Policy に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SettingOpenPrivacyPolicyTitle {
+            get {
+                return ResourceManager.GetString("SettingOpenPrivacyPolicyTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   https://github.com/kurema/WordbookImpressApp/blob/master/PrivacyPolicy.md に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string SettingOpenPrivacyPolicyUri {
+            get {
+                return ResourceManager.GetString("SettingOpenPrivacyPolicyUri", resourceCulture);
             }
         }
         

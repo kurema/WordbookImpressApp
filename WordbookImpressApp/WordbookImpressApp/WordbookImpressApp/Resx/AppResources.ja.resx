@@ -1046,4 +1046,13 @@ URLから候補を表示できる場合もあります。</value>
   <data name="WordTrue" xml:space="preserve">
     <value>〇</value>
   </data>
+  <data name="SettingOpenPrivacyPolicyTitle" xml:space="preserve">
+    <value>プライバシーポリシー</value>
+  </data>
+  <data name="SettingOpenPrivacyPolicyDetail" xml:space="preserve">
+    <value>プライバシーポリシーを開きます。</value>
+  </data>
+  <data name="SettingOpenPrivacyPolicyUri" xml:space="preserve">
+    <value>https://github.com/kurema/WordbookImpressApp/blob/master/PrivacyPolicy.md</value>
+  </data>
 </root>

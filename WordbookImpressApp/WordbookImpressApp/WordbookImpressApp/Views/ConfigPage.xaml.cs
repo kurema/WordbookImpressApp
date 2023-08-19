@@ -250,7 +250,8 @@ namespace WordbookImpressApp.Views
                             }));
                         }
                     },
-                    new SettingItem(AppResources.SettingAboutProjectPage, AppResources.ProfileAppProjectUrl,null){ Action= (w)=>{try{ Device.OpenUri(new Uri(AppResources.ProfileAppProjectUrl)); }catch{ } return Task.CompletedTask; } },
+					new SettingItem(AppResources.SettingOpenPrivacyPolicyTitle, AppResources.SettingOpenPrivacyPolicyDetail,null){ Action= (w)=>{try{ Device.OpenUri(new Uri(AppResources.SettingOpenPrivacyPolicyUri)); }catch{ } return Task.CompletedTask; } },
+					new SettingItem(AppResources.SettingAboutProjectPage, AppResources.ProfileAppProjectUrl,null){ Action= (w)=>{try{ Device.OpenUri(new Uri(AppResources.ProfileAppProjectUrl)); }catch{ } return Task.CompletedTask; } },
                 },
             };
 			

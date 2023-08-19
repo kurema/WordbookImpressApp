@@ -1048,4 +1048,13 @@ You may use suggested title.</value>
   <data name="WordTrue" xml:space="preserve">
     <value>True</value>
   </data>
+  <data name="SettingOpenPrivacyPolicyTitle" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
+  <data name="SettingOpenPrivacyPolicyDetail" xml:space="preserve">
+    <value>Open Privacy Policy.</value>
+  </data>
+  <data name="SettingOpenPrivacyPolicyUri" xml:space="preserve">
+    <value>https://github.com/kurema/WordbookImpressApp/blob/master/PrivacyPolicy.md</value>
+  </data>
 </root>

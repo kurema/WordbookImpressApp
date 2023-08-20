@@ -3,9 +3,8 @@
 This Privacy Policy explains how WordbookImpressApp(Mobile Wordbook/モバイル単語帳) by kurema or forked version of it collects information.
 
 Current version of WordbookImpressApp uses following APIs.
-1. Twitter API
-2. Github API
-3. Github Pages
+1. Github API
+2. Github Pages
 
 In some cases, we may use other third party APIs.
 

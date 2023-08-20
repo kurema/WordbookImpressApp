@@ -129,15 +129,15 @@ namespace WordbookImpressApp.Views
                             return Task.CompletedTask;
                         }
                     },
-                    new SettingItem(AppResources.SettingStatisticsAmazonAssociateIdTitle, AppResources.SettingStatisticsAmazonAssociateIdDetail)
-                    {
-                        Action =async (s)=>{
-                            var dic=new Dictionary<string,string>();
-                            dic.Add(AppResources.SettingStatisticsAmazonAssociateIdChoiceProgrammer,WordbookImpressLibrary.APIKeys.AmazonAssociateTag);
-                            if(!string.IsNullOrWhiteSpace( storage.CustomAmazonAssociateTag) && storage.CustomAmazonAssociateTag!=WordbookImpressLibrary.APIKeys.AmazonAssociateTag) dic.Add(storage.CustomAmazonAssociateTag,storage.CustomAmazonAssociateTag);
-                            storage.CustomAmazonAssociateTag=await GetByActionSheet<string>(AppResources.SettingStatisticsAmazonAssociateIdChoiceMessage,dic,storage.CustomAmazonAssociateTag,false);
-                        }
-                    },
+                    //new SettingItem(AppResources.SettingStatisticsAmazonAssociateIdTitle, AppResources.SettingStatisticsAmazonAssociateIdDetail)
+                    //{
+                    //    Action =async (s)=>{
+                    //        var dic=new Dictionary<string,string>();
+                    //        dic.Add(AppResources.SettingStatisticsAmazonAssociateIdChoiceProgrammer,WordbookImpressLibrary.APIKeys.AmazonAssociateTag);
+                    //        if(!string.IsNullOrWhiteSpace( storage.CustomAmazonAssociateTag) && storage.CustomAmazonAssociateTag!=WordbookImpressLibrary.APIKeys.AmazonAssociateTag) dic.Add(storage.CustomAmazonAssociateTag,storage.CustomAmazonAssociateTag);
+                    //        storage.CustomAmazonAssociateTag=await GetByActionSheet<string>(AppResources.SettingStatisticsAmazonAssociateIdChoiceMessage,dic,storage.CustomAmazonAssociateTag,false);
+                    //    }
+                    //},
                 },
                 new SettingItems(AppResources.SettingStoreTitle)
                 {

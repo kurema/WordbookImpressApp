@@ -41,7 +41,6 @@ namespace WordbookImpressApp.Views
                 GithubGrid.Children.Clear();
                 AddGithubInfo("GithubUser.Repos", AppResources.DeveloperProfileHeaderProjects, "OpenUriCommand", "GithubUser.HtmlUrl");
                 AddGithubInfo("GithubUser.Followers", AppResources.DeveloperProfileHeaderFollowers, "OpenUriCommand", "GithubUser.HtmlUrl");
-                AddGithubInfo("TwitterUser.FollowersCount", AppResources.DeveloperProfileHeaderFollowersTwitter, "OpenUriCommand", "TwitterUser.Url");
             }
 
             UpdateGithubInfo();

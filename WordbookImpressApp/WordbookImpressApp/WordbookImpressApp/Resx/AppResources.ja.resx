@@ -463,10 +463,10 @@ Followers</value>
     <value>無回答を表示</value>
   </data>
   <data name="SettingStoreEnableImpressDetailFalse" xml:space="preserve">
-    <value>ストア及びインプレスブックス単語帳機能をオフにします。</value>
+    <value>インプレスブックス単語帳機能をオフにします。</value>
   </data>
   <data name="SettingStoreEnableImpressDetailTrue" xml:space="preserve">
-    <value>ストア及びインプレスブックス単語帳機能をオンにします。</value>
+    <value>インプレスブックス単語帳機能をオンにします。</value>
   </data>
   <data name="SettingStoreEnableImpressTitle" xml:space="preserve">
     <value>インプレスブックス関連機能</value>
